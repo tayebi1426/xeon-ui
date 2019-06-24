@@ -1,0 +1,12 @@
+.inline-text-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    .dash-border {
+        border-top: 2px dashed #b7b7b7;
+        height: 2px;
+        margin: 10px;
+        flex: 1;
+    }
+}

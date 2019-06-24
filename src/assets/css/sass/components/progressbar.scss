@@ -1,0 +1,25 @@
+@import "../variable";
+.progressbar {
+    display: flex;
+    flex-direction: row;
+    background: #ccc;
+    @include border-radius($base-border-radius);
+    div {
+        flex: 1;
+        text-align: center;
+        height: $component-base-height;
+        line-height: $component-base-height;
+        cursor: pointer;
+        &.active {
+            background: $primary-color;
+            color: $white;
+            @include border-radius($base-border-radius);
+            margin: 0px -4px 0 0;
+        }
+        &.passed {
+            background: $green-color;
+            color: $white;
+            @include border-radius($base-border-radius)
+        }
+    }
+}

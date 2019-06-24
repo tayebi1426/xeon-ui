@@ -1,0 +1,20 @@
+.radio-container{
+  padding-right: 25px !important;
+  padding-left: 20px !important;
+  font-size: 14px !important;
+}
+.radio-container input:checked ~ .checkmark {
+  background-color: #007bff !important;
+}
+.checkmark {
+  height: 20px !important;
+  width: 20px !important;
+  &:after{
+      top: 6px !important;
+      left: 6px !important;
+  }
+}
+.radio-wrapper {
+  height: 60px;
+  text-align: right;
+}
