@@ -1,0 +1,7 @@
+/.idea
+/build
+/public
+/src
+.babelrc
+.env.*
+package-lock.json

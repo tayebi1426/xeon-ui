@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "author": "Namazi & Tayebi",
   "license": "ISC",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "description": "react ui",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
     "axios": "^0.19.0",
@@ -13,7 +14,11 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4",
-    "reactstrap": "^8.0.0"
+    "reactstrap": "^8.0.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-v4-rtl": "^4.3.1-4",
+    "node-sass": "latest",
+    "prop-types": "latest"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -25,17 +30,14 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
-    "node-sass": "latest",
-    "prop-types": "latest",
-    "bootstrap": "^4.3.1",
-    "bootstrap-v4-rtl": "^4.3.1-4"
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=8005 & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:lib": "babel src --out-dir lib --ignore src/__tests__/"
+    "build:lib": "babel src/core --out-dir lib  --source-maps --copy-files "
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "files": [
+    "lib"
+  ]
 }

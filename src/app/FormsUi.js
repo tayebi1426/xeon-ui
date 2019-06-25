@@ -1,9 +1,7 @@
 import React from "react";
-import {Card, CardBody, CardTitle, FormGroup, Label, Row} from "reactstrap";
-import {Colxx} from "../components/CustomBootstrap";
-import {Button, Checkbox, Form, Input,Select,Switch} from "../components";
-import I18Massage from "../components/common/I18Massage";
+import {Card, CardBody, CardTitle, Row} from "reactstrap";
 
+import {Button, Checkbox, Form, Input,Select,Switch,I18Massage,Colxx} from "../core";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -46,7 +44,7 @@ class FormsUi extends React.Component {
                     <Card>
                         <CardBody>
                             <CardTitle>
-                                <I18Massage code="forms.basic"/>
+                               <I18Massage  code="Basic Form" />
                             </CardTitle>
                             <Form>
                                 <Input
@@ -90,30 +88,6 @@ class FormsUi extends React.Component {
         );
     }
 
-
-    renderSwitch() {
-        return (<Row className="mb-4">
-            <Colxx xxs="12">
-                <Card>
-                    <CardBody>
-                        <CardTitle>
-                            <I18Massage code="form-components.switch"/>
-                        </CardTitle>
-                        <Row className="mb-4">
-                            <Colxx xxs="6">
-                                <Label code="primary">
-                                    Primary Inverse
-                                </Label>
-
-                            </Colxx>
-                        </Row>
-
-
-                    </CardBody>
-                </Card>
-            </Colxx>
-        </Row>)
-    }
 }
 
 export default FormsUi;
