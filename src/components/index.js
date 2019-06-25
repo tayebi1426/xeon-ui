@@ -1,3 +1,2 @@
-import I18Massage from './common/I18Massage'
-
-export {I18Massage}
+export * from './form'
+export * from './common/I18Massage'

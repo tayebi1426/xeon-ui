@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, CardBody, CardTitle, FormGroup, Label, Row} from "reactstrap";
 import {Colxx} from "../components/CustomBootstrap";
-import {Button, Checkbox, Form, Input,Select,Switch} from "../components/form";
+import {Button, Checkbox, Form, Input,Select,Switch} from "../components";
 import I18Massage from "../components/common/I18Massage";
 
 
