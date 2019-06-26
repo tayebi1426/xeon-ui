@@ -1,10 +1,11 @@
-import React from 'react';
-import FormsUi from './FormsUi';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css'
+import store from './redux/store'
+import XeonApp from '../core/base/XeonApp'
 
-function Index() {
-    return (<FormsUi/>);
+class TestApp extends XeonApp {
+
+    getAppStore() {
+        return store;
+    }
 }
 
-export default Index;
+export default TestApp;

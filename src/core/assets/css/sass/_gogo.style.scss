@@ -48,7 +48,7 @@ Table of Contents
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700");
 
 $main-menu-item-height: 110px;
-$main-menu-width: 120px;
+$main-menu-width: 140px;
 $main-menu-width-lg: 110px;
 $main-menu-width-md: 100px;
 $main-menu-width-xs: 90px;
@@ -6482,3 +6482,4 @@ input:-webkit-autofill {
     }
   }
 }
+@import "./_gogo.style.rtl.scss";

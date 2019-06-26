@@ -1,5 +1,5 @@
 import React from "react";
-import i18n from '../../i18n/index';
+import {i18n} from '../../index';
 import PropTypes from "prop-types";
 
 const I18Massage = props => {

@@ -9,5 +9,5 @@ i18next.init({
         }
     }
 });
-
-export default i18next.getFixedT('fa');
+const i18n=i18next.getFixedT('fa');
+export {i18n};

@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, CardBody, CardTitle, Row} from "reactstrap";
 
-import {Button, Checkbox, Form, Input,Select,Switch,I18Massage,Colxx} from "../core";
+import {Button, Checkbox, Form, Input,Select,Switch,I18Massage,Colxx,Separator,i18n} from "../core";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},

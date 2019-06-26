@@ -3,22 +3,28 @@
   "version": "0.1.0",
   "author": "Namazi & Tayebi",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "module": "es6/index.js",
   "description": "react ui",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
     "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-v4-rtl": "^4.3.1-4",
+    "classnames": "^2.2.6",
     "i18next": "^17.0.4",
+    "node-sass": "latest",
+    "prop-types": "latest",
     "rc-switch": "^1.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-perfect-scrollbar": "^1.5.3",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4",
     "reactstrap": "^8.0.0",
-    "bootstrap": "^4.3.1",
-    "bootstrap-v4-rtl": "^4.3.1-4",
-    "node-sass": "latest",
-    "prop-types": "latest"
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -33,11 +39,13 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0"
   },
   "scripts": {
-    "start": "set PORT=8005 & react-scripts start",
+    "start": "set PORT=3001 & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:lib": "babel src/core --out-dir lib  --source-maps --copy-files "
+    "build:dist": "babel src/core --out-dir dist  --source-maps --copy-files ",
+    "build:ES6": "copy src/core es6",
+    "prepublish": "npm run build:dist"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,6 +63,6 @@
     ]
   },
   "files": [
-    "lib"
+    "dist"
   ]
 }
