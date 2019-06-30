@@ -3,6 +3,32 @@
     "@babel/preset-env",
     "@babel/react"
   ],
+  "env": {
+    "esm-dir": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "loose": true,
+            "shippedProposals": true,
+            "modules": false,
+            "targets": {
+              "ie": 9
+            }
+          }
+        ],
+        "@babel/react"
+      ],
+      "plugins": [
+        [
+          "@babel/plugin-transform-runtime",
+          {
+            "useESModules": true
+          }
+        ]
+      ]
+    }
+  },
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from",

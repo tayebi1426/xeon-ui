@@ -39,6 +39,6 @@ Button.propTypes = {
 Button.defaultProps = {
     isPrimary: false,
     size: 'lg',
-    visible: true
-
+    visible: true,
+    className:'xeon-btn'
 };
