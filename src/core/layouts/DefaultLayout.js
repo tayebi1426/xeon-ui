@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom';
 import TopNav from './TopNav'
 import Sidebar from './Sidebar';
+import {Colxx, Row} from "../index";
 
 class DefaultLayout extends Component {
 
@@ -20,13 +21,17 @@ class DefaultLayout extends Component {
                 <Sidebar/>
                 <main style={{backgroundColor: ''}}>
                     <div className="container-fluid">
-                        <Switch>
-                            {
-                                menus.map(r=>{
-                                    return <Route key={r.path} {...r}/>
-                                })
-                            }
-                        </Switch>
+                        <Row className="mb-4">
+                            <Colxx>
+                                <Switch>
+                                    {
+                                        menus.map(r => {
+                                            return <Route key={r.path} {...r}/>
+                                        })
+                                    }
+                                </Switch>
+                            </Colxx>
+                        </Row>
                     </div>
                 </main>
             </div>
@@ -44,4 +49,5 @@ const mapDispatchToProps = dispatch => {
         loadAppMenus: (appCode) => dispatch({type: 'LOAD_APP_MENU', payload: {appCode}})
     }
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);

@@ -1,20 +1,6 @@
 import React from "react";
 
-import {
-    Button,
-    Card,
-    CardBody,
-    CardTitle,
-    Checkbox,
-    Colxx,
-    Form,
-    I18Massage,
-    Input,
-    Row,
-    Select,
-    Switch,
-    Grid,GridColumn
-} from "../core";
+import {Button, Card, Checkbox, Form, Grid, GridColumn, Input, Select, Switch} from "../core";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -46,72 +32,69 @@ class FormsUi extends React.Component {
             switchCheckedSecondary: true,
             switchCheckedSecondaryInverse: false,
             suggestionValue: "",
-            suggestions: []
+            suggestions: [],
+            gridData:
+                [
+                    {id: 1, name: 'A-15'},
+                    {id: 2, name: 'B-6'}
+                ]
         };
     }
 
     render() {
         return (
             <React.Fragment>
-                <Row className="mb-4">
-                    <Colxx xxs="12">
-                        <Card>
-                            <CardBody>
-                                <CardTitle>
-                                    <I18Massage code="Basic Form"/>
-                                </CardTitle>
-                                <Form>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        id="exampleEmail"
-                                        label="Email"
-                                        placeholder={"Email"}
-                                    />
-
-                                    <Input
-                                        type="password"
-                                        name="passwordBasic"
-                                        id="passwordBasic"
-                                        label="password"
-                                        placeholder="password"
-                                    />
-
-                                    <Select
-                                        name="form-field-name"
-                                        label="select element"
-                                        value={this.state.selectedOption}
-                                        onChange={this.selectHandleChange}
-                                        options={SELECT_DATA}
-                                    />
-                                    <Switch label="col"
-                                            className="custom-switch custom-switch-primary"
-                                            checked={this.state.switchCheckedPrimary}
-                                            onChange={switchCheckedPrimary => {
-                                                this.setState({switchCheckedPrimary});
-                                            }}
-                                    />
-                                    <Checkbox id="exampleCustomCheckbox" label="Check this custom checkbox"/>
-
-                                    <Button title="submit" color="primary"/>
-                                </Form>
-                            </CardBody>
-                        </Card>
-                    </Colxx>
-                </Row>
-                <Row>
-                    <Grid style={{height: '400px'}} >
-                        <GridColumn field="ProductID" title="شناسه" width="200px"/>
-                        <GridColumn field="Category.CategoryName" title="تاریخ ثبت"/>
-                        <GridColumn field="UnitPrice" title="نام کاربر ثبت کننده"/>
-                        <GridColumn field="UnitsInStock" title="نام پزشک"/>
-                        <GridColumn field="ProductName" title="ورژن" width="200px"/>
-                    </Grid>
-                </Row>
+                {this.renderSampleForm()}
+                {this.renderSampleGrid()}
             </React.Fragment>
         );
     }
 
+    renderSampleForm() {
+        return <Form title="Sample Form">
+            <Input
+                type="email"
+                name="email"
+                id="exampleEmail"
+                label="Email"
+                placeholder={"Email"}
+            />
+
+            <Input
+                type="password"
+                name="passwordBasic"
+                id="passwordBasic"
+                label="password"
+                placeholder="password"
+            />
+
+            <Select
+                name="form-field-name"
+                label="select element"
+                value={this.state.selectedOption}
+                onChange={this.selectHandleChange}
+                options={SELECT_DATA}
+            />
+            <Switch label="col"
+                    className="custom-switch custom-switch-primary"
+                    checked={this.state.switchCheckedPrimary}
+                    onChange={switchCheckedPrimary => {
+                        this.setState({switchCheckedPrimary});
+                    }}
+            />
+            <Checkbox name="testCheckbox" id="exampleCustomCheckbox" label="Check this custom checkbox"/>
+            <Button title="submit" color="primary"/>
+        </Form>
+    }
+
+    renderSampleGrid() {
+        return <Card title="Sample Grid">
+            <Grid  data={this.state.gridData}>
+                <GridColumn field="id" title="product.id"/>
+                <GridColumn field="name" title="product.name"/>
+            </Grid>
+        </Card>
+    }
 }
 
 export default FormsUi;
