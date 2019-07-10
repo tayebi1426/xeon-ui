@@ -4,6 +4,11 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Provider} from "react-redux";
 
 class XeonApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.init();
+    }
+
     render() {
         let store = this.getAppStore();
         let appLayout = this.getAppLayout();
@@ -18,6 +23,14 @@ class XeonApp extends React.Component {
         );
     }
 
+    init() {
+
+    }
+
+    i18nConfig() {
+
+    }
+
     getAppStore() {
         throw new TypeError("Must override method");
     }
@@ -25,6 +38,7 @@ class XeonApp extends React.Component {
     getAppLayout() {
         return DefaultLayout;
     }
+
 
 }
 

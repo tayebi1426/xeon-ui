@@ -14,6 +14,8 @@ const APP_REDUCER = (state = INITIAL_APP_STORE, action) => {
                 menus: [{path: "/test", exact: true, title: "test", component: FormUi}]
             };
             break;
+        default:
+
     }
     return state
 };

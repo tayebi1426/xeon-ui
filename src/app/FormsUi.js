@@ -51,7 +51,7 @@ class FormsUi extends React.Component {
     }
 
     renderSampleForm() {
-        return <Form title="Sample Form">
+        return <Form title="sampleForm.title">
             <Input
                 type="email"
                 name="email"
