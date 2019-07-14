@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Provider} from "react-redux";
 
 class XeonApp extends React.Component {
+
     constructor(props) {
         super(props);
         this.init();
@@ -12,11 +13,14 @@ class XeonApp extends React.Component {
     render() {
         let store = this.getAppStore();
         let appLayout = this.getAppLayout();
+        let mainRoutes = this.getMainRoutes();
         return (
             <Provider store={store}>
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/" component={appLayout}/>
+                        <Route path="/" component={(props)=>{
+                            return <DefaultLayout {...props} mainRoutes={mainRoutes} />}
+                        }/>
                     </Switch>
                 </BrowserRouter>
             </Provider>
@@ -35,11 +39,13 @@ class XeonApp extends React.Component {
         throw new TypeError("Must override method");
     }
 
+    getMainRoutes() {
+        throw new TypeError("Must override method");
+    }
+
     getAppLayout() {
         return DefaultLayout;
     }
-
-
 }
 
 export default XeonApp;

@@ -8,7 +8,7 @@ const Card = (props) => {
     return (<BsCard>
             <CardBody>
                 <CardTitle>
-                    {i18n(props.title)}
+                    {i18n.t(props.title)}
                 </CardTitle>
                 {props.children}
             </CardBody>

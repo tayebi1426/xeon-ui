@@ -1,22 +1,31 @@
 import i18next from "i18next"
-import fa from './fa'
+import backend from "i18next-xhr-backend";
 
-let i18nOptions={
+const LOCAL_STORAGE_EXPIRATION_TIME = 86400000;
+
+let i18nOptions = {
+    initImmediate: false,
     cookieName: '_lang',
-    resGetPath:'/locales/__lng__/__ns__.json',
     useLocalStorage: true,
-    localStorageExpirationTime: 86400000,
+    localStorageExpirationTime: LOCAL_STORAGE_EXPIRATION_TIME,
+    load: ['fa'],
+    preload: ['fa'],
     lng: 'fa',
-    debug: false,
-    customLoad: function(lng, ns, options, loadComplete) {
-        // load the file for given language and namespace
-        console.log(' : ',lng,options,ns);
-        // callback with parsed json data
-        //   loadComplete(null, data); // or loadComplete('some error'); if failed
+    ns: ['common'],
+    debug: true,
+    interpolation: {
+        escapeValue: false // react already safes from xss
+    },
+    backend: {
+        // for all available options read the backend's repository readme file
+        loadPath: '/locales/{{lng}}/{{ns}}.json'
     }
 };
 
-i18next.init(i18nOptions);
+i18next
+    .use(backend)
+    .init(i18nOptions).then((t) => {
+    console.log('sss : ', t('common:firstName'));
+});
 
-const i18n = i18next.getFixedT('fa');
-export {i18n};
+export {i18next as i18n};

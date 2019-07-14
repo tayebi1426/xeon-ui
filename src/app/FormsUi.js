@@ -56,7 +56,7 @@ class FormsUi extends React.Component {
                 type="email"
                 name="email"
                 id="exampleEmail"
-                label="Email"
+                label="common:email"
                 placeholder={"Email"}
             />
 
