@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import {I18Massage} from "../../index";
 //import PerfectScrollbar from "react-perfect-scrollbar";
-import { withRouter } from "react-router-dom";
+import { withRouter,NavLink } from "react-router-dom";
 
 
 class Sidebar extends Component {
@@ -63,7 +63,7 @@ class Sidebar extends Component {
       <div className="sidebar">
         <div className="main-menu" style={{backgroundColor: 'royalblue'}}>
           <div className="scroll">
-
+              <NavLink to="/test">Test Form</NavLink>
           </div>
         </div>
 

@@ -12,7 +12,6 @@ class TestApp extends XeonApp {
     getMainRoutes() {
         return mainRoutes;
     }
-
 }
 
 export default TestApp;

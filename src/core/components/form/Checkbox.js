@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import "../../assets/css/sass/components/inputText.scss";
 import Error from './FieldError'
 
-export default class Checkbox extends React.Component {
+class Checkbox extends React.Component {
 
     render() {
         let {formGroupProps, ...restProps} = this.props;
@@ -20,7 +20,7 @@ export default class Checkbox extends React.Component {
     }
 }
 
-CustomInput.propTypes = {
+Checkbox.propTypes = {
     formGroupProps: PropTypes.object,
     model: PropTypes.object,
     type: PropTypes.string,
@@ -44,8 +44,10 @@ CustomInput.propTypes = {
     errorMessage: PropTypes.string
 };
 
-CustomInput.defaultProps = {
+Checkbox.defaultProps = {
     type: 'checkbox',
     className: "custom-inputs",
     formGroupProps: {className: 'col-4 col-xs-12'},
 };
+
+export default Checkbox;

@@ -1,11 +1,11 @@
-create base64 encode cert
+create base64 encoded authentication token :
     windows : certutil  -encode .\in-cert.txt .\out-cert.txt #in-cert.txt content: username:password
     linux : $ echo -n 'username:password' | openssl base64
 
 update .npmrc file contents in path %USERPROFILE% to
 
     registry=http://nexus:8081/repository/demis-npm-release/
-    _auth="encoded cert"
+    _auth="encoded token"
 
 npm publish --registry=http://nexus:8081/repository/demis-npm-repo/
 

@@ -19,8 +19,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-v4-rtl": "^4.3.1-4",
     "classnames": "^2.2.6",
-    "i18next": "^17.0.4",
-    "i18next-xhr-backend": "^3.0.0",
+    "i18next": "^17.0.6",
     "node-sass": "latest",
     "prop-types": "latest",
     "rc-switch": "^1.9.0",
@@ -56,7 +55,8 @@
     "eject": "react-scripts eject",
     "build:dist": "babel src/core --out-dir dist --source-maps --copy-files --ignore src/tests/",
     "build:ES6": "cross-env BABEL_ENV=esm-dir babel src/core --out-dir es6 --source-maps --copy-files --ignore src/tests/",
-    "prepublish": "npm run build:ES6 & npm run build:dist"
+    "prepublish": "npm run build:ES6 & npm run build:dist",
+    "publish": "npm publish --registry=http://nexus:8081/repository/demis-npm-repo/"
   },
   "eslintConfig": {
     "extends": "react-app"
