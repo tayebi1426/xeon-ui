@@ -2,7 +2,7 @@ import React from "react";
 import {Card, Grid, GridColumn} from "../../core/index";
 import {GridCell} from "@progress/kendo-react-grid";
 import Button from "../../core/components/form/Button";
-import GridAction from "../../core/components/grid/GridAction";
+import {XGrid, GridAction} from "../../core/components/grid";
 
 const gridData = [
     {id: 1, name: 'A-15'},
@@ -12,19 +12,27 @@ const gridData = [
 class GridUi extends React.Component {
 
     handleEditAction = (arg) => {
-        console.log(' handleEditAction: ', arg);
+        console.log(" handleEditAction: ", arg);
     };
+
+    async componentDidMount() {
+        console.log("GridUi bef : ", new Date());
+        let res = await new Promise(resolve => {
+            setTimeout(() => resolve(5454), 5000);
+        });
+        console.log('GridUi.res : ', res);
+    }
 
     render() {
         return (
             <React.Fragment>
                 <Card title="Sample Grid">
-                    <Grid data={gridData}>
+                    <XGrid data={gridData}>
                         <GridColumn field="id" title="product.id"/>
                         <GridColumn field="name" title="product.name"/>
                         {/*<GridColumn cell={CellAction}/>*/}
-                        <GridCommands title="Edit" onClick={this.handleEditAction}/>
-                    </Grid>
+                        <GridCommands title="Edit" onClick={this.handleEditAction} />
+                    </XGrid>
                 </Card>
             </React.Fragment>
         );

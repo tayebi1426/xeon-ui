@@ -25,7 +25,6 @@
     "rc-switch": "^1.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.11.4",
     "react-perfect-scrollbar": "^1.5.3",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
@@ -36,45 +35,44 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "cross-env": "^5.2.0"
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0"
   },
   "scripts": {
     "start": "set PORT=3001 & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:dist": "babel src/core --out-dir dist --source-maps --copy-files --ignore src/tests/",
-    "build:ES6": "cross-env BABEL_ENV=esm-dir babel src/core --out-dir es6 --source-maps --copy-files --ignore src/tests/",
-    "prepublish": "npm run build:ES6 & npm run build:dist",
+    "lint:css": "stylelint src/*.css",
+    "lint:js": "eslint src/*.js",
+    "build:dist": "babel src/core --out-dir dist --copy-files --ignore src/tests/",
+    "build:dist-source-map": "babel src/core --out-dir es6 --source-maps --copy-files --ignore src/tests/",
+    "prepublish": "npm run build:dist",
     "publish-nexus": "npm publish --registry=http://nexus:8081/repository/demis-npm-repo/"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    "chrome >70",
+    "firefox >65",
+    "> 1%",
+    "ie >11",
+    "edge >18",
+    "not dead",
+    "not op_mini all"
+  ],
   "files": [
-    "es6"
+    "dist"
   ],
   "repository": {
     "url": "http://nexus:8081/repository/demis-npm-repo/"

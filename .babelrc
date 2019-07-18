@@ -3,8 +3,10 @@
     [
       "@babel/preset-env",
       {
+        "modules": false,
+        "debug": true,
         "targets": {
-          "node": "10"
+          "esmodules": true
         }
       }
     ],
@@ -18,10 +20,7 @@
           {
             "loose": true,
             "shippedProposals": true,
-            "modules": false,
-            "targets": {
-              "ie": 9
-            }
+            "modules": false
           }
         ],
         "@babel/react"
@@ -40,7 +39,7 @@
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from",
     "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-object-rest-spread",
+    ["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-syntax-dynamic-import"
   ]
