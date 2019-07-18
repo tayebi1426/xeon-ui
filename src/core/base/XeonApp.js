@@ -12,7 +12,6 @@ class XeonApp extends React.Component {
 
     render() {
         let store = this.getAppStore();
-        let appLayout = this.getAppLayout();
         let mainRoutes = this.getMainRoutes();
         return (
             <Provider store={store}>
@@ -41,10 +40,6 @@ class XeonApp extends React.Component {
 
     getMainRoutes() {
         throw new TypeError("Must override method");
-    }
-
-    getAppLayout() {
-        return DefaultLayout;
     }
 }
 

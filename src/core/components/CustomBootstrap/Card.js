@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Card as BsCard, CardBody, CardTitle} from 'reactstrap'
-import {i18n} from "../..";
+import {I18Massage} from "../common";
 
 const Card = (props) => {
 
     return (<BsCard>
             <CardBody>
                 <CardTitle>
-                    {i18n.t(props.title)}
+                    <I18Massage code={props.title}/>
                 </CardTitle>
                 {props.children}
             </CardBody>

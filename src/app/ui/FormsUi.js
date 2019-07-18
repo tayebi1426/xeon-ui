@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button, Card, Checkbox, Form, Grid, GridColumn, Input, Select, Switch,i18n} from "../core";
+import {Button, Card, Checkbox, Form, Grid, GridColumn, Input, Select, Switch} from "../../core/index";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -42,7 +42,7 @@ class FormsUi extends React.Component {
     }
 
     render() {
-        console.log('i18n test : ',i18n.t('email'));
+
         return (
             <React.Fragment>
                 {this.renderSampleForm()}
