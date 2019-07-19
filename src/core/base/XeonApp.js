@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import DefaultLayout from "../layouts/DefaultLayout";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Provider} from "react-redux";
 
+const Loader = () => <div>loading...</div>;
 class XeonApp extends React.Component {
 
     constructor(props) {
@@ -16,11 +17,13 @@ class XeonApp extends React.Component {
         return (
             <Provider store={store}>
                 <BrowserRouter>
+                    <Suspense fallback={<Loader />}>
                     <Switch>
                         <Route path="/" component={(props)=>{
                             return <DefaultLayout {...props} mainRoutes={mainRoutes} />}
                         }/>
                     </Switch>
+                    </Suspense>
                 </BrowserRouter>
             </Provider>
         );

@@ -5,12 +5,16 @@
       {
         "modules": false,
         "debug": true,
+        "useBuiltIns": false,
         "targets": {
           "esmodules": true
-        }
+        },
+        "exclude": ["transform-async-to-generator","proposal-async-generator-functions"]
       }
     ],
-    "@babel/react"
+    ["@babel/react",{
+      "useBuiltIns": true
+    }]
   ],
   "env": {
     "esm-dir": {

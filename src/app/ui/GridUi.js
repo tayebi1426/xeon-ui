@@ -3,7 +3,7 @@ import {Card, Grid, GridColumn} from "../../core/index";
 import {GridCell} from "@progress/kendo-react-grid";
 import Button from "../../core/components/form/Button";
 import {XGrid, GridAction} from "../../core/components/grid";
-
+import { withTranslation } from 'react-i18next';
 const gridData = [
     {id: 1, name: 'A-15'},
     {id: 2, name: 'B-6'}
@@ -15,21 +15,14 @@ class GridUi extends React.Component {
         console.log(" handleEditAction: ", arg);
     };
 
-    async componentDidMount() {
-        console.log("GridUi bef : ", new Date());
-        let res = await new Promise(resolve => {
-            setTimeout(() => resolve(5454), 5000);
-        });
-        console.log('GridUi.res : ', res);
-    }
-
     render() {
+        console.log('e : ',this.props.t('product.id'));
         return (
             <React.Fragment>
                 <Card title="Sample Grid">
                     <XGrid data={gridData}>
-                        <GridColumn field="id" title="product.id"/>
-                        <GridColumn field="name" title="product.name"/>
+                        <GridColumn field="id" title={this.props.t('app:product.id')}/>
+                        <GridColumn field="name" title={this.props.t('product.name')}/>
                         {/*<GridColumn cell={CellAction}/>*/}
                         <GridCommands title="Edit" onClick={this.handleEditAction} />
                     </XGrid>
@@ -67,4 +60,4 @@ class CellAction extends GridCell {
     }
 }
 
-export default GridUi;
+export default withTranslation('app')(GridUi);

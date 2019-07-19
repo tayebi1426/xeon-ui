@@ -1,6 +1,7 @@
 import I18n from "i18next"
 //import backend from "i18next-xhr-backend";
 import I18nBackend from "./I18nBackend";
+import {initReactI18next } from 'react-i18next'
 
 let options = {
     initImmediate: false,
@@ -12,12 +13,12 @@ let options = {
     fallbackNS: false,
     debug: false
 };
-console.log('I18n initializing : ',new Date());
-I18n.use(I18nBackend)
+
+I18n.use(initReactI18next)
+    .use(I18nBackend)
     .init(options)
     .then(t=>{
         console.debug('i18n ready.');
-        console.debug('in : ', I18n.t('firstName'));
 });
 console.debug('out : ', I18n.t('firstName'));
 export default I18n;

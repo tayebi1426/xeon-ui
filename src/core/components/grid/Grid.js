@@ -8,8 +8,6 @@ class XGrid extends React.Component {
             this.props;
         //let columns=children
         React.Children.map(children,(child)=>{
-            console.log('child : ','type' in child);
-            console.log('child : ',child.type);
         });
         return <KGrid {...restProps}>
             {children}

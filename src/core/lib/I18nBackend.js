@@ -30,9 +30,9 @@ class I18nBackend {
 
 }
 async function  loadResource(url) {
-    console.debug('bef I18nBackend.loadResource : ',new Date());
+    console.debug('bef I18nBackend.loadResource : ');
     let response =await axios.get(url); //{"data":{"firstName":"Ali"}};
-    console.debug('after I18nBackend.loadResource : ',{response});
+    console.debug('after I18nBackend.loadResource : ');
     return response.data;
 }
 export default I18nBackend;
