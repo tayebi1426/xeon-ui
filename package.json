@@ -55,7 +55,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint:css": "stylelint src/*.css",
-    "lint:js": "eslint src/*.js*",
+    "lint:js": "eslint src/**/*.js",
     "build:dist": "babel src/core --out-dir dist --copy-files --ignore src/tests/",
     "build:dist-source-map": "babel src/core --out-dir es6 --source-maps --copy-files --ignore src/tests/",
     "prepublish": "npm run build:dist",
