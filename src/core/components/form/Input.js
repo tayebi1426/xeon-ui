@@ -4,21 +4,25 @@ import PropTypes from 'prop-types';
 import "../../assets/css/sass/components/inputText.scss";
 import Error from './FieldError'
 import Label from "./Label";
+import {withTranslation} from "../../lib";
 
-export default class Input extends React.Component {
+class Input extends React.Component {
 
     render() {
-        let {formGroupProps,id,name,label,...restProps} = this.props;
-        let _labelTag=null;
-        if(label) {
+        let {formGroupProps, id, name, label, placeholder,t, ...restProps} = this.props;
+        let _labelTag = null;
+        if (label) {
             if (!id && name) {
                 id = name;
             }
-            _labelTag=<Label htmlFor={id} code={label}/>
+            _labelTag = <Label htmlFor={id} code={label}/>
+        }
+        if (placeholder) {
+            placeholder = t(placeholder);
         }
         return <FormGroup {...formGroupProps}>
             {_labelTag}
-            <BsInput id={id} name={name}  {...restProps}/>
+            <BsInput id={id} name={name} placeholder={placeholder}  {...restProps}/>
         </FormGroup>
     }
 
@@ -57,3 +61,5 @@ Input.defaultProps = {
     className: "custom-inputs",
     formGroupProps: {className: 'col-4 col-xs-12'},
 };
+
+export default withTranslation(Input);

@@ -25,6 +25,7 @@ Form.propTypes = {
     onChange: PropTypes.func,
     onSubmit: PropTypes.func,
     innerRef: PropTypes.func,
+    children:PropTypes.node
 };
 Form.defaultProps = {
     autoComplete: 'off',

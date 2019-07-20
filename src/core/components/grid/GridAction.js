@@ -7,10 +7,10 @@ class CellAction extends GridCell {
 
     render() {
         let {title, onClick} = this.props;
-        console.log('CellAction : ', this.props);
+
         return <td>
             <Button title="Edit" onClick={() => {
-                console.log(' oncl: ',);
+
             }}/>
         </td>
     }
@@ -18,11 +18,6 @@ class CellAction extends GridCell {
 
 class GridCommands extends React.Component {
 
-    constructor(props){
-        super(props);
-        console.log(' : ',props);
-        //props.cell=CommandCreator;
-    }
 
     render() {
         return <GridColumn title="dfdffdddddff"/>;
@@ -31,7 +26,6 @@ class GridCommands extends React.Component {
 }
 //
 function CommandCreator(props) {
-    console.log('commandCreator : ',props);
     return <CellAction dataItem={props.dataItem} dataIndex={0} style={{}}/>
 }
 

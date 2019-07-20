@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Button as BsButton} from 'reactstrap';
+import {I18Massage} from '../common'
 
 export default class Button extends React.Component {
     static SIZE = {sm: 'sm', md: 'md', lg: 'lg'};
@@ -16,7 +17,7 @@ export default class Button extends React.Component {
             (link) ? 'link' : 'secondary';
         return (
             <BsButton innerRef={innerRef} color={btnColor} {...rest}>
-                {title}
+                <I18Massage code={title}/>
                 {children}
             </BsButton>
         );
@@ -30,11 +31,13 @@ Button.propTypes = {
     className: PropTypes.string,
     color: PropTypes.string,
     disabled: PropTypes.bool,
+    visible: PropTypes.bool,
     link: PropTypes.bool,
     block: PropTypes.bool,
     size: PropTypes.string,
     hidden: PropTypes.bool,
     innerRef:PropTypes.func,
+    children:PropTypes.node
 };
 Button.defaultProps = {
     isPrimary: false,

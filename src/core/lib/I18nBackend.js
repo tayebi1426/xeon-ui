@@ -1,5 +1,4 @@
-//import AjaxRequest from './AjaxRequest'
-import axios from 'axios'
+import AjaxRequest from './AjaxRequest'
 
 const DEFAULT_OPTIONS = {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
@@ -16,7 +15,7 @@ class I18nBackend {
         this.options = Object.assign(options, DEFAULT_OPTIONS);
     }
 
-   async read(language, namespace, callback) {
+    async read(language, namespace, callback) {
         let loadPath = this.options.loadPath;
         if (typeof loadPath === 'function') {
             loadPath = loadPath.call([language], [namespace]);
@@ -24,15 +23,9 @@ class I18nBackend {
 
         let url = this.services.interpolator.interpolate(loadPath, {lng: language, ns: namespace}, language, {});
 
-        let resource=await loadResource(url);
-        callback(null, resource);
+        AjaxRequest.getRequest(url).then((resource) => callback(null, resource));
     }
 
 }
-async function  loadResource(url) {
-    console.debug('bef I18nBackend.loadResource : ');
-    let response =await axios.get(url); //{"data":{"firstName":"Ali"}};
-    console.debug('after I18nBackend.loadResource : ');
-    return response.data;
-}
+
 export default I18nBackend;

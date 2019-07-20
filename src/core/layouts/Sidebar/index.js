@@ -1,39 +1,7 @@
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
 import {withRouter} from "react-router-dom";
 
-
 class Sidebar extends Component {
-
-
-    handleDocumentClick(e) {
-
-    }
-
-    getContainer() {
-        return ReactDOM.findDOMNode(this);
-    }
-
-    toggle() {
-
-    }
-
-    handleProps() {
-        this.addEvents();
-    }
-
-    addEvents() {
-        ["click", "touchstart"].forEach(event =>
-            document.addEventListener(event, this.handleDocumentClick, true)
-        );
-    }
-
-    removeEvents() {
-        ["click", "touchstart"].forEach(event =>
-            document.removeEventListener(event, this.handleDocumentClick, true)
-        );
-    }
-
 
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -44,15 +12,11 @@ class Sidebar extends Component {
     }
 
     componentDidMount() {
-        window.addEventListener("resize", this.handleWindowResize);
-
-        this.handleProps();
-
+       // window.addEventListener("resize", this.handleWindowResize);
     }
 
     componentWillUnmount() {
-        this.removeEvents();
-        window.removeEventListener("resize", this.handleWindowResize);
+        //window.removeEventListener("resize", this.handleWindowResize);
     }
 
 

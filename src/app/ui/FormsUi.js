@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button, Card, Checkbox, Form, Grid, GridColumn, Input, Select, Switch} from "../../core/index";
+import {Button,  Checkbox, Form, Input, Select, Switch} from "../../core/index";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -46,32 +46,31 @@ class FormsUi extends React.Component {
         return (
             <React.Fragment>
                 {this.renderSampleForm()}
-                {this.renderSampleGrid()}
             </React.Fragment>
         );
     }
 
     renderSampleForm() {
-        return <Form title="sampleForm.title">
+        return <Form title="sampleForm">
             <Input
                 type="email"
                 name="email"
                 id="exampleEmail"
                 label="email"
-                placeholder={"Email"}
+                placeholder={"email"}
             />
 
             <Input
                 type="password"
-                name="passwordBasic"
-                id="passwordBasic"
+                name="password"
+                id="password"
                 label="password"
                 placeholder="password"
             />
 
             <Select
                 name="form-field-name"
-                label="select element"
+                label="product.name"
                 value={this.state.selectedOption}
                 onChange={this.selectHandleChange}
                 options={SELECT_DATA}
@@ -84,18 +83,10 @@ class FormsUi extends React.Component {
                     }}
             />
             <Checkbox name="testCheckbox" id="exampleCustomCheckbox" label="Check this custom checkbox"/>
-            <Button title="submit" color="primary"/>
+            <Button title="save" color="primary"/>
         </Form>
     }
 
-    renderSampleGrid() {
-        return <Card title="Sample Grid">
-            <Grid  data={this.state.gridData}>
-                <GridColumn field="id" title="product.id"/>
-                <GridColumn field="name" title="product.name"/>
-            </Grid>
-        </Card>
-    }
 }
 
 export default FormsUi;

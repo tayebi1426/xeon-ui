@@ -3,8 +3,8 @@
   "version": "0.1.2",
   "author": "Namazi & Tayebi",
   "license": "ISC",
-  "main": "es6/index.js",
-  "module": "es6/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "description": "react ui",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
@@ -48,7 +48,8 @@
     "@babel/preset-react": "^7.0.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.15.3",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-react": "^7.14.2",
+    "babel-eslint": "^10.0.2"
   },
   "scripts": {
     "start": "set PORT=3001 & react-scripts start",
@@ -57,7 +58,6 @@
     "lint:css": "stylelint src/*.css",
     "lint:js": "eslint src/**/*.js",
     "build:dist": "babel src/core --out-dir dist --copy-files --ignore src/tests/",
-    "build:dist-source-map": "babel src/core --out-dir es6 --source-maps --copy-files --ignore src/tests/",
     "prepublish": "npm run build:dist",
     "publish-nexus": "npm publish --registry=http://nexus:8081/repository/demis-npm-repo/"
   },

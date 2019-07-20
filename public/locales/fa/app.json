@@ -1,13 +1,11 @@
 {
-  "firstName":"نام++",
-  "email":"نام++",
-  "sampleForm":{
-   "title":"sampleForm title..",
-    "err":{},
-    "inf":{}
-  },
+  "sampleForm":"فرم نمونه",
+  "save": "ذخیره",
+  "firstName":"نام",
+  "password":"رمز عبور",
+  "email":"ایمیل",
   "product": {
-    "id": "شناسه",
-    "name": "نام"
+    "id": "شناسه محصول",
+    "name": "نام محصول"
   }
 }

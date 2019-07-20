@@ -1,11 +1,13 @@
-import React from "react";
-import {I18n} from '../../index';
+import { withTranslation } from '../../lib';
 import PropTypes from "prop-types";
 
 const I18Massage = props => {
-    return <span>{I18n.t(props.code)}</span>;
+    return props.t(props.code);
 };
+
 I18Massage.propTypes={
-    code:PropTypes.string
+    code:PropTypes.string.isRequired,
+    t:PropTypes.func.isRequired
 };
-export default I18Massage;
+
+export default withTranslation(I18Massage);

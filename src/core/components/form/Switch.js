@@ -21,8 +21,7 @@ class  Switch extends React.Component{
         </React.Fragment>
 
 
-    };
-
+    }
 }
 Switch.propTypes = {};
 Switch.defaultProps = {
