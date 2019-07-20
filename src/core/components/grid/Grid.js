@@ -1,13 +1,20 @@
-import {Grid as KGrid,GridColumn} from '@progress/kendo-react-grid'
 import React from "react";
+import {Grid as KGrid, GridColumn} from '@progress/kendo-react-grid'
+import {withTranslation} from '../../lib'
+
 
 class DataGrid extends React.Component {
 
     render() {
-        let {columnSchema,...restProps}=            this.props;
-        //let columns=children
-        let gridColumns=columnSchema.map((schema)=>{
-            return React.createElement(GridColumn,schema);
+        let {columnSchema, t, ...restProps} = this.props;
+        let {fields} = columnSchema;
+        let gridColumns = fields.map((schema) => {
+            let {title, ...restProps} = schema;
+            return React.createElement(GridColumn,
+                {
+                    title: t(title),
+                    ...restProps
+                });
         });
         return <KGrid {...restProps}>
             {gridColumns}
@@ -16,5 +23,5 @@ class DataGrid extends React.Component {
 
 }
 
-export default DataGrid;
+export default withTranslation(DataGrid);
 
