@@ -1,20 +1,20 @@
-import {Grid as KGrid} from '@progress/kendo-react-grid'
+import {Grid as KGrid,GridColumn} from '@progress/kendo-react-grid'
 import React from "react";
 
-class XGrid extends React.Component {
+class DataGrid extends React.Component {
 
     render() {
-        let {children,...restProps}=
-            this.props;
+        let {columnSchema,...restProps}=            this.props;
         //let columns=children
-        React.Children.map(children,(child)=>{
+        let gridColumns=columnSchema.map((schema)=>{
+            return React.createElement(GridColumn,schema);
         });
         return <KGrid {...restProps}>
-            {children}
+            {gridColumns}
         </KGrid>
     }
 
 }
 
-export default XGrid;
+export default DataGrid;
 

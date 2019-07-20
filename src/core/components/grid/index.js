@@ -1,3 +1,3 @@
-import XGrid from './Grid'
+import DataGrid from './Grid'
 import GridAction from './GridAction'
-export {XGrid,GridAction}
+export {DataGrid,GridAction}
