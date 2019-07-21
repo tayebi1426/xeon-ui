@@ -1,6 +1,7 @@
 import React from "react";
 import {Card} from "../../core";
-import {DataGrid,GridAction} from "../../core/components/grid";
+import {DataGrid,GridColumn,GridCommands,GridCommand} from "../../core/components/grid";
+
 import {withTranslation} from 'react-i18next';
 
 const gridData = [
@@ -18,30 +19,30 @@ const PRODUCT_GRID_SCHEMA =
 
 class GridUi extends React.Component {
 
+    handleEditItem=(prop)=>{
+        console.debug('handleEditItem : ',prop);
+    };
+
+    handleDeleteItem=(prop)=>{
+        console.debug('handleEditItem : ',prop);
+    };
+
     render() {
         return (
             <React.Fragment>
                 <Card title="Sample Grid">
-                    <DataGrid columnSchema={PRODUCT_GRID_SCHEMA} data={gridData}>
-                        <GridAction />
+                    <DataGrid  data={gridData}>
+                        <GridColumn field="id" title="product.id"/>
+                        <GridColumn field="name" title="product.name"/>
+                        <GridCommands>
+                            <GridCommand icon="edit" title="edit" onClick={this.handleEditItem} />
+                            <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
+                        </GridCommands>
                     </DataGrid>
                 </Card>
             </React.Fragment>
         );
     }
-
-    /* render() {
-        return (
-            <React.Fragment>
-                <Card title="Sample Grid">
-                    <XGrid data={gridData}>
-                        <GridColumn field="id" title={this.props.t('app:product.id')}/>
-                        <GridColumn field="name" title={this.props.t('product.name')}/>
-                    </XGrid>
-                </Card>
-            </React.Fragment>
-        );
-    }*/
 
 }
 
