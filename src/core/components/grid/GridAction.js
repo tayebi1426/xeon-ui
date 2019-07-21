@@ -17,7 +17,7 @@ class CellAction extends GridCell {
 }
 
 class GridCommands extends React.Component {
-
+    static COMPONENT_TYPE='GridCommands';
 
     render() {
         return <GridColumn title="dfdffdddddff"/>;

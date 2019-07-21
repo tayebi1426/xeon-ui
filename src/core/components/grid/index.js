@@ -1,3 +1,3 @@
-import DataGrid from './Grid'
+import DataGrid from './DataGrid'
 import GridAction from './GridAction'
 export {DataGrid,GridAction}

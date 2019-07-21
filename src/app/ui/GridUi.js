@@ -1,6 +1,6 @@
 import React from "react";
 import {Card} from "../../core";
-import {DataGrid} from "../../core/components/grid";
+import {DataGrid,GridAction} from "../../core/components/grid";
 import {withTranslation} from 'react-i18next';
 
 const gridData = [
@@ -22,7 +22,9 @@ class GridUi extends React.Component {
         return (
             <React.Fragment>
                 <Card title="Sample Grid">
-                    <DataGrid columnSchema={PRODUCT_GRID_SCHEMA} data={gridData}/>
+                    <DataGrid columnSchema={PRODUCT_GRID_SCHEMA} data={gridData}>
+                        <GridAction />
+                    </DataGrid>
                 </Card>
             </React.Fragment>
         );
