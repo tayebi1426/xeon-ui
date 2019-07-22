@@ -60,12 +60,12 @@
   },
   "scripts": {
     "start": "set PORT=3001 & react-scripts start",
-    "build": "react-scripts build",
+    "prepare": "react-scripts build",
     "test": "react-scripts test",
     "lint:css": "stylelint src/*.css",
     "lint:js": "eslint src/**/*.js",
     "build:dist": "babel src/core --out-dir dist --copy-files --ignore src/tests/",
-    "prepublish": "npm run build:dist",
+    "prepublishOnly": "npm run build:dist",
     "publish-nexus": "npm publish --registry=http://nexus:8081/repository/demis-npm-repo/"
   },
   "browserslist": [
