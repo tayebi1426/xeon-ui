@@ -1,4 +1,7 @@
 import DataGrid from './DataGrid'
 import GridColumn from './GridColumn'
-export {GridCommands,GridCommand} from './GridCommand'
-export {DataGrid,GridColumn}
+import GridCommands from './GridCommands'
+import GridCommand from './GridCommand'
+import EditCommand from './EditCommand'
+
+export {DataGrid,GridColumn,GridCommands,GridCommand,EditCommand}

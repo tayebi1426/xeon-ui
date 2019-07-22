@@ -1,6 +1,6 @@
 import React from "react";
 import {Card} from "../../core";
-import {DataGrid,GridColumn,GridCommands,GridCommand} from "../../core/components/grid";
+import {DataGrid,GridColumn,GridCommands,GridCommand,EditCommand} from "../../core/components/grid";
 
 import {withTranslation} from 'react-i18next';
 
@@ -8,14 +8,6 @@ const gridData = [
     {id: 1, name: 'A-15'},
     {id: 2, name: 'B-6'}
 ];
-const PRODUCT_GRID_SCHEMA =
-    {
-        fields: [
-            {field: "id", title: "product.id"},
-            {field: "name", title: "product.name"},
-        ],
-        commands: []
-    };
 
 class GridUi extends React.Component {
 
@@ -35,7 +27,7 @@ class GridUi extends React.Component {
                         <GridColumn field="id" title="product.id"/>
                         <GridColumn field="name" title="product.name"/>
                         <GridCommands>
-                            <GridCommand icon="edit" title="edit" onClick={this.handleEditItem} />
+                            <EditCommand onClick={this.handleEditItem} />
                             <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
                         </GridCommands>
                     </DataGrid>

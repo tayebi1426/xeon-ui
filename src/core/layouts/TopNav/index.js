@@ -1,12 +1,17 @@
-import React, { Component } from "react";
-class TopNav extends Component {
-  render() {
-    return (
-      <nav className="navbar fixed-top">
+import React, {Component} from "react";
+import NavBarSearch from './NavBarSearch'
+import NavBarLogo from './NavBarLogo'
 
-      </nav>
-    );
-  }
+class TopNav extends Component {
+    render() {
+        return (
+            <nav className="navbar fixed-top">
+
+                {/*<NavBarSearch/>
+                <NavBarLogo/>*/}
+            </nav>
+        );
+    }
 }
 
 export default TopNav;

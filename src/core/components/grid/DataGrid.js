@@ -2,8 +2,8 @@ import React from "react";
 import {Grid as KGrid, GridColumn as KGridColumn} from '@progress/kendo-react-grid'
 import {withTranslation} from '../../lib'
 import GridColumn from './GridColumn'
-import {GridCommands,GridCommand} from './GridCommand'
-
+import GridCommands from './GridCommands'
+import GridCommand from './GridCommand'
 
 class DataGrid extends React.Component {
 
@@ -22,7 +22,7 @@ class DataGrid extends React.Component {
         let gridCommands = childrenArray.filter(child => child && child.type === GridCommands)[0];
 
         let gridColumns = fieldColumns.map(this.createFieldColumn.bind(this));
-        gridColumns.push(this.createActionColumn(gridCommands));
+        gridColumns.push(this.createCommandColumn(gridCommands));
         return gridColumns;
     }
 
@@ -37,11 +37,13 @@ class DataGrid extends React.Component {
             });
     }
 
-    createActionColumn(gridCommands) {
+    createCommandColumn(gridCommands) {
+        let {t} = this.props;
+
         return React.createElement(KGridColumn,
             {
                 key: -1,
-                title: 'Actions',
+                title: t('commands'),
                 cell: this.createCustomCommandCell.bind(this, gridCommands)
             });
     }
@@ -53,7 +55,6 @@ class DataGrid extends React.Component {
                 ...child.props,
                 ...props});
         });
-
         return <td>
             {actions}
         </td>
