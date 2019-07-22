@@ -10,9 +10,12 @@ axios.defaults.timeout = DEFAULT_REQUEST_TIMEOUT || 10000;
 
 class AjaxRequest {
 
-    static async getSyncRequest(url, params) {
+    static token;
+
+    static async getSyncRequest(url, params,headers) {
        return await axios.get(url, {params: params}).data;
     }
+
     static getRequest(url, params) {
         let promise =axios.get(url, {params: params});
        promise.catch(AjaxRequest.handleErrors);
