@@ -1,4 +1,4 @@
-import AjaxRequest from './AjaxRequest'
+import XhrRequest from './XhrRequest'
 
 const DEFAULT_OPTIONS = {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
@@ -15,7 +15,7 @@ class I18nBackend {
         this.options = Object.assign(options, DEFAULT_OPTIONS);
     }
 
-    async read(language, namespace, callback) {
+    read(language, namespace, callback) {
         let loadPath = this.options.loadPath;
         if (typeof loadPath === 'function') {
             loadPath = loadPath.call([language], [namespace]);
@@ -23,9 +23,8 @@ class I18nBackend {
 
         let url = this.services.interpolator.interpolate(loadPath, {lng: language, ns: namespace}, language, {});
 
-        AjaxRequest.getRequest(url).then((resource) => callback(null, resource));
+        XhrRequest.getRequest(url).then((resource) => callback(null, resource));
     }
-
 }
 
 export default I18nBackend;

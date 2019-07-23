@@ -1,8 +1,7 @@
 import React from "react";
-import {Card} from "../../core";
-import {DataGrid,GridColumn,GridCommands,GridCommand,EditCommand} from "../../core/components/grid";
 
-import {withTranslation} from 'react-i18next';
+import {Card,withTranslation} from "../../core";
+import {DataGrid, EditCommand, GridColumn, GridCommand, GridCommands} from "../../core/components/grid";
 
 const gridData = [
     {id: 1, name: 'A-15'},
@@ -11,23 +10,23 @@ const gridData = [
 
 class GridUi extends React.Component {
 
-    handleEditItem=(prop)=>{
-        console.debug('handleEditItem : ',prop);
+    handleEditItem = ({dataItem}) => {
+        console.debug('handleEditItem : ', dataItem);
     };
 
-    handleDeleteItem=(prop)=>{
-        console.debug('handleEditItem : ',prop);
+    handleDeleteItem = ({dataItem}) => {
+        console.debug('handleEditItem : ', dataItem);
     };
 
     render() {
         return (
             <React.Fragment>
                 <Card title="Sample Grid">
-                    <DataGrid  data={gridData}>
+                    <DataGrid data={gridData}>
                         <GridColumn field="id" title="product.id"/>
                         <GridColumn field="name" title="product.name"/>
                         <GridCommands>
-                            <EditCommand onClick={this.handleEditItem} />
+                            <EditCommand onClick={this.handleEditItem}/>
                             <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
                         </GridCommands>
                     </DataGrid>
@@ -38,4 +37,4 @@ class GridUi extends React.Component {
 
 }
 
-export default withTranslation('app')(GridUi);
+export default withTranslation(GridUi);

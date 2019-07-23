@@ -1,5 +1,5 @@
-import AjaxRequest from "./AjaxRequest";
+import XhrRequest from "./XhrRequest";
 import I18n from "./I18n";
 import withTranslation from "./WithTranslation";
 
-export {AjaxRequest,I18n,withTranslation}
+export {XhrRequest,I18n,withTranslation}
