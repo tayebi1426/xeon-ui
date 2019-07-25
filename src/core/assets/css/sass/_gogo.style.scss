@@ -4194,26 +4194,26 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .react-datepicker__time-container
-.react-datepicker__time
-.react-datepicker__time-box
-ul.react-datepicker__time-list
-li.react-datepicker__time-list-item:hover {
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item:hover {
   background: $background-color !important;
 }
 
 .react-datepicker__time-container
-.react-datepicker__time
-.react-datepicker__time-box
-ul.react-datepicker__time-list
-li.react-datepicker__time-list-item {
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item {
   text-align: center;
 }
 
 .react-datepicker__time-container
-.react-datepicker__time
-.react-datepicker__time-box
-ul.react-datepicker__time-list
-li.react-datepicker__time-list-item--selected:hover {
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected:hover {
   background: $theme-color-1 !important;
 }
 
@@ -4257,10 +4257,10 @@ li.react-datepicker__time-list-item--selected:hover {
 }
 
 .react-datepicker__time-container
-.react-datepicker__time
-.react-datepicker__time-box
-ul.react-datepicker__time-list
-li.react-datepicker__time-list-item--selected {
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
   background: $theme-color-1 !important;
 }
 
@@ -6864,12 +6864,12 @@ input:-webkit-autofill {
   }
 
 
-  .react-contextmenu-item {
-    span {
-      margin-left: initial;
-      margin-right: 0.5rem;
-    }
+.react-contextmenu-item {
+  span {
+    margin-left: initial;
+    margin-right: 0.5rem;
   }
+}
 
   .nav,
   .pagination {

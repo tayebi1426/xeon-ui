@@ -1,3 +1,4 @@
+import React from 'react'
 import configStore from './redux'
 import XeonApp from '../core/base/XeonApp'
 import mainRoutes from './routing'
@@ -16,13 +17,9 @@ class TestApp extends XeonApp {
         }
     }
 
-    getAppStore() {
-        return appStore;
-    }
-
-    getMainRoutes() {
-        return mainRoutes;
-    }
+}
+function createApp() {
+    return <TestApp appStore={appStore} mainRoutes={mainRoutes}/>
 }
 
-export default TestApp;
+export default createApp;

@@ -28,21 +28,37 @@ class Sidebar extends Component {
             <div className="sidebar">
                 <div className="main-menu">
                     <div className="scroll">
-                        {/*{this.renderSidebarMenu()}*/}
+                        {this.renderSidebarMenu()}
                     </div>
                 </div>
-           {/*     <div className="sub-menu">
+                <div className="sub-menu">
                     <div className="scroll">
                         <PerfectScrollbar>
 
                         </PerfectScrollbar>
                     </div>
-                </div>*/}
+                </div>
             </div>
         );
     }
 
     renderSidebarMenu() {
+
+        return <PerfectScrollbar option={{suppressScrollX: true, wheelPropagation: false}}>
+            <Nav vertical className="list-unstyled">
+                <NavItem className="active">
+                    <NavLink
+                        to="/app/dashboards/default"
+                        onClick={e => null}
+                    >
+                        <i className="iconsminds-shop-4"/>{" "}
+                        <I18Massage code="menu.dashboards"/>
+                    </NavLink>
+                </NavItem>
+            </Nav>
+        </PerfectScrollbar>
+    }
+    renderSidebarMenu2() {
 
         return <PerfectScrollbar option={{suppressScrollX: true, wheelPropagation: false}}>
             <Nav vertical className="list-unstyled">

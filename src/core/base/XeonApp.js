@@ -12,10 +12,10 @@ class XeonApp extends React.Component {
     }
 
     render() {
-        let store = this.getAppStore();
-        let mainRoutes = this.getMainRoutes();
+        let {appStore,mainRoutes} = this.props;
+
         return (
-            <Provider store={store}>
+            <Provider store={appStore}>
                 <BrowserRouter>
                     <Suspense fallback={<Loader />}>
                     <Switch>
@@ -35,14 +35,6 @@ class XeonApp extends React.Component {
 
     i18nConfig() {
 
-    }
-
-    getAppStore() {
-        throw new TypeError("Must override method");
-    }
-
-    getMainRoutes() {
-        throw new TypeError("Must override method");
     }
 }
 

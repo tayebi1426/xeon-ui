@@ -4,6 +4,7 @@ import ('bootstrap/dist/css/bootstrap.min.css');
 import ('bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css');
 import ('./assets/css/vendor/kendo-all.css');
 import ('./assets/css/sass/themes/gogo.light.purple.scss');
+import ('./assets/fonts/iconsmind-s/css/iconsminds.css');
 
 export * from './components/grid';
 export {CardBody, CardTitle, Row} from 'reactstrap'
