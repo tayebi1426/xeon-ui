@@ -9,7 +9,7 @@ class Sidebar extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
-            this.toggle();
+            //this.toggle();
             window.scrollTo(0, 0);
         }
         this.handleProps();
