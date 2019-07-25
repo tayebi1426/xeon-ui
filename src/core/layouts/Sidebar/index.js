@@ -7,21 +7,6 @@ import I18Massage from '../../components/common/I18Massage'
 
 class Sidebar extends Component {
 
-    componentDidUpdate(prevProps) {
-        if (this.props.location.pathname !== prevProps.location.pathname) {
-            //this.toggle();
-            window.scrollTo(0, 0);
-        }
-        this.handleProps();
-    }
-
-    componentDidMount() {
-        // window.addEventListener("resize", this.handleWindowResize);
-    }
-
-    componentWillUnmount() {
-        //window.removeEventListener("resize", this.handleWindowResize);
-    }
 
     render() {
         return (
@@ -49,8 +34,10 @@ class Sidebar extends Component {
                 <NavItem className="active">
                     <NavLink
                         to="/app/dashboards/default"
-                        onClick={e => null}
-                    >
+                        onClick={e => {
+                            console.debug('e : ', e);
+                        }
+                        }>
                         <i className="iconsminds-shop-4"/>{" "}
                         <I18Massage code="menu.dashboards"/>
                     </NavLink>
@@ -58,6 +45,7 @@ class Sidebar extends Component {
             </Nav>
         </PerfectScrollbar>
     }
+
     renderSidebarMenu2() {
 
         return <PerfectScrollbar option={{suppressScrollX: true, wheelPropagation: false}}>

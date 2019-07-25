@@ -7,8 +7,8 @@ class TopNav extends Component {
     render() {
         return (
             <nav className="navbar fixed-top">
-                <MenuButton/>
-                <NavBarSearch/>
+                <MenuButton toggleMenuState={this.props.toggleMenuState}/>
+              {/*  <NavBarSearch/>*/}
                 <NavBarLogo/>
             </nav>
         );

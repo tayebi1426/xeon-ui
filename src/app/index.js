@@ -5,21 +5,11 @@ import mainRoutes from './routing'
 
 const appStore = configStore();
 
-class TestApp extends XeonApp {
-    componentWillMount() {
-        //const direction = getDirection();
-        if (true) {
-            document.body.classList.add("rtl");
-            document.body.classList.remove("ltr");
-        } else {
-            document.body.classList.add("ltr");
-            document.body.classList.remove("rtl");
-        }
-    }
+function App() {
+    document.body.classList.add("rtl");
+    document.body.classList.remove("ltr");
 
-}
-function createApp() {
-    return <TestApp appStore={appStore} mainRoutes={mainRoutes}/>
+    return <XeonApp store={appStore} mainRoutes={mainRoutes}/>
 }
 
-export default createApp;
+export default App;
