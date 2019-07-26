@@ -1,13 +1,13 @@
-import { withTranslation } from '../../lib';
+import {withTranslation} from '../../lib';
 import PropTypes from "prop-types";
 
-const I18Massage = props => {
-    return props.t(props.code);
-};
+function I18Massage ({code, t}){
+    return code
+        && t(code);
+}
 
-I18Massage.propTypes={
-    code:PropTypes.string.isRequired,
-    t:PropTypes.func.isRequired
+I18Massage.propTypes = {
+    code: PropTypes.string.isRequired
 };
 
 export default withTranslation(I18Massage);

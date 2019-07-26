@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button,  Checkbox, Form, Input, Select, Switch} from "../../core/index";
+import {Button, Checkbox, Form, Field, Input, Select, Switch} from "../../core/index";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -32,49 +32,25 @@ class FormsUi extends React.Component {
             switchCheckedSecondary: true,
             switchCheckedSecondaryInverse: false,
             suggestionValue: "",
-            suggestions: [],
-            gridData:
-                [
-                    {id: 1, name: 'A-15'},
-                    {id: 2, name: 'B-6'}
-                ]
+            suggestions: []
         };
     }
 
     render() {
-
-        return (
-            <React.Fragment>
-                {this.renderSampleForm()}
-            </React.Fragment>
-        );
-    }
-
-    renderSampleForm() {
         return <Form title="sampleForm">
-            <Input
-                type="email"
-                name="email"
-                id="exampleEmail"
-                label="email"
-                placeholder={"email"}
-            />
+            <Field id="exampleEmail" name="email" label="email">
+                <Input type="email" placeholder={"email"}/>
+            </Field>
+            <Field id="password" name="password" label="password">
+                <Input type="password" placeholder="password"/>
+            </Field>
+            <Field id="form-field-name" name="form-field-name" label="product.name">
+                <Select value={this.state.selectedOption} onChange={this.selectHandleChange} options={SELECT_DATA}/>
+            </Field>
 
-            <Input
-                type="password"
-                name="password"
-                id="password"
-                label="password"
-                placeholder="password"
-            />
+            {/*
 
-            <Select
-                name="form-field-name"
-                label="product.name"
-                value={this.state.selectedOption}
-                onChange={this.selectHandleChange}
-                options={SELECT_DATA}
-            />
+
             <Switch label="col"
                     className="custom-switch custom-switch-primary"
                     checked={this.state.switchCheckedPrimary}
@@ -83,7 +59,7 @@ class FormsUi extends React.Component {
                     }}
             />
             <Checkbox name="testCheckbox" id="exampleCustomCheckbox" label="Check this custom checkbox"/>
-            <Button title="save" color="primary"/>
+           */} <Button title="save" color="primary"/>
         </Form>
     }
 

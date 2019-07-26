@@ -3,15 +3,11 @@ import PropTypes from "prop-types";
 import {Label as BsLabel} from "reactstrap";
 import I18Massage from "../common/I18Massage";
 
-export default class Label extends React.Component {
-
-    render() {
-        let {children, code, ...restProps} = this.props;
+function Label({children, code, ...restProps}){
         return <BsLabel {...restProps}>
-                    <span>{code ? <I18Massage code={code}/> : null}</span>
+            {code && <I18Massage code={code}/>}
             {children}
         </BsLabel>
-    }
 }
 
 Label.propTypes = {
@@ -23,3 +19,5 @@ Label.propTypes = {
 Label.defaultProps = {
     className: 'k-label'
 };
+
+export default Label;

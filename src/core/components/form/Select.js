@@ -7,32 +7,15 @@ import "../../assets/css/sass/components/select.scss";
 import Error from './FieldError'
 import Label from "./Label";
 
-export default class Select extends React.Component {
-
-    render() {
-        let {formGroupProps,id,name,label, errorMessage, ...restProps} = this.props;
-
-        let _labelTag=null;
-        if(label) {
-            if (!id && name) {
-                id = name;
-            }
-            _labelTag=<Label htmlFor={id} code={label}/>
-        }
-
-        return <FormGroup {...formGroupProps}>
-            {_labelTag}
-            <DropDownList {...restProps}/>
-            {errorMessage ? <Error errorMessage={errorMessage}/> : null}
-        </FormGroup>
-    }
+function Select(props) {
+    return <DropDownList {...props}/>
 }
 
 Select.propTypes = {
     formGroupProps: PropTypes.object,
     label: PropTypes.string,
     id: PropTypes.string,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     value: PropTypes.any,
     onChange: PropTypes.func,
     data: PropTypes.array,
@@ -52,8 +35,8 @@ Select.defaultProps = {
     textField: "name",
     defaultOption: true,
     filterable: false,
-    className:"react-select",
-    classNamePrefix:"react-select",
-    formGroupProps: {className: 'col-4 col-xs-12'},
+    className: "react-select",
+    classNamePrefix: "react-select",
     delay: 3000
 };
+export default Select;
