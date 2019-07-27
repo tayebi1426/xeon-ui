@@ -1,23 +1,9 @@
 import React from 'react'
-import {CustomInput, FormGroup} from 'reactstrap'
+import {CustomInput} from 'reactstrap'
 import PropTypes from 'prop-types';
-import "../../assets/css/sass/components/inputText.scss";
-import Error from './FieldError'
 
-class Checkbox extends React.Component {
-
-    render() {
-        let {formGroupProps, ...restProps} = this.props;
-
-        return <FormGroup {...formGroupProps}>
-            <CustomInput {...restProps}/>
-        </FormGroup>
-    }
-
-    renderErrors() {
-        let {errorMessage} = this.props;
-        return errorMessage ? <Error errorMessage={errorMessage}/> : null;
-    }
+function Checkbox(props) {
+    return <CustomInput {...props}/>
 }
 
 Checkbox.propTypes = {
@@ -46,8 +32,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
     type: 'checkbox',
-    className: "custom-inputs",
-    formGroupProps: {className: 'col-4 col-xs-12'},
+    className: "custom-inputs"
 };
 
 export default Checkbox;

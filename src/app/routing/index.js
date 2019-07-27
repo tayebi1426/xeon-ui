@@ -1,7 +1,9 @@
-import FormsUi from "../ui/FormsUi";
-import GridUi from "../ui/GridUi";
-import TabComponent from "../ui/TabComponent";
-import SearchGithub from "../ui/SearchGithub";
+import React from 'react'
+
+let FormsUi=React.lazy(()=>import("../ui/FormsUi")) ;
+let GridUi=React.lazy(()=>import("../ui/GridUi")) ;
+let TabComponent=React.lazy(()=>import("../ui/TabComponent")) ;
+let SearchGithub=React.lazy(()=>import("../ui/SearchGithub")) ;
 
 const MAIN_ROUTES = [
     {path: '/form', component: FormsUi},

@@ -4,7 +4,7 @@ import {FormGroup} from 'reactstrap'
 import Label from "./Label";
 import {withTranslation} from "../../lib";
 
-function Field({id, name,placeholder, label, children, ...restProps}) {
+function Field({id, name,placeholder, label, children,t, ...restProps}) {
 
     id = id || name;
     placeholder=placeholder&&t(placeholder);

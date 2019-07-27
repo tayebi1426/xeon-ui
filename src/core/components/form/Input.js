@@ -5,7 +5,7 @@ import "../../assets/css/sass/components/inputText.scss";
 
 
 function Input(props) {
-    return <BsInput placeholder={placeholder}  {...props}/>
+    return <BsInput  {...props}/>
 }
 
 Input.propTypes = {

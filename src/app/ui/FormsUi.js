@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button, Checkbox, Form, Field, Input, Select, Switch} from "../../core/index";
+import {Button, Checkbox, Field, Form, Input, Select, Switch} from "../../core/index";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -12,6 +12,7 @@ const SELECT_DATA = [
 ];
 
 class FormsUi extends React.Component {
+
     selectHandleChange = selectedOption => {
         this.setState({selectedOption});
     };
@@ -47,19 +48,18 @@ class FormsUi extends React.Component {
             <Field id="form-field-name" name="form-field-name" label="product.name">
                 <Select value={this.state.selectedOption} onChange={this.selectHandleChange} options={SELECT_DATA}/>
             </Field>
-
-            {/*
-
-
-            <Switch label="col"
+            <Field id="Switch" name="Switch" label="Switch">
+                <Switch
                     className="custom-switch custom-switch-primary"
                     checked={this.state.switchCheckedPrimary}
                     onChange={switchCheckedPrimary => {
                         this.setState({switchCheckedPrimary});
-                    }}
-            />
-            <Checkbox name="testCheckbox" id="exampleCustomCheckbox" label="Check this custom checkbox"/>
-           */} <Button title="save" color="primary"/>
+                    }}/>
+            </Field>
+            <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
+                <Checkbox/>
+            </Field>
+            <Button title="save" color="primary"/>
         </Form>
     }
 

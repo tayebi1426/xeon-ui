@@ -9,7 +9,7 @@ class TopNav extends Component {
         return (
             <nav className="navbar fixed-top">
                 <MenuButton toggleMenuState={this.props.toggleMenuState}/>
-                <NavBarSearch/>
+                {/*<NavBarSearch/>*/}
                 <UserProfile/>
                 <NavBarLogo/>
             </nav>
