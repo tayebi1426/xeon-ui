@@ -6,7 +6,8 @@ import ('./assets/css/vendor/kendo-all.css');
 import ('./assets/css/sass/themes/gogo.light.purple.scss');
 import ('./assets/fonts/iconsmind-s/css/iconsminds.css');
 import ('./assets/fonts/simple-line-icons/css/simple-line-icons.css');
-
+// material Icons local
+import ('./assets/fonts/material/material-icons.css');
 export * from './components/grid';
 export {CardBody, CardTitle, Row} from 'reactstrap'
 export {Card, Colxx, Separator} from "./components/CustomBootstrap";
