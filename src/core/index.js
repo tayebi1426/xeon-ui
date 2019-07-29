@@ -1,5 +1,7 @@
 import XeonApp from './base/XeonApp'
 
+// Iran Sans Font
+import ('./assets/fonts/iransans/iranSansWeb/css/fontiran.css');
 import ('bootstrap/dist/css/bootstrap.min.css');
 import ('bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css');
 import ('./assets/css/vendor/kendo-all.css');
