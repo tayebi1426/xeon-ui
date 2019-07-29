@@ -1,18 +1,51 @@
 import React from "react";
 import {Grid as KGrid, GridColumn as KGridColumn} from '@progress/kendo-react-grid'
-import {withTranslation} from '../../lib'
+import {withTranslation, XhrRequest} from '../../lib'
 import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
-import Button from "../form/Button";
+
 
 class DataGrid extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            total: 0,
+            take: this.props.pageSize,
+            skip: this.props.skip
+        }
+    }
+
+    dataStateChange = (e) => {
+        this.fetchData(e.data);
+    };
+
+    fetchData(dataState) {
+        const {take, skip} = this.state;
+        const request = dataState || {take, skip};
+
+        const {localData, readUrl} = this.props;
+        if (localData) {
+            this.fillGridDate(request, localData.slice(request.skip, request.take + request.skip), localData.length);
+        } else {
+            XhrRequest.postRequest(readUrl, request).then(response => {
+                this.fillGridDate(request, response.data, response.total);
+            });
+        }
+    }
+
+    componentDidMount() {
+        this.fetchData();
+    }
 
     render() {
         let gridColumns = this.regenerateGridColumns();
 
-        return <KGrid {...this.props}>
+        return <KGrid onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
             {gridColumns}
         </KGrid>
     }
@@ -63,9 +96,20 @@ class DataGrid extends React.Component {
             {actions}
         </td>
     }
+
+    fillGridDate(request, data, total) {
+        this.setState({
+            data: data,
+            total: total,
+            take: request.take,
+            skip: request.skip
+        });
+    }
 }
 
 DataGrid.propTypes = {
+    localData: PropTypes.array,
+    readUrl: PropTypes.string,
     data: PropTypes.oneOfType([PropTypes.array, PropTypes.shape({
         data: PropTypes.array,
         total: PropTypes.number
@@ -90,7 +134,7 @@ DataGrid.propTypes = {
     onPageChange: PropTypes.func,
     total: PropTypes.number,
     skip: PropTypes.number,
-    take: PropTypes.number,
+    // take: PropTypes.number,
     onExpandChange: PropTypes.func,
     expandField: PropTypes.string,
     selectedField: PropTypes.string,
@@ -116,7 +160,7 @@ DataGrid.propTypes = {
     onColumnReorder: PropTypes.func
 };
 
-Button.defaultProps = {
+DataGrid.defaultProps = {
     data: [],
     pageSize: 10,
     sortable: true,
