@@ -7,7 +7,7 @@ const Card = (props) => {
 
     return (<BsCard>
             <CardBody>
-                <CardTitle>
+                <CardTitle className="text-bold">
                     <I18Massage code={props.title}/>
                 </CardTitle>
                 {props.children}
