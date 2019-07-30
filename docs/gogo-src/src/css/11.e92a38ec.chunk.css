@@ -2115,17 +2115,17 @@ main {
   .card .card-header .handle {
     cursor: default; }
   .card .card-body {
-    padding: 1.75rem; }
+    padding: 15px; }
     @media (max-width: 575px) {
       .card .card-body {
         padding: 1.25rem; } }
     .card .card-body.sm {
       padding: 1.25rem 1.75rem; }
   .card .card-title {
-    margin-bottom: 2rem; }
+    margin-bottom: 15px; }
     @media (max-width: 767px) {
       .card .card-title {
-        margin-bottom: 1.25rem; } }
+        margin-bottom: 15px; } }
 
 .card-img {
   border-radius: calc(0.25rem - 1px);
@@ -2164,7 +2164,7 @@ main {
 
 .card-img-overlay {
   background: rgba(0, 0, 0, 0.5);
-  padding: 1.75rem; }
+  padding: 15px; }
   @media (max-width: 575px) {
     .card-img-overlay {
       padding: 1rem; } }
@@ -4382,7 +4382,7 @@ input:-webkit-autofill {
 .modal .modal-header,
 .modal .modal-body,
 .modal .modal-footer {
-  padding: 1.75rem; }
+  padding: 15px; }
 
 .modal .modal-header {
   border-bottom: 1px solid #d7d7d7; }
@@ -5566,7 +5566,7 @@ input:-webkit-autofill {
   .rtl .modal .modal-header,
   .rtl .modal .modal-body,
   .rtl .modal .modal-footer {
-    padding: 1.75rem; }
+    padding: 15px; }
     @media (max-width: 575px) {
       .rtl .modal .modal-header,
       .rtl .modal .modal-body,
