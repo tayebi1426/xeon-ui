@@ -72,7 +72,7 @@ html {
   height: 100%; }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   color: #303030;
@@ -274,7 +274,7 @@ a {
 p {
   font-size: 0.85rem;
   line-height: 1.3rem;
-  font-family: "Nunito", sans-serif; }
+  font-family: IRANSans, sans-serif; }
 
 .text-large {
   font-size: 1.9rem !important; }
@@ -2115,17 +2115,17 @@ main {
   .card .card-header .handle {
     cursor: default; }
   .card .card-body {
-    padding: 1.75rem; }
+    padding: 15px; }
     @media (max-width: 575px) {
       .card .card-body {
         padding: 1.25rem; } }
     .card .card-body.sm {
       padding: 1.25rem 1.75rem; }
   .card .card-title {
-    margin-bottom: 2rem; }
+    margin-bottom: 15px; }
     @media (max-width: 767px) {
       .card .card-title {
-        margin-bottom: 1.25rem; } }
+        margin-bottom: 15px; } }
 
 .card-img {
   border-radius: calc(0.25rem - 1px);
@@ -2164,7 +2164,7 @@ main {
 
 .card-img-overlay {
   background: rgba(0, 0, 0, 0.5);
-  padding: 1.75rem; }
+  padding: 15px; }
   @media (max-width: 575px) {
     .card-img-overlay {
       padding: 1rem; } }
@@ -3268,7 +3268,7 @@ select.form-control:not([size]):not([multiple]) {
 .react-datepicker {
   border: 1px solid #d7d7d7 !important;
   border-radius: 0.1rem !important;
-  font-family: "Nunito", sans-serif; }
+  font-family: IRANSans, sans-serif; }
 
 .react-datepicker__header {
   background-color: white !important;
@@ -4382,7 +4382,7 @@ input:-webkit-autofill {
 .modal .modal-header,
 .modal .modal-body,
 .modal .modal-footer {
-  padding: 1.75rem; }
+  padding: 15px; }
 
 .modal .modal-header {
   border-bottom: 1px solid #d7d7d7; }
@@ -4576,7 +4576,7 @@ input:-webkit-autofill {
 .RichEditor-root {
   background: white;
   border: 1px solid #d7d7d7;
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
   font-size: 14px;
   padding: 15px; }
 
@@ -4612,7 +4612,7 @@ input:-webkit-autofill {
   padding: 20px; }
 
 .RichEditor-controls {
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
   font-size: 12px;
   margin-bottom: 5px;
   -webkit-user-select: none;
@@ -4986,7 +4986,7 @@ input:-webkit-autofill {
   color: #303030;
   cursor: pointer; }
   .react-contextmenu-item span {
-    font-family: "Nunito", sans-serif;
+    font-family: IRANSans, sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
     margin-left: 0.5rem;
@@ -5566,7 +5566,7 @@ input:-webkit-autofill {
   .rtl .modal .modal-header,
   .rtl .modal .modal-body,
   .rtl .modal .modal-footer {
-    padding: 1.75rem; }
+    padding: 15px; }
     @media (max-width: 575px) {
       .rtl .modal .modal-header,
       .rtl .modal .modal-body,

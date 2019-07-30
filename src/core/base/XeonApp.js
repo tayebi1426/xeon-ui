@@ -14,7 +14,7 @@ class XeonApp extends React.Component {
     }
 
     render() {
-        let {store,mainRoutes} = this.props;
+        let {store,mainRoutes, layout=DefaultLayout} = this.props;
 
         return (
             <Provider store={store}>
@@ -22,8 +22,8 @@ class XeonApp extends React.Component {
                     <Suspense fallback={<Loader />}>
                     <Switch>
                         <Route path="/" component={(props)=>{
-                            return <DefaultLayout {...props} mainRoutes={mainRoutes} />}
-                        }/>
+                            return React.createElement(layout, {mainRoutes,...props} )
+                        }}/>
                     </Switch>
                     </Suspense>
                 </BrowserRouter>

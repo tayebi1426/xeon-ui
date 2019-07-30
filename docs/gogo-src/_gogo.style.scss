@@ -46,7 +46,8 @@ Table of Contents
 
 /* 00.Variables and Imports */
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700");
-
+// Iran Sans Font
+@import url("/assets/fonts/iransans/iranSansWeb/css/fontiran.css");
 $main-menu-item-height: 110px;
 $main-menu-width: 120px;
 $main-menu-width-lg: 110px;
@@ -120,7 +121,7 @@ html {
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   color: $primary-color;
@@ -377,7 +378,7 @@ a {
 p {
   font-size: 0.85rem;
   line-height: 1.3rem;
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
 }
 
 .text-large {
@@ -2776,7 +2777,7 @@ main {
   @include depth(1);
 
   .card-body {
-    padding: 1.75rem;
+    padding: 15px;
 
     @include respond-below(xs) {
       padding: 1.25rem;
@@ -2788,10 +2789,11 @@ main {
   }
 
   .card-title {
-    margin-bottom: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 
     @include respond-below(sm) {
-      margin-bottom: 1.25rem;
+      margin-bottom: 15px;
     }
   }
 }
@@ -2839,7 +2841,7 @@ main {
 
 .card-img-overlay {
   background: rgba(#000000, 0.5);
-  padding: 1.75rem;
+  padding: 15px;
 
   @include respond-below(xs) {
     padding: 1rem;
@@ -4107,7 +4109,7 @@ select.form-control:not([size]):not([multiple]) {
 .react-datepicker {
   border: 1px solid $separator-color !important;
   border-radius: $border-radius !important;
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
 }
 
 .react-datepicker__header {
@@ -5603,7 +5605,7 @@ input:-webkit-autofill {
   .modal-header,
   .modal-body,
   .modal-footer {
-    padding: 1.75rem;
+    padding: 15px;
   }
 
   .modal-header {
@@ -5852,7 +5854,7 @@ input:-webkit-autofill {
 .RichEditor-root {
   background: $foreground-color;
   border: 1px solid $separator-color;
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
   font-size: 14px;
   padding: 15px;
 }
@@ -5895,7 +5897,7 @@ input:-webkit-autofill {
 }
 
 .RichEditor-controls {
-  font-family: "Nunito", sans-serif;
+  font-family: IRANSans, sans-serif;
   font-size: 12px;
   margin-bottom: 5px;
   user-select: none;
@@ -6367,7 +6369,7 @@ input:-webkit-autofill {
   cursor: pointer;
 
   span {
-    font-family: "Nunito", sans-serif;
+    font-family: IRANSans, sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
     margin-left: 0.5rem;
@@ -7186,7 +7188,7 @@ input:-webkit-autofill {
     .modal-header,
     .modal-body,
     .modal-footer {
-      padding: 1.75rem;
+      padding: 15px;
       @include respond-below(xs) {
         padding: 1.5rem;
       }
@@ -7731,3 +7733,4 @@ input:-webkit-autofill {
     }
   }
 }
+

@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import {Card as BsCard, CardBody, CardTitle} from 'reactstrap'
 import {I18Massage} from "../common";
 
-const Card = (props) => {
+const Card = ({title='',children}) => {
 
     return (<BsCard>
             <CardBody>
-                <CardTitle>
-                    <I18Massage code={props.title}/>
+                <CardTitle className="text-bold">
+                    <I18Massage code={title}/>
                 </CardTitle>
-                {props.children}
+                {children}
             </CardBody>
         </BsCard>
     );
