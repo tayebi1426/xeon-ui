@@ -7,7 +7,7 @@ let options = {
     preload: ['fa'],
     lng: 'fa',
     fallbackLng: 'fa',
-    ns: ['app'],// ['app','common','error'],
+    ns: ['app','error'],
     defaultNS: 'app',
     fallbackNS: false,
     debug: false

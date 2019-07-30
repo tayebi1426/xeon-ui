@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button, Checkbox, Field, Form, Input, Select, Switch} from "../../core/index";
+import {Button, Checkbox, Field, Form, Input, Row, Select, Switch} from "../../core/index";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -38,27 +38,28 @@ class FormsUi extends React.Component {
     }
 
     render() {
-        return <Form title="sampleForm">
-            <Field id="exampleEmail" name="email" label="email">
-                <Input type="email" placeholder={"email"}/>
-            </Field>
-            <Field id="password" name="password" label="password">
-                <Input type="password" placeholder="password"/>
-            </Field>
-            <Field id="form-field-name" name="form-field-name" label="product.name">
-                <Select value={this.state.selectedOption} onChange={this.selectHandleChange} options={SELECT_DATA}/>
-            </Field>
-            <Field id="Switch" name="Switch" label="Switch">
-                <Switch
-                    className="custom-switch custom-switch-primary"
-                    checked={this.state.switchCheckedPrimary}
-                    onChange={switchCheckedPrimary => {
+        return <Form>
+            <Row>
+                <Field id="exampleEmail" name="email" label="email">
+                    <Input type="email" placeholder="email"/>
+                </Field>
+                <Field id="password" name="password" label="password">
+                    <Input type="password" placeholder="password"/>
+                </Field>
+                <Field id="form-field-name" name="form-field-name" label="product.name">
+                    <Select value={this.state.selectedOption} onChange={this.selectHandleChange} options={SELECT_DATA}/>
+                </Field>
+            </Row>
+            <Row>
+                <Field id="Switch" name="Switch" label="Switch">
+                    <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
                         this.setState({switchCheckedPrimary});
                     }}/>
-            </Field>
-            <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
-                <Checkbox/>
-            </Field>
+                </Field>
+                <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
+                    <Checkbox/>
+                </Field>
+            </Row>
             <Button title="save" color="primary"/>
         </Form>
     }
