@@ -58,12 +58,12 @@ $sub-menu-width-lg: 220px;
 $sub-menu-width-md: 200px;
 $sub-menu-width-xs: 190px;
 
-$navbar-height: 120px;
+$navbar-height: 65px;
 $navbar-height-xs: 70px;
 $navbar-height-md: 80px;
 $navbar-height-lg: 90px;
 
-$main-margin: 60px;
+$main-margin: 15px;
 $main-margin-lg: 50px;
 $main-margin-md: 40px;
 $main-margin-xs: 15px;
@@ -1643,7 +1643,7 @@ button {
 .navbar {
   background: $foreground-color;
   height: $navbar-height;
-  padding: 1.5rem 0;
+  //padding: 1.5rem 0;
   @include depth(1);
 
   #notificationDropdown {
@@ -2665,7 +2665,7 @@ button {
 /* 15.Main*/
 main {
   margin-left: $sub-menu-width + $main-menu-width + $main-margin;
-  margin-top: $navbar-height + $main-margin - 15;
+  margin-top: $navbar-height + 15;
   margin-right: $main-margin;
   margin-bottom: $main-margin - 20;
   transition: margin-left $menu-collapse-time;
