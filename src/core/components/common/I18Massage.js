@@ -2,8 +2,7 @@ import {withTranslation} from '../../lib';
 import PropTypes from "prop-types";
 
 function I18Massage ({code, t}){
-    return code
-        && t(code);
+    return t(code);
 }
 
 I18Massage.propTypes = {
