@@ -16,30 +16,42 @@ class DataGrid extends React.Component {
             data: [],
             total: 0,
             take: this.props.pageSize,
-            skip: this.props.skip
+            skip: this.props.skip,
+            readUrl: this.props.readUrl
         }
     }
 
+
     dataStateChange = (e) => {
-        this.fetchData(e.data);
+        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
     };
 
-    fetchData(dataState) {
-        const {take, skip} = this.state;
-        const request = dataState || {take, skip};
+    fetchGridData(readUrl, localData, skip, pageSize) {
+        const request = {skip, take: pageSize};
 
-        const {localData, readUrl} = this.props;
         if (localData) {
-            this.fillGridDate(request, localData.slice(request.skip, request.take + request.skip), localData.length);
-        } else {
+            this.fillGridData(request, localData.slice(skip, pageSize + skip), localData.length);
+        } else if (readUrl) {
             XhrRequest.postRequest(readUrl, request).then(response => {
-                this.fillGridDate(request, response.data, response.total);
+                this.fillGridData(request, response.data, response.total);
             });
+        } else {
+            this.fillGridData(request, [], 0);
         }
     }
 
     componentDidMount() {
-        this.fetchData();
+        const {readUrl, localData, skip, pageSize} = this.props;
+        this.fetchGridData(readUrl, localData, skip, pageSize);
+    }
+
+    componentWillReceiveProps(newProps) {
+
+        // if (newProps.readUrl !== this.state.readUrl) {
+        this.setState({readUrl: newProps.readUrl});
+        const {readUrl, localData, skip, pageSize} = newProps;
+        this.fetchGridData(readUrl, localData, skip, pageSize);
+        // }
     }
 
     render() {
@@ -97,7 +109,7 @@ class DataGrid extends React.Component {
         </td>
     }
 
-    fillGridDate(request, data, total) {
+    fillGridData(request, data, total) {
         this.setState({
             data: data,
             total: total,
@@ -109,7 +121,7 @@ class DataGrid extends React.Component {
 
 DataGrid.propTypes = {
     localData: PropTypes.array,
-    readUrl: PropTypes.string,
+    readUrl: PropTypes.string || PropTypes.func,
     data: PropTypes.oneOfType([PropTypes.array, PropTypes.shape({
         data: PropTypes.array,
         total: PropTypes.number
@@ -165,7 +177,7 @@ DataGrid.defaultProps = {
     pageSize: 10,
     sortable: true,
     sort: [],
-    filterable: true,
+    filterable: false,
     filter: {},
     pageable: true,
     skip: 0,
