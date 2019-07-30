@@ -41,7 +41,7 @@ class FormsUi extends React.Component {
     render() {
         return<div>
             <LabelAndValue label="email" value="R@T.com"/>
-        <Form>
+        <Form title="sampleForm">
 
             <Row>
                 <Field id="exampleEmail" name="email" label="email">
