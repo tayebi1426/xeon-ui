@@ -1,5 +1,5 @@
 import React from 'react'
-import {Nav, NavItem, NavLink, TabContent, TabPane} from 'reactstrap';
+import {TabContent, TabPane} from 'reactstrap';
 import {withTranslation} from '../../lib'
 
 class Tabs extends React.PureComponent {
@@ -35,9 +35,10 @@ class Tabs extends React.PureComponent {
         let {children, t} = this.props;
         let {activeTab} = this.state;
         return React.Children.map(children, (child) => {
-            let {tabId, title = ''} = child.props;
+            let {tabId, title, className = ''} = child.props;
             return (<li onClick={this.handleChangeTab.bind(this, tabId)} key={tabId}
-                        className={activeTab === tabId ? `nav-item nav-link  active ` : 'nav-item nav-link'}>{t(title)}</li>)
+                        className={activeTab === tabId ? `nav-item nav-link  active ${className}` : `nav-item nav-link  ${className}`}>{t(title)}</li>)
+
         });
     }
 
