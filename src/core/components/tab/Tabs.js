@@ -20,14 +20,14 @@ class Tabs extends React.PureComponent {
         let tabPanes = this.generateTabPanes();
 
         return (
-            <Nav tabs>
-                <NavItem>
+            <div>
+                <ul className="nav nav-tabs">
                     {tabLinks}
-                </NavItem>
+                </ul>
                 <TabContent activeTab={ this.state.activeTab}>
                     {tabPanes}
                 </TabContent>
-            </Nav>
+            </div>
         );
     }
 
@@ -35,14 +35,9 @@ class Tabs extends React.PureComponent {
         let {children, t} = this.props;
         let {activeTab} = this.state;
         return React.Children.map(children, (child) => {
-            let {tabId, title, className = ''} = child.props;
-            return React.createElement(NavLink, {
-                    key: tabId,
-                    onClick: this.handleChangeTab.bind(this, tabId),
-                    className: activeTab === tabId ? `${className} active ` : className
-                },
-                t(title)
-            )
+            let {tabId, title = ''} = child.props;
+            return (<li onClick={this.handleChangeTab.bind(this, tabId)} key={tabId}
+                        className={activeTab === tabId ? `nav-item nav-link  active ` : 'nav-item nav-link'}>{t(title)}</li>)
         });
     }
 
