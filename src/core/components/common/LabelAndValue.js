@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import {Label} from '../';
-import '../assets/styles/labelAndValue.scss'
+import Label from '../form/Label';
 
 function LabelAndValue({label, value}) {
 

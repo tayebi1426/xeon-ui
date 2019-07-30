@@ -1,6 +1,7 @@
 import React from "react";
 
 import {Button, Checkbox, Field, Form, Input, Row, Select, Switch} from "../../core/index";
+import LabelAndValue from "../../core/components/common/LabelAndValue";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -38,7 +39,10 @@ class FormsUi extends React.Component {
     }
 
     render() {
-        return <Form>
+        return<div>
+            <LabelAndValue label="email" value="R@T.com"/>
+        <Form>
+
             <Row>
                 <Field id="exampleEmail" name="email" label="email">
                     <Input type="email" placeholder="email"/>
@@ -62,6 +66,7 @@ class FormsUi extends React.Component {
             </Row>
             <Button title="save" color="primary"/>
         </Form>
+        </div>
     }
 
 }
