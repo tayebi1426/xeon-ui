@@ -1,8 +1,9 @@
 import React from "react";
 
-
-function isEmptyChildren(children) {
-    return React.Children.count(children) === 0;
+function hasReactChildren(children) {
+    return children && React.Children.count(children)> 0;
 }
-
-export {isEmptyChildren}
+function isFunction(func) {
+    return func && typeof func === 'function';
+}
+export {hasReactChildren,isFunction}

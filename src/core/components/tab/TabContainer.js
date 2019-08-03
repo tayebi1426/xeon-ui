@@ -1,6 +1,6 @@
 import React from 'react'
 import {TabContent, TabPane} from 'reactstrap';
-import {withTranslation} from '../../lib'
+import {withTranslation,hasReactChildren,isFunction} from '../../lib'
 import PropTypes from "prop-types";
 
 class TabContainer extends React.PureComponent {
@@ -11,14 +11,18 @@ class TabContainer extends React.PureComponent {
         let {children, tabs} = props;
         if (tabs && tabs.length > 0) {
             activeTab = tabs[0].tabId
-        }else        if (children && children.length > 0) {
+        } else if (hasReactChildren(children)) {
             activeTab = children[0].props.tabId
         }
         this.state = {activeTab: activeTab};
     }
 
     handleChangeTab(tabId) {
-        this.setState({activeTab: tabId})
+        this.setState({activeTab: tabId});
+        let onChangeTab = this.props.onChangeTab;
+        if (isFunction(onChangeTab)) {
+            onChangeTab(tabId);
+        }
     }
 
     render() {
@@ -69,12 +73,11 @@ class TabContainer extends React.PureComponent {
         </li>
     }
 }
+
 TabContainer.propTypes = {
-  tabs:PropTypes.array
-
+    tabs: PropTypes.array,
+    onChangeTab: PropTypes.func,
 };
-TabContainer.defaultProps = {
-
-};
+TabContainer.defaultProps = {};
 
 export default withTranslation(TabContainer);
