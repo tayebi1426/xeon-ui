@@ -4,4 +4,4 @@ import withTranslation from "./WithTranslation";
 import validateNationalCode from "./NationalCodeValidator";
 import CheckAccess from "./CheckAccess";
 
-export {XhrRequest,I18n,withTranslation,validateNationalCode, CheckAccess}
+export {XhrRequest, I18n, withTranslation, validateNationalCode, CheckAccess};

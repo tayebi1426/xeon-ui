@@ -1,7 +1,7 @@
 
 function CheckAccess(accessList, accessName) {
     accessList.map(access => {
-        if(access === this.accessName) {
+        if(access === accessName) {
             return true;
         } else {
             return false;
