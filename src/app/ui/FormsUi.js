@@ -42,7 +42,6 @@ class FormsUi extends React.Component {
         return<div>
             <LabelAndValue label="email" value="R@T.com"/>
         <Form title="sampleForm">
-
             <Row>
                 <Field id="exampleEmail" name="email" label="email">
                     <Input type="email" placeholder="email"/>

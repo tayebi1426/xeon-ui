@@ -1,4 +1,4 @@
-import Tabs from './Tabs'
+import TabContainer from './TabContainer'
 import Tab from './Tab'
 
-export {Tabs,Tab}
+export {TabContainer,Tab}

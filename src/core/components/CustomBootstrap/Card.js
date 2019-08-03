@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Card as BsCard, CardBody, CardTitle} from 'reactstrap'
 import {I18Massage} from "../common";
 
-const Card = ({title='',children}) => {
+const Card = ({title = '', children}) => {
 
     return (<BsCard>
             <CardBody>
