@@ -13,7 +13,7 @@ Checkbox.propTypes = {
     label: PropTypes.string,
     id: PropTypes.string,
     value: PropTypes.any,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     placeholder: PropTypes.string,
     invalid: PropTypes.bool,
     className: PropTypes.string,
