@@ -14,16 +14,18 @@ class XeonApp extends React.Component {
     }
 
     render() {
-        let {store,mainRoutes, layout=DefaultLayout} = this.props;
+        let {store,appRoutes} = this.props;
 
         return (
             <Provider store={store}>
                 <BrowserRouter>
                     <Suspense fallback={<Loader />}>
                     <Switch>
-                        <Route path="/" component={(props)=>{
-                            return React.createElement(layout, {mainRoutes,...props} )
-                        }}/>
+                        {
+                            appRoutes.map(r => {
+                                return <Route key={r.path} {...r} />
+                            })
+                        }
                     </Switch>
                     </Suspense>
                 </BrowserRouter>
@@ -38,6 +40,6 @@ class XeonApp extends React.Component {
 }
 XeonApp.propTypes={
     store:PropTypes.object.isRequired,
-    mainRoutes:PropTypes.array.isRequired
+    appRoutes:PropTypes.array.isRequired
 };
 export default XeonApp;

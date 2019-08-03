@@ -21,7 +21,7 @@ class DefaultLayout extends Component {
     };
 
     render() {
-        let {history, mainRoutes} = this.props;
+        let {history, mainRoutes,route} = this.props;
         return (
             <div id="app-container" className={this.state.menuClassName}>
                 <TopNav toggleMenuState={this.toggleMenuState} history={history}/>

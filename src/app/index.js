@@ -9,7 +9,7 @@ function App() {
     document.body.classList.add("rtl");
     document.body.classList.remove("ltr");
 
-    return <XeonApp store={appStore} mainRoutes={mainRoutes}/>
+    return <XeonApp store={appStore} appRoutes={mainRoutes}/>
 }
 
 export default App;
