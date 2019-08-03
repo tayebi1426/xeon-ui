@@ -11,7 +11,7 @@ function Field({id, name,placeholder, label, children,t, ...restProps}) {
 
     let child = React.Children.only(children);
     let filed = React.cloneElement(child, {id, name,placeholder, ...child.props}, child.children);
-
+    delete restProps.tReady;
     return <FormGroup {...restProps}>
         <Label htmlFor={id} code={label}/>
         {filed}

@@ -18,9 +18,9 @@ class Sidebar extends Component {
                 </div>
                 <div className="sub-menu">
                     <div className="scroll">
-                        <PerfectScrollbar>
+                       {/* <PerfectScrollbar>
 
-                        </PerfectScrollbar>
+                        </PerfectScrollbar>*/}
                     </div>
                 </div>
             </div>

@@ -4,9 +4,9 @@ import {Tab, TabContainer} from '../../core/components/tab'
 const TabBody = (props) => <div>Tab Content  : {props.tabId}</div>;
 
 const TAB_DEFS = [
-    {tabId: 1, title: "Tab 1 ", body: TabBody},
-    {tabId: 2, title: "Tab 2 ", body: TabBody},
-    {tabId: 3, title: "Tab 3 ", body: TabBody},
+    {tabId: 1, title: "Tab 1 ", component: TabBody},
+    {tabId: 2, title: "Tab 2 ", component: TabBody},
+    {tabId: 3, title: "Tab 3 ", component: TabBody},
 ];
 
 class TabComponent extends React.Component {
@@ -21,7 +21,7 @@ class TabComponent extends React.Component {
 
     render() {
         return <React.Fragment>
-                <TabContainer _tabs={TAB_DEFS}>
+                <TabContainer tabs={TAB_DEFS}>
                     <Tab tabId={1} title="tab1">Tab 1</Tab>
                     <Tab tabId={2} title="tab2">Tab 2</Tab>
                     <Tab tabId={3} title="tab3">Tab 3</Tab>
