@@ -1,12 +1,10 @@
 
 function CheckAccess(accessList, accessName) {
-    accessList.map(access => {
-        if(access === accessName) {
-            return true;
-        } else {
-            return false;
-        }
-    })
+    return (
+        accessList.map(access => {
+            return (access === accessName) ? true : false
+        })
+    )
 }
 
 export default CheckAccess;
