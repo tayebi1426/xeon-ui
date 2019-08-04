@@ -11,6 +11,7 @@ import ('./assets/fonts/simple-line-icons/css/simple-line-icons.css');
 import ('./assets/css/sass/style.scss');
 // material Icons local
 import ('./assets/fonts/material/material-icons.css');
+import ('./assets/css/animate.min.css');
 
 export * from './components/grid';
 export * from './components/tab';

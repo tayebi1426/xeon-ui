@@ -6,10 +6,11 @@ function LabelAndValue({label, value}) {
 
     return (
         <div>
-            <Label code={label} className="text-bold">
+            <Label code={label}>
                 &nbsp;:
             </Label>
-            &nbsp;&nbsp;{value}
+            &nbsp;&nbsp;<b>{value}</b>
+
         </div>
     )
 }
