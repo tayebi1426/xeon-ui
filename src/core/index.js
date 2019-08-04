@@ -11,12 +11,13 @@ import ('./assets/fonts/simple-line-icons/css/simple-line-icons.css');
 import ('./assets/css/sass/style.scss');
 // material Icons local
 import ('./assets/fonts/material/material-icons.css');
+import ('./assets/css/animate.min.css');
 
 export * from './components/grid';
 export * from './components/tab';
 export {CardBody, CardTitle, Row} from 'reactstrap'
 export {Card, Colxx, Separator} from "./components/CustomBootstrap";
 export {I18Massage,LabelAndValue} from './components/common'
-export {XhrRequest, I18n,withTranslation} from './lib'
+export {XhrRequest, I18n,withTranslation, validateNationalCode, CheckAccess, KeyUpEnter} from './lib'
 export {Form,Field, Select, Input, Label, Switch, Button, Checkbox} from './components/form'
 export {XeonApp}
