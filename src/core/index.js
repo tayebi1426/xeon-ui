@@ -18,6 +18,6 @@ export * from './components/tab';
 export {CardBody, CardTitle, Row} from 'reactstrap'
 export {Card, Colxx, Separator} from "./components/CustomBootstrap";
 export {I18Massage,LabelAndValue} from './components/common'
-export {XhrRequest, I18n,withTranslation, validateNationalCode, CheckAccess} from './lib'
+export {XhrRequest, I18n,withTranslation, validateNationalCode, CheckAccess, KeyUpEnter} from './lib'
 export {Form,Field, Select, Input, Label, Switch, Button, Checkbox} from './components/form'
 export {XeonApp}
