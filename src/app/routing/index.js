@@ -22,8 +22,6 @@ const APP_ROUTES = [
             return <DefaultLayout {...props} mainRoutes={MAIN_ROUTES}/>
         }
     }
-
-
 ];
 
 export default APP_ROUTES;

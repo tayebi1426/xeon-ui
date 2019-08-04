@@ -1,5 +1,4 @@
 import React,{Suspense} from 'react';
-import DefaultLayout from "../layouts/DefaultLayout";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Provider} from "react-redux";
 import PropTypes from "prop-types";

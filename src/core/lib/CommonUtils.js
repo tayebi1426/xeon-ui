@@ -6,4 +6,9 @@ function hasReactChildren(children) {
 function isFunction(func) {
     return func && typeof func === 'function';
 }
-export {hasReactChildren,isFunction}
+
+function createAction(type, payload) {
+    return {type, payload}
+}
+
+export {hasReactChildren,isFunction,createAction}
