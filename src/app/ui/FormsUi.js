@@ -1,7 +1,5 @@
 import React from "react";
-
-import {Button, Checkbox, Field, Form, Input, Row, Select, Switch} from "../../core/index";
-import LabelAndValue from "../../core/components/common/LabelAndValue";
+import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue} from "../../core/index";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -16,6 +14,9 @@ class FormsUi extends React.Component {
 
     selectHandleChange = selectedOption => {
         this.setState({selectedOption});
+    };
+    handleOnClick = () => {
+        Notification.success('Info message', 'Title');
     };
 
     constructor(props) {
@@ -39,32 +40,35 @@ class FormsUi extends React.Component {
     }
 
     render() {
-        return<div>
+        return <div>
             <LabelAndValue label="email" value="R@T.com"/>
-        <Form title="sampleForm">
-            <Row>
-                <Field id="exampleEmail" name="email" label="email">
-                    <Input type="email" placeholder="email"/>
-                </Field>
-                <Field id="password" name="password" label="password">
-                    <Input type="password" placeholder="password"/>
-                </Field>
-                <Field id="form-field-name" name="form-field-name" label="product.name">
-                    <Select value={this.state.selectedOption} onChange={this.selectHandleChange} options={SELECT_DATA}/>
-                </Field>
-            </Row>
-            <Row>
-                <Field id="Switch" name="Switch" label="Switch">
-                    <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
-                        this.setState({switchCheckedPrimary});
-                    }}/>
-                </Field>
-                <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
-                    <Checkbox/>
-                </Field>
-            </Row>
-            <Button title="save" color="primary"/>
-        </Form>
+            <Form title="sampleForm">
+                <Row>
+                    <Field id="exampleEmail" name="email" label="email">
+                        <Input type="email" placeholder="email"/>
+                    </Field>
+                    <Field id="password" name="password" label="password">
+                        <Input type="password" placeholder="password"/>
+                    </Field>
+                    <Field id="form-field-name" name="form-field-name" label="product.name">
+                        <Select value={this.state.selectedOption} onChange={this.selectHandleChange}
+                                options={SELECT_DATA}/>
+                    </Field>
+                </Row>
+                <Row>
+                    <Field id="Switch" name="Switch" label="Switch">
+                        <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
+                            this.setState({switchCheckedPrimary});
+                        }}/>
+                    </Field>
+                    <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
+                        <Checkbox/>
+                    </Field>
+                </Row>
+                <Row>
+                    <Button title="save" color="primary" onClick={this.handleOnClick}/>
+                </Row>
+            </Form>
         </div>
     }
 
