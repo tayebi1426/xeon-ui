@@ -10,7 +10,7 @@ let SearchGithub = React.lazy(() => import("../ui/SearchGithub"));
 const MAIN_ROUTES = [
     {path: '/form', component: FormsUi},
     {path: '/grid', component: GridUi},
-    {path: '/tab', component: TabComponent},
+    {path: '/tab', component: TabComponent,access:[]},
     {path: '/searchGithub', component: SearchGithub}
 ];
 const APP_ROUTES = [

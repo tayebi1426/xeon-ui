@@ -2,15 +2,15 @@ import {NotificationManager} from "react-notifications";
 
 class Notification{
 
-    static info(msg,title){
-        NotificationManager.info(msg,title);
+    static info(msg,title, delay='5000'){
+        NotificationManager.info(msg,title, delay);
     }
-    static error(msg,title){
-        NotificationManager.error(msg,title);
+    static error(msg,title, delay='5000'){
+        NotificationManager.error(msg,title, delay);
     }
 
-    static success(msg,title){
-        NotificationManager.success(msg,title);
+    static success(msg,title, delay='5000'){
+        NotificationManager.success(msg,title, delay);
     }
 }
 export default Notification;

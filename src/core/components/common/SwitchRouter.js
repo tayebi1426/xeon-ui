@@ -9,7 +9,11 @@ function SwitchRouter({routes, children}) {
         }
     </Switch>
 }
-
+/*function SecureRout(){
+    if(sec){
+        return <Redirect
+    }elseif
+}*/
 SwitchRouter.propTypes = {
     routes: PropTypes.array
 };
