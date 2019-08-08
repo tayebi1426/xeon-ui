@@ -8,6 +8,7 @@ const DEFAULT_POST_HEADER = {'Content-Type': 'application/json; charset=utf-8'};
 const DEFAULT_REQUEST_TIMEOUT = process.env['REACT_APP_DEFAULT_REQUEST_TIMEOUT'];
 
 axios.defaults.headers.post = DEFAULT_POST_HEADER;
+axios.defaults.headers.put = DEFAULT_POST_HEADER;
 axios.defaults.timeout = DEFAULT_REQUEST_TIMEOUT || 10000;
 
 class XhrRequest {

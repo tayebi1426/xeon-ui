@@ -5,6 +5,6 @@ import validateNationalCode from "./NationalCodeValidator";
 import CheckAccess from "./CheckAccess";
 import KeyUpEnter from "./EventHandlers";
 
-export {hasReactChildren,isFunction,createAction} from "./CommonUtils";
+export {hasReactChildren,isFunction,dispatchAction,createAction} from "./CommonUtils";
 
 export {XhrRequest, I18n, withTranslation, validateNationalCode, CheckAccess, KeyUpEnter};
