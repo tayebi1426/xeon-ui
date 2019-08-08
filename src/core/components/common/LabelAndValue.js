@@ -5,12 +5,11 @@ import Label from '../form/Label';
 function LabelAndValue({label, value}) {
 
     return (
-        <div>
+        <div className="col">
             <Label code={label}>
                 &nbsp;:
             </Label>
             &nbsp;&nbsp;<b>{value}</b>
-
         </div>
     )
 }

@@ -85,12 +85,11 @@ class DataGrid extends React.Component {
     }
 
     createCommandColumn(gridCommands) {
-        let {t} = this.props;
 
         return React.createElement(KGridColumn,
             {
                 key: -1,
-                title: t('commands'),
+                title: '',
                 cell: this.createCustomCommandCell.bind(this, gridCommands)
             });
     }
