@@ -9,7 +9,7 @@ import {
   DropdownMenu
 } from "reactstrap";
 
-import IntlMessages from "../../core/helpers/IntlMessages";
+import {I18Massage} from "../../core/components/common";
 import {LineChart} from "../../core/components/charts"
 
 import { lineChartData } from "../../core/data/charts";
@@ -24,20 +24,20 @@ const SalesChartCard = () => {
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>
-              <IntlMessages id="dashboards.sales" />
+              <I18Massage code="dashboards.sales" />
             </DropdownItem>
             <DropdownItem>
-              <IntlMessages id="dashboards.orders" />
+              <I18Massage code="dashboards.orders" />
             </DropdownItem>
             <DropdownItem>
-              <IntlMessages id="dashboards.refunds" />
+              <I18Massage code="dashboards.refunds" />
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       </div>
       <CardBody>
         <CardTitle>
-          <IntlMessages id="dashboards.sales" />
+          <I18Massage code="dashboards.sales" />
         </CardTitle>
         <div className="dashboard-line-chart">
           <LineChart shadow data={lineChartData} />

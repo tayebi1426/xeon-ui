@@ -1,31 +1,35 @@
 const sessionName = 'user_account';
 
 class Security {
-    constructor() {
+
+    static getUserAccount() {
+        return JSON.parse(sessionStorage.getItem(sessionName));
     }
 
-    static GetUserAccount() {
-        return this.userAccount = JSON.parse(sessionStorage.getItem(sessionName));
-    };
+    static getUserRoles() {
+        return Security.getUserAccount().access;
+    }
 
-    static LoginUser(userAccount) {
+    static loginUser(userAccount) {
         sessionStorage.setItem(sessionName, JSON.stringify(userAccount))
-    };
+    }
 
-    static RemoveUser() {
+    static logoutUser() {
         sessionStorage.removeItem(sessionName);
-    };
+    }
 
-    static HasRole(accessList) {
-        this.GetUserAccount();
-        if (this.userAccount.access && accessList) {
-            for (let access of accessList) {
-                if (this.userAccount.access.includes(access)) return true;
-            }
-        } else {
+    static hasRole(accessList) {
+        let userRoles = Security.getUserRoles();
+        if (!userRoles || !accessList) {
             return false;
         }
-    };
+
+        for (let access of accessList) {
+            if (userRoles.includes(access)) {
+                return true;
+            }
+        }
+    }
 }
 
 export default Security;
