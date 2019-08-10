@@ -8,7 +8,7 @@ let TabComponent = React.lazy(() => import("../ui/TabComponent"));
 let SearchGithub = React.lazy(() => import("../ui/SearchGithub"));
 
 const MAIN_ROUTES = [
-    {path: '/form', component: FormsUi},
+    {path: '/form', component: FormsUi,roles:['ADMIN']},
     {path: '/grid', component: GridUi},
     {path: '/tab', component: TabComponent,access:[]},
     {path: '/searchGithub', component: SearchGithub}
