@@ -1,10 +1,13 @@
-import React, {Component} from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Security from '../../util/Security.js'
 
-class Authorization extends Component{
+const Authorization = ({access, children}) => {
+    return Security.hasRole(access)? children : null;
+};
 
-    render() {
-        return Security.hasRole(this.props.access)? this.props.children : null;
-    }
-}
+Authorization.propTypes = {
+    access: PropTypes.array
+};
+
 export default Authorization;
