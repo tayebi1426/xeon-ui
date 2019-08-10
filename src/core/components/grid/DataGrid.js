@@ -1,6 +1,6 @@
 import React from "react";
 import {Grid as KGrid, GridColumn as KGridColumn} from '@progress/kendo-react-grid'
-import {withTranslation, XhrRequest} from '../../lib'
+import {withTranslation, XhrRequest} from '../../util'
 import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'

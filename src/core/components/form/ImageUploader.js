@@ -2,7 +2,7 @@ import React from "react";
 import * as BS from 'reactstrap'
 import PropTypes from "prop-types";
 import Msg from "../../i18n/Messages";
-import CommonUtils from '../../lib/CommonUtils'
+import CommonUtils from '../../util/CommonUtils'
 import '../../assets/sass/components/imageUploader.scss'
 
 export default class ImageUploader extends React.Component {

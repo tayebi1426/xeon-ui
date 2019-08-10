@@ -1,5 +1,6 @@
 import React from "react";
 import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue} from "../../core/index";
+import SalesChartCard from "./SalesChartCard";
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -69,6 +70,8 @@ class FormsUi extends React.Component {
                     <Button title="save" color="primary" onClick={this.handleOnClick}/>
                 </Row>
             </Form>
+
+            <SalesChartCard/>
         </div>
     }
 

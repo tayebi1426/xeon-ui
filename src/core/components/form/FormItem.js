@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import {FormGroup} from 'reactstrap'
 import Label from "./Label";
-import {withTranslation} from "../../lib";
+import {withTranslation} from "../../util";
 
 function Field({id, name,placeholder, label, children,t, ...restProps}) {
 

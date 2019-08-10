@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import XhrRequest from "../../core/lib/XhrRequest";
+import XhrRequest from "../../core/util/XhrRequest";
 
 const github_repository_url_api = 'https://api.github.com/search/repositories';
 let fetchTimeout;

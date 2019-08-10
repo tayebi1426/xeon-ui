@@ -1,4 +1,4 @@
-import {withTranslation} from '../../lib';
+import {withTranslation} from '../../util';
 import PropTypes from "prop-types";
 
 function I18Massage ({code, t}){
