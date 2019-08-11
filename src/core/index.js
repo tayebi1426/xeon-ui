@@ -11,7 +11,11 @@ import ('./assets/fonts/simple-line-icons/css/simple-line-icons.css');
 import ('./assets/css/sass/style.scss');
 // material Icons local
 import ('./assets/fonts/material/material-icons.css');
+// awesome Icons local
+import ('./assets/fonts/awesome/css/fontawesome.css');
+// animate css local
 import ('./assets/css/animate.min.css');
+
 import ('react-notifications/lib/notifications.css');
 
 
@@ -33,5 +37,4 @@ export {
 } from './util';
 export {Form, Field, Select, Input, Label, Switch, Button, Checkbox} from './components/form';
 export {Authorization} from './components/security';
-export {Chart} from './components/charts';
 export {XeonApp};
