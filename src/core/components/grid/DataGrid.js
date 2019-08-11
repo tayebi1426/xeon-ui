@@ -70,7 +70,7 @@ class DataGrid extends React.Component {
         let gridColumns = fieldColumns.map(this.createFieldColumn.bind(this));
 
         if (gridCommands && gridCommands.length > 0) {
-            gridColumns.push(this.createCommandColumn(gridCommands));
+            gridColumns.push(this.createCommandColumn(gridCommands[0]));
         }
         return gridColumns;
     }
