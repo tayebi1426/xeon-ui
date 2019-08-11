@@ -54,9 +54,9 @@ class TabContainer extends React.PureComponent {
     generateTabPanes() {
         let {children, tabs} = this.props;
         if (tabs && tabs.length > 0) {
-            return tabs.map(({tabId, component}) =>
+            return tabs.map(({tabId, component,...compProps}) =>
                 React.createElement(TabPane, {key: tabId, tabId},
-                    React.createElement(component, {tabId})));
+                    React.createElement(component, {tabId,...compProps})));
         }
 
         return React.Children.map(children, (child) => {
