@@ -33,4 +33,5 @@ export {
 } from './util';
 export {Form, Field, Select, Input, Label, Switch, Button, Checkbox} from './components/form';
 export {Authorization} from './components/security';
+export {Chart} from './components/charts';
 export {XeonApp};
