@@ -10,6 +10,10 @@ import * as PropTypes from 'prop-types';
 class DataGrid extends React.Component {
 
 
+    dataStateChange = (e) => {
+        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -20,11 +24,6 @@ class DataGrid extends React.Component {
             readUrl: this.props.readUrl
         }
     }
-
-
-    dataStateChange = (e) => {
-        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
-    };
 
     fetchGridData(readUrl, localData, skip, pageSize) {
         const request = {skip, take: pageSize};
@@ -66,10 +65,13 @@ class DataGrid extends React.Component {
         let {children} = this.props;
         let childrenArray = React.Children.toArray(children);
         let fieldColumns = childrenArray.filter(child => child && child.type === GridColumn);
-        let gridCommands = childrenArray.filter(child => child && child.type === GridCommands)[0];
+        let gridCommands = childrenArray.filter(child => child && child.type === GridCommands);
 
         let gridColumns = fieldColumns.map(this.createFieldColumn.bind(this));
-        gridColumns.push(this.createCommandColumn(gridCommands));
+
+        if (gridCommands && gridCommands.length > 0) {
+            gridColumns.push(this.createCommandColumn(gridCommands[0]));
+        }
         return gridColumns;
     }
 
