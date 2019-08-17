@@ -7,6 +7,10 @@ class Security {
     }
 
     static getUserRoles() {
+        return Security.getUserAccount().roles;
+    }
+
+    static getUserAccess() {
         return Security.getUserAccount().access;
     }
 
@@ -18,14 +22,14 @@ class Security {
         sessionStorage.removeItem(sessionName);
     }
 
-    static hasRole(accessList) {
-        let userRoles = Security.getUserRoles();
-        if (!userRoles || !accessList) {
+    static hasRole(roleList) {
+        let userAccess = Security.getUserAccess();
+        if (!userAccess || !roleList) {
             return false;
         }
 
-        for (let access of accessList) {
-            if (userRoles.includes(access)) {
+        for (let role of roleList) {
+            if (userAccess.includes(role)) {
                 return true;
             }
         }

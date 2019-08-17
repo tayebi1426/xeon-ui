@@ -7,7 +7,7 @@ const Card = ({title = '', icon = null, children}) => {
     function renderIcon() {
         if(icon !== '') {
             return (
-                <div className="col" dangerouslySetInnerHTML={{ __html: icon }}/>
+                <div className="col pull-left" dangerouslySetInnerHTML={{ __html: icon }}/>
             )
         }
     }

@@ -2,6 +2,17 @@
 .ltr {
   direction: ltr;
 }
+.rtl {
+  direction: rtl;
+}
+.pull-left{
+  float: left;
+  text-align-last: left;
+}
+.pull-right{
+  float: right;
+  text-align-last: right;
+}
 .text-right {
   text-align: right;
 }
