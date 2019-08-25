@@ -67,6 +67,29 @@
   }
 }
 
+body[dir = 'rtl'] {
+  .k-grid th:first-child, .k-grid td:first-child {
+    border-left-width: 1px !important;
+  }
+  .k-grid th:last-child, .k-grid td:last-child {
+    border-left-width: 0 !important;
+  }
+}
+
+
+// react-datepicker2
+
+.calendarContainer .dayWrapper button, .calendarContainer .dayWrapper button, .jalaali.calendarContainer .selectToday  {
+  text-align: center;
+}
+.calendarContainer .heading .rc-time-picker {
+  width: 27% !important;
+}
+.calendarContainer .heading .title {
+  width: 40% !important;
+}
+// end react-datepicker2
+
 .btn-container button{
   margin: 15px;
 }

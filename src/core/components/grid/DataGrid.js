@@ -56,7 +56,7 @@ class DataGrid extends React.Component {
     render() {
         let gridColumns = this.regenerateGridColumns();
 
-        return <KGrid onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
+        return <KGrid className="k-rtl" onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
             {gridColumns}
         </KGrid>
     }
@@ -100,6 +100,7 @@ class DataGrid extends React.Component {
         let {children} = gridCommands.props;
         let actions = React.Children.toArray(children).map((child, idx) => {
             return React.createElement(GridCommand, {
+                className: 'bagher',
                 key: idx,
                 ...child.props,
                 ...props

@@ -35,6 +35,6 @@ export {
     dispatchAction,
     createAction
 } from './util';
-export {Form, Field, Select, Input, Label, Switch, Button, Checkbox} from './components/form';
+export {Form, Field, Select, Input, Label, Switch, Button, Checkbox, DatePicker} from './components/form';
 export {Authorization} from './components/security';
 export {XeonApp};
