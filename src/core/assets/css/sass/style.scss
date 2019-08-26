@@ -1,4 +1,18 @@
 
+
+
+table {
+  tr{
+    td:last-child {
+      span{
+        margin-left: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
 .ltr {
   direction: ltr;
 }
@@ -93,3 +107,4 @@ body[dir = 'rtl'] {
 .btn-container button{
   margin: 15px;
 }
+

@@ -100,7 +100,6 @@ class DataGrid extends React.Component {
         let {children} = gridCommands.props;
         let actions = React.Children.toArray(children).map((child, idx) => {
             return React.createElement(GridCommand, {
-                className: 'bagher',
                 key: idx,
                 ...child.props,
                 ...props

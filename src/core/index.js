@@ -1,4 +1,5 @@
 import XeonApp from './base/XeonApp'
+import Dialog from "./components/common/dialog/Dialog";
 
 // Iran Sans Font
 import ('./assets/fonts/iransans/iranSansWeb/css/fontiran.css');

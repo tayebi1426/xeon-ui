@@ -32,6 +32,7 @@
     "react": "^16.8.6",
     "react-animated-css": "^1.2.1",
     "react-chartjs-2": "^2.7.6",
+    "react-datepicker2": "^3.0.3",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
     "react-notifications": "^1.4.3",
