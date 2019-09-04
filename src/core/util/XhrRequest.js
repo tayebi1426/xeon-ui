@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const POST_METHOD = 'POST';
 const PUT_METHOD = 'PUT';
+const DELETE_METHOD = 'DELETE';
 const METHOD_CONFIG_NAME = 'method';
 const DEFAULT_POST_HEADER = {'Content-Type': 'application/json; charset=utf-8'};
 
@@ -29,6 +30,12 @@ class XhrRequest {
         return XhrRequest.callRequest(req);
     }
 
+    static deleteRequest(url, data, headers) {
+        data = JSON.stringify(data);
+        let req = XhrRequest.createRequest({url, [METHOD_CONFIG_NAME]: DELETE_METHOD, data, headers});
+        return XhrRequest.callRequest(req);
+    }
+
     static createRequest(config) {
         return axios.request(config);
     }
@@ -53,6 +60,7 @@ class XhrRequest {
 
 axios.interceptors.request.use((config) => {
     // Do something before request is sent
+    console.log('request startttttttt');
     return config;
 }, (error) => {
     // Do something with request error
@@ -62,6 +70,7 @@ axios.interceptors.request.use((config) => {
 
 axios.interceptors.response.use((response) => {
     // Do something with response data
+    console.log('request stopppppppppppppppppp');
     return response;
 }, (error) => {
     console.error('response error : ', error);

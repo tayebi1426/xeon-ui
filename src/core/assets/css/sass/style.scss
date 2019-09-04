@@ -70,6 +70,12 @@ table {
   font-weight: 900;
 }
 
+.bb_dashed_1 {
+  border-bottom: dashed 1px;
+}
+.bb_dashed_2 {
+  border-bottom: dashed 2px;
+}
 
 .k-grid-header-wrap {
   thead{
@@ -119,3 +125,43 @@ body[dir = 'rtl'] {
 }
 
 
+.navbar.fixed-top{
+  ul{
+    list-style: none;
+    li{
+      float: right;
+    }
+  }
+}
+
+
+
+
+//overwrite kendo ui styles
+.k-treeview .k-i-expand, .k-treeview .k-i-collapse {
+  margin-left: 0 !important;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 25px;
+  color: #ffffff;
+  background-color: #347deb;
+}
+.k-treeview .k-i-collapse {
+  color: #ffffff;
+  background-color: #343434;
+}
+.k-content{
+  margin: 15px !important;
+}
+
+.k-icon.k-i-expand:before{
+  font-family: "Material Icons" !important;
+  content: "\e315" !important;
+}
+.k-icon.k-i-collapse:before{
+  font-family: "Material Icons" !important;
+  content: "\e313" !important;
+}
+// End kendo ui styles

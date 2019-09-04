@@ -1,5 +1,4 @@
 import XeonApp from './base/XeonApp'
-import Dialog from "./components/common/dialog/Dialog";
 
 // Iran Sans Font
 import ('./assets/fonts/iransans/iranSansWeb/css/fontiran.css');
@@ -36,6 +35,6 @@ export {
     dispatchAction,
     createAction
 } from './util';
-export {Form, Field, Select, Input, Label, Switch, Button, Checkbox, DatePicker} from './components/form';
+export {Form, Field, Select, Input, Label, Switch, Button, Checkbox, DatePicker, TextArea} from './components/form';
 export {Authorization} from './components/security';
 export {XeonApp};

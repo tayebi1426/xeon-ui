@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from "prop-types";
 import {FormGroup} from 'reactstrap'
 import Label from "./Label";
-import '../../assets/sass/components/textarea.scss';
+import '../../assets/css/sass/components/textarea.scss';
 import Error from "./FieldError";
 
 export default class TextArea extends React.Component {
