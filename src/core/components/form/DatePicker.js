@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import DatePickerz from 'react-datepicker2';
+import DatePicker2 from 'react-datepicker2';
 
-function DatePicker({isGregorian = false, inputFormat = "YYYY/M/D", ...restProps}){
-    return <DatePickerz datePickerClass="form-control"
+function DatePicker({isGregorian = false, inputFormat = "YYYY/M/D", value='', ...restProps}){
+    return <DatePicker2 datePickerClass="form-control"
                         className="form-control"
+                        value={value}
                         inputFormat={inputFormat}
                         isGregorian={isGregorian}
                         {...restProps}
     />;
 }
-DatePicker.PropTypes = {
-    isGregorian: PropTypes.bool,
-    inputFormat: PropTypes.string
-};
 export default DatePicker;

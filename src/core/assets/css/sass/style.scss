@@ -2,6 +2,10 @@
 
 
 table {
+  thead{
+    background: #cacaca;
+  }
+
   tr{
     td:last-child {
       span{
@@ -76,7 +80,9 @@ table {
 .bb_dashed_2 {
   border-bottom: dashed 2px;
 }
-
+.cursor-pointer{
+  cursor: pointer
+}
 .k-grid-header-wrap {
   thead{
     th{
@@ -121,7 +127,10 @@ body[dir = 'rtl'] {
 // end react-datepicker2
 
 .btn-container button{
-  margin: 15px;
+  margin: 15px 0 15px 15px;
+}
+.btn-container-flat button{
+  margin: 0 0 0 15px;
 }
 
 

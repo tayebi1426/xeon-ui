@@ -7,6 +7,7 @@ import {
 
 import DialogBody from "./DialogBody";
 import DialogFooter from "./DialogFooter";
+import {I18Massage} from "../index";
 
 function Dialog({children, className, isOpen, size, title,toggle, ...restProps}) {
     let childrenArray = React.Children.toArray(children);
@@ -16,7 +17,7 @@ function Dialog({children, className, isOpen, size, title,toggle, ...restProps})
 
         <Modal isOpen={isOpen} size={size}>
             <ModalHeader toggle={toggle}>
-                {title}
+                <I18Massage code={title} />
             </ModalHeader>
             {dialogBody}
             {dialogFooter}
@@ -25,7 +26,7 @@ function Dialog({children, className, isOpen, size, title,toggle, ...restProps})
 }
 
 Dialog.propTypes = {
-    isOpen: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool.isRequired,
     title: PropTypes.string,
     size: PropTypes.string,
     className: PropTypes.string,

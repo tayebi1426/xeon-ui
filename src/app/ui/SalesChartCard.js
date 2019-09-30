@@ -10,9 +10,9 @@ import {
 } from "reactstrap";
 
 import {I18Massage} from "../../core/components/common";
-import {LineChart} from "../../core/components/charts"
+// import {LineChart} from "../../core/components/charts"
 
-import { lineChartData } from "../../core/data/charts";
+// import { lineChartData } from "../../core/data/charts";
 
 const SalesChartCard = () => {
   return (
@@ -40,7 +40,7 @@ const SalesChartCard = () => {
           <I18Massage code="dashboards.sales" />
         </CardTitle>
         <div className="dashboard-line-chart">
-          <LineChart shadow data={lineChartData} />
+          {/*<LineChart shadow data={lineChartData} />*/}
         </div>
       </CardBody>
     </Card>

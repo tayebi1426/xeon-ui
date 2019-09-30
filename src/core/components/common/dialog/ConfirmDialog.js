@@ -13,15 +13,20 @@ function ConfirmDialog ({children, className, isOpen, size, type ,title,toggle, 
                 {children}
             </DialogBody>
             <DialogFooter>
-                <Button title="cancel" color="light" onClick={toggle}/>
-                <Button title="confirm" color={type} onClick={confirmMethod.bind()}/>
+                <Button title="cancel" color="light" onClick={toggle} size="sm">
+                    &nbsp;&nbsp;<i className="fa fa-times"></i>
+                </Button>
+
+                <Button title="confirm" color={type} onClick={confirmMethod.bind()} size="sm">
+                    &nbsp;&nbsp;<i className="fa fa-check"></i>
+                </Button>
             </DialogFooter>
         </Dialog>
     )
 }
 
 Dialog.propTypes = {
-    isOpen: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool.isRequired,
     title: PropTypes.string,
     size: PropTypes.string,
     type: PropTypes.string,

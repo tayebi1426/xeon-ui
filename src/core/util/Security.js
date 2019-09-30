@@ -1,7 +1,6 @@
 const sessionName = 'user_account';
 
 class Security {
-
     static getUserAccount() {
         return JSON.parse(sessionStorage.getItem(sessionName));
     }

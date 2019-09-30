@@ -1,33 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {FormGroup, Input} from "reactstrap";
-import '../../assets/sass/components/radioButton.scss'
+import {CustomInput, FormGroup, Input} from "reactstrap";
+import '../../assets/css/sass/components/radioButton.scss'
+import Checkbox from "./Checkbox";
 
 
-export default class RadioButton extends React.Component {
-
-    render() {
-        let {formGroupProps, label, ...inputProps} = this.props;
-
-        return <FormGroup {...formGroupProps}>
-            <label className="radio-container">
-                {label}
-                <Input type='radio' {...inputProps}/>
-                <span className="checkmark"/>
-            </label>
-        </FormGroup>
-    }
+function RadioButton(props) {
+    return <div className="custom-checkbox custom-control">
+        <CustomInput {...props}/>
+    </div>
 }
 
+
 RadioButton.propTypes = {
-    formGroupProps: PropTypes.object,
+    type: PropTypes.string,
     label: PropTypes.string,
     id: PropTypes.string,
-    value: PropTypes.any.isRequired,
-    onChange: PropTypes.func,
+    value: PropTypes.any,
+    name: PropTypes.string,
     className: PropTypes.string,
+    checked: PropTypes.bool,
+    required: PropTypes.bool,
+    step: PropTypes.number,
+    onChange: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    errorMessage: PropTypes.string
 };
 
 RadioButton.defaultProps = {
-    formGroupProps: {className: 'col-2', inline: true},
+    type: 'radio',
+    className: "custom-radio custom-control"
 };
+
+export default RadioButton;

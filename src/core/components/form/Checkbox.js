@@ -3,7 +3,9 @@ import {CustomInput} from 'reactstrap'
 import PropTypes from 'prop-types';
 
 function Checkbox(props) {
-    return <CustomInput {...props}/>
+    return <div className="custom-checkbox custom-control">
+              <CustomInput {...props}/>
+           </div>
 }
 
 Checkbox.propTypes = {
@@ -23,7 +25,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
     type: 'checkbox',
-    className: "custom-inputs"
+    className: "custom-checkbox custom-control"
 };
 
 export default Checkbox;
