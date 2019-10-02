@@ -7,17 +7,17 @@ export default class Button extends React.Component {
     static SIZE = {sm: 'sm', md: 'md', lg: 'lg'};
 
     render() {
-        let {isPrimary, link, title, children, visible,innerRef, ...rest} = this.props;
+        let {isPrimary, link, title, children, visible,innerRef, icon,...rest} = this.props;
         if (!visible) {
             return null;
         }
         isPrimary = isPrimary && !link;
-
         let btnColor = isPrimary ? 'primary' :
             (link) ? 'link' : 'secondary';
         return (
             <BsButton innerRef={innerRef} color={btnColor} {...rest}>
                 <I18Massage code={title}/>
+                { icon && <span>&nbsp;&nbsp;<i className={icon}/></span>}
                 {children}
             </BsButton>
         );
@@ -25,6 +25,7 @@ export default class Button extends React.Component {
 }
 
 Button.propTypes = {
+    icon:PropTypes.string,
     isPrimary: PropTypes.bool,
     onClick: PropTypes.func,
     title: PropTypes.string.isRequired,
