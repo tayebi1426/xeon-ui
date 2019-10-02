@@ -13,7 +13,7 @@ function ConfirmDialog ({children, className, isOpen, size, type ,title,toggle, 
                 {children}
             </DialogBody>
             <DialogFooter>
-                <Button title="cancel" color="light" onClick={toggle} size="sm">
+                <Button title="cancel" color="light" onClick={toggle} size="sm" >
                     &nbsp;&nbsp;<i className="fa fa-times"></i>
                 </Button>
 
