@@ -19,19 +19,16 @@ class XhrRequest {
     }
 
     static postRequest(url, data, headers) {
-        data = JSON.stringify(data);
         let req = XhrRequest.createRequest({url, [METHOD_CONFIG_NAME]: POST_METHOD, data, headers});
         return XhrRequest.callRequest(req);
     }
 
     static putRequest(url, data, headers) {
-        data = JSON.stringify(data);
         let req = XhrRequest.createRequest({url, [METHOD_CONFIG_NAME]: PUT_METHOD, data, headers});
         return XhrRequest.callRequest(req);
     }
 
     static deleteRequest(url, data, headers) {
-        data = JSON.stringify(data);
         let req = XhrRequest.createRequest({url, [METHOD_CONFIG_NAME]: DELETE_METHOD, data, headers});
         return XhrRequest.callRequest(req);
     }
