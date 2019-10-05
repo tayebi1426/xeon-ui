@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Animated} from "react-animated-css";
 import PropTypes from "prop-types";
-import {Card as BsCard, CardBody, CardTitle,Collapse} from 'reactstrap'
+import {Card as BsCard, CardBody, CardTitle} from 'reactstrap'
 import {I18Massage} from "../common";
 import Button from "../form/Button";
 
@@ -14,32 +14,6 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
         collapse ? setState(false) : setState(true);
     }
 
-    function setTitleAndIcon() {
-        let config = {
-            closeTitle:"بسته",
-            openTitle:"باز",
-            closeIcon:"fa fa-angle-up fa-lg",
-            openIcon:"fa fa-angle-down fa-lg"
-        };
-        if (collapseConfig) {
-            config.closeTitle = collapseConfig.closeTitle;
-            config.openTitle = collapseConfig.openTitle;
-        }
-        return config;
-    }
-
-    function setAnimation() {
-        let anim = {
-            animationIn:"" ,
-            animationOut:""
-        };
-        if(collapseConfig) {
-            anim.animationIn = collapseConfig.animationIn;
-            anim.animationOut = collapseConfig.animationOut;
-        }
-        return anim;
-    }
-
     function renderIcon() {
         if (icon !== '') {
             return (
@@ -49,7 +23,7 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
     }
 
     function renderBody() {
-        const {animationIn,animationOut} = setAnimation();
+        const {animationIn,animationOut} =  collapseConfig;
         return (
             collapse ?
                 <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true}>
@@ -57,50 +31,56 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
                         {children}
                     </CardBody>
                 </Animated>
-
                 :
                 null
         )
     }
 
+
     function renderCollapse() {
-        const {closeTitle,openTitle,closeIcon,openIcon} = setTitleAndIcon(collapseConfig);
-        if (isCollapse) {
-            return (
+        const {closeTitle,openTitle,closeIcon="fa fa-angle-up fa-lg",openIcon="fa fa-angle-down fa-lg"} = collapseConfig;
+        return (
                 collapse ?
                     <Button color="white" title={closeTitle}
                             onClick={toggle}
                             icon={closeIcon}
-                            className="cursor-pointer pull-left px-2"
+                            className="cursor-pointer pull-left px-3"
                     />
                     :
                     <Button color="white" title={openTitle}
                             onClick={toggle}
                             icon={openIcon}
-                            className="cursor-pointer pull-left px-2"
+                            className="cursor-pointer pull-left px-3"
                     />
             )
         }
-    }
 
     return (
         <div>
-            <BsCard>
-                <CardTitle className="text-bold px-3 py-2">
-                    <div className="row">
-                        <div className="col"><I18Massage code={title}/></div>
-                        {renderIcon()}
-                        {renderCollapse()}
-                    </div>
-                </CardTitle>
-                <Collapse
-                isOpen={collapse}
-            >
-
+            {isCollapse ?
+                <BsCard>
+                    <CardTitle className="text-bold px-3 py-2">
+                        <div className="row">
+                            <div className="col"><I18Massage code={title}/></div>
+                            {renderIcon()}
+                            {renderCollapse()}
+                        </div>
+                    </CardTitle>
                     {renderBody()}
-
-            </Collapse>
-            </BsCard>
+                </BsCard>
+                :
+                <BsCard>
+                    <CardTitle className="text-bold px-3 py-2">
+                        <div className="row">
+                            <div className="col"><I18Massage code={title}/></div>
+                            {renderIcon()}
+                        </div>
+                    </CardTitle>
+                <CardBody>
+                    {children}
+                </CardBody>
+                </BsCard>
+            }
         </div>
     );
 };
@@ -111,4 +91,20 @@ Card.propTypes = {
     title: PropTypes.string,
     icon: PropTypes.string
 };
+
+Card.defaultProps = {
+    isCollapse: false,
+    collapseConfig : {
+        closeTitle:"",
+        openTitle:"",
+        closeIcon:"fa fa-angle-up fa-lg",
+        openIcon:"fa fa-angle-down fa-lg",
+        animationIn:"" ,
+        animationOut:""
+    }
+
+};
+
+
+
 export default Card;
