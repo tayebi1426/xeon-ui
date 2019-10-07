@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Security from "../components/security/Security";
 
 const POST_METHOD = 'POST';
 const PUT_METHOD = 'PUT';
@@ -57,7 +58,10 @@ class XhrRequest {
 
 axios.interceptors.request.use((config) => {
     // Do something before request is sent
-    console.log('request startttttttt');
+    const userAccount =  Security.getUserAccount();
+    if ( userAccount && userAccount['access_token'] != null ) {
+        config.headers.Authorization = `Bearer ${userAccount['access_token']}`;
+    }
     return config;
 }, (error) => {
     // Do something with request error
@@ -67,7 +71,6 @@ axios.interceptors.request.use((config) => {
 
 axios.interceptors.response.use((response) => {
     // Do something with response data
-    console.log('request stopppppppppppppppppp');
     return response;
 }, (error) => {
     console.error('response error : ', error);

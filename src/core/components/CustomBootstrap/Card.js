@@ -29,7 +29,7 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
                 <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true}>
                 <CardBody>
                         {children}
-                    </CardBody>
+                </CardBody>
                 </Animated>
                 :
                 null

@@ -1,3 +1,4 @@
 import Authorization from './Authorization';
+import Security from "./Security";
 
-export {Authorization}
+export {Authorization, Security}
