@@ -59,7 +59,7 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
         <div>
             {isCollapse ?
                 <BsCard>
-                    <CardTitle className="text-bold px-3 py-2">
+                    <CardTitle className="text-bold p-20 py-2">
                         <div className="row">
                             <div className="col"><I18Massage code={title}/></div>
                             {renderIcon()}
