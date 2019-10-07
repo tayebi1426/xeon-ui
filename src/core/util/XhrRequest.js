@@ -59,7 +59,7 @@ class XhrRequest {
 axios.interceptors.request.use((config) => {
     // Do something before request is sent
     const userAccount =  Security.getUserAccount();
-    if ( userAccount['access_token'] != null ) {
+    if ( userAccount && userAccount['access_token'] != null ) {
         config.headers.Authorization = `Bearer ${userAccount['access_token']}`;
     }
     return config;
