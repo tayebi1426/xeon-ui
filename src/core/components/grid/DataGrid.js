@@ -143,7 +143,7 @@ class DataGrid extends React.Component {
     fillGridData(request, data, total) {
         let {jalali, row} = this.state;
         let customData = data.map(item => Object.assign({inEdit: true}, item));
-        customData = jalali.length ? customData.map(item => {
+        customData = jalali ? customData.map(item => {
                 jalali.forEach(date => item[date] = gregorianToJalali(item[date]));
                 return item;
             })
