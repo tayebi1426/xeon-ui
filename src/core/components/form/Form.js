@@ -10,11 +10,11 @@ class Form extends React.Component {
     render() {
         let {children, innerRef,title, ...restProps} = this.props;
         return (
-            <Card title={title}>
+
                     <form ref={innerRef} {...restProps}>
                         {children}
                     </form>
-            </Card>
+
         )
     }
 }

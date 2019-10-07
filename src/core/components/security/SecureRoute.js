@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
-import Security from '../../util/Security'
+import Security from './Security'
 
 function SecureRoute(props) {
     let {roles, ...restProps} = props;

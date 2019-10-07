@@ -26,6 +26,6 @@ export {Card, Colxx} from "./components/CustomBootstrap";
 export * from './components/common';
 export * from './components/form';
 export * from './util';
+export * from './components/security';
 
-export {Authorization} from './components/security';
 export {XeonApp};
