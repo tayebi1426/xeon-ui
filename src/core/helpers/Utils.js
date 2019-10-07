@@ -54,3 +54,4 @@ export const setDirection = localValue => {
   }
   localStorage.setItem("direction", direction);
 };
+
