@@ -15,9 +15,8 @@ export default class Button extends React.Component {
         let btnColor = isPrimary ? 'primary' :
             (link) ? 'link' : 'secondary';
         return (
-            <BsButton innerRef={innerRef} color={btnColor} {...rest}>
-                <I18Massage code={title}/>
-                { icon && <span>&nbsp;&nbsp;<i className={icon}/></span>}
+            <BsButton className="d-flex align-items-center" innerRef={innerRef} color={btnColor} {...rest}>
+                <span><I18Massage code={title}/>{icon &&<i style={{margin:'3px',padding:'5px'}} className={icon}/> }</span>
                 {children}
             </BsButton>
         );

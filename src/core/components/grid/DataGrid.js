@@ -5,14 +5,10 @@ import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
-
+import gregorianToJalali from "../../util/gregorainToJalali";
 
 class DataGrid extends React.Component {
 
-
-    dataStateChange = (e) => {
-        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
-    };
 
     constructor(props) {
         super(props);
@@ -21,13 +17,27 @@ class DataGrid extends React.Component {
             total: 0,
             take: this.props.pageSize,
             skip: this.props.skip,
-            readUrl: this.props.readUrl
+            readUrl: this.props.readUrl,
+            jalali: props.jalali,
+            row: props.row
         }
+    }
+
+    componentDidMount() {
+        const {readUrl, localData, skip, pageSize} = this.props;
+        this.fetchGridData(readUrl, localData, skip, pageSize);
+    }
+
+    componentWillReceiveProps(newProps) {
+        // if (newProps.readUrl !== this.state.readUrl) {
+        this.setState({readUrl: newProps.readUrl});
+        const {readUrl, localData, skip, pageSize} = newProps;
+        this.fetchGridData(readUrl, localData, skip, pageSize);
+        // }
     }
 
     fetchGridData(readUrl, localData, skip, pageSize) {
         const request = {skip, take: pageSize};
-
         if (localData) {
             this.fillGridData(request, localData.slice(skip, pageSize + skip), localData.length);
         } else if (readUrl) {
@@ -39,30 +49,35 @@ class DataGrid extends React.Component {
         }
     }
 
-    componentDidMount() {
-        const {readUrl, localData, skip, pageSize} = this.props;
-        this.fetchGridData(readUrl, localData, skip, pageSize);
-    }
+    dataStateChange = (e) => {
+        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
+    };
 
-    componentWillReceiveProps(newProps) {
+    addRowColumn = () => {
+        return React.createElement(KGridColumn,
+            {
+                title: 'ردیف',
+                field: "rowId",
+                editable: false
+            })
+    };
 
-        // if (newProps.readUrl !== this.state.readUrl) {
-        this.setState({readUrl: newProps.readUrl});
-        const {readUrl, localData, skip, pageSize} = newProps;
-        this.fetchGridData(readUrl, localData, skip, pageSize);
-        // }
-    }
 
     render() {
         let gridColumns = this.regenerateGridColumns();
-
-        return <KGrid className="k-rtl" onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
+        return <KGrid className="k-rtl"
+                      onDataStateChange={this.dataStateChange}
+                      editField="inEdit"
+                      onItemChange={this.itemChange}
+                      {...this.props}
+                      {...this.state}
+        >
             {gridColumns}
         </KGrid>
     }
 
     regenerateGridColumns() {
-        let {children} = this.props;
+        let {children, row} = this.props;
         let childrenArray = React.Children.toArray(children);
         let fieldColumns = childrenArray.filter(child => child && child.type === GridColumn);
         let gridCommands = childrenArray.filter(child => child && child.type === GridCommands);
@@ -72,6 +87,12 @@ class DataGrid extends React.Component {
         if (gridCommands && gridCommands.length > 0) {
             gridColumns.push(this.createCommandColumn(gridCommands[0]));
         }
+
+        if (row) {
+            let rowColumn = this.addRowColumn();
+            gridColumns = [rowColumn, ...gridColumns];
+        }
+
         return gridColumns;
     }
 
@@ -87,7 +108,6 @@ class DataGrid extends React.Component {
     }
 
     createCommandColumn(gridCommands) {
-
         return React.createElement(KGridColumn,
             {
                 key: -1,
@@ -105,14 +125,35 @@ class DataGrid extends React.Component {
                 ...props
             });
         });
-        return <td>
-            {actions}
-        </td>
+        return (
+            <td className={"d-flex justify-content-center"}>
+                {actions}
+            </td>
+        )
+
     }
 
-    fillGridData(request, data, total) {
+    itemChange = (e) => {
+        e.dataItem[e.field] = e.value;
         this.setState({
-            data: data,
+            data: [ ...this.state.data ]
+        },this.props.changeData(this.state.data));
+        };
+
+    fillGridData(request, data, total) {
+        let {jalali, row} = this.state;
+        let customData = data.map(item => Object.assign({inEdit: true}, item));
+        customData = jalali.length ? customData.map(item => {
+                jalali.forEach(date => item[date] = gregorianToJalali(item[date]));
+                return item;
+            })
+            : customData;
+        customData = row ? customData.map((item, index) => {
+            item['rowId'] = index + 1;
+            return item;
+        }) : customData;
+        this.setState({
+            data: customData,
             total: total,
             take: request.take,
             skip: request.skip
@@ -186,6 +227,8 @@ DataGrid.defaultProps = {
     resizable: false,
     reorderable: false,
     groupable: false,
+    row: false
+
 };
 
 export default withTranslation(DataGrid);

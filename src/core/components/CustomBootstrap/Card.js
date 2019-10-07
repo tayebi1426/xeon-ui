@@ -36,7 +36,6 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
         )
     }
 
-
     function renderCollapse() {
         const {closeTitle,openTitle,closeIcon="fa fa-angle-up fa-lg",openIcon="fa fa-angle-down fa-lg"} = collapseConfig;
         return (
@@ -59,9 +58,11 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
         <div>
             {isCollapse ?
                 <BsCard>
-                    <CardTitle className="text-bold p-20 py-2">
+                    <CardTitle className="text-bold px-3">
                         <div className="row">
-                            <div className="col"><I18Massage code={title}/></div>
+                            <div  className="col p-3">
+                                <I18Massage code={title}/>
+                            </div>
                             {renderIcon()}
                             {renderCollapse()}
                         </div>
@@ -70,7 +71,7 @@ const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) =
                 </BsCard>
                 :
                 <BsCard>
-                    <CardTitle className="text-bold px-3 py-2">
+                    <CardTitle className="text-bold px-3">
                         <div className="row">
                             <div className="col"><I18Massage code={title}/></div>
                             {renderIcon()}
@@ -104,7 +105,5 @@ Card.defaultProps = {
     }
 
 };
-
-
 
 export default Card;
