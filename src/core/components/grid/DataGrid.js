@@ -9,7 +9,6 @@ import gregorianToJalali from "../../util/gregorainToJalali";
 
 class DataGrid extends React.Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
