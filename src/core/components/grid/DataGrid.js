@@ -8,7 +8,6 @@ import * as PropTypes from 'prop-types';
 import gregorianToJalali from "../../util/gregorainToJalali";
 
 class DataGrid extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -61,7 +60,6 @@ class DataGrid extends React.Component {
             })
     };
 
-
     render() {
         let gridColumns = this.regenerateGridColumns();
         return <KGrid className="k-rtl"
@@ -97,7 +95,7 @@ class DataGrid extends React.Component {
 
     createFieldColumn(child, idx) {
         let {t} = this.props;
-        let {title, ...restProps} = child.props;
+        let {title,percent,...restProps} = child.props;
         return React.createElement(KGridColumn,
             {
                 key: idx,
@@ -129,7 +127,6 @@ class DataGrid extends React.Component {
                 {actions}
             </td>
         )
-
     }
 
     itemChange = (e) => {
@@ -140,10 +137,13 @@ class DataGrid extends React.Component {
         };
 
     fillGridData(request, data, total) {
+
         let {jalali, row} = this.state;
         let customData = data.map(item => Object.assign({inEdit: true}, item));
         customData = jalali ? customData.map(item => {
-                jalali.forEach(date => item[date] = gregorianToJalali(item[date]));
+                jalali.forEach(date => {
+                    item[date] = gregorianToJalali(item[date])
+                });
                 return item;
             })
             : customData;
