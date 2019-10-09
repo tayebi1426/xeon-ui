@@ -115,6 +115,11 @@ body[dir = 'rtl'] {
 }
 
 
+
+// if used in SCSS, this can be reduced to
+// .k-hierarchy-cell .k-plus::before { @extends .fa-expand; }
+
+
 // react-datepicker2
 .tether-element{
   z-index: 99999 !important;
@@ -186,3 +191,5 @@ body[dir = 'rtl'] {
   content: "\e313" !important;
 }
 // End kendo ui styles
+
+

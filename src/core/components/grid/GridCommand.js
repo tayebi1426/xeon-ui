@@ -1,20 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../common/Icon';
 import withTranslation from "../../util/WithTranslation";
 
 class GridCommand extends React.Component {
 
     render() {
         let {
-            icon, iconSize, title, t, onClick,
+            icon, iconSize, title, t, onClick,color,
             dataIndex,
             dataItem
         } = this.props;
 
 
         return <span title={t(title)} onClick={onClick.bind(null, {dataItem, dataIndex})}>
-            <Icon code={icon} size={iconSize}/>
+                 {icon &&<i className={`${icon} ${iconSize} ${color}`} /> }
         </span>
     }
 }
@@ -27,7 +26,9 @@ GridCommand.propTypes = {
 };
 
 GridCommand.defaultProps = {
-    iconSize: "2x"
+       iconSize: "fa-lg",
+       color: 'text-secondary'
+
 };
 
 
