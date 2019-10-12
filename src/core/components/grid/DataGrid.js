@@ -100,6 +100,7 @@ class DataGrid extends React.Component {
             {
                 key: idx,
                 title: t(title),
+                width:"25px",
                 ...restProps
             });
     }
