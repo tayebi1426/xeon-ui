@@ -8,6 +8,7 @@ import * as PropTypes from 'prop-types';
 import gregorianToJalali from "../../util/gregorainToJalali";
 
 class DataGrid extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -18,17 +19,20 @@ class DataGrid extends React.Component {
             readUrl: this.props.readUrl,
             jalali: props.jalali,
             row: props.row
-        }
+        };
     }
 
     componentDidMount() {
+        {console.log("pr",this.props)}
         const {readUrl, localData, skip, pageSize} = this.props;
         this.fetchGridData(readUrl, localData, skip, pageSize);
     }
 
     componentWillReceiveProps(newProps) {
+        {console.log("p",newProps)}
         // if (newProps.readUrl !== this.state.readUrl) {
-        this.setState({readUrl: newProps.readUrl});
+
+        //this.setState({readUrl: newProps.readUrl});
         const {readUrl, localData, skip, pageSize} = newProps;
         this.fetchGridData(readUrl, localData, skip, pageSize);
         // }
@@ -131,13 +135,12 @@ class DataGrid extends React.Component {
 
     itemChange = (e) => {
         e.dataItem[e.field] = e.value;
-        this.setState({
-            data: [ ...this.state.data ]
-        },this.props.changeData(this.state.data));
+        let item = e.dataItem;
+        let index = e.dataItem.rowId-1;
+        this.props.changeData(item,index);
         };
 
     fillGridData(request, data, total) {
-
         let {jalali, row} = this.state;
         let customData = data.map(item => Object.assign({inEdit: true}, item));
         customData = jalali ? customData.map(item => {
