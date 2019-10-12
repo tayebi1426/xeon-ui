@@ -32,7 +32,7 @@ class DataGrid extends React.Component {
         {console.log("p",newProps)}
         // if (newProps.readUrl !== this.state.readUrl) {
 
-        //this.setState({readUrl: newProps.readUrl});
+        this.setState({readUrl: newProps.readUrl});
         const {readUrl, localData, skip, pageSize} = newProps;
         this.fetchGridData(readUrl, localData, skip, pageSize);
         // }
