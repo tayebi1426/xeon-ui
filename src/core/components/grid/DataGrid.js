@@ -23,15 +23,12 @@ class DataGrid extends React.Component {
     }
 
     componentDidMount() {
-        {console.log("pr",this.props)}
         const {readUrl, localData, skip, pageSize} = this.props;
         this.fetchGridData(readUrl, localData, skip, pageSize);
     }
 
     componentWillReceiveProps(newProps) {
-        {console.log("p",newProps)}
         // if (newProps.readUrl !== this.state.readUrl) {
-
         this.setState({readUrl: newProps.readUrl});
         const {readUrl, localData, skip, pageSize} = newProps;
         this.fetchGridData(readUrl, localData, skip, pageSize);
@@ -51,7 +48,30 @@ class DataGrid extends React.Component {
         }
     }
 
+    fillGridData(request, data, total) {
+        let {jalali, row} = this.state;
+        let customData = data.map(item => Object.assign({inEdit: true}, item));
+        customData = jalali ? customData.map(item => {
+                jalali.forEach(date => {
+                    item[date] = gregorianToJalali(item[date])
+                });
+                return item;
+            })
+            : customData;
+        customData = row ? customData.map((item, index) => {
+            item['rowId'] = index + 1;
+            return item;
+        }) : customData;
+        this.setState({
+            data: customData,
+            total: total,
+            take: request.take,
+            skip: request.skip
+        });
+    }
+
     dataStateChange = (e) => {
+        console.log("e",e);
         this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
     };
 
@@ -93,7 +113,6 @@ class DataGrid extends React.Component {
             let rowColumn = this.addRowColumn();
             gridColumns = [rowColumn, ...gridColumns];
         }
-
         return gridColumns;
     }
 
@@ -135,32 +154,11 @@ class DataGrid extends React.Component {
 
     itemChange = (e) => {
         e.dataItem[e.field] = e.value;
+        let skip = this.state.skip;
         let item = e.dataItem;
-        let index = e.dataItem.rowId-1;
-        this.props.changeData(item,index);
+        let index = e.dataItem.id-1;
+        this.props.changeData(item,index,skip);
         };
-
-    fillGridData(request, data, total) {
-        let {jalali, row} = this.state;
-        let customData = data.map(item => Object.assign({inEdit: true}, item));
-        customData = jalali ? customData.map(item => {
-                jalali.forEach(date => {
-                    item[date] = gregorianToJalali(item[date])
-                });
-                return item;
-            })
-            : customData;
-        customData = row ? customData.map((item, index) => {
-            item['rowId'] = index + 1;
-            return item;
-        }) : customData;
-        this.setState({
-            data: customData,
-            total: total,
-            take: request.take,
-            skip: request.skip
-        });
-    }
 }
 
 DataGrid.propTypes = {
@@ -218,7 +216,7 @@ DataGrid.propTypes = {
 
 DataGrid.defaultProps = {
     data: [],
-    pageSize: 10,
+    pageSize:10,
     sortable: true,
     sort: [],
     filterable: false,
