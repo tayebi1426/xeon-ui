@@ -153,10 +153,11 @@ class DataGrid extends React.Component {
     }
 
     itemChange = (e) => {
+        console.log("skip", this.state.skip);
         e.dataItem[e.field] = e.value;
         let skip = this.state.skip;
         let item = e.dataItem;
-        let index = e.dataItem.id-1;
+        let index = skip + e.dataItem.rowId-1;
         this.props.changeData(item,index,skip);
         };
 }

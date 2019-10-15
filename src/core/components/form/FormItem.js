@@ -4,7 +4,7 @@ import {FormGroup} from 'reactstrap'
 import Label from "./Label";
 import {withTranslation} from "../../util";
 
-function Field({id, name,placeholder, label, children,t, ...restProps}) {
+function Field({id, name,placeholder, label, children,t,error, ...restProps}) {
 
     id = id || name;
     placeholder=placeholder&&t(placeholder);
@@ -15,6 +15,7 @@ function Field({id, name,placeholder, label, children,t, ...restProps}) {
     return <FormGroup {...restProps}>
         <Label htmlFor={id} code={label}/>
         {filed}
+        {error && <div className="text-danger my-1">{error}</div>}
     </FormGroup>
 }
 
