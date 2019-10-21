@@ -1,14 +1,17 @@
 import React from "react";
 import {Grid as KGrid, GridColumn as KGridColumn} from '@progress/kendo-react-grid'
+import { IntlProvider, load, LocalizationProvider, loadMessages } from '@progress/kendo-react-intl';
 import {withTranslation, XhrRequest} from '../../util'
 import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
 import gregorianToJalali from "../../util/gregorainToJalali";
+import faMessages from './fa.json';
+
+loadMessages(faMessages, 'fa-FA');
 
 class DataGrid extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -71,8 +74,7 @@ class DataGrid extends React.Component {
     }
 
     dataStateChange = (e) => {
-        console.log("e",e);
-        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
+              this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
     };
 
     addRowColumn = () => {
@@ -86,15 +88,26 @@ class DataGrid extends React.Component {
 
     render() {
         let gridColumns = this.regenerateGridColumns();
-        return <KGrid className="k-rtl"
-                      onDataStateChange={this.dataStateChange}
-                      editField="inEdit"
-                      onItemChange={this.itemChange}
-                      {...this.props}
-                      {...this.state}
-        >
-            {gridColumns}
-        </KGrid>
+
+        return(
+            <LocalizationProvider language="fa-FA">
+            <IntlProvider locale="fa" >
+                <div dir={'rtl'}>
+            <KGrid
+                className="k-rtl"
+                          onDataStateChange={this.dataStateChange}
+                          editField="inEdit"
+                          onItemChange={this.itemChange}
+                          {...this.props}
+                          {...this.state}
+                           >
+                {gridColumns}
+
+            </KGrid>
+                </div>
+                </IntlProvider>
+            </LocalizationProvider>
+        )
     }
 
     regenerateGridColumns() {
@@ -109,7 +122,7 @@ class DataGrid extends React.Component {
             gridColumns.push(this.createCommandColumn(gridCommands[0]));
         }
 
-        if (row) {
+        if(row) {
             let rowColumn = this.addRowColumn();
             gridColumns = [rowColumn, ...gridColumns];
         }

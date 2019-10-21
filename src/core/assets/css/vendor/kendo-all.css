@@ -20267,3 +20267,41 @@ kendo-scheduler .k-event.k-event-inverse, .k-event.k-event-inverse {
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08)
 }
+
+.k-pager-numbers .k-link, .k-pager-numbers .k-link:link {
+    /*color:#000000;*/
+}
+.k-pager-wrap .k-pager-info {
+    padding-left: 10px;
+}
+.k-pager-numbers .k-state-selected {
+    border-radius: 50%;
+}
+
+.k-pager-numbers .k-link:hover, .k-pager-numbers .k-link.k-state-hover {
+    color:#ea4435;
+    background-color: #ededed;
+
+}
+
+.k-link:hover,  .k-link.k-state-hover {
+    border-radius: 50%;
+}
+
+
+.k-grid-pager .k-i-arrow-e::before {
+    content: 'k-i-arrow-w'
+}
+
+.k-grid-pager .k-i-arrow-w::before {
+    content: 'k-i-arrow-e'
+}
+
+.k-grid-pager .k-i-seek-e::before {
+    content: 'k-i-arrow-end-left'
+}
+
+.k-grid-pager .k-i-seek-w::before {
+    content: 'k-i-arrow-end-right'
+}
+
