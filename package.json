@@ -50,8 +50,7 @@
     "react-select": "^3.0.4",
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
-    "validatorjs": "^3.17.1"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

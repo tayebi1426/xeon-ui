@@ -15,8 +15,7 @@ function Field({id, name,placeholder, label, children,t,error, ...restProps}) {
     return <FormGroup {...restProps}>
         <Label htmlFor={id} code={label}/>
         {filed}
-        {error && <div className="text-danger my-1">{error}</div>}
-    </FormGroup>
+        </FormGroup>
 }
 
 Field.propTypes = {

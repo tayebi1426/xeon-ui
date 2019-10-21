@@ -4,23 +4,14 @@ import Login from "../ui/Login";
 
 let FormsUi = React.lazy(() => import("../ui/FormsUi"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
-let FraudGrid = React.lazy(() => import("../ui/FraudGrid"));
 let TabComponent = React.lazy(() => import("../ui/TabComponent"));
 let SearchGithub = React.lazy(() => import("../ui/SearchGithub"));
-let Test = React.lazy(() => import("../ui/Test"));
-let ValidationTest = React.lazy(() => import("../ui/ValidationTest"));
-let ValidationTestFormsy = React.lazy(() => import("../ui/ValidationTestFormsy"));
-let ValidationFormik = React.lazy(() => import("../ui/ValidationFormik"));
+
 
 
 const MAIN_ROUTES = [
     {path: '/form', component: FormsUi,roles:['ADMIN']},
     {path: '/grid', component: GridUi},
-    {path:'/validation',component:ValidationTest},
-    {path:'/validationformsy',component:ValidationTestFormsy},
-    {path:'/ValidationFormik',component:ValidationFormik},
-    {path: '/gridTest', component: FraudGrid},
-    {path: '/test', component: Test},
     {path: '/tab', component: TabComponent,access:[]},
     {path: '/searchGithub', component: SearchGithub}
 ];

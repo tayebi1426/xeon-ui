@@ -88,7 +88,6 @@ class DataGrid extends React.Component {
 
     render() {
         let gridColumns = this.regenerateGridColumns();
-
         return(
             <LocalizationProvider language="fa-FA">
             <IntlProvider locale="fa" >
@@ -166,7 +165,6 @@ class DataGrid extends React.Component {
     }
 
     itemChange = (e) => {
-        console.log("skip", this.state.skip);
         e.dataItem[e.field] = e.value;
         let skip = this.state.skip;
         let item = e.dataItem;
