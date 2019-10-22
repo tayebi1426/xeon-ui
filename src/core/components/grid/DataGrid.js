@@ -7,9 +7,9 @@ import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
 import gregorianToJalali from "../../util/gregorainToJalali";
-import faMessages from './fa.json';
+//import faMessages from './fa.json';
 
-loadMessages(faMessages, 'fa-FA');
+//loadMessages(faMessages, 'fa-FA');
 
 class DataGrid extends React.Component {
     constructor(props) {

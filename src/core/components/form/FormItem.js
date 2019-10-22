@@ -3,19 +3,35 @@ import PropTypes from 'prop-types';
 import {FormGroup} from 'reactstrap'
 import Label from "./Label";
 import {withTranslation} from "../../util";
+import FormContext from "./FormContext";
+import ErrorMessage from "./FieldError";
 
-function Field({id, name,placeholder, label, children,t,error, ...restProps}) {
+class Field extends React.Component {
 
-    id = id || name;
-    placeholder=placeholder&&t(placeholder);
+    render() {
+        let formContext = this.context;
+        let {id, label, name, placeholder, children, t, ...restProps} = this.props;
+        id = id || name;
+        placeholder = placeholder && t(placeholder);
 
-    let child = React.Children.only(children);
-    let filed = React.cloneElement(child, {id, name,placeholder, ...child.props}, child.children);
-    delete restProps.tReady;
-    return <FormGroup {...restProps}>
-        <Label htmlFor={id} code={label}/>
-        {filed}
+        let child = React.Children.only(children);
+        let filed = React.cloneElement(child, {
+            id,
+            name,
+            placeholder,
+            value: formContext.values[name],
+            onChange: formContext.handleChange,
+            ...child.props
+        }, child.children);
+
+        delete restProps.tReady;
+        return <FormGroup {...restProps}>
+            <Label htmlFor={id} code={label}/>
+            {filed}
+            <ErrorMessage fieldName={name}/>
         </FormGroup>
+
+    }
 }
 
 Field.propTypes = {
@@ -40,8 +56,8 @@ Field.propTypes = {
     errorMessage: PropTypes.string
 };
 
-Field.defaultProps={
+Field.defaultProps = {
     className: 'col-4 col-xs-12',
 };
-
+Field.contextType = FormContext;
 export default withTranslation(Field);
