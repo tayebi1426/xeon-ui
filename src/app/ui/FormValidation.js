@@ -1,23 +1,17 @@
 import React from "react";
-import {Field, Form, Input} from "../../core";
-import Card from "../../core/components/CustomBootstrap/Card";
+import {Card, Field, Form, Input} from "../../core";
+
+let SAMPLE_FORM_RULES = {
+    username: 'required|min:4',
+    email: 'required|email|max:10'
+};
 
 class FormValidation extends React.Component {
 
+    onValidate=(validator)=>{
 
-    formValidate = values => {
-        let errors = {};
-        if (values.email) {
-            if (values.email.search('@') === -1)
-                errors.email = 'invalid email address';
-        } else {
-            errors.email = 'Required';
-        }
-        return errors;
     };
-
     handleSubmit = (values, actions) => {
-        console.debug('actions : ', actions);
         setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
@@ -28,10 +22,14 @@ class FormValidation extends React.Component {
         return (
             <Card>
                 <Form
-                    initialValues={{email: ''}}
-                    validate={this.formValidate}
+                    initialValues={{username: '', email: ''}}
+                    rules={SAMPLE_FORM_RULES}
+                    onValidate={this.onValidate}
                     onSubmit={this.handleSubmit}>
 
+                    <Field name="username" label="username">
+                        <Input type="text"/>
+                    </Field>
                     <Field id="exampleEmail" name="email" label="email" placeholder="email">
                         <Input type="text"/>
                     </Field>

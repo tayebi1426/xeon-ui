@@ -1,13 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Validator from "validatorjs";
-import "../../assets/css/sass/components/form.scss";
 import {Formik} from "formik";
 import FormContext from "./FormContext";
+import DataValidator from "../../validation/DataValidator";
+import {isFunction} from "../../util";
 
-Validator.useLang('fa');
 
 class Form extends React.Component {
+
+    defaultFormValidate = (values) => {
+        let {rules, onValidate} = this.props;
+        if (!rules) {
+            return {};
+        }
+        let validator = DataValidator.validate(values, rules);
+        if (isFunction(onValidate)) {
+            onValidate(validator);
+        }
+        if (validator.passes()) {
+            return {};
+        }
+        return validator.errors.errors;
+    };
 
     renderForm = (formProps) => {
         let {children, innerRef, ...restProps} = this.props;
@@ -17,36 +31,44 @@ class Form extends React.Component {
         delete restProps.validate;
 
         return <FormContext.Provider value={formProps}>
-            <form ref={innerRef} onSubmit={formProps.handleSubmit} {...restProps}>
+            <form ref={innerRef}
+                  onSubmit={formProps.handleSubmit}
+                  {...restProps}>
                 {children}
             </form>
         </FormContext.Provider>
     };
 
     render() {
-        let {initialValues,onSubmit,validate}=this.props;
+        let {initialValues, onSubmit, validate} = this.props;
+        if (!validate) {
+            validate = this.defaultFormValidate
+        }
         return <Formik render={this.renderForm}
                        initialValues={initialValues}
                        onSubmit={onSubmit}
-                       validate={validate}
-                       >
-
-        </Formik>
+                       validate={validate}/>
     }
 }
 
 Form.propTypes = {
     title: PropTypes.string,
+    validateOnChange: PropTypes.bool,
+    validateOnBlur: PropTypes.bool,
     autoComplete: PropTypes.string,
     onChange: PropTypes.func,
     onSubmit: PropTypes.func,
     validate: PropTypes.func,
+    onValidate: PropTypes.func,
     initialValues: PropTypes.object,
     innerRef: PropTypes.object,
+    fieldLabels: PropTypes.object,
     children: PropTypes.node
 };
 
 Form.defaultProps = {
+    validateOnChange: true,
+    validateOnBlur: false,
     autoComplete: 'off',
 };
 
