@@ -3,14 +3,15 @@ import DefaultLayout from "../../core/layouts/DefaultLayout";
 import Login from "../ui/Login";
 
 let FormsUi = React.lazy(() => import("../ui/FormsUi"));
+let FormValidation = React.lazy(() => import("../ui/FormValidation"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
 let TabComponent = React.lazy(() => import("../ui/TabComponent"));
 let SearchGithub = React.lazy(() => import("../ui/SearchGithub"));
 
 
-
 const MAIN_ROUTES = [
-    {path: '/form', component: FormsUi,roles:['ADMIN']},
+    {path: '/form', component: FormsUi},
+    {path: '/formValidation', component: FormValidation},
     {path: '/grid', component: GridUi},
     {path: '/tab', component: TabComponent,access:[]},
     {path: '/searchGithub', component: SearchGithub}

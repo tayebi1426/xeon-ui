@@ -1,11 +1,6 @@
 import React from 'react'
-import {FormGroup} from 'reactstrap'
 import PropTypes from 'prop-types';
 import DropDownList from "react-select";
-
-import "../../assets/css/sass/components/select.scss";
-import Error from './FieldError'
-import Label from "./Label";
 
 function Select(props) {
     return <DropDownList {...props}/>

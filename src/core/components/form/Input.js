@@ -1,8 +1,6 @@
 import React from 'react'
 import {Input as BsInput} from 'reactstrap'
 import PropTypes from 'prop-types';
-import "../../assets/css/sass/components/inputText.scss";
-
 
 function Input(props) {
     return <BsInput  {...props}/>
