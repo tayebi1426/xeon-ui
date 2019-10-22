@@ -1,6 +1,6 @@
 import React from "react";
-import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue} from "../../core/index";
-import SalesChartCard from "./SalesChartCard";
+import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue,Card} from "../../core/index";
+
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -41,7 +41,7 @@ class FormsUi extends React.Component {
     }
 
     render() {
-        return <div>
+        return <Card>
             <LabelAndValue label="email" value="R@T.com"/>
             <Form title="sampleForm">
                 <Row>
@@ -71,8 +71,8 @@ class FormsUi extends React.Component {
                 </Row>
             </Form>
 
-            <SalesChartCard/>
-        </div>
+
+        </Card>
     }
 
 }
