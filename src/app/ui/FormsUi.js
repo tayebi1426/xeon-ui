@@ -1,7 +1,6 @@
 import React from "react";
 import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue,Card} from "../../core/index";
 
-
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
     {label: "Vanilla", value: "vanilla", key: 1},

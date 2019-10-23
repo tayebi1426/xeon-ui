@@ -57,8 +57,8 @@ class GridUi extends React.Component {
                         <GridColumn field="name" title="product.name"/>
                         <GridCommands>
                             <EditCommand onClick={this.handleEditItem}/>
-                            <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
-                            <GridCommand icon="tools" title="delete" onClick={this.handleDeleteItem}/>
+                           {/* <GridCommand icon="spinner" title="delete" onClick={this.handleDeleteItem}/>
+                            <GridCommand icon="spinner" title="delete" onClick={this.handleDeleteItem}/>*/}
                         </GridCommands>
                     </DataGrid>
                 </Card>

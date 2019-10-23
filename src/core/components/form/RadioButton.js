@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {CustomInput, FormGroup, Input} from "reactstrap";
-import '../../assets/css/sass/components/radioButton.scss'
-import Checkbox from "./Checkbox";
+import {CustomInput} from "reactstrap";
+
 
 
 function RadioButton(props) {

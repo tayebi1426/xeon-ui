@@ -1,42 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Icon from '../common/Icon';
 import withTranslation from "../../util/WithTranslation";
 
 class GridCommand extends React.Component {
 
     render() {
         let {
-            icon, iconSize, title, t, onClick,color,
+            icon, iconSize, title, t, onClick,
             dataIndex,
             dataItem
         } = this.props;
-
-        let iconColor = 'text-secondary';
-
-            switch(color){
-                case 'primary':
-                    iconColor = "text-primary" ;
-                    break;
-                case 'info':
-                    iconColor = 'text-info';
-                    break;
-                case 'danger':
-                    iconColor = 'text-danger';
-                    break;
-                case 'success':
-                    iconColor = 'text-success';
-                    break;
-                case 'warning':
-                    iconColor = 'text-warning';
-                    break;
-                default:
-                    iconColor = "text-secondary";
-                    break;
-            }
-
-
+        console.debug('icon : ',icon);
         return <span title={t(title)} onClick={onClick.bind(null, {dataItem, dataIndex})}>
-                 {icon &&<i className={`${icon} ${iconSize} ${iconColor}`} />  }
+            <Icon code={icon} size={iconSize}  mask={['far', 'circle']}/>
         </span>
     }
 }
@@ -49,8 +26,7 @@ GridCommand.propTypes = {
 };
 
 GridCommand.defaultProps = {
-       iconSize: "fa-lg"
-
+    iconSize: "2x"
 };
 
 

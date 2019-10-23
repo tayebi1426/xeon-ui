@@ -11,7 +11,7 @@ import ('./assets/css/sass/themes/gogo.light.green.scss');
 import ('./assets/css/sass/style.scss');
 // material Icons local
 // awesome Icons local
-//import ('./assets/fonts/awesome/css/fontawesome.css');
+import ('./assets/fonts/awesome/css/fontawesome.css');
 // animate css local
 import ('./assets/css/animate.min.css');
 import ('./assets/css/notification/notifications.css');
