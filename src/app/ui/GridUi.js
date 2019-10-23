@@ -1,8 +1,8 @@
 import React from "react";
 
-import {Card, withTranslation} from "../../core";
+import {Card, withTranslation,Button} from "../../core";
 import {DataGrid, EditCommand, GridColumn, GridCommand, GridCommands} from "../../core/components/grid";
-import Button from "reactstrap/es/Button";
+
 
 const gridData = [
     {id: 1, code: 'A1', name: 'A-1'},
@@ -45,11 +45,10 @@ class GridUi extends React.Component {
     }
 
     render() {
-
         return (
             <React.Fragment>
 
-                <Button onClick={this.bindGridData}/>
+                <Button title="bind data" color="primary" onClick={this.bindGridData}/>
 
                 <Card title="Sample Grid">
                     <DataGrid localData={gridData}>

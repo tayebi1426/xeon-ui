@@ -9,7 +9,7 @@ import * as PropTypes from 'prop-types';
 import gregorianToJalali from "../../util/gregorainToJalali";
 //import faMessages from './fa.json';
 
-//loadMessages(faMessages, 'fa-FA');
+loadMessages(faMessages, 'fa-FA');
 
 class DataGrid extends React.Component {
     constructor(props) {

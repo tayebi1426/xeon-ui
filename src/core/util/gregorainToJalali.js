@@ -3,7 +3,7 @@ const gregorianToJalali = dt => {
         return;
     }
     let date = new Date(dt);
-        if(date != 'Invalid Date') {
+        if(date !== 'Invalid Date') {
             return date.toLocaleDateString("fa-IR", {
                 year: "numeric",
                 month: "2-digit",
