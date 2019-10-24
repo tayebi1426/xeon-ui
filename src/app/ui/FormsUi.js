@@ -1,5 +1,6 @@
 import React from "react";
-import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue,Card} from "../../core/index";
+import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue,Card,Icon} from "../../core/index";
+
 
 const SELECT_DATA = [
     {label: "Chocolate", value: "chocolate", key: 0},
@@ -41,6 +42,7 @@ class FormsUi extends React.Component {
 
     render() {
         return <Card>
+            <Icon color='Mediumslateblue' icon='camera' size={"6x"}/>
             <LabelAndValue label="email" value="R@T.com"/>
             <Form title="sampleForm">
                 <Row>

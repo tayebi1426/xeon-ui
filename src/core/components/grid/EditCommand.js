@@ -12,6 +12,7 @@ EditCommand.propTypes = {
 
 EditCommand.defaultProps = {
     icon: "edit",
+    iconColor: "#f4b02f",
     title: "edit"
 };
 

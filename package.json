@@ -8,7 +8,6 @@
   "description": "react ui",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "@fortawesome/react-fontawesome": "^0.1.4",
     "@progress/kendo-data-query": "^1.5.1",
     "@progress/kendo-drawing": "^1.5.12",
     "@progress/kendo-react-animation": "^3.2.2",
@@ -54,8 +53,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@fortawesome/fontawesome-free": "^5.9.0"
+    "@babel/preset-react": "^7.0.0"
   },
   "scripts": {
     "start": "set PORT=9009 & react-scripts start",
