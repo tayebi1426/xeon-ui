@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Row } from "reactstrap";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import IconCards from "../../../containers/ui/IconCards";
@@ -15,10 +15,10 @@ export default class CardsUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.cards" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <IconCards />
         <ImageCards />

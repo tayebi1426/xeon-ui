@@ -8,7 +8,7 @@ import {
   CardTitle
 } from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import NotificationExamples from "../../../containers/ui/NotificationExamples";
 
@@ -27,17 +27,17 @@ export default class AlertsUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.alerts" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <NotificationExamples />
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -69,9 +69,9 @@ export default class AlertsUi extends Component {
                 </Alert>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -103,9 +103,9 @@ export default class AlertsUi extends Component {
                 </Alert>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -124,7 +124,7 @@ export default class AlertsUi extends Component {
                 </UncontrolledAlert>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

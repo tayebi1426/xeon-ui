@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Card, CardBody, Badge } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import { NavLink } from "react-router-dom";
 import orders from "../../data/orders";
 
@@ -32,11 +32,11 @@ const OrderItem = ({ name, address, date, status, statusColor }) => {
 const Orders = () => {
   return (
     <Row>
-      <Colxx>
+      <Col>
         {orders.map((order, index) => {
           return <OrderItem key={`order_${index}`} {...order} />;
         })}
-      </Colxx>
+      </Col>
     </Row>
   );
 };

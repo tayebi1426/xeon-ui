@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { injectIntl } from "react-intl";
 import { Row } from "reactstrap";
 
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import IconCardsCarousel from "../../../containers/dashboards/IconCardsCarousel";
@@ -19,44 +19,44 @@ class EcommerceDashboard extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.ecommerce" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx lg="12" xl="6">
+          <Col lg="12" xl="6">
             <IconCardsCarousel />
             <Row>
-              <Colxx md="12" className="mb-4">
+              <Col md="12" className="mb-4">
                 <SalesChartCard />
-              </Colxx>
+              </Col>
             </Row>
-          </Colxx>
-          <Colxx lg="12" xl="6" className="mb-4">
+          </Col>
+          <Col lg="12" xl="6" className="mb-4">
             <RecentOrders />
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx lg="4" md="12" className="mb-4">
+          <Col lg="4" md="12" className="mb-4">
             <ProductCategoriesDoughnut chartClass="dashboard-donut-chart" />
-          </Colxx>
-          <Colxx lg="4" md="6" className="mb-4">
+          </Col>
+          <Col lg="4" md="6" className="mb-4">
             <Cakes />
-          </Colxx>
-          <Colxx lg="4" md="6" className="mb-4">
+          </Col>
+          <Col lg="4" md="6" className="mb-4">
             <Tickets />
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xl="6" lg="12" className="mb-4">
+          <Col xl="6" lg="12" className="mb-4">
             <Calendar />
-          </Colxx>
-          <Colxx xl="6" lg="12" className="mb-4">
+          </Col>
+          <Col xl="6" lg="12" className="mb-4">
             <BestSellers />
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

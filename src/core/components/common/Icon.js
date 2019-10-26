@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import {concatStrings} from '../../util/StringUtils'
 
 const Icon = (props) => {
-    let {icon, size, color, perFix} = props;
-    let className = concatStrings(perFix, ' fa-', icon, ' fa-', size);
+    let {code, size, color, perFix} = props;
+    let className = concatStrings(perFix, ' fa-', code, ' fa-', size);
     return <span style={{color}} className={className}/>
 };
 
 Icon.propTypes = {
-    icon: PropTypes.string,
+    code: PropTypes.string,
     perFix: PropTypes.string,
     iconSet: PropTypes.oneOf(['FONT_AWESOME']),
     color: PropTypes.string,

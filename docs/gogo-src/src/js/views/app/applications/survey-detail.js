@@ -18,7 +18,7 @@ import classnames from "classnames";
 import { mapOrder } from "../../../helpers/Utils";
 
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx } from "../../../components/common/CustomBootstrap";
+import { Col } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import QuestionBuilder from "../../../containers/applications/QuestionBuilder";
 
@@ -94,7 +94,7 @@ class SurveyDetailApp extends Component {
     return (
       <Fragment>
         <Row className="app-row survey-app">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h1>
               <i className="simple-icon-refresh heading-icon" />{" "}
               <span className="align-middle d-inline-block pt-1">
@@ -172,7 +172,7 @@ class SurveyDetailApp extends Component {
                     <Row>
                       <SurveyDetailCard survey={survey} />
 
-                      <Colxx xxs="12" lg="8">
+                      <Col xxs="12" lg="8">
                         <ul className="list-unstyled mb-4">
                           {survey.questions.map((item, index) => {
                             return (
@@ -201,7 +201,7 @@ class SurveyDetailApp extends Component {
                             Add Question
                           </Button>
                         </div>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                   <TabPane tabId="2">
@@ -215,7 +215,7 @@ class SurveyDetailApp extends Component {
             ) : (
               <div className="loading" />
             )}
-          </Colxx>
+          </Col>
         </Row>
         <SurveyDetailApplicationMenu />
       </Fragment>

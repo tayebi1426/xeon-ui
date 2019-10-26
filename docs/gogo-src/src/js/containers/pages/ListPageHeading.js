@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import { injectIntl } from "react-intl";
 
-import { Colxx, Separator } from "../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../components/common/CustomBootstrap";
 import Breadcrumb from "../navs/Breadcrumb";
 import IntlMessages from "../../helpers/IntlMessages";
 
@@ -67,7 +67,7 @@ class ListPageHeading extends Component {
     const { displayOptionsIsOpen, dropdownSplitOpen } = this.state;
     return (
       <Row>
-        <Colxx xxs="12">
+        <Col xxs="12">
           <div className="mb-2">
             <h1>
               <IntlMessages id={heading} />
@@ -220,7 +220,7 @@ class ListPageHeading extends Component {
             </Collapse>
           </div>
           <Separator className="mb-5" />
-        </Colxx>
+        </Col>
       </Row>
     );
   }

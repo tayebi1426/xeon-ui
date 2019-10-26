@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, CardBody, Badge } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const SurveyDetailCard = ({ survey }) => {
   return (
-    <Colxx xxs="12" lg="4" className="mb-4">
+    <Col xxs="12" lg="4" className="mb-4">
       <Card className="mb-4">
         <CardBody>
           <p className="list-item-heading mb-4">Summary</p>
@@ -33,7 +33,7 @@ const SurveyDetailCard = ({ survey }) => {
           </div>
         </CardBody>
       </Card>
-    </Colxx>
+    </Col>
   );
 };
 

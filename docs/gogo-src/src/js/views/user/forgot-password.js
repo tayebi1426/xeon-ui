@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Card, CardTitle, Form, Label, Input, Button } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import IntlMessages from "../../helpers/IntlMessages";
 
 export default class ForgotPassword extends Component {
@@ -14,7 +14,7 @@ export default class ForgotPassword extends Component {
   render() {
     return (
       <Row className="h-100">
-        <Colxx xxs="12" md="10" className="mx-auto my-auto">
+        <Col xxs="12" md="10" className="mx-auto my-auto">
           <Card className="auth-card">
             <div className="position-relative image-side ">
               <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
@@ -53,7 +53,7 @@ export default class ForgotPassword extends Component {
               </Form>
             </div>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

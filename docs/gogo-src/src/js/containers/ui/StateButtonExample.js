@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 import StateButton from "../../components/StateButton";
 export default class StateButtonExample extends Component {
@@ -25,7 +25,7 @@ export default class StateButtonExample extends Component {
 
   render() {
     return (
-      <Colxx xxs="12" className="mb-4">
+      <Col xxs="12" className="mb-4">
         <Card>
           <CardBody>
             <CardTitle>
@@ -55,7 +55,7 @@ export default class StateButtonExample extends Component {
             </StateButton>
           </CardBody>
         </Card>
-      </Colxx>
+      </Col>
     );
   }
 }

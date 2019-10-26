@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions";
 
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 class Register extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Register extends Component {
   render() {
     return (
       <Row className="h-100">
-        <Colxx xxs="12" md="10" className="mx-auto my-auto">
+        <Col xxs="12" md="10" className="mx-auto my-auto">
           <Card className="auth-card">
             <div className="position-relative image-side ">
               <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
@@ -74,7 +74,7 @@ class Register extends Component {
               </Form>
             </div>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

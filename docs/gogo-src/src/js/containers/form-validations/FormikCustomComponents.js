@@ -14,7 +14,7 @@ import {
   FormikDatePicker
 } from "./FormikFields";
 import { Row, Card, CardBody, FormGroup, Label, Button } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import IntlMessages from "../../helpers/IntlMessages";
 
 const SignupSchema = Yup.object().shape({
@@ -79,7 +79,7 @@ class FormikCustomComponents extends Component {
   render() {
     return (
       <Row className="mb-4">
-        <Colxx xxs="12">
+        <Col xxs="12">
           <Card>
             <CardBody>
               <h6 className="mb-4">Custom Components and Layouts with Yup</h6>
@@ -332,7 +332,7 @@ class FormikCustomComponents extends Component {
               </Formik>
             </CardBody>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

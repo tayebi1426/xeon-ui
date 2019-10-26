@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody } from "reactstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
-import { Separator, Colxx } from "../../../components/common/CustomBootstrap";
+import { Separator, Col } from "../../../components/common/CustomBootstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
 
 class MailingPages extends Component {
@@ -9,13 +9,13 @@ class MailingPages extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.mailing" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card className="mb-5">
               <CardBody>
                 <IntlMessages id="pages.mailing-info" />
@@ -401,7 +401,7 @@ class MailingPages extends Component {
                     `
               }}
             />
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

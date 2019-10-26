@@ -4,7 +4,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import { Row, Card, CardBody, FormGroup, Label, Button } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -34,7 +34,7 @@ class FormikValidationSchema extends Component {
   render() {
     return (
       <Row className="mb-4">
-        <Colxx xxs="12">
+        <Col xxs="12">
           <Card>
             <CardBody>
               <h6 className="mb-4">Validation Schema with Yup</h6>
@@ -115,7 +115,7 @@ class FormikValidationSchema extends Component {
               </Formik>
             </CardBody>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

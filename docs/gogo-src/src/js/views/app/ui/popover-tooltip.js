@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody, CardTitle } from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import PopoverItem from "../../../components/common/PopoverItem";
 import TooltipItem from "../../../components/common/TooltipItem";
@@ -62,16 +62,16 @@ export default class PopoverTooltipUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb
               heading="menu.popover-tooltip"
               match={this.props.match}
             />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -83,11 +83,11 @@ export default class PopoverTooltipUi extends Component {
                 })}
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -99,7 +99,7 @@ export default class PopoverTooltipUi extends Component {
                 })}
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

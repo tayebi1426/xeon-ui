@@ -3,7 +3,7 @@ import { Row } from "reactstrap";
 import Select from "react-select";
 import IntlMessages from "../../helpers/IntlMessages";
 import CustomSelectInput from "../../components/common/CustomSelectInput";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const selectData = [
     { label: "Cake", value: "cake", key: 0 },
@@ -30,7 +30,7 @@ export default class ReactSelectExample extends Component {
   render() {
     return (
       <Row>
-        <Colxx xxs="12" md="6" className="mb-5">
+        <Col xxs="12" md="6" className="mb-5">
           <label>
             <IntlMessages id="form-components.state-single" />
           </label>
@@ -43,8 +43,8 @@ export default class ReactSelectExample extends Component {
             onChange={this.handleChange}
             options={selectData}
           />
-        </Colxx>
-        <Colxx xxs="12" md="6">
+        </Col>
+        <Col xxs="12" md="6">
           <label>
             <IntlMessages id="form-components.state-multiple" />
           </label>
@@ -58,7 +58,7 @@ export default class ReactSelectExample extends Component {
             onChange={this.handleChangeMulti}
             options={selectData}
           />
-        </Colxx>
+        </Col>
       </Row>
     );
   }

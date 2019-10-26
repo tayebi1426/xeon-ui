@@ -19,7 +19,7 @@ import classnames from "classnames";
 import Rating from "../../../components/common/Rating";
 
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
-import { Colxx } from "../../../components/common/CustomBootstrap";
+import { Col } from "../../../components/common/CustomBootstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
 import RadialProgressCard from "../../../components/cards/RadialProgressCard";
 import { injectIntl } from "react-intl";
@@ -51,7 +51,7 @@ class DetailsPages extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h1>Chocolate Cake</h1>
             <div className="text-zero top-right-button-container">
               <UncontrolledDropdown>
@@ -118,7 +118,7 @@ class DetailsPages extends Component {
             <TabContent activeTab={this.state.activeFirstTab}>
               <TabPane tabId="1">
                 <Row>
-                  <Colxx xxs="12" lg="4" className="mb-4">
+                  <Col xxs="12" lg="4" className="mb-4">
                     <Card className="mb-4">
                       <div className="position-absolute card-top-buttons">
                         <Button outline color={"white"} className="icon-button">
@@ -195,37 +195,37 @@ class DetailsPages extends Component {
                       </CardBody>
                     </Card>
                     <Row>
-                      <Colxx xxs="12" className="mb-4">
+                      <Col xxs="12" className="mb-4">
                         <RadialProgressCard
                           className="mb-4"
                           title={messages["pages.order-status"]}
                           percent={85}
                           isSortable={false}
                         />
-                      </Colxx>
-                      <Colxx xxs="12" className="mb-4">
+                      </Col>
+                      <Col xxs="12" className="mb-4">
                         <RadialProgressCard
                           className="mb-4"
                           title={messages["pages.order-status"]}
                           percent={40}
                           isSortable={false}
                         />
-                      </Colxx>
+                      </Col>
                     </Row>
-                  </Colxx>
+                  </Col>
 
-                  <Colxx xxs="12" lg="8">
+                  <Col xxs="12" lg="8">
                     <SmallLineCharts itemClass="dashboard-small-chart-analytics" />
                     <WebsiteVisitsChartCard className="mb-4" controls={false} />
                     <NewComments className="mb-4" displayRate={true} />
-                  </Colxx>
+                  </Col>
                 </Row>
               </TabPane>
               <TabPane tabId="2">
                 <Orders />
               </TabPane>
             </TabContent>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

@@ -9,7 +9,7 @@ import {
     Label,
     Button,
 } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 class FormikBasicFormLevel extends Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class FormikBasicFormLevel extends Component {
     render() {
         return (
             <Row className="mb-4">
-                <Colxx xxs="12">
+                <Col xxs="12">
                     <Card>
                         <CardBody>
                             <h6 className="mb-4">Form Level Validation</h6>
@@ -78,7 +78,7 @@ class FormikBasicFormLevel extends Component {
                             </Formik>
                         </CardBody>
                     </Card>
-                </Colxx>
+                </Col>
             </Row>
         )
     }

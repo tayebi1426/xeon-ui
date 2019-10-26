@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue,Card,Icon} from "../../core/index";
+import {Button, Checkbox, Field, Form, Input, Notification, Row, Select, Switch,LabelAndValue,Card,Icon,Link} from "../../core/index";
 
 
 const SELECT_DATA = [
@@ -42,7 +42,8 @@ class FormsUi extends React.Component {
 
     render() {
         return <Card>
-            <Icon color='Mediumslateblue' icon='camera' size={"6x"}/>
+            <Icon code='camera' size={"6x"}/>
+
             <LabelAndValue label="email" value="R@T.com"/>
             <Form title="sampleForm">
                 <Row>
@@ -68,10 +69,10 @@ class FormsUi extends React.Component {
                     </Field>
                 </Row>
                 <Row>
-                    <Button title="save" color="primary" onClick={this.handleOnClick}/>
+                    <Button title="save" isPrimary={true} onClick={this.handleOnClick}/>
                 </Row>
             </Form>
-
+<Link to="/home" title="home"/>
 
         </Card>
     }

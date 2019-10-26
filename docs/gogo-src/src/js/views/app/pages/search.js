@@ -6,7 +6,7 @@ import axios from "axios";
 import Pagination from "../../../containers/pages/Pagination";
 import { servicePath } from "../../../constants/defaultValues";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
-import { Separator, Colxx } from "../../../components/common/CustomBootstrap";
+import { Separator, Col } from "../../../components/common/CustomBootstrap";
 
 const apiUrl = servicePath + "/cakes/paging";
 
@@ -64,13 +64,13 @@ class SearchPages extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.search" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 {!isLoading ? (
@@ -98,7 +98,7 @@ class SearchPages extends Component {
                 )}
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
           <Pagination
             currentPage={this.state.currentPage}
             totalPage={this.state.totalPage}

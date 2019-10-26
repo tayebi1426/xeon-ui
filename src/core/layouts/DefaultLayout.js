@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import TopNav from './TopNav'
 import Sidebar from './Sidebar';
 import {SwitchRouter} from '../components/common';
-import {Colxx, Row} from "../index";
+import {Col, Row} from "../index";
 
 class DefaultLayout extends Component {
     state = {
@@ -29,9 +29,9 @@ class DefaultLayout extends Component {
                 <main>
                     <div className="container-fluid">
                         <Row className="mb-4">
-                            <Colxx>
+                            <Col>
                                 <SwitchRouter routes={mainRoutes}/>
-                            </Colxx>
+                            </Col>
                         </Row>
                     </div>
                 </main>

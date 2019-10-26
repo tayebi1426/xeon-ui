@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Card, withTranslation,Button} from "../../core";
+import {Card, withTranslation} from "../../core";
 import {DataGrid, EditCommand, GridColumn, GridCommand, GridCommands} from "../../core/components/grid";
 
 
@@ -21,12 +21,7 @@ const gridData = [
 
 class GridUi extends React.Component {
 
-    pageChange = (event) => {
-        this.setState({
-            skip: event.page.skip,
-            take: event.page.take
-        });
-    };
+
     handleEditItem = ({dataItem}) => {
         console.debug('handleEditItem : ', dataItem);
     };
@@ -47,9 +42,6 @@ class GridUi extends React.Component {
     render() {
         return (
             <React.Fragment>
-
-                <Button title="bind data" color="primary" onClick={this.bindGridData}/>
-
                 <Card title="Sample Grid">
                     <DataGrid localData={gridData}>
                         <GridColumn field="id" title="product.id"/>

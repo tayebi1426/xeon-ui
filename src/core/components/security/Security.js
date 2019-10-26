@@ -44,8 +44,8 @@ class Security {
         return XhrRequest.postRequest(`${AUTHENTICATION_SERVER_URL}/oauth/token`, querystring.encode(params), headers)
             .then(function (response) {
                 sessionStorage.setItem(sessionName, JSON.stringify(response));
-            }).catch(function (edrror) {
-                console.log('Error on Authentication', edrror);
+            }).catch((error)=> {
+                console.error('Error on Authentication', error);
             });
     }
 

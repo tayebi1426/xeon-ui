@@ -8,16 +8,16 @@ import {
   CardImgOverlay
 } from "reactstrap";
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 const ImageOverlayCard = () => {
   return (
     <Row>
-      <Colxx xxs="12">
+      <Col xxs="12">
         <CardTitle className="mb-4">
           <IntlMessages id="cards.image-overlay-card" />
         </CardTitle>
         <Row>
-          <Colxx xxs="12" xs="6" lg="3">
+          <Col xxs="12" xs="6" lg="3">
             <Card inverse className="mb-4">
               <CardImg
                 src="/assets/img/card-thumb-1.jpg"
@@ -31,9 +31,9 @@ const ImageOverlayCard = () => {
                 </CardText>
               </CardImgOverlay>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
-      </Colxx>
+      </Col>
     </Row>
   );
 };

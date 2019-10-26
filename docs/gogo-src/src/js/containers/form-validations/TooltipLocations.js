@@ -7,7 +7,7 @@ import {
   AvFeedback
 } from "availity-reactstrap-validation";
 import { Button, Label, Card, CardBody, Row } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 class TooltipLocations extends Component {
   render() {
@@ -67,100 +67,100 @@ class TooltipLocations extends Component {
             onSubmit={this.handleSubmit}
           >
             <Row>
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-0">
                   <Label>error-l-0</Label>
                   <AvInput name="input8" required />
                   <AvFeedback>error-l-0</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-25">
                   <Label>error-l-25</Label>
                   <AvInput name="input9" required />
                   <AvFeedback>error-l-25</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-50">
                   <Label>error-l-50</Label>
                   <AvInput name="input10" required />
                   <AvFeedback>error-l-50</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-75">
                   <Label>error-l-75</Label>
                   <AvInput name="input11" required />
                   <AvFeedback>error-l-75</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-100">
                   <Label>error-l-100</Label>
                   <AvInput name="input12" required />
                   <AvFeedback>error-l-100</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-125">
                   <Label>error-l-125</Label>
                   <AvInput name="input13" required />
                   <AvFeedback>error-l-125</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-150">
                   <Label>error-l-150</Label>
                   <AvInput name="input14" required />
                   <AvFeedback>error-l-150</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-175">
                   <Label>error-l-175</Label>
                   <AvInput name="input15" required />
                   <AvFeedback>error-l-175</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-200">
                   <Label>error-l-200</Label>
                   <AvInput name="input16" required />
                   <AvFeedback>error-l-200</AvFeedback>
                 </AvGroup>
-              </Colxx>
-              <Colxx xxs="12" sm="6">
+              </Col>
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-225">
                   <Label>error-l-225</Label>
                   <AvInput name="input17" required />
                   <AvFeedback>error-l-225</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-250">
                   <Label>error-l-250</Label>
                   <AvInput name="input18" required />
                   <AvFeedback>error-l-250</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="12" sm="6">
+              <Col xxs="12" sm="6">
                 <AvGroup className="error-l-275">
                   <Label>error-l-275</Label>
                   <AvInput name="input19" required />
                   <AvFeedback>error-l-275</AvFeedback>
                 </AvGroup>
-              </Colxx>
+              </Col>
             </Row>
             <Button color="primary">Submit</Button>
           </AvForm>

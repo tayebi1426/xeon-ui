@@ -24,27 +24,21 @@ class Form extends React.Component {
     };
 
     renderForm = (formProps) => {
-        let {children, innerRef, ...restProps} = this.props;
-
-        delete restProps.initialValues;
-        delete restProps.onSubmit;
-        delete restProps.validate;
-        delete restProps.validateOnChange;
-        delete restProps.validateOnBlur;
-        delete restProps.onValidate;
+        let {children, innerRef} = this.props;
 
         return <FormContext.Provider value={formProps}>
             <form ref={innerRef}
-                  onSubmit={formProps.handleSubmit}
-                  {...restProps}>
+                  onSubmit={formProps.handleSubmit}>
                 {children}
             </form>
         </FormContext.Provider>
     };
 
     render() {
-        let {initialValues, onSubmit, validate,validateOnChange,
-            validateOnBlur} = this.props;
+        let {
+            initialValues, onSubmit, validate, validateOnChange,
+            validateOnBlur
+        } = this.props;
         if (!validate) {
             validate = this.defaultFormValidate
         }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import { ThemeColors } from "../../helpers/ThemeColors";
 import { DoughnutChart } from "../../components/charts";
 
@@ -101,7 +101,7 @@ const codingChartData = {
 
 const SurveyCharts = () => {
   return (
-    <Colxx xxs="12" lg="8">
+    <Col xxs="12" lg="8">
       <Card className="mb-4">
         <CardBody>
           <CardTitle>How old are you?</CardTitle>
@@ -137,7 +137,7 @@ const SurveyCharts = () => {
           </div>
         </CardBody>
       </Card>
-    </Colxx>
+    </Col>
   );
 };
 

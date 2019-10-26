@@ -9,7 +9,7 @@ import {
   CardTitle
 } from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 export default class CollapseUi extends Component {
@@ -38,14 +38,14 @@ export default class CollapseUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.collapse" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -72,11 +72,11 @@ export default class CollapseUi extends Component {
                 </Collapse>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -161,7 +161,7 @@ export default class CollapseUi extends Component {
                 </Fragment>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

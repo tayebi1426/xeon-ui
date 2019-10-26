@@ -4,7 +4,7 @@ import Switch from "rc-switch";
 import "rc-switch/assets/index.css";
 
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 export default class SwitchExamples extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ export default class SwitchExamples extends Component {
             <IntlMessages id="form-components.switch" />
           </CardTitle>
           <Row className="mb-4">
-            <Colxx xxs="6">
+            <Col xxs="6">
               <label>
                 <IntlMessages id="form-components.primary" />
               </label>
@@ -35,9 +35,9 @@ export default class SwitchExamples extends Component {
                   this.setState({ switchCheckedPrimary });
                 }}
               />
-            </Colxx>
+            </Col>
 
-            <Colxx xxs="6">
+            <Col xxs="6">
               <label>
                 <IntlMessages id="form-components.secondary" />
               </label>
@@ -48,11 +48,11 @@ export default class SwitchExamples extends Component {
                   this.setState({ switchCheckedSecondary });
                 }}
               />
-            </Colxx>
+            </Col>
           </Row>
 
           <Row>
-            <Colxx xxs="6">
+            <Col xxs="6">
               <label>
                 <IntlMessages id="form-components.primary-inverse" />
               </label>
@@ -63,9 +63,9 @@ export default class SwitchExamples extends Component {
                   this.setState({ switchCheckedPrimaryInverse });
                 }}
               />
-            </Colxx>
+            </Col>
 
-            <Colxx xxs="6">
+            <Col xxs="6">
               <label>
                 <IntlMessages id="form-components.secondary-inverse" />
               </label>
@@ -76,7 +76,7 @@ export default class SwitchExamples extends Component {
                   this.setState({ switchCheckedSecondaryInverse });
                 }}
               />
-            </Colxx>
+            </Col>
           </Row>
         </CardBody>
       </Card>

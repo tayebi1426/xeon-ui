@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Badge,Button, Row, Card, CardBody, CardTitle } from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 export default class BadgesUi extends Component {
@@ -9,13 +9,13 @@ export default class BadgesUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.badges" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -41,9 +41,9 @@ export default class BadgesUi extends Component {
                 </h6>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -75,9 +75,9 @@ export default class BadgesUi extends Component {
                 </Badge>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -109,9 +109,9 @@ export default class BadgesUi extends Component {
                 </Badge>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -143,9 +143,9 @@ export default class BadgesUi extends Component {
                 </Badge>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -159,9 +159,9 @@ export default class BadgesUi extends Component {
                 </Button>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
 
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -193,7 +193,7 @@ export default class BadgesUi extends Component {
                 </Badge>{" "}
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

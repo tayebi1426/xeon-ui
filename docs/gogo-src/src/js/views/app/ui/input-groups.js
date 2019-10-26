@@ -18,7 +18,7 @@ import {
 import { injectIntl } from "react-intl";
 import IntlMessages from "../../../helpers/IntlMessages";
 
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 class InputGroupsUi extends Component {
@@ -48,14 +48,14 @@ class InputGroupsUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.input-groups" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -363,7 +363,7 @@ class InputGroupsUi extends Component {
                 </InputGroup>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
      
       </Fragment>

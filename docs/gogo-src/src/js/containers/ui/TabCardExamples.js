@@ -15,7 +15,7 @@ import { NavLink } from "react-router-dom";
 
 import classnames from "classnames";
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 class TabCardExamples extends Component {
   constructor(props) {
@@ -46,12 +46,12 @@ class TabCardExamples extends Component {
   render() {
     return (
       <Row>
-        <Colxx xxs="12">
+        <Col xxs="12">
           <CardTitle className="mb-4">
             <IntlMessages id="cards.tab-card" />
           </CardTitle>
           <Row>
-            <Colxx xxs="12" xs="6" lg="3">
+            <Col xxs="12" xs="6" lg="3">
               <Card className="mb-4">
                 <CardHeader>
                   <Nav tabs className="card-header-tabs ">
@@ -103,7 +103,7 @@ class TabCardExamples extends Component {
                 <TabContent activeTab={this.state.activeFirstTab}>
                   <TabPane tabId="1">
                     <Row>
-                      <Colxx sm="12">
+                      <Col sm="12">
                         <CardBody>
                           <CardTitle className="mb-4">
                             Homemade Cheesecake with Fresh Berries and Mint
@@ -112,12 +112,12 @@ class TabCardExamples extends Component {
                             Edit
                           </Button>
                         </CardBody>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                   <TabPane tabId="2">
                     <Row>
-                      <Colxx sm="12">
+                      <Col sm="12">
                         <CardBody>
                           <CardTitle className="mb-4">
                             Wedding Cake with Flowers Macarons and Blueberries
@@ -126,12 +126,12 @@ class TabCardExamples extends Component {
                             Edit
                           </Button>
                         </CardBody>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                   <TabPane tabId="3">
                     <Row>
-                      <Colxx sm="12">
+                      <Col sm="12">
                         <CardBody>
                           <CardTitle className="mb-4">
                             Cheesecake with Chocolate Cookies and Cream Biscuits
@@ -140,14 +140,14 @@ class TabCardExamples extends Component {
                             Edit
                           </Button>
                         </CardBody>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                 </TabContent>
               </Card>
-            </Colxx>
+            </Col>
 
-            <Colxx xxs="12" xs="6" lg="3">
+            <Col xxs="12" xs="6" lg="3">
               <Card className="mb-4">
                 <CardHeader className="pl-0 pr-0">
                   <Nav tabs className=" card-header-tabs  ml-0 mr-0">
@@ -185,7 +185,7 @@ class TabCardExamples extends Component {
                 <TabContent activeTab={this.state.activeSecondTab}>
                   <TabPane tabId="1">
                     <Row>
-                      <Colxx sm="12">
+                      <Col sm="12">
                         <CardBody>
                           <CardTitle className="mb-4">
                             Homemade Cheesecake with Fresh Berries and Mint
@@ -194,12 +194,12 @@ class TabCardExamples extends Component {
                             Edit
                           </Button>
                         </CardBody>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                   <TabPane tabId="2">
                     <Row>
-                      <Colxx sm="12">
+                      <Col sm="12">
                         <CardBody>
                           <CardTitle className="mb-4">
                             Wedding Cake with Flowers Macarons and Blueberries
@@ -208,12 +208,12 @@ class TabCardExamples extends Component {
                             Edit
                           </Button>
                         </CardBody>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                   <TabPane tabId="3">
                     <Row>
-                      <Colxx sm="12">
+                      <Col sm="12">
                         <CardBody>
                           <CardTitle className="mb-4">
                             Cheesecake with Chocolate Cookies and Cream Biscuits
@@ -222,14 +222,14 @@ class TabCardExamples extends Component {
                             Edit
                           </Button>
                         </CardBody>
-                      </Colxx>
+                      </Col>
                     </Row>
                   </TabPane>
                 </TabContent>
               </Card>
-            </Colxx>
+            </Col>
           </Row>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

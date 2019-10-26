@@ -16,7 +16,7 @@ import {
   CardTitle
 } from "reactstrap";
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -67,7 +67,7 @@ class FormikCustomWithTopLabels extends Component {
     return (
       <div>
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -186,11 +186,11 @@ class FormikCustomWithTopLabels extends Component {
                 </Formik>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -309,7 +309,7 @@ class FormikCustomWithTopLabels extends Component {
                 </Formik>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </div>
     );

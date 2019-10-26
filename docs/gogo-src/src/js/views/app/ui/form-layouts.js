@@ -26,7 +26,7 @@ import "rc-switch/assets/index.css";
 import "rc-slider/assets/index.css";
 import "react-rater/lib/react-rater.css";
 
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import Select from "react-select";
@@ -96,13 +96,13 @@ class FormLayoutsUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.form-layouts" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -150,11 +150,11 @@ class FormLayoutsUi extends Component {
                 </Form>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -165,35 +165,35 @@ class FormLayoutsUi extends Component {
                     <Label for="emailHorizontal" sm={2}>
                       <IntlMessages id="forms.email" />
                     </Label>
-                    <Colxx sm={10}>
+                    <Col sm={10}>
                       <Input
                         type="email"
                         name="email"
                         id="emailHorizontal"
                         placeholder={messages["forms.email"]}
                       />
-                    </Colxx>
+                    </Col>
                   </FormGroup>
 
                   <FormGroup row>
                     <Label for="passwordHorizontal" sm={2}>
                       <IntlMessages id="forms.password" />
                     </Label>
-                    <Colxx sm={10}>
+                    <Col sm={10}>
                       <Input
                         type="password"
                         name="password"
                         id="passwordHorizontal"
                         placeholder={messages["forms.password"]}
                       />
-                    </Colxx>
+                    </Col>
                   </FormGroup>
 
                   <FormGroup row>
                     <Label sm={2} className="pt-0">
                       <IntlMessages id="forms.radios" />
                     </Label>
-                    <Colxx sm={10}>
+                    <Col sm={10}>
                       <FormGroup check>
                         <Label check>
                           <Input type="radio" name="radio1" />
@@ -212,21 +212,21 @@ class FormLayoutsUi extends Component {
                           <IntlMessages id="forms.third-radio-disabled" />
                         </Label>
                       </FormGroup>
-                    </Colxx>
+                    </Col>
                   </FormGroup>
 
                   <FormGroup row>
                     <Label sm={2} className="pt-0">
                       <IntlMessages id="forms.checkbox" />
                     </Label>
-                    <Colxx sm={10}>
+                    <Col sm={10}>
                       <FormGroup check>
                         <Label check>
                           <Input type="checkbox" name="check1" /> Example
                           <IntlMessages id="forms.checkbox" />
                         </Label>
                       </FormGroup>
-                    </Colxx>
+                    </Col>
                   </FormGroup>
 
                   <Button color="primary">
@@ -235,11 +235,11 @@ class FormLayoutsUi extends Component {
                 </Form>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -291,11 +291,11 @@ class FormLayoutsUi extends Component {
                 </Form>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -348,11 +348,11 @@ class FormLayoutsUi extends Component {
                 </Form>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -360,7 +360,7 @@ class FormLayoutsUi extends Component {
                 </CardTitle>
                 <Form>
                   <FormGroup row>
-                    <Colxx sm={6}>
+                    <Col sm={6}>
                       <FormGroup>
                         <Label for="exampleEmailGrid">
                           <IntlMessages id="forms.email" />
@@ -372,9 +372,9 @@ class FormLayoutsUi extends Component {
                           placeholder={messages["forms.email"]}
                         />
                       </FormGroup>
-                    </Colxx>
+                    </Col>
 
-                    <Colxx sm={6}>
+                    <Col sm={6}>
                       <FormGroup>
                         <Label for="examplePasswordGrid">
                           <IntlMessages id="forms.password" />
@@ -386,9 +386,9 @@ class FormLayoutsUi extends Component {
                           placeholder={messages["forms.password"]}
                         />
                       </FormGroup>
-                    </Colxx>
+                    </Col>
 
-                    <Colxx sm={12}>
+                    <Col sm={12}>
                       <FormGroup>
                         <Label for="exampleAddressGrid">
                           <IntlMessages id="forms.address" />
@@ -400,9 +400,9 @@ class FormLayoutsUi extends Component {
                           placeholder={messages["forms.address"]}
                         />
                       </FormGroup>
-                    </Colxx>
+                    </Col>
 
-                    <Colxx sm={12}>
+                    <Col sm={12}>
                       <FormGroup>
                         <Label for="exampleAddress2Grid">
                           <IntlMessages id="forms.address2" />
@@ -414,9 +414,9 @@ class FormLayoutsUi extends Component {
                           placeholder={messages["forms.address"]}
                         />
                       </FormGroup>
-                    </Colxx>
+                    </Col>
 
-                    <Colxx sm={6}>
+                    <Col sm={6}>
                       <FormGroup>
                         <Label for="exampleEmailGrid">
                           <IntlMessages id="forms.city" />
@@ -428,9 +428,9 @@ class FormLayoutsUi extends Component {
                           placeholder={messages["forms.city"]}
                         />
                       </FormGroup>
-                    </Colxx>
+                    </Col>
 
-                    <Colxx sm={4}>
+                    <Col sm={4}>
                       <FormGroup>
                         <Label>
                           <IntlMessages id="forms.state" />
@@ -443,9 +443,9 @@ class FormLayoutsUi extends Component {
                           <option>Option 5</option>
                         </Input>
                       </FormGroup>
-                    </Colxx>
+                    </Col>
 
-                    <Colxx sm={2}>
+                    <Col sm={2}>
                       <FormGroup>
                         <Label for="exampleZipGrid">
                           <IntlMessages id="forms.zip" />
@@ -457,7 +457,7 @@ class FormLayoutsUi extends Component {
                           placeholder={messages["forms.zip"]}
                         />
                       </FormGroup>
-                    </Colxx>
+                    </Col>
                   </FormGroup>
 
                   <Button color="primary">
@@ -466,7 +466,7 @@ class FormLayoutsUi extends Component {
                 </Form>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

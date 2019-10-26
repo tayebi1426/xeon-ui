@@ -1,6 +1,6 @@
 {
   "name": "xeon-ui",
-  "version": "0.1.8",
+  "version": "0.2.1",
   "author": "Namazi & Tayebi",
   "license": "ISC",
   "main": "dist/index.js",
@@ -62,7 +62,7 @@
     "lint:js": "eslint src/**/*.js",
     "build:dist": "babel src/core --out-dir dist --copy-files --ignore src/tests/",
     "prepublishOnly": "npm run build:dist",
-    "publish-nexus": "npm publish --registry=http://nexus:8081/repository/dms-npm-repo/"
+    "publish-nexus": "npm publish --dd --registry=http://nexus:8081/repository/dms-npm-repo/"
   },
   "browserslist": [
     "chrome >70",

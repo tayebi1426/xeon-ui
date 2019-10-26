@@ -1,5 +1,5 @@
 import React from "react";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import { Nav, NavItem, NavLink } from "reactstrap";
 class Pagination extends React.Component {
   componentDidMount() {}
@@ -42,7 +42,7 @@ class Pagination extends React.Component {
     let prevPageButtonClassName = currentPage <= 1 ? "disabled" : "";
     let nextPageButtonClassName = currentPage >= totalPage ? "disabled" : "";
     return totalPage > 1 ? (
-      <Colxx xxs="12" className="mt-3">
+      <Col xxs="12" className="mt-3">
         <Nav className="pagination justify-content-center">
           {firstIsActive && (
             <NavItem className={`page-item ${firstPageButtonClassName}`}>
@@ -97,9 +97,9 @@ class Pagination extends React.Component {
             </NavItem>
           )}
         </Nav>
-      </Colxx>
+      </Col>
     ) : (
-      <Colxx xxs="12" className="mt-2" />
+      <Col xxs="12" className="mt-2" />
     );
   }
 }

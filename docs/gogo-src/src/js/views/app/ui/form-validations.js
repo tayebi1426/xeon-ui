@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row} from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import FormikBasicFieldLevel from "../../../containers/form-validations/FormikBasicFieldLevel";
@@ -19,16 +19,16 @@ export default class FormValidationsUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb
               heading="menu.form-validations"
               match={this.props.match}
             />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xs="12" md="6" className="mb-3">
+          <Col xs="12" md="6" className="mb-3">
             <h5 className="mb-5">
               <IntlMessages id="forms.validation-formik" />
             </h5>
@@ -37,23 +37,23 @@ export default class FormValidationsUi extends Component {
             <FormikValidationSchema />
             <FormikCustomComponents />
             <FormikCustomWithTopLabels />
-          </Colxx>
+          </Col>
 
-          <Colxx xs="12" md="6" className="mb-3">
+          <Col xs="12" md="6" className="mb-3">
             <h5 className="mb-5">
               <IntlMessages id="forms.validation-availity" />
             </h5>
             <AvailityBasic />
             <AvailityCustom />
             <AvailityDefaultValues />
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xs="12">
+          <Col xs="12">
             <h5 className="mb-5">Tooltip Positioning</h5>
             <TooltipLocations />
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

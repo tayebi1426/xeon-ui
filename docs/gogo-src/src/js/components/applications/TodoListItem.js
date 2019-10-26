@@ -2,11 +2,11 @@ import React from "react";
 import { Card, CardBody, Badge, CustomInput } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
-import { Colxx } from "../common/CustomBootstrap";
+import { Col } from "../common/CustomBootstrap";
 
 const TodoListItem = ({ item, handleCheckChange,isSelected }) => {
   return (
-    <Colxx xxs="12">
+    <Col xxs="12">
       <Card className="card d-flex mb-3">
         <div className="d-flex flex-grow-1 min-width-zero">
           <CardBody className="align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
@@ -51,7 +51,7 @@ const TodoListItem = ({ item, handleCheckChange,isSelected }) => {
           <p className="mb-0">{item.detail}</p>
         </div>
       </Card>
-    </Colxx>
+    </Col>
   );
 };
 

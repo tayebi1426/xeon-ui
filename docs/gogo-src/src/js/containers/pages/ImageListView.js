@@ -12,11 +12,11 @@ import {
 import { NavLink } from "react-router-dom";
 import classnames from "classnames";
 import { ContextMenuTrigger } from "react-contextmenu";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const ImageListView = ({ product, isSelect, collect, onCheckItem }) => {
   return (
-    <Colxx sm="6" lg="4" xl="3" className="mb-3" key={product.id}>
+    <Col sm="6" lg="4" xl="3" className="mb-3" key={product.id}>
       <ContextMenuTrigger id="menu_id" data={product.id} collect={collect}>
         <Card
           onClick={event => onCheckItem(event, product.id)}
@@ -38,7 +38,7 @@ const ImageListView = ({ product, isSelect, collect, onCheckItem }) => {
           </div>
           <CardBody>
             <Row>
-              <Colxx xxs="2">
+              <Col xxs="2">
                 <CustomInput
                   className="item-check mb-0"
                   type="checkbox"
@@ -47,18 +47,18 @@ const ImageListView = ({ product, isSelect, collect, onCheckItem }) => {
                   onChange={() => {}}
                   label=""
                 />
-              </Colxx>
-              <Colxx xxs="10" className="mb-3">
+              </Col>
+              <Col xxs="10" className="mb-3">
                 <CardSubtitle>{product.title}</CardSubtitle>
                 <CardText className="text-muted text-small mb-0 font-weight-light">
                   {product.date}
                 </CardText>
-              </Colxx>
+              </Col>
             </Row>
           </CardBody>
         </Card>
       </ContextMenuTrigger>
-    </Colxx>
+    </Col>
   );
 };
 

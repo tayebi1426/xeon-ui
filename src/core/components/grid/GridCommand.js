@@ -7,12 +7,9 @@ class GridCommand extends React.Component {
 
     render() {
         let {
-            icon, iconSize,iconColor, title, t, onClick,
-            dataIndex,
-            dataItem
+            icon, iconSize,iconColor
         } = this.props;
-        console.debug('icon : ',icon);
-        return <Icon icon={icon} size={iconSize} color={iconColor} />// <span title={t(title)} onClick={onClick.bind(null, {dataItem, dataIndex})}>
+        return <Icon code={icon} size={iconSize} color={iconColor} />
 
         //</span>
     }

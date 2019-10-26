@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody, CardTitle } from "reactstrap";
 
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import CustomInputExample from "../../../containers/forms/CustomInputExample";
@@ -20,16 +20,16 @@ export default class JumbotronUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb
               heading="menu.form-components"
               match={this.props.match}
             />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -38,11 +38,11 @@ export default class JumbotronUi extends Component {
                 <CustomInputExample />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -51,29 +51,29 @@ export default class JumbotronUi extends Component {
                 <ReactSelectExample />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
                   <IntlMessages id="form-components.react-autosuggest" />
                 </CardTitle>
                 <Row className="mb-4">
-                  <Colxx xxs="12" sm="6">
+                  <Col xxs="12" sm="6">
                     <ReactAutoSugegstExample />
-                  </Colxx>
+                  </Col>
                 </Row>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
         <DatePickerExamples />
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -82,11 +82,11 @@ export default class JumbotronUi extends Component {
                 <DropzoneExample />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -95,17 +95,17 @@ export default class JumbotronUi extends Component {
                 <TagsInputExample />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <SwitchExamples />
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -114,11 +114,11 @@ export default class JumbotronUi extends Component {
                 <SliderExamples />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -127,7 +127,7 @@ export default class JumbotronUi extends Component {
                 <RatingExamples />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

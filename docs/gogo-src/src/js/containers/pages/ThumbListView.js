@@ -3,11 +3,11 @@ import { Card, CustomInput, Badge } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import classnames from "classnames";
 import { ContextMenuTrigger } from "react-contextmenu";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const ThumbListView = ({ product, isSelect, collect, onCheckItem }) => {
   return (
-    <Colxx xxs="12" key={product.id} className="mb-3">
+    <Col xxs="12" key={product.id} className="mb-3">
       <ContextMenuTrigger id="menu_id" data={product.id} collect={collect}>
         <Card
           onClick={event => onCheckItem(event, product.id)}
@@ -54,7 +54,7 @@ const ThumbListView = ({ product, isSelect, collect, onCheckItem }) => {
           </div>
         </Card>
       </ContextMenuTrigger>
-    </Colxx>
+    </Col>
   );
 };
 

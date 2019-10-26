@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import {
@@ -144,7 +144,7 @@ class SurveyApp extends Component {
     return (
       <Fragment>
         <Row className="app-row survey-app">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <div className="mb-2">
               <h1>
                 <IntlMessages id="menu.survey" />
@@ -270,7 +270,7 @@ class SurveyApp extends Component {
                 <div className="loading" />
               )}
             </Row>
-          </Colxx>
+          </Col>
         </Row>
 
         {loading && <SurveyApplicationMenu />}

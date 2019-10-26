@@ -12,7 +12,7 @@ import {
 import { NavLink } from "react-router-dom";
 
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import ThumbnailImage from "../../components/cards/ThumbnailImage"
 import ThumbnailLetters from "../../components/cards/ThumbnailLetters"
 
@@ -20,10 +20,10 @@ const UserCardExamples = () => {
   return (
          
     <Row>
-    <Colxx xxs="12">
+    <Col xxs="12">
       <CardTitle className="mb-4"><IntlMessages id="cards.user-card" /></CardTitle>
       <Row>
-        <Colxx md="6" sm="6" lg="4" xxs="12">
+        <Col md="6" sm="6" lg="4" xxs="12">
           <Card className="mb-4">
             <CardBody>
               <div className="text-center">
@@ -36,9 +36,9 @@ const UserCardExamples = () => {
               </div>
             </CardBody>
           </Card>
-        </Colxx>
+        </Col>
 
-        <Colxx md="6" sm="6" lg="4" xxs="12">
+        <Col md="6" sm="6" lg="4" xxs="12">
           <Card className="d-flex flex-row mb-4">
             <NavLink to="/app/ui/cards" className="d-flex">
               <ThumbnailImage rounded src="/assets/img/profile-pic-l.jpg" alt="Card image cap" className="m-4" />
@@ -72,10 +72,10 @@ const UserCardExamples = () => {
               </CardBody>
             </div>
           </Card>
-        </Colxx>
+        </Col>
 
 
-        <Colxx md="6" sm="6" lg="4" xxs="12">
+        <Col md="6" sm="6" lg="4" xxs="12">
           <Card className="d-flex flex-row mb-4">
             <NavLink to="/app/ui/cards" className="d-flex">
               <ThumbnailImage rounded small src="/assets/img/profile-pic-l.jpg" alt="profile" className="m-4" />
@@ -107,9 +107,9 @@ const UserCardExamples = () => {
               </CardBody>
             </div>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
-    </Colxx>
+    </Col>
   </Row>
   )
 }

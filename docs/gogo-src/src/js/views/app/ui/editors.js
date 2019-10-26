@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody, CardTitle } from "reactstrap";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import IntlMessages from "../../../helpers/IntlMessages";
 
@@ -58,13 +58,13 @@ export default class EditorsUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.editors" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -79,11 +79,11 @@ export default class EditorsUi extends Component {
                 />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="mb-4">
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card>
               <CardBody>
                 <CardTitle>
@@ -96,7 +96,7 @@ export default class EditorsUi extends Component {
                 />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
      
       </Fragment>

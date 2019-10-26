@@ -25,6 +25,8 @@ class Field extends React.Component {
         }, child.children);
 
         delete restProps.tReady;
+        delete restProps.i18n;
+
         return <FormGroup {...restProps}>
             <Label htmlFor={id} code={label}/>
             {filed}

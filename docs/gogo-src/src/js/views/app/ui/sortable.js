@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody } from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import Sortable from "react-sortablejs";
 
@@ -11,19 +11,19 @@ export default class SortableUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.sortable" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h5 className="mb-4">
               <IntlMessages id="sortable.columns" />
             </h5>
 
             <Sortable className="row icon-cards-row mb-2">
-              <Colxx xxs="6" sm="4" md="3" className="mb-4">
+              <Col xxs="6" sm="4" md="3" className="mb-4">
                 <Card>
                   <CardBody className="text-center">
                     <i className="iconsminds-clock" />
@@ -33,9 +33,9 @@ export default class SortableUi extends Component {
                     <p className="lead text-center">14</p>
                   </CardBody>
                 </Card>
-              </Colxx>
+              </Col>
 
-              <Colxx xxs="6" sm="4" md="3" className="mb-4">
+              <Col xxs="6" sm="4" md="3" className="mb-4">
                 <Card>
                   <CardBody className="text-center">
                     <i className="iconsminds-basket-coins" />
@@ -45,8 +45,8 @@ export default class SortableUi extends Component {
                     <p className="lead text-center">32</p>
                   </CardBody>
                 </Card>
-              </Colxx>
-              <Colxx xxs="6" sm="4" md="3" className="mb-4">
+              </Col>
+              <Col xxs="6" sm="4" md="3" className="mb-4">
                 <Card>
                   <CardBody className="text-center">
                     <i className="iconsminds-arrow-refresh" />
@@ -56,8 +56,8 @@ export default class SortableUi extends Component {
                     <p className="lead text-center">74</p>
                   </CardBody>
                 </Card>
-              </Colxx>
-              <Colxx xxs="6" sm="4" md="3" className="mb-4">
+              </Col>
+              <Col xxs="6" sm="4" md="3" className="mb-4">
                 <Card>
                   <CardBody className="text-center">
                     <i className="iconsminds-mail-read" />
@@ -67,13 +67,13 @@ export default class SortableUi extends Component {
                     <p className="lead text-center">25</p>
                   </CardBody>
                 </Card>
-              </Colxx>
+              </Col>
             </Sortable>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h5 className="mb-4">
               <IntlMessages id="sortable.basic" />
             </h5>
@@ -96,11 +96,11 @@ export default class SortableUi extends Component {
                 </Sortable>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h5 className="mb-4">
               <IntlMessages id="sortable.handles" />
             </h5>
@@ -148,7 +148,7 @@ export default class SortableUi extends Component {
                 </Sortable>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
      
 

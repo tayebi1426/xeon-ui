@@ -20,7 +20,7 @@ import ('./assets/css/notification/notifications.css');
 export * from './components/grid';
 export * from './components/tab';
 export {CardBody, CardTitle, Row} from 'reactstrap'
-export {Card, Colxx} from "./components/CustomBootstrap";
+export {Card, Col} from "./components/CustomBootstrap";
 export * from './components/common';
 export * from './components/form';
 export * from './util';

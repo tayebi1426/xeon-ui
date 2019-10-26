@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 
 import { Row, Button } from "reactstrap";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import {
@@ -51,13 +51,13 @@ class MenuTypes extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.types" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Button
               outline
               color="primary"
@@ -82,7 +82,7 @@ class MenuTypes extends Component {
             >
               <IntlMessages id="menu.hidden" />
             </Button>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

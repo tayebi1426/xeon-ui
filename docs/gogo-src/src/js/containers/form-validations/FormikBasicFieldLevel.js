@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 
 import { Row, Card, CardBody, FormGroup, Label, Button } from "reactstrap";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 class FormikBasicFieldLevel extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class FormikBasicFieldLevel extends Component {
   render() {
     return (
       <Row className="mb-4">
-        <Colxx xxs="12">
+        <Col xxs="12">
           <Card>
             <CardBody>
               <h6 className="mb-4">Field Level Validation</h6>
@@ -88,7 +88,7 @@ class FormikBasicFieldLevel extends Component {
               </Formik>
             </CardBody>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody, Table } from "reactstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
-import { Separator, Colxx } from "../../../components/common/CustomBootstrap";
+import { Separator, Col } from "../../../components/common/CustomBootstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
 
 class InvoicePages extends Component {
@@ -9,31 +9,31 @@ class InvoicePages extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.invoice" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-5">
               <CardBody>
                 <IntlMessages id="pages.invoice-info" />
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h3 className="mb-4">
               <IntlMessages id="pages.react-version" />
             </h3>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="invoice-react">
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <Card className="mb-5 invoice-contents">
               <CardBody className="d-flex flex-column justify-content-between">
                 <div className="d-flex flex-column">
@@ -148,19 +148,19 @@ class InvoicePages extends Component {
                 </div>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <h3 className="mb-4">
               <IntlMessages id="pages.inline-version" />
             </h3>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row className="invoice">
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <div
               className="content"
               dangerouslySetInnerHTML={{
@@ -378,7 +378,7 @@ class InvoicePages extends Component {
                     `
               }}
             />
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

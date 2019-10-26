@@ -18,7 +18,7 @@ import {
   BreadcrumbItem
 } from "reactstrap";
 import IntlMessages from "../../../helpers/IntlMessages";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import { default as BreadcrumbContainer } from "../../../containers/navs/Breadcrumb";
 
 export default class NavigationUi extends Component {
@@ -39,17 +39,17 @@ export default class NavigationUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <BreadcrumbContainer
               heading="menu.navigation"
               match={this.props.match}
             />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -79,11 +79,11 @@ export default class NavigationUi extends Component {
                 </Nav>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -137,11 +137,11 @@ export default class NavigationUi extends Component {
                 </Nav>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -172,11 +172,11 @@ export default class NavigationUi extends Component {
                 </Nav>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -207,11 +207,11 @@ export default class NavigationUi extends Component {
                 </Nav>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -242,11 +242,11 @@ export default class NavigationUi extends Component {
                 </Nav>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -299,11 +299,11 @@ export default class NavigationUi extends Component {
                 </Nav>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -343,11 +343,11 @@ export default class NavigationUi extends Component {
                 </Pagination>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -424,11 +424,11 @@ export default class NavigationUi extends Component {
                 </Pagination>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -513,11 +513,11 @@ export default class NavigationUi extends Component {
                 </Pagination>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Card className="mb-4">
               <CardBody>
                 <CardTitle>
@@ -543,7 +543,7 @@ export default class NavigationUi extends Component {
                 </Breadcrumb>
               </CardBody>
             </Card>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

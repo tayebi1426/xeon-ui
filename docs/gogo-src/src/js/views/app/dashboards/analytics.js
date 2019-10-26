@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { injectIntl } from 'react-intl';
 import { Row } from "reactstrap";
 
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 
 import ProfileStatuses from "../../../containers/dashboards/ProfileStatuses";
@@ -21,47 +21,47 @@ class DashboardAnalytics extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.analytics" match={this.props.match}/>
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx sm="12" md="6" className="mb-4">
+          <Col sm="12" md="6" className="mb-4">
             <WebsiteVisitsChartCard/>
-          </Colxx>
-          <Colxx sm="12" md="6" className="mb-4">
+          </Col>
+          <Col sm="12" md="6" className="mb-4">
             <ConversionRatesChartCard/>
-          </Colxx>
+          </Col>
         </Row>
 
         <Row>
-          <Colxx xl="4" lg="6" md="12" className="mb-4">
+          <Col xl="4" lg="6" md="12" className="mb-4">
            <ProductCategoriesDoughnut/>
-          </Colxx>
-          <Colxx xl="4" lg="6" md="12" className="mb-4">
+          </Col>
+          <Col xl="4" lg="6" md="12" className="mb-4">
            <ProfileStatuses cardClass="dashboard-progress"/>
-          </Colxx>
-          <Colxx xl="4" lg="12" md="12">
+          </Col>
+          <Col xl="4" lg="12" md="12">
            <SmallLineCharts itemClass="dashboard-small-chart-analytics"/>
-          </Colxx>
+          </Col>
         </Row>
 
         <SortableStaticticsRow messages={messages}/>
 
         <Row>
-          <Colxx xxs="12" lg="6" className="mb-4">
+          <Col xxs="12" lg="6" className="mb-4">
             <OrderStockRadarChart/>
-          </Colxx>
-          <Colxx xxs="12" lg="6" className="mb-4">
+          </Col>
+          <Col xxs="12" lg="6" className="mb-4">
             <ProductCategoriesPolarArea/>
-          </Colxx>
+          </Col>
         </Row>
         
         <Row>
-          <Colxx xxs="12" className="mb-4">
+          <Col xxs="12" className="mb-4">
             <SalesChartCard/>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

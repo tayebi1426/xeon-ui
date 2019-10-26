@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardTitle,Button } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import { Colxx } from "../components/common/CustomBootstrap";
+import { Col } from "../components/common/CustomBootstrap";
 import IntlMessages from "../helpers/IntlMessages";
 
 
@@ -19,7 +19,7 @@ class Error extends Component {
         <main>
           <div className="container">
             <Row className="h-100">
-              <Colxx xxs="12" md="10" className="mx-auto my-auto">
+              <Col xxs="12" md="10" className="mx-auto my-auto">
                 <Card className="auth-card">
                   <div className="position-relative image-side ">
                     <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
@@ -46,7 +46,7 @@ class Error extends Component {
                     </Button>
                   </div>
                 </Card>
-              </Colxx>
+              </Col>
             </Row>
           </div>
         </main>

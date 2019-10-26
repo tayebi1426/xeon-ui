@@ -7,5 +7,6 @@ import DialogBody from "./dialog/DialogBody";
 import DialogFooter from "./dialog/DialogFooter";
 import ConfirmDialog from "./dialog/ConfirmDialog";
 import Icon from "./Icon";
+import Link from "./Link";
 
-export {I18Massage,LabelAndValue,Notification,SwitchRouter,Icon, Dialog, DialogBody, DialogFooter, ConfirmDialog}
+export {I18Massage,LabelAndValue,Notification,SwitchRouter,Icon,Link, Dialog, DialogBody, DialogFooter, ConfirmDialog}

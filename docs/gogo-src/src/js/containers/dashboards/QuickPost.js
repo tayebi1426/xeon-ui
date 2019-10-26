@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import Select from "react-select";
 
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 import IntlMessages from "../../helpers/IntlMessages";
 import CustomSelectInput from "../../components/common/CustomSelectInput";
 
@@ -70,25 +70,25 @@ export default class QuickPost extends Component {
               <Label sm="3">
                 <IntlMessages id="dashboards.title" />
               </Label>
-              <Colxx sm="9">
+              <Col sm="9">
                 <Input type="text" name="text" />
-              </Colxx>
+              </Col>
             </FormGroup>
 
             <FormGroup row>
               <Label sm="3">
                 <IntlMessages id="dashboards.content" />
               </Label>
-              <Colxx sm="9">
+              <Col sm="9">
                 <Input type="textarea" rows="3" />
-              </Colxx>
+              </Col>
             </FormGroup>
 
             <FormGroup row>
               <Label sm="3">
                 <IntlMessages id="dashboards.category" />
               </Label>
-              <Colxx sm="9">
+              <Col sm="9">
                 <Select
                   components={{ Input: CustomSelectInput }}
                   className="react-select"
@@ -98,7 +98,7 @@ export default class QuickPost extends Component {
                   onChange={this.handleChange}
                   options={selectData}
                 />
-              </Colxx>
+              </Col>
             </FormGroup>
             <Button className="float-right" color="primary">
               <IntlMessages id="dashboards.save-and-publish" />

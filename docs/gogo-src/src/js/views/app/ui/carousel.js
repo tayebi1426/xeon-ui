@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardBody, CardTitle } from "reactstrap";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import IntlMessages from "../../../helpers/IntlMessages";
 import data from "../../../data/carouselItems";
@@ -123,18 +123,18 @@ export default class CarouselUi extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.carousel" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <CardTitle>
               <IntlMessages id="carousel.basic" />
             </CardTitle>
-          </Colxx>
-          <Colxx xxs="12" className="pl-0 pr-0 mb-5">
+          </Col>
+          <Col xxs="12" className="pl-0 pr-0 mb-5">
             <GlideComponent settings={
               {
                 gap: 5,
@@ -154,15 +154,15 @@ export default class CarouselUi extends Component {
                 );
               })}
             </GlideComponent>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <CardTitle>
               <IntlMessages id="carousel.single" />
             </CardTitle>
-          </Colxx>
-          <Colxx xxs="12" className="pl-0 pr-0 mb-5">
+          </Col>
+          <Col xxs="12" className="pl-0 pr-0 mb-5">
             <GlideComponent settings={
               {
                 gap: 5,
@@ -178,15 +178,15 @@ export default class CarouselUi extends Component {
                 );
               })}
             </GlideComponent>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <CardTitle>
               <IntlMessages id="carousel.without-controls" />
             </CardTitle>
-          </Colxx>
-          <Colxx xxs="12" className="pl-0 pr-0 mb-5">
+          </Col>
+          <Col xxs="12" className="pl-0 pr-0 mb-5">
           <GlideComponent settings={
             {
               gap: 5,
@@ -208,7 +208,7 @@ export default class CarouselUi extends Component {
             );
           })}
           </GlideComponent>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

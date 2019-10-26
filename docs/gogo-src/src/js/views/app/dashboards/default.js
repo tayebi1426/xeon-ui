@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { injectIntl } from 'react-intl';
 import { Row } from "reactstrap";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import IconCardsCarousel from "../../../containers/dashboards/IconCardsCarousel";
 import RecentOrders from "../../../containers/dashboards/RecentOrders";
@@ -28,67 +28,67 @@ class DefaultDashboard extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.default" match={this.props.match}/>
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx lg="12" xl="6">
+          <Col lg="12" xl="6">
             <IconCardsCarousel/>
             <Row>
-              <Colxx md="12" className="mb-4">
+              <Col md="12" className="mb-4">
                 <SalesChartCard/>
-              </Colxx>
+              </Col>
             </Row>
-          </Colxx>
-          <Colxx lg="12" xl="6" className="mb-4">
+          </Col>
+          <Col lg="12" xl="6" className="mb-4">
             <RecentOrders/>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx lg="4" md="12" className="mb-4">
+          <Col lg="4" md="12" className="mb-4">
            <ProductCategoriesPolarArea chartClass="dashboard-donut-chart"/>
-          </Colxx>
-          <Colxx lg="4" md="6" className="mb-4">
+          </Col>
+          <Col lg="4" md="6" className="mb-4">
            <Logs/>
-          </Colxx>
-          <Colxx lg="4" md="6" className="mb-4">
+          </Col>
+          <Col lg="4" md="6" className="mb-4">
             <Tickets/>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx xl="6" lg="12" className="mb-4">
+          <Col xl="6" lg="12" className="mb-4">
             <Calendar/>
-          </Colxx>
-          <Colxx xl="6" lg="12" className="mb-4">
+          </Col>
+          <Col xl="6" lg="12" className="mb-4">
             <BestSellers/>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx sm="12" lg="4" className="mb-4">
+          <Col sm="12" lg="4" className="mb-4">
            <ProfileStatuses/>
-          </Colxx>
-          <Colxx md="6" lg="4" className="mb-4">
+          </Col>
+          <Col md="6" lg="4" className="mb-4">
             <GradientCardContainer/>
-          </Colxx>
-          <Colxx md="6" lg="4" className="mb-4">
+          </Col>
+          <Col md="6" lg="4" className="mb-4">
            <Cakes/>
-          </Colxx>
+          </Col>
         </Row>
         <SortableStaticticsRow messages={messages}/>
         <Row>
-          <Colxx sm="12" md="6" className="mb-4">
+          <Col sm="12" md="6" className="mb-4">
             <WebsiteVisitsChartCard/>
-          </Colxx>
-          <Colxx sm="12" md="6" className="mb-4">
+          </Col>
+          <Col sm="12" md="6" className="mb-4">
             <ConversionRatesChartCard/>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx lg="12" md="6" xl="4">
+          <Col lg="12" md="6" xl="4">
             <Row>
-              <Colxx lg="4" xl="12" className="mb-4">
+              <Col lg="4" xl="12" className="mb-4">
                 <GradientWithRadialProgressCard
                   icon = "iconsminds-clock"
                   title = {`5 ${messages["dashboards.files"]}`}
@@ -96,8 +96,8 @@ class DefaultDashboard extends Component {
                   percent = {5*100/12}
                   progressText = "5/12"
                 />
-              </Colxx>
-              <Colxx lg="4" xl="12" className="mb-4">
+              </Col>
+              <Col lg="4" xl="12" className="mb-4">
                 <GradientWithRadialProgressCard
                   icon = "iconsminds-male"
                   title = {`4 ${messages["dashboards.orders"]}`}
@@ -105,8 +105,8 @@ class DefaultDashboard extends Component {
                   percent = {4*100/6}
                   progressText = "4/6"
                 />
-              </Colxx>
-              <Colxx lg="4" xl="12" className="mb-4">
+              </Col>
+              <Col lg="4" xl="12" className="mb-4">
                 <GradientWithRadialProgressCard
                   icon = "iconsminds-bell"
                   title = {`8 ${messages["dashboards.alerts"]}`}
@@ -114,16 +114,16 @@ class DefaultDashboard extends Component {
                   percent = {8*100/10}
                   progressText = "8/10"
                 />
-              </Colxx>
+              </Col>
             </Row>
-          </Colxx>
-          <Colxx lg="6" md="6" xl="4" sm="12" className="mb-4">
+          </Col>
+          <Col lg="6" md="6" xl="4" sm="12" className="mb-4">
            <AdvancedSearch messages={messages}/>
-          </Colxx>
-          <Colxx lg="6" xl="4" className="mb-4">
+          </Col>
+          <Col lg="6" xl="4" className="mb-4">
             <SmallLineCharts/>
             <TopRatedItems/>
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );

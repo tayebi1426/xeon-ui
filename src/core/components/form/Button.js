@@ -4,11 +4,10 @@ import {Button as BsButton} from 'reactstrap';
 import {I18Massage} from '../common'
 
 export default class Button extends React.Component {
-    static SIZE = {sm: 'sm', md: 'md', lg: 'lg'};
 
     render() {
 
-        let {isPrimary, link, title, children, visible,innerRef, icon,...rest} = this.props;
+        let {isPrimary, link, title, children, visible, innerRef, icon, ...rest} = this.props;
         if (!visible) {
             return null;
         }
@@ -16,8 +15,8 @@ export default class Button extends React.Component {
         let btnColor = isPrimary ? 'primary' :
             (link) ? 'link' : 'secondary';
         return (
-            <BsButton className="d-flex align-items-center" innerRef={innerRef} color={btnColor} {...rest} >
-                <span><I18Massage code={title}/>{icon &&<i style={{margin:'3px',padding:'5px'}} className={icon}/> }</span>
+            <BsButton innerRef={innerRef} color={btnColor} {...rest} >
+                <span><I18Massage code={title}/>{icon && <i style={{margin: '3px', padding: '5px'}} className={icon}/>}</span>
                 {children}
             </BsButton>
         );
@@ -25,24 +24,25 @@ export default class Button extends React.Component {
 }
 
 Button.propTypes = {
-    icon:PropTypes.string,
+    icon: PropTypes.string,
+    type: PropTypes.oneOf(['submit','button','rest']),
     isPrimary: PropTypes.bool,
     onClick: PropTypes.func,
     title: PropTypes.string.isRequired,
     className: PropTypes.string,
-    color: PropTypes.string,
+    color: PropTypes.oneOf(['primary','secondary','link']),
     disabled: PropTypes.bool,
     visible: PropTypes.bool,
     link: PropTypes.bool,
     block: PropTypes.bool,
-    size: PropTypes.string,
+    size: PropTypes.oneOf(['sm', 'md', 'lg']),
     hidden: PropTypes.bool,
-    innerRef:PropTypes.func,
-    children:PropTypes.node
+    innerRef: PropTypes.func,
+    children: PropTypes.node
 };
 Button.defaultProps = {
     isPrimary: false,
     size: 'lg',
     visible: true,
-    className:'xeon-btn'
+    className: 'xeon-btn'
 };

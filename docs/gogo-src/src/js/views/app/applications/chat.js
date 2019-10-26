@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { Row } from "reactstrap";
 
-import { Colxx } from "../../../components/common/CustomBootstrap";
+import { Col } from "../../../components/common/CustomBootstrap";
 
 import {
   getContacts,
@@ -114,7 +114,7 @@ class ChatApp extends Component {
     return loadingConversations && loadingContacts ? (
       <Fragment>
         <Row className="app-row">
-          <Colxx xxs="12" className="chat-app">
+          <Col xxs="12" className="chat-app">
             {loadingConversations && selectedUser && (
               <ChatHeading
                 name={selectedUser.name}
@@ -144,7 +144,7 @@ class ChatApp extends Component {
                 })}
               </PerfectScrollbar>
             )}
-          </Colxx>
+          </Col>
         </Row>
         <SaySomething
           placeholder={messages["chat.saysomething"]}

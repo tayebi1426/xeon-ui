@@ -4,15 +4,15 @@ import { NavLink } from "react-router-dom";
 
 
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 const ImageCardList = () => {
   return (
     <Row>
-    <Colxx xxs="12">
+    <Col xxs="12">
       <CardTitle className="mb-4"><IntlMessages id="cards.image-card-list" /></CardTitle>
       <Row>
-        <Colxx xxs="12">
+        <Col xxs="12">
           <Card className="d-flex flex-row mb-3">
             <NavLink to="/app/ui/cards" className="d-flex">
               <img alt="Thumbnail" src="/assets/img/chocolate-cake-thumb.jpg" className="list-thumbnail responsive border-0" />
@@ -39,8 +39,8 @@ const ImageCardList = () => {
               </div>
             </div>
           </Card>
-        </Colxx>
-        <Colxx xxs="12">
+        </Col>
+        <Col xxs="12">
           <Card className="d-flex flex-row mb-3">
             <NavLink to="/app/ui/cards" className="d-flex">
               <img alt="Thumbnail" src="/assets/img/cheesecake-thumb.jpg" className="list-thumbnail responsive border-0" />
@@ -68,9 +68,9 @@ const ImageCardList = () => {
 
             </div>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
-    </Colxx>
+    </Col>
   </Row>
   )
 }

@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import IntlMessages from "../../helpers/IntlMessages";
-import { Colxx } from "../../components/common/CustomBootstrap";
+import { Col } from "../../components/common/CustomBootstrap";
 
 class DatePickerExamples extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class DatePickerExamples extends Component {
 
     return (
       <Row>
-        <Colxx xxs="12" xl="8" className="mb-4">
+        <Col xxs="12" xl="8" className="mb-4">
           <Card>
             <CardBody>
               <CardTitle>
@@ -74,7 +74,7 @@ class DatePickerExamples extends Component {
                 <IntlMessages id="form-components.date-range" />
               </label>
               <Row className="mb-5">
-                <Colxx xxs="6">
+                <Col xxs="6">
                   <DatePicker
                     selected={this.state.startDateRange}
                     selectsStart
@@ -83,8 +83,8 @@ class DatePickerExamples extends Component {
                     onChange={this.handleChangeStart}
                     placeholderText={messages["form-components.start"]}
                   />
-                </Colxx>
-                <Colxx xxs="6">
+                </Col>
+                <Col xxs="6">
                   <DatePicker
                     selected={this.state.endDateRange}
                     selectsEnd
@@ -93,7 +93,7 @@ class DatePickerExamples extends Component {
                     onChange={this.handleChangeEnd}
                     placeholderText={messages["form-components.end"]}
                   />
-                </Colxx>
+                </Col>
               </Row>
 
               <label>
@@ -112,9 +112,9 @@ class DatePickerExamples extends Component {
               />
             </CardBody>
           </Card>
-        </Colxx>
+        </Col>
 
-        <Colxx xxs="12" xl="4" className="mb-4">
+        <Col xxs="12" xl="4" className="mb-4">
           <Card className="h-100">
             <CardBody>
               <CardTitle>
@@ -128,7 +128,7 @@ class DatePickerExamples extends Component {
               />
             </CardBody>
           </Card>
-        </Colxx>
+        </Col>
       </Row>
     );
   }

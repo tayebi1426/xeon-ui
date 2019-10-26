@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Field, Form, Input} from "../../core";
+import {Card, Field, Form, Input,Button} from "../../core";
 
 let SAMPLE_FORM_RULES = {
     username: 'required|min:4',
@@ -33,7 +33,7 @@ class FormValidation extends React.Component {
                     <Field id="exampleEmail" name="email" label="email" placeholder="email">
                         <Input type="text"/>
                     </Field>
-                    <button type='submit'>submit</button>
+                    <Button isPrimary={true}  type='submit' title='submit'/>
 
                 </Form>
             </Card>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { injectIntl } from "react-intl";
 import { Row } from "reactstrap";
-import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
+import { Col, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import IconCardsCarousel from "../../../containers/dashboards/IconCardsCarousel";
 import QuickPost from "../../../containers/dashboards/QuickPost";
@@ -18,42 +18,42 @@ class ContentDashboard extends Component {
     return (
       <Fragment>
         <Row>
-          <Colxx xxs="12">
+          <Col xxs="12">
             <Breadcrumb heading="menu.content" match={this.props.match} />
             <Separator className="mb-5" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx lg="12" xl="6">
+          <Col lg="12" xl="6">
             <IconCardsCarousel />
             <Row>
-              <Colxx md="12" className="mb-4">
+              <Col md="12" className="mb-4">
                 <QuickPost/>
-              </Colxx>
+              </Col>
             </Row>
-          </Colxx>
-          <Colxx lg="12" xl="6" className="mb-4">
+          </Col>
+          <Col lg="12" xl="6" className="mb-4">
             <BestSellers title="dashboards.top-viewed-posts" />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx sm="12" lg="4" className="mb-4">
+          <Col sm="12" lg="4" className="mb-4">
             <Cakes />
-          </Colxx>
-          <Colxx md="6" lg="8" className="mb-4">
+          </Col>
+          <Col md="6" lg="8" className="mb-4">
             <NewComments/>
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx sm="12" md="6" className="mb-4">
+          <Col sm="12" md="6" className="mb-4">
             <WebsiteVisitsChartCard />
-          </Colxx>
-          <Colxx sm="12" md="6" className="mb-4">
+          </Col>
+          <Col sm="12" md="6" className="mb-4">
             <ConversionRatesChartCard />
-          </Colxx>
+          </Col>
         </Row>
         <Row>
-          <Colxx lg="4" md="6" className="mb-4">
+          <Col lg="4" md="6" className="mb-4">
             <GradientWithRadialProgressCard
               icon="iconsminds-clock"
               title={`5 ${messages["dashboards.posts"]}`}
@@ -61,8 +61,8 @@ class ContentDashboard extends Component {
               percent={(5 * 100) / 12}
               progressText="5/12"
             />
-          </Colxx>
-          <Colxx lg="4" md="6" className="mb-4">
+          </Col>
+          <Col lg="4" md="6" className="mb-4">
             <GradientWithRadialProgressCard
               icon="iconsminds-male"
               title={`4 ${messages["dashboards.users"]}`}
@@ -70,8 +70,8 @@ class ContentDashboard extends Component {
               percent={(4 * 100) / 6}
               progressText="4/6"
             />
-          </Colxx>
-          <Colxx lg="4" md="6" className="mb-4">
+          </Col>
+          <Col lg="4" md="6" className="mb-4">
             <GradientWithRadialProgressCard
               icon="iconsminds-bell"
               title={`8 ${messages["dashboards.alerts"]}`}
@@ -79,7 +79,7 @@ class ContentDashboard extends Component {
               percent={(8 * 100) / 10}
               progressText="8/10"
             />
-          </Colxx>
+          </Col>
         </Row>
       </Fragment>
     );
