@@ -7,7 +7,7 @@ let GridUi = React.lazy(() => import("../ui/GridUi"));
 let TabComponent = React.lazy(() => import("../ui/TabComponent"));
 
 const MAIN_ROUTES = [
-    {path: '/form', component: FormsUi},
+    {path: '/form', component: FormsUi,roles:['admin']},
     {path: '/formValidation', component: FormValidation},
     {path: '/grid', component: GridUi},
     {path: '/tab', component: TabComponent,access:[]}
