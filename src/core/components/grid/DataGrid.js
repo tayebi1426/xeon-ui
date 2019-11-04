@@ -5,15 +5,22 @@ import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
+import {GridContext} from "./GridContext";
 
 
 class DataGrid extends React.Component {
+
+    onSearchClicked = (searchObject) => {
+        console.log(searchObject);
+    };
 
     state = {
         data: [],
         total: 0,
         take: this.props.pageSize,
         skip: this.props.skip,
+        searchObject: {},
+        onSearchClicked: this.onSearchClicked,
         readUrl: this.props.readUrl
     };
 
@@ -53,9 +60,14 @@ class DataGrid extends React.Component {
     render() {
         let gridColumns = this.regenerateGridColumns();
 
-        return <KGrid className="k-rtl" onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
-            {gridColumns}
-        </KGrid>
+        return (
+            <GridContext.Provider value={this.state}>
+                {this.props.searchForm}
+                <KGrid className="k-rtl" onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
+                    {gridColumns}
+                </KGrid>
+            </GridContext.Provider>
+        )
     }
 
     regenerateGridColumns() {
@@ -116,6 +128,7 @@ class DataGrid extends React.Component {
             skip: request.skip
         });
     }
+
 }
 
 DataGrid.propTypes = {
