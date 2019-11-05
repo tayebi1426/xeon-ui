@@ -41,7 +41,7 @@ class FormsUi extends React.Component {
     }
 
     render() {
-        return <Card>
+        return <Card title="sampleForm">
             <Icon code='camera' size={"6x"}/>
 
             <LabelAndValue label="email" value="R@T.com"/>

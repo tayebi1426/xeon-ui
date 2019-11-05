@@ -1,108 +1,72 @@
-import React, {useState} from "react";
+import React from "react";
 import {Animated} from "react-animated-css";
 import PropTypes from "prop-types";
 import {Card as BsCard, CardBody, CardTitle} from 'reactstrap'
 import {I18Massage} from "../common";
 import Button from "../form/Button";
 
+class Card extends React.Component {
+    state = {
+        collapse: true
+    };
 
-const Card = ({title = '', icon = null, children, isCollapse, collapseConfig}) => {
+    toggle = () => {
+        this.setState({collapse: !this.state.collapse});
+    };
 
-    const [collapse,setState] = useState(false);
+    renderCollapse = () => {
+        const {openIcon, closeIcon} = this.props;
+        return <Button color="white"
+                       onClick={this.toggle}
+                       icon={this.state.collapse ? openIcon : closeIcon}
+                       iconSize="2x"/>
+    };
 
-    function toggle() {
-        collapse ? setState(false) : setState(true);
-    }
+    renderBody = () => {
+        return <CardBody>
+            {this.state.collapse ? this.props.children : null}
+        </CardBody>
+    };
 
-    function renderIcon() {
-        if (icon !== '') {
-            return (
-                <div className="col pull-left" dangerouslySetInnerHTML={{__html: icon}}/>
-            )
-        }
-    }
-
-    function renderBody() {
-        const {animationIn,animationOut} =  collapseConfig;
+    render() {
+        let {animationIn, animationOut, children} = this.props;
         return (
-            collapse ?
-                <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true}>
-                <CardBody>
-                        {children}
-                </CardBody>
-                </Animated>
-                :
-                null
-        )
-    }
-
-    function renderCollapse() {
-        const {closeTitle,openTitle,closeIcon="fa fa-angle-up fa-lg",openIcon="fa fa-angle-down fa-lg"} = collapseConfig;
-        return (
-                collapse ?
-                    <Button color="white" title={closeTitle}
-                            onClick={toggle}
-                            icon={closeIcon}
-                            className="cursor-pointer pull-left px-3"
-                    />
-                    :
-                    <Button color="white" title={openTitle}
-                            onClick={toggle}
-                            icon={openIcon}
-                            className="cursor-pointer pull-left px-3"
-                    />
-            )
-        }
-
-    return (
-        <div>
-            {isCollapse ?
+            <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true} >
                 <BsCard>
                     <CardTitle className="text-bold p-20">
                         <div className="row">
-                            <div  className="col p-3">
-                                <I18Massage code={title}/>
+                            <div className="col p-3">
+                                <I18Massage code={this.props.title}/>
                             </div>
-                            {renderIcon()}
-                            {renderCollapse()}
+                            {this.renderCollapse()}
                         </div>
                     </CardTitle>
-                    {renderBody()}
+                    {this.renderBody()}
                 </BsCard>
-                :
-                <BsCard>
-                    <CardTitle className="text-bold p-20">
-                        <div className="row">
-                            <div className="col"><I18Massage code={title}/></div>
-                            {renderIcon()}
-                        </div>
-                    </CardTitle>
-                <CardBody>
-                    {children}
-                </CardBody>
-                </BsCard>
-            }
-        </div>
-    );
-};
+            </Animated>
+        );
+    }
+}
+
 
 Card.propTypes = {
     collapseConfig: PropTypes.object,
     isCollapse: PropTypes.bool,
     title: PropTypes.string,
-    icon: PropTypes.string
+    icon: PropTypes.string,
+    closeIcon: PropTypes.string,
+    openIcon: PropTypes.string,
+    animationIn: PropTypes.string,
+    animationOut: PropTypes.string
 };
 
 Card.defaultProps = {
+    title: '',
     isCollapse: false,
-    collapseConfig : {
-        closeTitle:"",
-        openTitle:"",
-        closeIcon:"fa fa-angle-up fa-lg",
-        openIcon:"fa fa-angle-down fa-lg",
-        animationIn:"" ,
-        animationOut:""
-    }
+    closeIcon: "angle-up",
+    openIcon: "angle-down",
+    animationIn: "fadeIn",
+    animationOut: "fadeOut"
 
 };
 

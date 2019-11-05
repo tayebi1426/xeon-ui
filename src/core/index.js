@@ -1,8 +1,8 @@
 import XeonApp from './base/XeonApp'
 
 import ('./assets/fonts/iransans/iranSansWeb/css/fontiran.css');
-import ('bootstrap/dist/css/bootstrap.min.css');
-import ('bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css');
+import ('./assets/css/vendor/bootstrap.min.css');
+import ('./assets/css/vendor/bootstrap-rtl.min.css');
 import ('./assets/css/vendor/kendo-all.css');
 import ('./assets/css/sass/themes/gogo.light.green.scss');
 import ('./assets/css/sass/style.scss');
