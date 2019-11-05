@@ -59,7 +59,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint:js": "eslint src/**/*.js",
-    "build:dist": "babel src/core --out-dir dist --copy-files --ignore src/tests/",
+    "build:dist": "babel src/ --out-dir dist --copy-files --ignore src/tests/",
     "build:pack": "npm run build:dist && npm pack",
     "prepublishOnly": "npm run build:dist",
     "publish-nexus": "npm publish --dd --registry=http://nexus:8081/repository/dms-npm-repo/"
