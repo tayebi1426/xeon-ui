@@ -1,5 +1,6 @@
-import React,{Suspense} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import React, {Suspense} from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import {SwitchRouter} from '../index'
 import {Provider} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -13,19 +14,13 @@ class XeonApp extends React.Component {
     }
 
     render() {
-        let {store,appRoutes} = this.props;
+        let {store, appRoutes} = this.props;
 
         return (
             <Provider store={store}>
                 <BrowserRouter>
-                    <Suspense fallback={<Loader />}>
-                    <Switch>
-                        {
-                            appRoutes.map(r => {
-                                return <Route key={r.path} {...r} />
-                            })
-                        }
-                    </Switch>
+                    <Suspense fallback={<Loader/>}>
+                        <SwitchRouter routes={appRoutes}/>
                     </Suspense>
                 </BrowserRouter>
             </Provider>
@@ -35,10 +30,10 @@ class XeonApp extends React.Component {
     init() {
 
     }
-
 }
-XeonApp.propTypes={
-    store:PropTypes.object.isRequired,
-    appRoutes:PropTypes.array.isRequired
+
+XeonApp.propTypes = {
+    store: PropTypes.object.isRequired,
+    appRoutes: PropTypes.array.isRequired
 };
 export default XeonApp;
