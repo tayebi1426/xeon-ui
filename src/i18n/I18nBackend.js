@@ -1,4 +1,4 @@
-import XhrRequest from './XhrRequest'
+import XhrRequest from '../util/XhrRequest'
 
 const DEFAULT_OPTIONS = {
     loadPath: '/locales/{{lng}}/{{ns}}.json',

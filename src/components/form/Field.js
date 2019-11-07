@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import {FormGroup} from 'reactstrap'
 import Label from "./Label";
-import {withTranslation} from "../../util";
+import {withTranslation} from "../../i18n";
 import FormContext from "./FormContext";
 import ErrorMessage from "./FieldError";
 

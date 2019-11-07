@@ -1,7 +1,7 @@
-import {withTranslation} from '../../util';
 import PropTypes from "prop-types";
+import {withTranslation} from '../../i18n';
 
-function I18Massage ({code, t}){
+function I18Massage ({code='', t}){
     return  t(code);
 }
 

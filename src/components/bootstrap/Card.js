@@ -1,9 +1,11 @@
 import React from "react";
 import {Animated} from "react-animated-css";
 import PropTypes from "prop-types";
-import {Card as BsCard, CardBody, CardTitle} from 'reactstrap'
+import {Card as BsCard} from 'reactstrap'
 import {I18Massage} from "../common";
 import Button from "../form/Button";
+import  CardBody from './CardBody';
+import  CardTitle from './CardTitle';
 
 class Card extends React.Component {
     state = {
@@ -29,7 +31,7 @@ class Card extends React.Component {
     };
 
     render() {
-        let {animationIn, animationOut, children} = this.props;
+        let {animationIn, animationOut} = this.props;
         return (
             <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true} >
                 <BsCard>
@@ -47,7 +49,6 @@ class Card extends React.Component {
         );
     }
 }
-
 
 Card.propTypes = {
     collapseConfig: PropTypes.object,
@@ -67,7 +68,6 @@ Card.defaultProps = {
     openIcon: "angle-down",
     animationIn: "fadeIn",
     animationOut: "fadeOut"
-
 };
 
 export default Card;

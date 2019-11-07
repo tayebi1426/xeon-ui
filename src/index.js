@@ -1,5 +1,4 @@
 import XeonApp from './base/XeonApp'
-
 import ('./assets/fonts/iransans/iranSansWeb/css/fontiran.css');
 import ('./assets/css/vendor/bootstrap.min.css');
 import ('./assets/css/vendor/bootstrap-rtl.min.css');
@@ -12,11 +11,10 @@ import ('./assets/css/notification/notifications.css');
 
 export * from './components/grid';
 export * from './components/tab';
-export {CardBody, CardTitle, Row} from 'reactstrap'
-export {Card, Col} from "./components/bootstrap";
+export {Card,CardBody,CardTitle,Row, Col} from "./components/bootstrap";
 export * from './components/common';
 export * from './components/form';
 export * from './util';
+export {withTranslation} from './i18n';
 export * from './components/security';
-
 export {XeonApp};

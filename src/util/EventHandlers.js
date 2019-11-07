@@ -1,4 +1,3 @@
-
 const KeyUpEnter = (func, e) => {
     if (e.keyCode === 13) {
         return func();

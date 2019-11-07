@@ -1,69 +1,85 @@
 import React from "react";
-import * as BS from 'reactstrap'
 import PropTypes from "prop-types";
-import Msg from "../../i18n/Messages";
-import CommonUtils from '../../util/CommonUtils'
-import '../../assets/sass/components/imageUploader.scss'
+import {Input, Label} from './index'
+import {Icon, isFunction} from '../../index'
+import '../../assets/css/sass/components/imageUploader.scss'
 
-export default class ImageUploader extends React.Component {
-    static IMAGE_MEM_TYPE = 'image/x-png,image/jpeg';
+function readFile(file) {
+    let fileReader = new Promise((resolve, reject) => {
+        try {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                return resolve(e.target['result']);
+            };
+            reader.readAsDataURL(file);
+        } catch (ex) {
+            reject(ex);
+        }
+    });
+    fileReader.catch(ex => {
+        console.error(ex);
+    });
+    return fileReader;
+}
 
-    constructor(props) {
-        super(props);
-        this.onChangeHandle = this.onChangeHandle.bind(this);
-        this.removeImage = this.removeImage.bind(this);
-        this.state = {
-            image: null,
-            showIconPan: false
-        };
-    }
+class ImageUploader extends React.Component {
 
-    onChangeHandle(event) {
+    state = {
+        image: null,
+        showIconPan: false
+    };
+
+    handleSelectImage = (event) => {
         let elementName = event.target.name;
         let selectedFile = event.target.files[0];
         let fileName = selectedFile.name;
-        this.removeImage();
+        this.handleRemoveImage();
 
-        CommonUtils.readFile(selectedFile).then(data => {
-            let imageInfo = {
+        readFile(selectedFile).then(data => {
+            return {
                 elementName: elementName,
                 fileName: fileName,
                 data: data
             };
+        }).then(imageInfo => {
+            let {onSelectImage} = this.props;
             this.setState({image: imageInfo});
-            if (this.props.onSelectImage) {
-                this.props.onSelectImage(imageInfo);
+            if (isFunction(onSelectImage)) {
+                onSelectImage.call(null, imageInfo);
             }
         })
-    }
+    };
 
-    removeImage() {
+    handleRemoveImage = () => {
         this.setState({
             image: null,
             showIconPan: false
         });
-    }
+        let onRemoveImage = this.props.onRemoveImage;
+        if (isFunction(onRemoveImage)) {
+            onRemoveImage.call(null);
+        }
+    };
 
     render() {
-        let {formGroupProps, id, name, label} = this.props;
+        let {id, name, label, uploadIcon, uploadIconSize, uploadIconColor, accept} = this.props;
         if (!id) {
             id = name;
         }
         return <React.Fragment>
-            <BS.FormGroup {...formGroupProps}>
-                <label className="d-block text-center">{label}</label>
-                <div className="uploader-plus">
-                    {this.state.image ? null :
-                        <label htmlFor={id}>{
-                            Msg.imageUploader.selectImage
-                        }</label>
-                    }
-                    <BS.Input type="file" id={id} name={name}
-                              accept={ImageUploader.IMAGE_MEM_TYPE}
-                              onChange={this.onChangeHandle.bind(this)}/>
-                    {this.renderImagePreview()}
-                </div>
-            </BS.FormGroup>
+            <Label htmlFor={id} className="d-block text-center" code={label}/>
+            <div className="uploader-plus">
+                {this.state.image ? this.renderImagePreview() :
+                    <label htmlFor={id}>
+                        <Icon code={uploadIcon} size={uploadIconSize} color={uploadIconColor}/>
+                        <Input type="file"
+                               id={id}
+                               name={name}
+                               accept={accept}
+                               onChange={this.handleSelectImage}/>
+                    </label>
+                }
+            </div>
         </React.Fragment>
     }
 
@@ -71,7 +87,8 @@ export default class ImageUploader extends React.Component {
         if (!this.state.image) {
             return null;
         }
-        return <div className="imagePreview" onMouseEnter={() => this.setState({showIconPan: true})}
+        return <div className="imagePreview"
+                    onMouseEnter={() => this.setState({showIconPan: true})}
                     onMouseLeave={() => this.setState({showIconPan: false})}>
             {this.renderIcons()}
             <img src={this.state.image.data} alt="preview"/>
@@ -83,8 +100,7 @@ export default class ImageUploader extends React.Component {
             return null;
         }
         return <div className="uploader-hover">
-            <i className="material-icons">remove_red_eye</i>
-            <i className="material-icons" onClick={this.removeImage}>delete</i>
+            <Icon code="trash-alt" onClick={this.handleRemoveImage} color="red" size="2x"/>
         </div>
     }
 }
@@ -93,11 +109,22 @@ ImageUploader.propTypes = {
     formGroupProps: PropTypes.object,
     label: PropTypes.string,
     id: PropTypes.string,
+    accept: PropTypes.string,
     value: PropTypes.any,
     name: PropTypes.string.isRequired,
-    onSelectImage: PropTypes.func
+    onSelectImage: PropTypes.func,
+    onRemoveImage: PropTypes.func,
+    uploadIcon: PropTypes.string,
+    uploadIconSize: PropTypes.string,
+    uploadIconColor: PropTypes.string,
 };
 
 ImageUploader.defaultProps = {
+    accept: 'image/x-png,image/jpeg',
     formGroupProps: {className: 'col-4 col-xs-12'},
+    uploadIcon: 'cloud-upload',
+    uploadIconSize: '2x',
+    uploadIconColor: '#000'
 };
+
+export default ImageUploader;

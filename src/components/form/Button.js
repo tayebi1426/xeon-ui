@@ -4,25 +4,19 @@ import {Button as BsButton} from 'reactstrap';
 import {I18Massage} from '../common'
 import Icon from "../common/Icon";
 
-export default class Button extends React.Component {
+const Button = ({isPrimary, link, title, visible, innerRef, icon, iconSize, ...restProps}) => {
 
-    render() {
-
-        let {isPrimary, link, title, visible, innerRef, icon, iconSize, ...rest} = this.props;
-        if (!visible) {
-            return null;
-        }
-        isPrimary = isPrimary && !link;
-        let btnColor = isPrimary ? 'primary' :
-            (link) ? 'link' : 'secondary';
-        return (
-            <BsButton innerRef={innerRef} color={btnColor} {...rest} >
-                    <I18Massage code={title}/>
-                    <Icon code={icon} size={iconSize}/>
-            </BsButton>
-        );
+    if (!visible) {
+        return null;
     }
-}
+    isPrimary = isPrimary && !link;
+    let btnColor = isPrimary ? 'primary' :
+        (link) ? 'link' : 'secondary';
+    return <BsButton innerRef={innerRef} color={btnColor} {...restProps} >
+        <I18Massage code={title}/>
+        <Icon code={icon} size={iconSize}/>
+    </BsButton>
+};
 
 Button.propTypes = {
     icon: PropTypes.string,
@@ -32,7 +26,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     title: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'link']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'link','success']),
     disabled: PropTypes.bool,
     visible: PropTypes.bool,
     link: PropTypes.bool,
@@ -46,5 +40,7 @@ Button.defaultProps = {
     isPrimary: false,
     size: 'lg',
     visible: true,
-    className: 'xeon-btn'
+    className: 'x-btn'
 };
+
+export default Button;

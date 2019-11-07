@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../common/Icon';
-import withTranslation from "../../util/WithTranslation";
+import withTranslation from "../../i18n/WithTranslation";
 
 class GridCommand extends React.Component {
 
