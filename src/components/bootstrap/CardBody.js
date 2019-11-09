@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {classNames} from '../../util';
+import classNames from 'classnames';
 
 const CardBody = (props) => {
     const {
