@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import XeonApp from './base/XeonApp'
 
-import ('./assets/fonts/iransans/iranSansWeb/css/fontiran.css');
+import ('./assets/fonts/iransans/iranSansWebFont.css');
 import ('./assets/css/vendor/bootstrap.min.css');
 import ('./assets/css/vendor/bootstrap-rtl.min.css');
 import ('./assets/css/vendor/kendo-all.css');
