@@ -9,7 +9,7 @@ let k_r_submitter = /^(?:submit|button|image|reset|file)$/i;
 let k_r_success_contrls = /^(?:input|select|textarea|keygen)/i;
 
 // Matches bracket notation.
-let brackets = /(\[[^\[\]]*\])/g;
+let brackets = /(\[[^\[\]]*\\])/g;
 
 // serializes form fields
 // @param form MUST be an HTMLForm element
@@ -112,7 +112,7 @@ function hash_assign(result, keys, value) {
     }
 
     let key = keys.shift();
-    let between = key.match(/^\[(.+?)\]$/);
+    let between = key.match(/^\[(.+?)\\]$/);
 
     if (key === '[]') {
         result = result || [];

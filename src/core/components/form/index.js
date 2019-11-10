@@ -10,5 +10,6 @@ import Field from './Field'
 import DatePicker from "./DatePicker";
 import RadioGroups from "./RadioGroups";
 import RadioButton from "./RadioButton";
+import ImageUploader from "./ImageUploader";
 
-export {Form,Field,Select,Input,Label,Switch,Button,Checkbox, DatePicker, TextArea, RadioGroups, RadioButton};
+export {Form,Field,Select,Input,Label,Switch,Button,Checkbox, DatePicker, TextArea, RadioGroups, RadioButton,ImageUploader};

@@ -48,7 +48,7 @@ export default class ObjectUtils {
         return paths.reduce((obj, prop, idx, array) => {
             if (idx === array.length - 1) {
                 if (options.own) {
-                    return !!(obj && obj.hasOwnProperty(prop));
+                    return !!(obj && prop in  obj);
                 } else {
                     return !!(obj !== null && ObjectUtils.isObject(obj) && prop in obj);
                 }

@@ -1,7 +1,8 @@
 import React from 'react'
-import {TabContent, TabPane} from 'reactstrap';
-import {withTranslation,hasReactChildren,isFunction} from '../../util'
 import PropTypes from "prop-types";
+import {TabContent, TabPane} from 'reactstrap';
+import {withTranslation} from '../../i18n/index'
+import {hasReactChildren,isFunction} from '../../util/index'
 
 class TabContainer extends React.PureComponent {
 

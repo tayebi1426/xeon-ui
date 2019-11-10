@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Formik} from "formik";
 import FormContext from "./FormContext";
 import DataValidator from "../../validation/DataValidator";
-import {isFunction} from "../../util";
+import {isFunction} from "../../util/index";
 
 
 class Form extends React.Component {

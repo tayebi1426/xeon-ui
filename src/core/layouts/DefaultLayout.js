@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import TopNav from './TopNav'
-import Sidebar from './Sidebar';
-import {SwitchRouter} from '../components/common';
+import TopNav from './TopNav/index'
+import Sidebar from './Sidebar/index';
+import {SwitchRouter} from '../components/common/index';
 import {Col, Row} from "../index";
 
 class DefaultLayout extends Component {

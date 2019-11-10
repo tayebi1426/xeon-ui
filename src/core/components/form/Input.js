@@ -30,7 +30,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
     type: 'text',
-    className: "custom-inputs"
+    className: "x-input"
 };
 
 export default Input;

@@ -1,4 +1,4 @@
-import {XhrRequest} from "../../util";
+import {XhrRequest} from "../../util/index";
 import querystring from "querystring";
 
 const AUTHENTICATION_SERVER_URL = process.env.REACT_APP_AUTH_SERVER_URL;

@@ -21,5 +21,4 @@ function dispatchAction(dispatch, type, payload={}) {
     }
     return dispatch({type, payload})
 }
-
 export {hasReactChildren, isFunction, dispatchAction, createAction}
