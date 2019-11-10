@@ -6,12 +6,18 @@ import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
 import {GridContext} from "./GridContext";
+import {addSearchObjectToGridRequest} from "./createGridSearchObject";
 
 
 class DataGrid extends React.Component {
 
     onSearchClicked = (searchObject) => {
-        console.log(searchObject);
+        const {readUrl, localData, skip, pageSize} = this.props;
+        this.fetchGridData(readUrl, localData, skip, pageSize, searchObject);
+    };
+
+    onSearchClear = () => {
+        this.onSearchClicked(null);
     };
 
     state = {
@@ -21,6 +27,7 @@ class DataGrid extends React.Component {
         skip: this.props.skip,
         searchObject: {},
         onSearchClicked: this.onSearchClicked,
+        onSearchClear: this.onSearchClear,
         readUrl: this.props.readUrl
     };
 
@@ -29,8 +36,11 @@ class DataGrid extends React.Component {
     };
 
 
-    fetchGridData(readUrl, localData, skip, pageSize) {
-        const request = {skip, take: pageSize};
+    fetchGridData(readUrl, localData, skip, pageSize, searchObject) {
+        let request = {skip, take: pageSize};
+        if (searchObject) {
+            request = addSearchObjectToGridRequest(searchObject, request);
+        }
 
         if (localData) {
             this.fillGridData(request, localData.slice(skip, pageSize + skip), localData.length);
@@ -59,7 +69,7 @@ class DataGrid extends React.Component {
 
     render() {
         let gridColumns = this.regenerateGridColumns();
-
+        let {searchObject, onSearchClicked, onSearchClear} = this.state;
         return (
             <GridContext.Provider value={this.state}>
                 {this.props.searchForm}

@@ -22,7 +22,7 @@ let brackets = /(\[[^\[\]]*\])/g;
 //    hash and url encoded str serializers are provided with this module
 //    - disabled: [true | false]. If true serialize disabled fields.
 //    - empty: [true | false]. If true serialize empty fields
-function serialize(form, options) {
+/*function createGridSearchObject(form, options) {
 
     let result = {};
     let serializer = hash_serializer;
@@ -35,11 +35,6 @@ function serialize(form, options) {
     for (let i = 0; i < elements.length; ++i) {
         let element = elements[i];
 
-        // ingore disabled fields
-        // if ((!options.disabled && element.disabled) || !element.name) {
-        //     continue;
-        // }
-        // ignore anyhting that is not considered a success field
         if (!k_r_success_contrls.test(element.nodeName) ||
             k_r_submitter.test(element.type)) {
             continue;
@@ -47,43 +42,23 @@ function serialize(form, options) {
 
         let key = element.name;
         let val = element.value;
-        let operator = element.attributes.operator ? element.attributes.operator.value : 'eq';
+        let type = element.type;
+        let operator = element.attributes.operator ? element.attributes.operator.value : 'aeq';
 
         // we can't just use element.value for checkboxes cause some browsers lie to us
         // they say "on" for value when the box isn't checked
-        if ((element.type === 'checkbox' || element.type === 'radio') && !element.checked) {
+        if ((type === 'checkbox' || type === 'radio') && !element.checked) {
             val = undefined;
         }
 
         // If we want empty elements
-        /*        if (options.empty) {
-                    // for checkbox
-                    if (element.type === 'checkbox' && !element.checked) {
-                        val = '';
-                    }
-
-                    // for radio
-                    if (element.type === 'radio') {
-                        if (!radio_store[element.name] && !element.checked) {
-                            radio_store[element.name] = false;
-                        } else if (element.checked) {
-                            radio_store[element.name] = true;
-                        }
-                    }
-
-                    // if options empty is true, continue only if its radio
-                    if (val == undefined && element.type == 'radio') {
-                        continue;
-                    }
-                } else {*/
         // value-less fields are ignored unless options.empty is true
         if (!val) {
             continue;
         }
-        // }
 
         // multi select boxes
-        if (element.type === 'select-multiple') {
+        if (type === 'select-multiple') {
             val = [];
 
             let selectOptions = element.options;
@@ -96,38 +71,19 @@ function serialize(form, options) {
                 if (option.selected && hasValue) {
                     isSelectedOptions = true;
 
-                    // If using a hash serializer be sure to add the
-                    // correct notation for an array in the multi-select
-                    // context. Here the name attribute on the select element
-                    // might be missing the trailing bracket pair. Both names
-                    // "foo" and "foo[]" should be arrays.
-                    if (/*options.hash && */key.slice(key.length - 2) !== '[]') {
-                        result = serializer(result, key + '[]', option.value, operator);
+                    if (key.slice(key.length - 2) !== '[]') {
+                        result = serializer(result, key + '[]', option.value, operator, type);
                     } else {
-                        result = serializer(result, key, option.value, operator);
+                        result = serializer(result, key, option.value, operator, type);
                     }
                 }
             }
 
-            // Serialize if no selected options and options.empty is true
-            // if (!isSelectedOptions && options.empty) {
-            //     result = serializer(result, key, '');
-            // }
-
             continue;
         }
 
-        result = serializer(result, key, val, operator);
+        result = serializer(result, key, val, operator, type);
     }
-
-    // Check for all empty radio buttons and serialize them with key=""
-    /*    if (options.empty) {
-            for (let key in radio_store) {
-                if (!radio_store[key]) {
-                    result = serializer(result, key, '');
-                }
-            }
-        }*/
 
     return result;
 }
@@ -200,38 +156,6 @@ function hash_assign(result, keys, value) {
     return result;
 }
 
-// Object/hash encoding serializer.
-function hash_serializer(result, key, value, operator) {
-    let matches = key.match(brackets);
-
-    // Has brackets? Use the recursive assignment function to walk the keys,
-    // construct any missing objects in the result tree and make the assignment
-    // at the end of the chain.
-    if (matches) {
-        let keys = parse_keys(key);
-        hash_assign(result, keys, value);
-    } else {
-        // Non bracket notation can make assignments directly.
-        let existing = result[key];
-
-        // If the value has been assigned already (for instance when a radio and
-        // a checkbox have the same name attribute) convert the previous value
-        // into an array before pushing into it.
-        //
-        // NOTE: If this requirement were removed all hash creation and
-        // assignment could go through `hash_assign`.
-        if (existing) {
-            if (!Array.isArray(existing)) {
-                result[key] = [existing];
-            }
-            result[key].push({value: value, operator});
-        } else {
-            result[key] = {value: value, operator};
-        }
-    }
-    return result;
-}
-
 // urlform encoding serializer
 function str_serialize(result, key, value) {
     // encode newlines as \r\n cause the html spec says so
@@ -242,6 +166,86 @@ function str_serialize(result, key, value) {
     value = value.replace(/%20/g, '+');
     console.log(result + (result ? '&' : '') + encodeURIComponent(key) + '=' + value)
     return result + (result ? '&' : '') + encodeURIComponent(key) + '=' + value;
+}*/
+
+function createGridSearchObject(values, nameAndOperators) {
+    let result = {};
 }
 
-module.exports = serialize;
+function serializer(result, key, value, operator, type) {
+    let existing = result[key];
+    if (existing) {
+        if (!Array.isArray(existing)) {
+            result[key] = [existing];
+        }
+        result[key].push({value: value, operator, type});
+    } else {
+        result[key] = {value: value, operator, type};
+    }
+    return result;
+}
+
+
+function addSearchObjectToGridRequest(searchObject, request) {
+
+    var jsonData = [];
+    Object.keys(searchObject).forEach(key => {
+        let {value, operator, type} = searchObject[key];
+        // console.log('key',key);
+        // console.log('value',value);
+        // console.log('operator',operator);
+        // console.log('type',type);
+        if (type === 'radio' && value === 'off') {
+            return;
+        }
+
+        if (value && key) {
+            if (!operator) operator = 'aeq';
+            if (operator === 'in' && !Array.isArray(value)) {
+                value = value.trim().split(',');
+            }
+            jsonData.push({
+                field: key,
+                value: value,
+                advance: true,
+                operator: operator
+            });
+        }
+    });
+
+    var filterDescriptor = [];
+    jsonData.forEach((value) => {
+        filterDescriptor.push(value);
+    });
+
+    if (!request.filter) {
+        request.filter = {filters: filterDescriptor, logic: "and"};
+    } else {
+        request.filter.filters = concatOrReplaceFiltersIfNeeded(request.filters, filterDescriptor);
+    }
+
+    return request;
+}
+
+function concatOrReplaceFiltersIfNeeded(mainFilter, advanceFilter) {
+    var reconstructMainFilter = [];
+    mainFilter.forEach((key, mainObject) => {
+        if (mainObject.hasOwnProperty('advance')) {
+            return true;
+        }
+        if (advanceFilter.length === 0) {
+            reconstructMainFilter.push(mainObject);
+        } else {
+            advanceFilter.forEach((key2, advanceObject) => {
+                //if in advance object exists use it
+                if (mainObject['field'] !== advanceObject['field']) {
+                    reconstructMainFilter.push(mainObject);
+                    return false;
+                }
+            });
+        }
+    });
+    return reconstructMainFilter.concat(advanceFilter);
+}
+
+export {createGridSearchObject, addSearchObjectToGridRequest};
