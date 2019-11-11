@@ -27,9 +27,9 @@ const SELECT_DATA = [
 
 class FormUi extends React.Component {
 
-  /*  selectHandleChange = selectedOption => {
-        this.setState({selectedOption});
-    };*/
+    /*  selectHandleChange = selectedOption => {
+          this.setState({selectedOption});
+      };*/
 
     handleBirthDateChange = (val) => {
         console.debug('birthDate : ', val);
@@ -37,9 +37,9 @@ class FormUi extends React.Component {
     };
 
     state = {
-        email:'',
-        password:'',
-        birthDate:''
+        email: '',
+        password: '',
+        birthDate: ''
     };
     handleSubmit = (values, actions) => {
         setTimeout(() => {
@@ -50,58 +50,85 @@ class FormUi extends React.Component {
     };
 
     render() {
-        return <Card title="sampleForm">
+        return <React.Fragment>
+            {this.renderPolicyInfo()}
+            <Card title="sampleForm">
+                <Form
+                    initialValues={this.state}
+                    onSubmit={this.handleSubmit}
+                    rules={{}}
+                    title="sampleForm">
+                    <Row>
+                        <Field name="email" label="email">
+                            <Input type="email"/>
+                        </Field>
+                        <Field id="password" name="password" label="password">
+                            <Input type="password" placeholder="password"/>
+                        </Field>
+                    </Row>
+                    <Row>
+                        <Field name="birthDate" label="birthDate">
+                            <DatePicker/>
+                        </Field>
+                    </Row>
 
-            <Form
-                initialValues={this.state}
-                onSubmit={this.handleSubmit}
-                rules={{}}
-                title="sampleForm">
+                    <Row>
+                        <Field id="form-field-name" name="form-field-name" label="product.name">
+                            <Select value={this.state.selectedOption} onChange={this.selectHandleChange}
+                                    options={SELECT_DATA}/>
+                        </Field>
+                    </Row>
+                    <Row>
+                        <Field id="Switch" name="Switch" label="state">
+                            <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
+                                this.setState({switchCheckedPrimary});
+                            }}/>
+                        </Field>
+                    </Row>
+                    <Row>
+                        <Field name="description" label="description">
+                            <TextArea name="description"/>
+                        </Field>
+                    </Row>
+                    <Row>
+                        <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
+                            <Checkbox/>
+                        </Field>
+                    </Row>
+                    <Row>
+                        <Button title="save" isPrimary={true} type='submit'/>
+                        <Button title="cancel" isPrimary={false} onClick={this.handleOnClick}/>
+                    </Row>
+                </Form>
+            </Card>
+        </React.Fragment>
+    }
+
+    renderPolicyInfo() {
+        return (
+            <Card title="policyInfo.title">
                 <Row>
-                    <Field name="email" label="email">
-                        <Input type="email"/>
-                    </Field>
-                    <Field id="password" name="password" label="password">
-                        <Input type="password" placeholder="password"/>
-                    </Field>
-                </Row>
-                <Row>
-                    <Field name="birthDate" label="birthDate">
-                        <DatePicker  />
-                    </Field>
+                    <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
+                    <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>
+                    <LabelAndValue label="policyInfo.insured.nationalCode" value='18612746259'/>
                 </Row>
 
                 <Row>
-                    <Field id="form-field-name" name="form-field-name" label="product.name">
-                        <Select value={this.state.selectedOption} onChange={this.selectHandleChange}
-                                options={SELECT_DATA}/>
-                    </Field>
+                    <LabelAndValue label="policyInfo.insured.fatherName" value='محمدی'/>
+                    <LabelAndValue label="policyInfo.insured.age" value={32}/>
+                    <LabelAndValue label="policyInfo.insured.identityCardNo" value='14454'/>
                 </Row>
                 <Row>
-                    <Field id="Switch" name="Switch" label="state">
-                        <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
-                            this.setState({switchCheckedPrimary});
-                        }}/>
-                    </Field>
+                    <LabelAndValue label="policyInfo.contract.contractNumber" value="1397/58/74/55"/>
+                    <LabelAndValue label="policyInfo.contract.policyholder" value='demisco'/>
+                    <LabelAndValue label="policyInfo.contract.startDate" value='1397/08/01' format="date"/>
                 </Row>
                 <Row>
-                    <Field name="description" label="description">
-                        <TextArea name="description"/>
-                    </Field>
-                </Row>
-                <Row>
-                    <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
-                        <Checkbox/>
-                    </Field>
-                </Row>
-                <Row>
-                    <Button title="save" isPrimary={true} type='submit'/>
-                    <Button title="cancel" isPrimary={false} onClick={this.handleOnClick}/>
-                </Row>
-            </Form>
 
-
-        </Card>
+                    <LabelAndValue label="policyInfo.contract.endDate" value="1398/08/30"/>
+                </Row>
+            </Card>
+        );
     }
 
 }
