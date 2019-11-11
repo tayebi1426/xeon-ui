@@ -27,52 +27,47 @@ const SELECT_DATA = [
 
 class FormUi extends React.Component {
 
-    selectHandleChange = selectedOption => {
+  /*  selectHandleChange = selectedOption => {
         this.setState({selectedOption});
-    };
-    handleOnClick = () => {
-        Notification.success('Info message', 'Title');
-    };
+    };*/
+
     handleBirthDateChange = (val) => {
         console.debug('birthDate : ', val);
-        this.state({birthDate: val})
+        //this.state({birthDate: val})
     };
 
     state = {
-        selectedOptions: [],
-        selectedOption: "",
-        startDate: null,
-        startDateTime: null,
-        startDateRange: null,
-        endDateRange: null,
-        embeddedDate: null,
-        tags: [],
-        switchCheckedPrimary: false,
-        switchCheckedPrimaryInverse: true,
-        switchCheckedSecondary: true,
-        switchCheckedSecondaryInverse: false,
-        suggestionValue: "",
-        suggestions: [],
+        email:'',
+        password:'',
         birthDate:''
     };
-
+    handleSubmit = (values, actions) => {
+        setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            actions.setSubmitting(false);
+            Notification.success('Info message', 'Title');
+        }, 1000);
+    };
 
     render() {
         return <Card title="sampleForm">
 
-            <LabelAndValue label="email" value="R@T.com"/>
-            <Form title="sampleForm">
+            <Form
+                initialValues={this.state}
+                onSubmit={this.handleSubmit}
+                rules={{}}
+                title="sampleForm">
                 <Row>
-                    <Field id="exampleEmail" name="email" label="email">
-                        <Input type="email" placeholder="email"/>
+                    <Field name="email" label="email">
+                        <Input type="email"/>
                     </Field>
                     <Field id="password" name="password" label="password">
                         <Input type="password" placeholder="password"/>
                     </Field>
                 </Row>
                 <Row>
-                    <Field name="birthDate" label="birthDate" onChange={this.handleBirthDateChange} value={this.state.birthDate}>
-                        <DatePicker/>
+                    <Field name="birthDate" label="birthDate">
+                        <DatePicker  />
                     </Field>
                 </Row>
 
@@ -88,9 +83,6 @@ class FormUi extends React.Component {
                             this.setState({switchCheckedPrimary});
                         }}/>
                     </Field>
-                    <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
-                        <Checkbox/>
-                    </Field>
                 </Row>
                 <Row>
                     <Field name="description" label="description">
@@ -98,9 +90,13 @@ class FormUi extends React.Component {
                     </Field>
                 </Row>
                 <Row>
-                    <Button title="save" isPrimary={true} onClick={this.handleOnClick}/>
-                    <Button title="rest" isPrimary={false} onClick={this.handleOnClick}/>
-                    <Button title="link" link={true} onClick={this.handleOnClick}/>
+                    <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
+                        <Checkbox/>
+                    </Field>
+                </Row>
+                <Row>
+                    <Button title="save" isPrimary={true} type='submit'/>
+                    <Button title="cancel" isPrimary={false} onClick={this.handleOnClick}/>
                 </Row>
             </Form>
 

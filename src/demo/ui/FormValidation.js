@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Field, Form, Input,Button} from "xeon-ui";
+import {Card, Field, Form, Input,Button} from "../../core";
 
 let SAMPLE_FORM_RULES = {
     username: 'required|min:4',

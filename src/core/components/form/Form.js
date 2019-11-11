@@ -25,7 +25,6 @@ class Form extends React.Component {
 
     renderForm = (formProps) => {
         let {children, innerRef} = this.props;
-
         return <FormContext.Provider value={formProps}>
             <form ref={innerRef}
                   onSubmit={formProps.handleSubmit}>
@@ -35,13 +34,9 @@ class Form extends React.Component {
     };
 
     render() {
-        let {
-            initialValues, onSubmit, validate, validateOnChange,
-            validateOnBlur
-        } = this.props;
-        if (!validate) {
-            validate = this.defaultFormValidate
-        }
+        let {initialValues, onSubmit, validate=this.defaultFormValidate
+            , validateOnChange, validateOnBlur} = this.props;
+        console.debug('validate : ',validate);
         return <Formik render={this.renderForm}
                        initialValues={initialValues}
                        onSubmit={onSubmit}

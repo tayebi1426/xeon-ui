@@ -1,6 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
-
 import XeonApp from './base/XeonApp'
 
 import ('./assets/fonts/iransans/iranSansWebFont.css');
@@ -22,10 +19,3 @@ export * from './util/index';
 export {withTranslation} from './i18n/index';
 export * from './components/security/index';
 export {XeonApp};
-
-console.debug('process.env.NODE_ENV : ',process.env.NODE_ENV);
-if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
-    import("../demo/index").then(({default: DemoApp}) => {
-        ReactDOM.render(<DemoApp/>, document.getElementById('root'));
-    });
-}

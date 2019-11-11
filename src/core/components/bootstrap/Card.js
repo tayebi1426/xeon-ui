@@ -18,7 +18,8 @@ class Card extends React.Component {
 
     renderCollapse = () => {
         const {openIcon, closeIcon} = this.props;
-        return <Button color="white"
+        return <Button link={true}
+                       color="black"
                        onClick={this.toggle}
                        icon={this.state.collapse ? openIcon : closeIcon}
                        iconSize="2x"/>
