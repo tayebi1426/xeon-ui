@@ -120,23 +120,23 @@ class FormUi extends React.Component {
     renderPolicyInfo() {
         return (
             <Card title="policyInfo.title">
-                <Row>
+                <Row form={false}>
                     <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
                     <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>
                     <LabelAndValue label="policyInfo.insured.nationalCode" value='18612746259'/>
                 </Row>
 
-                <Row>
+                <Row form={false}>
                     <LabelAndValue label="policyInfo.insured.fatherName" value='محمدی'/>
                     <LabelAndValue label="policyInfo.insured.age" value={32}/>
                     <LabelAndValue label="policyInfo.insured.identityCardNo" value='14454'/>
                 </Row>
-                <Row>
+                <Row form={false}>
                     <LabelAndValue label="policyInfo.contract.contractNumber" value="1397/58/74/55"/>
                     <LabelAndValue label="policyInfo.contract.policyholder" value='demisco'/>
                     <LabelAndValue label="policyInfo.contract.startDate" value='1397/08/01' format="date"/>
                 </Row>
-                <Row>
+                <Row form={false}>
 
                     <LabelAndValue label="policyInfo.contract.endDate" value="1398/08/30"/>
                 </Row>

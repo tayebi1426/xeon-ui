@@ -2,52 +2,37 @@ import React from "react";
 import {Animated} from "react-animated-css";
 import PropTypes from "prop-types";
 import {Card as BsCard} from 'reactstrap'
-import {I18Massage} from "../common/index";
-import Button from "../form/Button";
-import  CardBody from './CardBody';
-import  CardTitle from './CardTitle';
+import CardBody from './CardBody';
+import CardTitle from './CardTitle';
 
 class Card extends React.Component {
     state = {
         collapse: true
     };
 
-    toggle = () => {
+    handleToggleCollapse = () => {
         this.setState({collapse: !this.state.collapse});
     };
 
-    renderCollapse = () => {
-        const {openIcon, closeIcon} = this.props;
-        return <Button link={true}
-                       color="black"
-                       onClick={this.toggle}
-                       icon={this.state.collapse ? openIcon : closeIcon}
-                       iconSize="2x"/>
-    };
-
     renderBody = () => {
-        return <CardBody>
-            {this.state.collapse ? this.props.children : null}
+        if (!this.state.collapse) {
+            return null;
+        }
+        return <CardBody className='pl-5'>
+            {this.props.children}
         </CardBody>
     };
 
     render() {
-        let {animationIn, animationOut} = this.props;
-        return (
-            <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true} >
+        let {animationIn, animationOut, title} = this.props;
+        return <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true}>
                 <BsCard>
-                    <CardTitle className="text-bold p-20">
-                        <div className="row">
-                            <div className="col p-3">
-                                <I18Massage code={this.props.title}/>
-                            </div>
-                            {this.renderCollapse()}
-                        </div>
-                    </CardTitle>
+                    <CardTitle title={title} collapse={this.state.collapse}
+                               handleToggleCollapse={this.handleToggleCollapse}/>
                     {this.renderBody()}
                 </BsCard>
             </Animated>
-        );
+        ;
     }
 }
 
@@ -65,8 +50,6 @@ Card.propTypes = {
 Card.defaultProps = {
     title: '',
     isCollapse: false,
-    closeIcon: "angle-up",
-    openIcon: "angle-down",
     animationIn: "fadeIn",
     animationOut: "fadeOut"
 };

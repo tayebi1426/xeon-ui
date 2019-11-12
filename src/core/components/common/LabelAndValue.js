@@ -16,7 +16,7 @@ function LabelAndValue({label, value, format}) {
         }
     }
     return (
-        <Col>
+        <Col className="p-1">
             <I18Massage code={label}/> &nbsp;:&nbsp;&nbsp;
             <span><b>{value}</b></span>
         </Col>

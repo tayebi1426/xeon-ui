@@ -177,7 +177,10 @@ body[dir = 'rtl'] {
     }
   }
 }
-
+.card-title{
+  background-color: #00b894;
+  margin-bottom: 0 !important;
+}
 
 //overwrite kendo ui styles
 .k-treeview .k-i-expand, .k-treeview .k-i-collapse {
