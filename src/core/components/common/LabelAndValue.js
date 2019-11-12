@@ -11,10 +11,7 @@ function LabelAndValue({label, value, format}) {
             case 'currency':
                 break;
             case 'date':
-
                 val = jMoment(value, 'jYYYY/jM/jD');
-                console.debug('val : ',val.locale('fa'));
-                console.debug('val : ',val.locale('fa').format('jYYYY/jM/jD'));
                 break;
         }
     }

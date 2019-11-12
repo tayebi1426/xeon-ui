@@ -16,9 +16,7 @@ const Row = (props) => {
         form ? 'form-row' : 'row'
     );
 
-    return (
-        <div {...attributes} className={classes} />
-    );
+    return <div {...attributes} className={classes}/>
 };
 
 Row.propTypes = {
@@ -28,7 +26,7 @@ Row.propTypes = {
     form: PropTypes.bool
 };
 Row.defaultProps = {
-    form:true
+    form: true
 };
 
 export default Row;

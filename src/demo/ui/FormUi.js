@@ -14,6 +14,8 @@ import {
     Switch,
     TextArea
 } from "../../core/index";
+import RadioGroup from "../../core/components/form/RadioGroups";
+import Radio from "../../core/components/form/Radio";
 
 
 const SELECT_DATA = [
@@ -39,7 +41,8 @@ class FormUi extends React.Component {
     state = {
         email: '',
         password: '',
-        birthDate: ''
+        birthDate: '',
+        favColor:'green'
     };
     handleSubmit = (values, actions) => {
         setTimeout(() => {
@@ -47,6 +50,9 @@ class FormUi extends React.Component {
             actions.setSubmitting(false);
             Notification.success('Info message', 'Title');
         }, 1000);
+    };
+    handleChangeColor=(e)=>{
+        console.debug(' e: ',e);
     };
 
     render() {
@@ -94,6 +100,13 @@ class FormUi extends React.Component {
                         <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
                             <Checkbox/>
                         </Field>
+                    </Row>
+                    <Row>
+                        <RadioGroup title="favColor" name='favColor' value={this.state.favColor} onChange={this.handleChangeColor} >
+                            <Radio value='red' label='red color' />
+                            <Radio value='blue' label='blue color' />
+                            <Radio value='green' label='green color'/>
+                        </RadioGroup>
                     </Row>
                     <Row>
                         <Button title="save" isPrimary={true} type='submit'/>

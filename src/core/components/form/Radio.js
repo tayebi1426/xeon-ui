@@ -1,17 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {CustomInput} from "reactstrap";
+import {CustomInput, Input} from "reactstrap";
 
-
-
-function RadioButton(props) {
-    return <div className="custom-checkbox custom-control">
-        <CustomInput {...props}/>
+function Radio(props) {
+    return <div className=' form-check-input custom-radio custom-control'>
+        <Input {...props}/>
+        <label className='custom-control-label'>{props.label}</label>
     </div>
+
 }
 
+function Radio1(props) {
+    console.debug(' dd : ', props.onChange);
+    return <CustomInput {...props}/>
+}
 
-RadioButton.propTypes = {
+Radio.propTypes = {
     type: PropTypes.string,
     label: PropTypes.string,
     id: PropTypes.string,
@@ -26,9 +30,9 @@ RadioButton.propTypes = {
     errorMessage: PropTypes.string
 };
 
-RadioButton.defaultProps = {
+Radio.defaultProps = {
     type: 'radio',
-    className: "custom-radio custom-control"
+    className: " custom-control-input"
 };
 
-export default RadioButton;
+export default Radio;

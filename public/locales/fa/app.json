@@ -17,6 +17,7 @@
   "description":"توضیحات",
   "birthDate":"تاریخ تولد",
   "cancel" :"انصراف",
+  "favColor":"رنگ مورد علاقه",
   "policyInfo":{
     "title":"مشخصات بیمه نامه",
     "policyNumber":"شماره بیمه نامه",
@@ -34,6 +35,5 @@
       "identityCardNo":"شماره شناسنامه",
       "age":"سن"
     }
-
   }
 }

@@ -36,7 +36,7 @@ class Form extends React.Component {
     render() {
         let {initialValues, onSubmit, validate=this.defaultFormValidate
             , validateOnChange, validateOnBlur} = this.props;
-        console.debug('validate : ',validate);
+
         return <Formik render={this.renderForm}
                        initialValues={initialValues}
                        onSubmit={onSubmit}
