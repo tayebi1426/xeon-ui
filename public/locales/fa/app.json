@@ -13,5 +13,27 @@
   },
   "name":"نام",
   "age":"سن",
-  "send":"ارسال"
+  "send":"ارسال",
+  "description":"توضیحات",
+  "birthDate":"تاریخ تولد",
+  "cancel" :"انصراف",
+  "policyInfo":{
+    "title":"مشخصات بیمه نامه",
+    "policyNumber":"شماره بیمه نامه",
+    "contract": {
+      "contractNumber":"شماره قرارداد",
+      "startDate": "تاریخ شروع قرارداد",
+      "endDate": "تاریخ پایان قرارداد",
+      "policyholder":"بیمه گذار"
+    },
+    "insured":{
+      "firstName":"نام",
+      "lastName":"نام خانوادگی",
+      "nationalCode":"کد ملی",
+      "fatherName":"نام پدر",
+      "identityCardNo":"شماره شناسنامه",
+      "age":"سن"
+    }
+
+  }
 }

@@ -13,8 +13,8 @@ const Button = ({isPrimary, link, title, visible, innerRef, icon, iconSize, ...r
     let btnColor = isPrimary ? 'primary' :
         (link) ? 'link' : 'secondary';
     return <BsButton innerRef={innerRef} color={btnColor} {...restProps} >
-        <I18Massage code={title}/>
-        <Icon code={icon} size={iconSize}/>
+        {title && <I18Massage code={title}/>}
+        {icon && <Icon code={icon} size={iconSize}/>}
     </BsButton>
 };
 
@@ -26,7 +26,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     title: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'link','success']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'link', 'success', 'white', 'black']),
     disabled: PropTypes.bool,
     visible: PropTypes.bool,
     link: PropTypes.bool,
