@@ -1,13 +1,15 @@
 import React from "react";
 import {Grid as KGrid, GridColumn as KGridColumn} from '@progress/kendo-react-grid'
-import { XhrRequest} from '../../util/index'
+import {XhrRequest} from '../../util/index'
 import {withTranslation} from '../../i18n/index'
 import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import * as PropTypes from 'prop-types';
-import {GridContext} from "./GridContext";
+import {GridSearchContext} from "./GridSearchContext";
 import {addSearchObjectToGridRequest} from "./createGridSearchObject";
+import {GridIndexColumn} from "./GridIndexColumn";
+import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./GridSelectionColumn";
 
 
 class DataGrid extends React.Component {
@@ -17,18 +19,12 @@ class DataGrid extends React.Component {
         this.fetchGridData(readUrl, localData, skip, pageSize, searchObject);
     };
 
-    onSearchClear = () => {
-        this.onSearchClicked(null);
-    };
-
     state = {
         data: [],
         total: 0,
         take: this.props.pageSize,
         skip: this.props.skip,
-        searchObject: {},
         onSearchClicked: this.onSearchClicked,
-        onSearchClear: this.onSearchClear,
         readUrl: this.props.readUrl
     };
 
@@ -70,24 +66,34 @@ class DataGrid extends React.Component {
 
     render() {
         let gridColumns = this.regenerateGridColumns();
-        let {searchObject, onSearchClicked, onSearchClear} = this.state;
         return (
-            <GridContext.Provider value={this.state}>
+            <GridSearchContext.Provider value={this.state}>
                 {this.props.searchForm}
-                <KGrid className="k-rtl" onDataStateChange={this.dataStateChange} {...this.props} {...this.state}>
+                <KGrid className="k-rtl"
+                       onDataStateChange={this.dataStateChange}
+                       onSelectionChange={e => selectionChange(e, this)}
+                       onHeaderSelectionChange={e => headerSelectionChange(e, this)}
+                       selectedField="selected"
+                       {...this.props} {...this.state}>
                     {gridColumns}
                 </KGrid>
-            </GridContext.Provider>
+            </GridSearchContext.Provider>
         )
     }
 
     regenerateGridColumns() {
-        let {children} = this.props;
+        let {children, showIndex, selectionMode} = this.props;
         let childrenArray = React.Children.toArray(children);
         let fieldColumns = childrenArray.filter(child => child && child.type === GridColumn);
         let gridCommands = childrenArray.filter(child => child && child.type === GridCommands);
 
         let gridColumns = fieldColumns.map(this.createFieldColumn.bind(this));
+        if (showIndex) {
+            gridColumns.splice(0, 0, GridIndexColumn(this.props));
+        }
+        if (selectionMode) {
+            gridColumns.splice(0, 0, GridSelectionColumn(this.state.data));
+        }
 
         if (gridCommands && gridCommands.length > 0) {
             gridColumns.push(this.createCommandColumn(gridCommands[0]));
@@ -97,11 +103,12 @@ class DataGrid extends React.Component {
 
     createFieldColumn(child, idx) {
         let {t} = this.props;
-        let {title, ...restProps} = child.props;
+        let {title, render, ...restProps} = child.props;
         return React.createElement(KGridColumn,
             {
                 key: idx,
                 title: t(title),
+                cell: render,
                 ...restProps
             });
     }
@@ -186,13 +193,15 @@ DataGrid.propTypes = {
     onRowClick: PropTypes.func,
     onItemChange: PropTypes.func,
     editField: PropTypes.string,
+    showIndex: PropTypes.bool,
     scrollable: PropTypes.string,
     rowHeight: PropTypes.number,
     detail: PropTypes.any,
     style: PropTypes.object,
     onDataStateChange: PropTypes.func,
     onColumnResize: PropTypes.func,
-    onColumnReorder: PropTypes.func
+    onColumnReorder: PropTypes.func,
+    searchForm: PropTypes.object
 };
 
 DataGrid.defaultProps = {

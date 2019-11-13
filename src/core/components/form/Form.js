@@ -57,7 +57,7 @@ Form.propTypes = {
     validate: PropTypes.func,
     onValidate: PropTypes.func,
     initialValues: PropTypes.object,
-    innerRef: PropTypes.object,
+    innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     fieldLabels: PropTypes.object,
     children: PropTypes.node
 };

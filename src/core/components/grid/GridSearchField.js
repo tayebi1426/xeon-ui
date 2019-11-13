@@ -1,26 +1,23 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import {Field} from "../form";
+import {Field, Input} from "../form";
 
 class GridSearchField extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-    handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
-    };
-
     render() {
-        let {title} = this.props;
-        if (!this.props.render) {
-            return (<></>);
+        let {title, name, children, type} = this.props;
+        if (!name && !children) {
+            return null;
         }
-        let {name} = this.props.render;
+        let element;
+        if (children) {
+            element = children;
+        } else {
+            element = <Input type={type} name={name}/>;
+        }
         return (
             <Field name={name} label={title}>
-                {this.props.render}
+                {element}
             </Field>
         )
     }
@@ -28,13 +25,15 @@ class GridSearchField extends React.Component {
 }
 
 GridSearchField.propTypes = {
-    render: PropTypes.element.isRequired,
+    name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    type: PropTypes.string,
     operator: PropTypes.oneOf(['eq', 'aeq', 'neq', 'gt', 'gte', 'lt', 'lte', 'startswith', 'endswith', 'contains', 'doesnotcontain']),
 };
 
 GridSearchField.defaultProps = {
-    operator: 'aeq'
+    operator: 'aeq',
+    type: 'text'
 };
 
 export default GridSearchField;

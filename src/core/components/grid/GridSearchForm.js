@@ -1,11 +1,11 @@
 import React from 'react'
-import Accordion from "../common/Accordion";
-import {Button} from "../form";
-import Row from "reactstrap/es/Row";
-import {Col} from "reactstrap";
-import {GridContext} from './GridContext';
+
+import {Button, Card, Row} from "../../index";
+
+import {GridSearchContext} from './GridSearchContext';
 import * as PropTypes from "prop-types";
 import Form from "../form/Form";
+import {createGridSearchObject} from "./createGridSearchObject";
 
 class GridSearchForm extends React.Component {
 
@@ -17,58 +17,52 @@ class GridSearchForm extends React.Component {
     render() {
         let {children, title} = this.props;
 
-        let nameAndOperators = React.Children.toArray(children).map((child) => {
-            let render = child.props.render;
-            if (render && render.props && render.props.name) {
-                let type = render.props.type ? render.props.type : 'text';
-                return {name: render.props.name, operator: child.props.operator, type: type}
+        let initialValues = {};
+        let namesAndOperators = React.Children.toArray(children).map((child) => {
+            let {name, operator, type} = child.props;
+            if (name) {
+                let inputType = type ? type : 'text';
+                initialValues[name] = '';
+                return {name: name, operator: operator, type: inputType}
             }
         });
-
         return (
-
-            <GridContext.Consumer>
-                {({searchObject, onSearchClicked, onSearchClear}) => (
+            <GridSearchContext.Consumer>
+                {({onSearchClicked}) => (
                     // eslint-disable-next-line react/jsx-no-comment-textnodes
-                    <Accordion title={title}>
-                        <Form
-                            onSubmit={(values, actions) => this.onSearchClicked(values, actions, searchObject, onSearchClicked)}>
+                    <Card title={title}>
+                        <Form initialValues={initialValues}
+                              innerRef={(el) => this.formRef = el}
+                              onSubmit={(values, actions) => this.onSearchClicked(values, actions, onSearchClicked, namesAndOperators)}>
                             <Row>
-                                <Col style={{marginRight: '10px', marginTop: '10px'}} lg={{size: 12}} md={{size: 12}}
-                                     sm={12} xs={12}>
-                                    <Row>
-                                        {children}
-                                    </Row>
-                                </Col>
-                                <Col style={{marginRight: '10px', marginTop: '10px'}} lg={{size: 12}} md={{size: 12}}
-                                     sm={12} xs={12}>
-                                    <Button title={'جستجو'}/>
-                                    <Button onClick={(e) => this.onSearchClear(e, onSearchClear)}
-                                            title={'پاک کردن'}/></Col>
+                                {children}
+                            </Row>
+                            <Row>
+                                <Button isPrimary={true} title={'search'}/>
+                                <Button type={'button'} onClick={(e) => this.onSearchClear(e, onSearchClicked)}
+                                        title={'clear'}/>
                             </Row>
                         </Form>
-                    </Accordion>
+                    </Card>
 
                 )}
-            </GridContext.Consumer>
+            </GridSearchContext.Consumer>
 
         );
     }
 
-    onSearchClicked = (values, actions, searchObject, onSearchClicked) => {
+    onSearchClicked = (values, actions, onSearchClicked, namesAndOperators) => {
         actions.setSubmitting(false);
-        console.log(values)
-        console.log(actions)
-        // event.preventDefault();
-        // const form = event.currentTarget;
-        // const formData = createGridSearchObject(form);
-        // onSearchClicked(formData);
+        const searchObject = createGridSearchObject(values, namesAndOperators);
+        onSearchClicked(searchObject);
     };
 
-    onSearchClear = (e, onSearchClear) => {
-        e.preventDefault();
-        this.formRef.current.reset();
-        onSearchClear();
+    onSearchClear = (e, onSearchClicked) => {
+        // Object.values(this.formRef.elements).forEach(element => {
+        //     element.value = '';
+        // })
+        this.formRef.reset();
+        onSearchClicked(null);
     }
 
 }
