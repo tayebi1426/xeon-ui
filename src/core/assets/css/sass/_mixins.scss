@@ -61,12 +61,12 @@
 //Responsive Breakpoints
 
 $breakpoints: (
-  xxs: 420px,
-  xs: 576px,
-  sm: 768px,
-  md: 992px,
-  lg: 1200px,
-  xl: 1440px
+        xxs: 420px,
+        xs: 576px,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px,
+        xl: 1440px
 );
 
 
@@ -75,8 +75,8 @@ $breakpoints: (
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
     $breakpoint-value: map-get(
-      $breakpoints,
-      $breakpoint
+                    $breakpoints,
+                    $breakpoint
     ); // Write the media query.
     @media (min-width: ($breakpoint-value - 1)) {
       @content;
@@ -94,8 +94,8 @@ $breakpoints: (
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
     $breakpoint-value: map-get(
-      $breakpoints,
-      $breakpoint
+                    $breakpoints,
+                    $breakpoint
     ); // Write the media query.
     @media (max-width: ($breakpoint-value - 1)) {
       @content;
@@ -108,11 +108,11 @@ $breakpoints: (
 }
 
 @function encodecolor($string) {
-	@if type-of($string) == 'color' {
-        $hex: str-slice(ie-hex-str($string), 4);
-        $string:unquote("#{$hex}");
-    }
-    $string: '%23' + $string;
-	@return $string;
+  @if type-of($string) == 'color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string:unquote("#{$hex}");
+  }
+  $string: '%23' + $string;
+  @return $string;
 }
 

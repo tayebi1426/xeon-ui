@@ -6,28 +6,32 @@ import I18Massage from "../common/I18Massage";
 import Button from "../form/Button";
 
 const CardTitle = (props) => {
-    const {className, title, collapse, openIcon, closeIcon, handleToggleCollapse} = props;
+    const {className, title, collapse,isOpened, openIcon, closeIcon, toggleCollapse} = props;
 
     return <div className={className}>
         <Row form={false}>
-            <Col className="pt-2 pl-2">
+            <Col className="p-2 pl-5">
                 <I18Massage code={title}/>
             </Col>
-            <Button link={true}
+            {collapse && <Button link={true}
                     color="black"
-                    icon={collapse ? openIcon : closeIcon}
+                    icon={isOpened ? openIcon : closeIcon}
                     iconSize="2x"
-                    onClick={handleToggleCollapse}/>
+                    onClick={toggleCollapse}/> }
         </Row>
     </div>
 };
 
 CardTitle.propTypes = {
+    title: PropTypes.string,
     className: PropTypes.string,
+    isOpened: PropTypes.bool,
+    collapse: PropTypes.bool,
     cssModule: PropTypes.object,
+    toggleCollapse: PropTypes.func,
 };
 CardTitle.defaultProps = {
-    className: "card-title text-bold pl-3 pr-3",
+    className: "card-title",
     closeIcon: "angle-up",
     openIcon: "angle-down",
 };

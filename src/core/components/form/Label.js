@@ -17,7 +17,7 @@ Label.propTypes = {
 };
 
 Label.defaultProps = {
-    className: 'k-label'
+
 };
 
 export default Label;

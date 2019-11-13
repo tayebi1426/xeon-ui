@@ -58,7 +58,7 @@ class FormUi extends React.Component {
     render() {
         return <React.Fragment>
             {this.renderPolicyInfo()}
-            <Card title="sampleForm">
+            <Card title="sampleForm" >
                 <Form
                     initialValues={this.state}
                     onSubmit={this.handleSubmit}
@@ -119,7 +119,7 @@ class FormUi extends React.Component {
 
     renderPolicyInfo() {
         return (
-            <Card title="policyInfo.title">
+            <Card title="policyInfo.title" collapse={true}>
                 <Row form={false}>
                     <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
                     <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>

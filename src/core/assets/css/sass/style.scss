@@ -178,7 +178,7 @@ body[dir = 'rtl'] {
   }
 }
 .card-title{
-  background-color: #00b894;
+  background-color: #dfc3ff; /*#ff99f3;*/
   margin-bottom: 0 !important;
 }
 
@@ -197,18 +197,23 @@ body[dir = 'rtl'] {
   color: #ffffff;
   background-color: #343434;
 }
+
 .k-content{
   margin: 15px !important;
 }
 
-.k-icon.k-i-expand:before{
+body{
+  font-family: BYekan,IRANSans ,sans-serif !important;
+  font-weight: 500 !important;
+}
+/*.k-icon.k-i-expand:before{
   font-family: "Material Icons" !important;
   content: "\e315" !important;
 }
 .k-icon.k-i-collapse:before{
   font-family: "Material Icons" !important;
   content: "\e313" !important;
-}
+}*/
 // End kendo ui styles
 
 
