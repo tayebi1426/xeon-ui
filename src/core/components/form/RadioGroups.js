@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 //import '../../assets/css/sass/components/radioButton.scss'
 import I18Massage from "../common/I18Massage";
+import Label from "../form/Label";
 
  class RadioGroup extends React.Component {
 
@@ -20,7 +21,7 @@ import I18Massage from "../common/I18Massage";
             return React.cloneElement(child, childProps);
         });
         return <div {...restProps}>
-            <span>{title && <I18Massage code={title}/>}</span>
+            {title && <Label code={title}/>}
             {radioList}
         </div>
     }

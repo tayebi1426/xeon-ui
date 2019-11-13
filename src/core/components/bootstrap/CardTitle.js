@@ -6,18 +6,18 @@ import I18Massage from "../common/I18Massage";
 import Button from "../form/Button";
 
 const CardTitle = (props) => {
-    const {className, title, collapse,isOpened, openIcon, closeIcon, toggleCollapse} = props;
+    const {className, title, collapse, isOpened, openIcon, closeIcon, toggleCollapse} = props;
 
-    return <div className={className}>
+    return <div className={className + ' round '}>
         <Row form={false}>
             <Col className="p-2 pl-5">
-                <I18Massage code={title}/>
+                {title && <I18Massage code={title}/>}
             </Col>
-            {collapse && <Button link={true}
-                    color="black"
-                    icon={isOpened ? openIcon : closeIcon}
-                    iconSize="2x"
-                    onClick={toggleCollapse}/> }
+            {collapse && title && <Button link={true}
+                                          color="black"
+                                          icon={isOpened ? openIcon : closeIcon}
+                                          iconSize="2x"
+                                          onClick={toggleCollapse}/>}
         </Row>
     </div>
 };
