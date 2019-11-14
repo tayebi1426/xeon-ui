@@ -16,6 +16,7 @@ import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./Gri
 class DataGrid extends React.Component {
 
     onSearchClicked = (searchObject) => {
+        this.state.selectedItems.clear();
         const {readUrl, localData, skip, pageSize} = this.props;
         this.fetchGridData(readUrl, localData, skip, pageSize, searchObject);
     };
@@ -149,6 +150,13 @@ class DataGrid extends React.Component {
     }
 
     fillGridData(request, data, total) {
+        if (this.props.selectionMode) {
+            data.forEach(item => {
+                if (this.state.selectedItems.has(item.id)) {
+                    item.selected = true;
+                }
+            });
+        }
         this.setState({
             data: data,
             total: total,
@@ -211,7 +219,8 @@ DataGrid.propTypes = {
     onDataStateChange: PropTypes.func,
     onColumnResize: PropTypes.func,
     onColumnReorder: PropTypes.func,
-    searchForm: PropTypes.object
+    searchForm: PropTypes.object,
+    selectionMode: PropTypes.bool
 };
 
 DataGrid.defaultProps = {
@@ -227,6 +236,7 @@ DataGrid.defaultProps = {
     resizable: false,
     reorderable: false,
     groupable: false,
+    selectionMode: false,
 };
 
 export default withTranslation(DataGrid);
