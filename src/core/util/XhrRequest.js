@@ -39,12 +39,7 @@ class XhrRequest {
     }
 
     static callRequest(promise) {
-        promise.catch(XhrRequest.handleErrors);
         return promise.then(response => response.data);
-    }
-
-    static handleErrors(ex) {
-        console.error(ex);
     }
 
     static setBaseURL(baseURL) {

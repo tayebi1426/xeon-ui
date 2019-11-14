@@ -42,10 +42,11 @@ class Security {
         let basicAuth = 'Basic ' + btoa(AUTH_USERNAME + ':' + AUTH_PASSWORD);
         let headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': basicAuth};
         return XhrRequest.postRequest(`${AUTHENTICATION_SERVER_URL}/oauth/token`, querystring.encode(params), headers)
-            .then(function (response) {
+            .then((response)=> {
                 sessionStorage.setItem(sessionName, JSON.stringify(response));
             }).catch((error)=> {
                 console.error('Error on Authentication', error);
+                return Promise.reject(error);
             });
     }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card} from 'xeon-ui'
+import {Card} from '../../core'
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
