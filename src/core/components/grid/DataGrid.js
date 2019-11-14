@@ -7,7 +7,7 @@ import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
 import GridToolbar from './GridToolbar'
 import * as PropTypes from 'prop-types';
-import {GridSearchContext} from "./GridSearchContext";
+import {GridContext} from "./GridContext";
 import {addSearchObjectToGridRequest} from "./createGridSearchObject";
 import {GridIndexColumn} from "./GridIndexColumn";
 import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./GridSelectionColumn";
@@ -71,7 +71,7 @@ class DataGrid extends React.Component {
         let gridColumns = this.regenerateGridColumns();
         let gridToolbar = this.generateGridToolbar();
         return (
-            <GridSearchContext.Provider value={this.state}>
+            <GridContext.Provider value={this.state}>
                 {this.props.searchForm}
                 {gridToolbar}
                 <KGrid className="k-rtl"
@@ -82,7 +82,7 @@ class DataGrid extends React.Component {
                        {...this.props} {...this.state}>
                     {gridColumns}
                 </KGrid>
-            </GridSearchContext.Provider>
+            </GridContext.Provider>
         )
     }
 
@@ -152,9 +152,7 @@ class DataGrid extends React.Component {
     fillGridData(request, data, total) {
         if (this.props.selectionMode) {
             data.forEach(item => {
-                if (this.state.selectedItems.has(item.id)) {
-                    item.selected = true;
-                }
+                item.selected = this.state.selectedItems.has(item.id);
             });
         }
         this.setState({

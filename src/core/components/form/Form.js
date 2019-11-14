@@ -24,9 +24,9 @@ class Form extends React.Component {
     };
 
     renderForm = (formProps) => {
-        let {children, innerRef} = this.props;
+        let {children, innerRef, className} = this.props;
         return <FormContext.Provider value={formProps}>
-            <form ref={innerRef}
+            <form ref={innerRef} className={className}
                   onSubmit={formProps.handleSubmit}>
                 {children}
             </form>
@@ -34,8 +34,10 @@ class Form extends React.Component {
     };
 
     render() {
-        let {initialValues, onSubmit, validate=this.defaultFormValidate
-            , validateOnChange, validateOnBlur} = this.props;
+        let {
+            initialValues, onSubmit, validate = this.defaultFormValidate
+            , validateOnChange, validateOnBlur
+        } = this.props;
 
         return <Formik render={this.renderForm}
                        initialValues={initialValues}
@@ -59,7 +61,8 @@ Form.propTypes = {
     initialValues: PropTypes.object,
     innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     fieldLabels: PropTypes.object,
-    children: PropTypes.node
+    children: PropTypes.node,
+    className: PropTypes.string
 };
 
 Form.defaultProps = {

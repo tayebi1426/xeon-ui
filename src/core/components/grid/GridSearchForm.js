@@ -1,8 +1,8 @@
 import React from 'react'
 
-import {Button, Card, Row} from "../../index";
+import {Button, Row} from "../../index";
 
-import {GridSearchContext} from './GridSearchContext';
+import {GridContext} from './GridContext';
 import * as PropTypes from "prop-types";
 import Form from "../form/Form";
 import {createGridSearchObject} from "./createGridSearchObject";
@@ -27,10 +27,11 @@ class GridSearchForm extends React.Component {
             }
         });
         return (
-            <GridSearchContext.Consumer>
+            <GridContext.Consumer>
                 {({onSearchClicked}) => (
                     // eslint-disable-next-line react/jsx-no-comment-textnodes
                         <Form initialValues={initialValues}
+                              className={"gridSearchForm"}
                               innerRef={(el) => this.formRef = el}
                               onSubmit={(values, actions) => this.onSearchClicked(values, actions, onSearchClicked, namesAndOperators)}>
                             <Row>
@@ -43,7 +44,7 @@ class GridSearchForm extends React.Component {
                             </Row>
                         </Form>
                 )}
-            </GridSearchContext.Consumer>
+            </GridContext.Consumer>
 
         );
     }

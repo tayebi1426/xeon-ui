@@ -1,7 +1,17 @@
 import React from "react";
+import {
+    Button,
+    DataGrid,
+    EditCommand,
+    GridColumn,
+    GridCommand,
+    GridCommands,
+    GridSearchForm,
+    GridToolbar,
+    withTranslation
+} from "../../core";
 
-import {DataGrid, EditCommand, GridColumn, GridCommand, GridCommands, GridSearchForm,Label,Input,Col,Row} from "../../core";
-
+import GridSearchField from "../../core/components/grid/GridSearchField";
 
 const gridData = [
     {id: 1, name: 'A-15'},
@@ -49,34 +59,21 @@ class GridUi extends React.Component {
     }
 
     nameCell = (props) => {
-        const value = props.dataItem[props.field];
-        let cellValue = value;
-        if (value === 'A-15') {
-            cellValue = 'Rasool';
-            return <td style={{color: 'red'}}> {cellValue}</td>
-        }
-        return <td>cellValue</td>;
-    };
-
-    handleSearchFieldChange = (name, event) => {
-        this.setState({searchObject: {[name]: event.target.value}});
+        const cellValue = props.dataItem[props.field];
+        return <td><Button link={true} title={cellValue}/></td>;
     };
 
     searchForm = () => {
         return (
             <GridSearchForm title={'جستجو'}>
-                <Row>
-                    <Col lg={{size: 3}}>
-                        <Label code={'name'}/>
-                        <Input name={'name'}/>
-                    </Col>
-                    <Col lg={{size: 3}}>
-                        <Label code={'code'}/>
-                        <Input name={'code'}/>
-                    </Col>
-                </Row>
+                <GridSearchField title={'name'} operator={'aeq'} name={"name"}/>
+                <GridSearchField title={'code'} operator={'contains'} name={"code"}/>
             </GridSearchForm>
         );
+    };
+
+    getSelectedItems = (e, selectedItems) => {
+        console.log('selectedItems', selectedItems)
     };
 
     render() {
@@ -88,9 +85,13 @@ class GridUi extends React.Component {
 
                 {/*<Card title="Sample Grid">*/}
                 <DataGrid readUrl={'https://localhost:7002/acc-ws/unsecured/gridtest'} editField="inEdit"
-                          searchForm={this.searchForm()}>
+                          searchForm={this.searchForm()} showIndex={true} selectionMode={true}>
+                    <GridToolbar>
+                        <Button title={'selected'} onClick={this.getSelectedItems}/>
+                    </GridToolbar>
+
                     <GridColumn field="id" title="product.id"/>
-                    <GridColumn field="name" title="product.name"/>
+                    <GridColumn field="name" title="product.name" render={this.nameCell}/>
                     <GridCommands>
                         <EditCommand onClick={this.handleEditItem}/>
                         <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
@@ -104,4 +105,4 @@ class GridUi extends React.Component {
 
 }
 
-export default (GridUi);
+export default withTranslation(GridUi);

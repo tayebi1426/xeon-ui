@@ -1,6 +1,6 @@
 import React from "react";
 
-export const GridSearchContext = React.createContext({
+export const GridContext = React.createContext({
     selectedItems: [],
     onSearchClicked: () => {
     },
