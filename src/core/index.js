@@ -19,4 +19,5 @@ export * from './components/form/index';
 export * from './util/index';
 export {withTranslation} from './i18n/index';
 export * from './components/security/index';
+export * from './validation/index';
 export {XeonApp};
