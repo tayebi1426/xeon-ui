@@ -119,7 +119,7 @@ class FormUi extends React.Component {
 
     renderPolicyInfo() {
         return (
-            <Card title="policyInfo.title" collapse={true} round={true}>
+            <Card title="policyInfo.title" collapse={true} >
                 <Row form={false}>
                     <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
                     <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>

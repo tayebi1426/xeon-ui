@@ -12,7 +12,9 @@ class Card extends React.Component {
     };
 
     toggleCollapse = () => {
-        this.setState({isOpened: !this.state.isOpened});
+        if(this.props.collapse){
+            this.setState({isOpened: !this.state.isOpened});
+        }
     };
 
     renderBody = () => {

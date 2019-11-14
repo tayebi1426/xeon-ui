@@ -1,5 +1,5 @@
 import React from 'react'
-import {Tab, TabContainer,Card} from 'xeon-ui'
+import {Tab, TabContainer,Card} from '../../core'
 
 function TabBody(props) {
     return <div>Tab Content : {props.tabId}</div>;
