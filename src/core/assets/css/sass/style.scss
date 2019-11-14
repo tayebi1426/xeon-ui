@@ -1,11 +1,13 @@
+$border-radius-rounded: 0.7rem;
+
 table {
-  thead{
+  thead {
     background: #cacaca;
   }
 
-  tr{
+  tr {
     td:last-child {
-      span{
+      span {
         margin-left: 15px;
         cursor: pointer;
       }
@@ -13,72 +15,92 @@ table {
   }
 }
 
-.p-5{
+.p-5 {
   padding: 5px !important;
 }
-.p-10{
+
+.p-10 {
   padding: 10px !important;
 }
-.p-15{
+
+.p-15 {
   padding: 15px !important;
 }
-.p-20{
+
+.p-20 {
   padding: 20px !important;
 }
 
 .ltr {
   direction: ltr;
 }
+
 .rtl {
   direction: rtl;
 }
-.pull-left{
+
+.pull-left {
   float: left;
   text-align-last: left;
 }
-.pull-right{
+
+.pull-right {
   float: right;
   text-align-last: right;
 }
+
 .text-right {
   text-align: right;
 }
+
 .text-center {
   text-align: center;
 }
+
 .text-left {
   text-align: left;
 }
+
 .text-small {
   font-size: 0.8em;
 }
+
 .text-xsmall {
   font-size: 0.6em;
 }
+
 .text-large {
   font-size: 1.2em;
 }
+
 .text-xlarge {
   font-size: 1.4em;
 }
+
 .text-underline {
-  text-decoration:underline;
+  text-decoration: underline;
 }
+
 .text-ultralight {
   font-weight: 200;
 }
+
 .text-light {
   font-weight: 300;
 }
+
 .text-regular {
   font-weight: normal;
 }
+
 .text-medium {
   font-weight: 500;
 }
+
 .text-bold {
   font-weight: bold;
 }
+
 .text-black {
   font-weight: 900;
 }
@@ -87,19 +109,23 @@ table {
 .text-primary {
   color: #007bff !important;
 }
+
 .text-secondary {
-   color: #545b62 !important;
- }
+  color: #545b62 !important;
+}
 
 .text-success {
-  color:#1e7e34  !important;
+  color: #1e7e34 !important;
 }
+
 .text-warning {
   color: #d39e00 !important;
 }
+
 .text-info {
   color: #117a8b !important;
 }
+
 .text-danger {
   color: #bd2130 !important;
 }
@@ -107,16 +133,19 @@ table {
 .bb_dashed_1 {
   border-bottom: dashed 1px;
 }
+
 .bb_dashed_2 {
   border-bottom: dashed 2px;
 }
-.cursor-pointer{
+
+.cursor-pointer {
   cursor: pointer
 }
+
 .k-grid-header-wrap {
-  thead{
-    th{
-      a{
+  thead {
+    th {
+      a {
         text-align: center;
       }
     }
@@ -132,56 +161,63 @@ body[dir = 'rtl'] {
   }
 }
 
-
-
 // if used in SCSS, this can be reduced to
 // .k-hierarchy-cell .k-plus::before { @extends .fa-expand; }
 
-
 // react-datepicker2
-.tether-element{
+.tether-element {
   z-index: 99999 !important;
 }
-.calendarContainer .dayWrapper button, .calendarContainer .dayWrapper button, .jalaali.calendarContainer .selectToday  {
+
+.calendarContainer .dayWrapper button, .calendarContainer .dayWrapper button, .jalaali.calendarContainer .selectToday {
   text-align: center;
 }
+
 .calendarContainer .heading .rc-time-picker {
   width: 27% !important;
 }
+
 .calendarContainer .heading .title {
   width: 40% !important;
 }
+
 .calendarContainer .monthsList button,
 .calendarContainer .selected button,
 .calendarContainer .selected button:active,
 .calendarContainer .selected button:focus,
-.calendarContainer .selected button:hover{
+.calendarContainer .selected button:hover {
   text-align: center;
 }
 
 // end react-datepicker2
 
-.btn-container button{
+.btn-container button {
   margin: 15px 0 15px 15px;
 }
-.btn-container-flat button{
+
+.btn-container-flat button {
   margin: 0 0 0 15px;
 }
 
-
-.navbar.fixed-top{
-  ul{
+.navbar.fixed-top {
+  ul {
     list-style: none;
-    li{
+    li {
       float: right;
     }
   }
 }
-.card-title{
-  background-color: #dfc3ff; /*#ff99f3;*/
+
+div.card.rounded  {
+    border-radius: $border-radius-rounded !important;
+}
+div.card-title {
+  background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
   margin-bottom: 0 !important;
 }
-
+div.card-title.rounded {
+  border-radius: $border-radius-rounded $border-radius-rounded 0 0 !important;
+}
 //overwrite kendo ui styles
 .k-treeview .k-i-expand, .k-treeview .k-i-collapse {
   margin-left: 0 !important;
@@ -193,21 +229,25 @@ body[dir = 'rtl'] {
   color: #ffffff;
   background-color: #347deb;
 }
+
 .k-treeview .k-i-collapse {
   color: #ffffff;
   background-color: #343434;
 }
 
-.k-content{
+.k-content {
   margin: 15px !important;
 }
-.x-label,.custom-control-label{
+
+.x-label, .custom-control-label {
   font-size: 0.9rem;
 }
-body{
-  font-family: BYekan,IRANSans ,sans-serif !important;
-  font-weight: 400 !important;
+
+body {
+  font-family: BYekan, IRANSans, sans-serif !important;
+  font-weight: 500 !important;
 }
+
 /*.k-icon.k-i-expand:before{
   font-family: "Material Icons" !important;
   content: "\e315" !important;

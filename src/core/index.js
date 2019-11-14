@@ -7,7 +7,7 @@ import ('./assets/fonts/awesome/css/fontawesome.min.css');
 import ('./assets/css/vendor/kendo-all.css');
 import ('./assets/css/sass/themes/gogo.light.purple.scss');
 import ('./assets/css/notification/notifications.css');
-import ('./assets/fonts/iransans/iranSansWebFont.css');
+import ('./assets/fonts/iransans/style.css');
 //import ('./assets/fonts/BYekan/style.css');
 import ('./assets/css/sass/style.scss');
 

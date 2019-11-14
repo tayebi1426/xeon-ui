@@ -8,7 +8,7 @@ import Button from "../form/Button";
 const CardTitle = (props) => {
     const {className, title, collapse, isOpened, openIcon, closeIcon, toggleCollapse} = props;
 
-    return <div className={className + ' round '}>
+    return <div className={className + ' rounded '}>
         <Row form={false}>
             <Col className="p-2 pl-5">
                 {title && <I18Massage code={title}/>}

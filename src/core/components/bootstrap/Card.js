@@ -25,8 +25,8 @@ class Card extends React.Component {
     };
 
     render() {
-        let {animationIn, animationOut, title,round, className,collapse} = this.props;
-        className=classNames(className,round ? 'round': null);
+        let {animationIn, animationOut, title, round, className, collapse} = this.props;
+        className = classNames(className, round ? 'rounded' : null);
         return <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true}>
             <BsCard className={className}>
                 <CardTitle title={title} isOpened={this.state.isOpened}
@@ -56,7 +56,7 @@ Card.defaultProps = {
     title: '',
     collapse: false,
     isOpened: true,
-    round:true,
+    round: true,
     animationIn: "fadeIn",
     animationOut: "fadeOut",
     className: 'mb-4'
