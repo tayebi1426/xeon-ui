@@ -7,19 +7,35 @@ function GridSelectionColumn(data) {
         {
             field: "selected",
             width: "50px",
-            headerSelectionValue: data.findIndex(dataItem => dataItem.selected === false) === -1
+            headerSelectionValue: data.findIndex(dataItem => {
+                return !(dataItem.selected)
+            }) === -1
         });
 
 }
 
 function headerSelectionChange(event, grid) {
     const checked = event.syntheticEvent.target.checked;
-    grid.state.data.forEach(item => item.selected = checked);
+    const {selectedItems} = grid.state;
+    grid.state.data.forEach(item => {
+        item.selected = checked;
+        if (checked) {
+            selectedItems.set(item.id, item);
+        } else {
+            selectedItems.delete(item.id);
+        }
+    });
     grid.forceUpdate();
 }
 
 function selectionChange(event, grid) {
     event.dataItem.selected = !event.dataItem.selected;
+    const {selectedItems} = grid.state;
+    if (event.dataItem.selected) {
+        selectedItems.set(event.dataItem.id, event.dataItem);
+    } else {
+        selectedItems.delete(event.dataItem.id);
+    }
     grid.forceUpdate();
 }
 

@@ -5,6 +5,7 @@ import {withTranslation} from '../../i18n/index'
 import GridColumn from './GridColumn'
 import GridCommands from './GridCommands'
 import GridCommand from './GridCommand'
+import GridToolbar from './GridToolbar'
 import * as PropTypes from 'prop-types';
 import {GridSearchContext} from "./GridSearchContext";
 import {addSearchObjectToGridRequest} from "./createGridSearchObject";
@@ -25,7 +26,8 @@ class DataGrid extends React.Component {
         take: this.props.pageSize,
         skip: this.props.skip,
         onSearchClicked: this.onSearchClicked,
-        readUrl: this.props.readUrl
+        readUrl: this.props.readUrl,
+        selectedItems: new Map()
     };
 
     dataStateChange = (e) => {
@@ -66,9 +68,11 @@ class DataGrid extends React.Component {
 
     render() {
         let gridColumns = this.regenerateGridColumns();
+        let gridToolbar = this.generateGridToolbar();
         return (
             <GridSearchContext.Provider value={this.state}>
                 {this.props.searchForm}
+                {gridToolbar}
                 <KGrid className="k-rtl"
                        onDataStateChange={this.dataStateChange}
                        onSelectionChange={e => selectionChange(e, this)}
@@ -80,6 +84,12 @@ class DataGrid extends React.Component {
             </GridSearchContext.Provider>
         )
     }
+
+    generateGridToolbar = () => {
+        let {children} = this.props;
+        let gridToolbar = React.Children.toArray(children).filter(child => child && child.type === GridToolbar);
+        return (gridToolbar && gridToolbar.length > 0) ? gridToolbar[0] : null;
+    };
 
     regenerateGridColumns() {
         let {children, showIndex, selectionMode} = this.props;
