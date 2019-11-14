@@ -1,6 +1,6 @@
 import React from "react";
 
-import {DataGrid, EditCommand, GridColumn, GridCommand, GridCommands, GridSearchForm,Label,Input,Col,Row} from "xeon-ui";
+import {DataGrid, EditCommand, GridColumn, GridCommand, GridCommands, GridSearchForm,Label,Input,Col,Row} from "../../core";
 
 
 const gridData = [

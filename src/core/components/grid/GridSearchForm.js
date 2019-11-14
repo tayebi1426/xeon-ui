@@ -15,7 +15,7 @@ class GridSearchForm extends React.Component {
     }
 
     render() {
-        let {children, title} = this.props;
+        let {children} = this.props;
 
         let initialValues = {};
         let namesAndOperators = React.Children.toArray(children).map((child) => {
@@ -30,7 +30,6 @@ class GridSearchForm extends React.Component {
             <GridSearchContext.Consumer>
                 {({onSearchClicked}) => (
                     // eslint-disable-next-line react/jsx-no-comment-textnodes
-                    <Card title={title}>
                         <Form initialValues={initialValues}
                               innerRef={(el) => this.formRef = el}
                               onSubmit={(values, actions) => this.onSearchClicked(values, actions, onSearchClicked, namesAndOperators)}>
@@ -43,8 +42,6 @@ class GridSearchForm extends React.Component {
                                         title={'clear'}/>
                             </Row>
                         </Form>
-                    </Card>
-
                 )}
             </GridSearchContext.Consumer>
 

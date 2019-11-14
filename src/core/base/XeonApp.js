@@ -13,6 +13,11 @@ class XeonApp extends React.Component {
         this.init();
     }
 
+    componentDidMount() {
+        document.body.classList.add("rtl");
+        document.body.classList.remove("ltr");
+    }
+
     render() {
         let {store, appRoutes} = this.props;
 

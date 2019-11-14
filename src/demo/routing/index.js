@@ -3,22 +3,25 @@ import DefaultLayout from "../../core/layouts/DefaultLayout";
 
 let FormsUi = React.lazy(() => import("../ui/FormUi"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
+let TabComponent = React.lazy(() => import("../ui/TabComponent"));
 /*
 let Button = React.lazy(() => import("../ui/Button"));
 let Icon = React.lazy(() => import("../ui/Icon"));
 let FormValidation = React.lazy(() => import("../ui/FormValidation"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
-let TabComponent = React.lazy(() => import("../ui/TabComponent"));
+
 let FileUploader = React.lazy(() => import("../ui/FileUploader"));
 let Editor = React.lazy(() => import("../ui/Editor"));
 */
 
 const MAIN_ROUTES = [
     {path: '/form', component: FormsUi},
-    {path: '/grid', component: GridUi}
+    {path: '/grid', component: GridUi},
+    {path: '/tab', component: TabComponent,access:[]}
+
 /*    {path: '/formValidation', component: FormValidation},
     {path: '/grid', component: GridUi},
-    {path: '/tab', component: TabComponent,access:[]},
+
     {path: '/button', component: Button,access:[]},
     {path: '/icon', component: Icon,access:[]},
     {path: '/fileupload', component: FileUploader,access:[]},

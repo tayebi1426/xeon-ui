@@ -212,7 +212,8 @@ div.card.rounded  {
     border-radius: $border-radius-rounded !important;
 }
 div.card-title {
-  background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
+ // background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
+  cursor: pointer;
   margin-bottom: 0 !important;
 }
 div.card-title.rounded {
@@ -241,6 +242,9 @@ div.card-title.rounded {
 
 .x-label, .custom-control-label {
   font-size: 0.9rem;
+}
+.tab-content{
+  padding: 0.7em;
 }
 
 body {
