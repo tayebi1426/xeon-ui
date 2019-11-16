@@ -21,7 +21,7 @@ class Card extends React.Component {
         if (!this.state.isOpened) {
             return null;
         }
-        return <CardBody className='pl-5'>
+        return <CardBody className='card-body'>
             {this.props.children}
         </CardBody>
     };

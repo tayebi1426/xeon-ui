@@ -28,7 +28,7 @@ class Field extends React.Component {
         delete restProps.i18n;
 
         return <FormGroup {...restProps}>
-            <Label htmlFor={id} code={label}/>
+            {label && <Label htmlFor={id} code={label}/>}
             {filed}
             <ErrorMessage fieldName={name}/>
         </FormGroup>

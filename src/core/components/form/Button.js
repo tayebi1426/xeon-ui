@@ -40,7 +40,8 @@ Button.defaultProps = {
     isPrimary: false,
     size: 'lg',
     visible: true,
-    className: 'x-btn'
+    className: 'x-btn',
+    iconSize: '2x'
 };
 
 export default Button;

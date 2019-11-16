@@ -1,11 +1,10 @@
 import React from 'react'
 import {CustomInput} from 'reactstrap'
 import PropTypes from 'prop-types';
+import {withTranslation} from '../../i18n/index';
 
-function Checkbox(props) {
-    return <div className="custom-checkbox custom-control">
-              <CustomInput {...props}/>
-           </div>
+function Checkbox({label,t,...restProps}) {
+    return <CustomInput label={t(label)} {...restProps}/>
 }
 
 Checkbox.propTypes = {
@@ -24,8 +23,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-    type: 'checkbox',
-    className: "custom-checkbox custom-control"
+    type: 'checkbox'
 };
 
-export default Checkbox;
+export default withTranslation(Checkbox);

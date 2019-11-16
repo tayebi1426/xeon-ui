@@ -50,7 +50,6 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-    title: PropTypes.string,
     validateOnChange: PropTypes.bool,
     validateOnBlur: PropTypes.bool,
     autoComplete: PropTypes.string,
@@ -69,6 +68,7 @@ Form.defaultProps = {
     validateOnChange: true,
     validateOnBlur: false,
     autoComplete: 'off',
+    className:'x-form'
 };
 
 export default Form;

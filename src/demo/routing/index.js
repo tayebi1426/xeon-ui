@@ -4,6 +4,7 @@ import DefaultLayout from "../../core/layouts/DefaultLayout";
 let FormsUi = React.lazy(() => import("../ui/FormUi"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
 let TabComponent = React.lazy(() => import("../ui/TabComponent"));
+let TreeComponent = React.lazy(() => import("../ui/TreeComponent"));
 let FormValidation = React.lazy(() => import("../ui/FormValidation"));
 let Editor = React.lazy(() => import("../ui/Editor"));
 /*
@@ -20,6 +21,7 @@ const MAIN_ROUTES = [
     {path: '/formValidation', component: FormValidation},
     {path: '/grid', component: GridUi},
     {path: '/tab', component: TabComponent,access:[]},
+    {path: '/tree', component: TreeComponent,access:[]},
     {path: '/editor', component: Editor,access:[]}
 /*
 

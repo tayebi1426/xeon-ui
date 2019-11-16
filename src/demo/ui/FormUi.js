@@ -29,10 +29,6 @@ const SELECT_DATA = [
 
 class FormUi extends React.Component {
 
-    /*  selectHandleChange = selectedOption => {
-          this.setState({selectedOption});
-      };*/
-
     handleBirthDateChange = (val) => {
         console.debug('birthDate : ', val);
         //this.state({birthDate: val})
@@ -42,7 +38,7 @@ class FormUi extends React.Component {
         email: '',
         password: '',
         birthDate: '',
-        favColor:'green'
+        favColor: 'green'
     };
     handleSubmit = (values, actions) => {
         setTimeout(() => {
@@ -51,19 +47,18 @@ class FormUi extends React.Component {
             Notification.success('Info message', 'Title');
         }, 1000);
     };
-    handleChangeColor=(e)=>{
-        console.debug(' e: ',e);
+    handleChangeColor = (e) => {
+        console.debug(' e: ', e);
     };
 
     render() {
         return <React.Fragment>
             {this.renderPolicyInfo()}
-            <Card title="sampleForm" >
+            <Card title="sampleForm">
                 <Form
                     initialValues={this.state}
                     onSubmit={this.handleSubmit}
-                    rules={{}}
-                    title="sampleForm">
+                    rules={{}}>
                     <Row>
                         <Field name="email" label="email">
                             <Input type="email"/>
@@ -77,15 +72,14 @@ class FormUi extends React.Component {
                             <DatePicker/>
                         </Field>
                     </Row>
-
                     <Row>
-                        <Field id="form-field-name" name="form-field-name" label="product.name">
+                        <Field name="form-field-name" label="product.name">
                             <Select value={this.state.selectedOption} onChange={this.selectHandleChange}
                                     options={SELECT_DATA}/>
                         </Field>
                     </Row>
                     <Row>
-                        <Field id="Switch" name="Switch" label="state">
+                        <Field name="Switch" label="state">
                             <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
                                 this.setState({switchCheckedPrimary});
                             }}/>
@@ -97,14 +91,15 @@ class FormUi extends React.Component {
                         </Field>
                     </Row>
                     <Row>
-                        <Field id="testCheckbox" name="testCheckbox" label="Check this custom checkbox">
-                            <Checkbox/>
+                        <Field id="__testCheckbox" name="testCheckbox" >
+                            <Checkbox label="save"/>
                         </Field>
                     </Row>
                     <Row>
-                        <RadioGroup title="favColor" name='favColor' value={this.state.favColor} onChange={this.handleChangeColor} >
-                            <Radio value='red' label='red color' />
-                            <Radio value='blue' label='blue color' />
+                        <RadioGroup title="favColor" name='favColor' value={this.state.favColor}
+                                    onChange={this.handleChangeColor}>
+                            <Radio value='red' label='red color'/>
+                            <Radio value='blue' label='blue color'/>
                             <Radio value='green' label='green color'/>
                         </RadioGroup>
                     </Row>
@@ -119,7 +114,7 @@ class FormUi extends React.Component {
 
     renderPolicyInfo() {
         return (
-            <Card title="policyInfo.title" collapse={true} >
+            <Card title="policyInfo.title" collapse={true}>
                 <Row form={false}>
                     <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
                     <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>

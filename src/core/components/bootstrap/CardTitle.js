@@ -11,18 +11,17 @@ const CardTitle = (props) => {
         return null;
     }
     return <div className={className + ' rounded '}>
-        <Row form={false}>
-            <Col className="p-2">
+        <Row>
+            <Col className="card-title-caption">
                 <Button link={true}
                         color="black"
                         title={title}
                         onClick={toggleCollapse}/>
             </Col>
-            <Col className='offset-12' md={1} lg={1}>
+            <Col className='card-collapse' md={1} lg={1}>
             {collapse && <Button link={true}
                                  color="black"
                                  icon={isOpened ? openIcon : closeIcon}
-                                 iconSize="2x"
                                  onClick={toggleCollapse}/>}
             </Col>
         </Row>
