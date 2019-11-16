@@ -31,14 +31,14 @@ Button.propTypes = {
     visible: PropTypes.bool,
     link: PropTypes.bool,
     block: PropTypes.bool,
-    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    size: PropTypes.oneOf(['lg', 'md','sm']),
     hidden: PropTypes.bool,
     innerRef: PropTypes.func,
     children: PropTypes.node
 };
 Button.defaultProps = {
     isPrimary: false,
-    size: 'lg',
+    size: 'md',
     visible: true,
     className: 'x-btn',
     iconSize: '2x'

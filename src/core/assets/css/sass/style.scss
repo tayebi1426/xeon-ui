@@ -208,17 +208,20 @@ body[dir = 'rtl'] {
   }
 }
 
-div.card.rounded  {
-    border-radius: $border-radius-rounded !important;
+div.card.rounded {
+  border-radius: $border-radius-rounded !important;
 }
+
 div.card-title {
- // background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
+  // background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
   cursor: pointer;
   margin-bottom: 0 !important;
 }
+
 div.card-title.rounded {
   border-radius: $border-radius-rounded $border-radius-rounded 0 0 !important;
 }
+
 //overwrite kendo ui styles
 .k-treeview .k-i-expand, .k-treeview .k-i-collapse {
   margin-left: 0 !important;
@@ -230,16 +233,18 @@ div.card-title.rounded {
   color: #000000;
   //background-color: #347deb;
 }
-.k-in{
+
+.k-in {
   padding: 2px !important;
 }
-.k-treeview-lines{
+
+.k-treeview-lines {
   padding: 0;
 }
 
 .k-treeview .k-i-collapse {
   color: #000000;
- // background-color: #343434;
+  // background-color: #343434;
 }
 
 .k-content {
@@ -249,11 +254,37 @@ div.card-title.rounded {
 .x-label, .custom-control-label {
   font-size: 0.9rem;
 }
-.tab-content{
+
+.tab-content {
   padding: 0.7em;
 }
-.form-control{
+
+.form-control {
   padding: 0.5rem !important;
+}
+
+.k-grid th, .k-grid td {
+  padding: 2px 4px;
+}
+
+button.x-btn {
+  margin: 5px 3px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.x-btn.btn-lg {
+  min-width: 10rem;
+}
+
+.x-btn.btn-md {
+  min-width: 8rem;
+}
+
+.x-btn.btn-sm {
+  min-width: 5rem;
 }
 
 body {

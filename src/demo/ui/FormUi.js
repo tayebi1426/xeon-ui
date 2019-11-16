@@ -16,6 +16,7 @@ import {
 } from "../../core/index";
 import RadioGroup from "../../core/components/form/RadioGroups";
 import Radio from "../../core/components/form/Radio";
+import Col from "../../core/components/bootstrap/Col";
 
 
 const SELECT_DATA = [
