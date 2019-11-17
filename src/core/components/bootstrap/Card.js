@@ -1,5 +1,4 @@
 import React from "react";
-import {Animated} from "react-animated-css";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {Card as BsCard} from 'reactstrap'
@@ -29,15 +28,12 @@ class Card extends React.Component {
     render() {
         let {animationIn, animationOut, title, round, className, collapse} = this.props;
         className = classNames(className, round ? 'rounded' : null);
-        return <Animated animationIn={animationIn} animationOut={animationOut} isVisible={true}>
-            <BsCard className={className}>
+        return <BsCard className={className}>
                 <CardTitle title={title} isOpened={this.state.isOpened}
                            toggleCollapse={this.toggleCollapse}
                            collapse={collapse}/>
                 {this.renderBody()}
             </BsCard>
-        </Animated>
-            ;
     }
 }
 
@@ -61,7 +57,7 @@ Card.defaultProps = {
     round: true,
     animationIn: "fadeIn",
     animationOut: "fadeOut",
-    className: 'mb-4'
+    className: 'mb-2'
 
 };
 

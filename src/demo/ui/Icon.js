@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Col, Icon, Row} from 'xeon-ui'
+import {Card, Col, Icon, Row} from '../../core'
 
 class IconDemo extends React.Component {
 

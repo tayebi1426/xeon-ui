@@ -16,7 +16,8 @@ const CardTitle = (props) => {
                 <Button link={true}
                         color="black"
                         title={title}
-                        onClick={toggleCollapse}/>
+                        onClick={toggleCollapse}
+                />
             </Col>
             <Col className='card-collapse' md={1} lg={1}>
             {collapse && <Button link={true}

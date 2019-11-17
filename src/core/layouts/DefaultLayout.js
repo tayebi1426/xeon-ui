@@ -28,7 +28,7 @@ class DefaultLayout extends Component {
                 <Sidebar/>
                 <main>
                     <div className="container-fluid">
-                        <Row className="mb-4">
+                        <Row>
                             <Col>
                                 <SwitchRouter routes={mainRoutes}/>
                             </Col>

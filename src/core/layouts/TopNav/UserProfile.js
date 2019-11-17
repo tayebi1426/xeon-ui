@@ -16,7 +16,7 @@ function UserProfile() {
                 <DropdownItem>History</DropdownItem>
                 <DropdownItem>Support</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem onClick={() => this.handleLogout()}>
+                <DropdownItem onClick={() => {}}>
                     Sign out
                 </DropdownItem>
             </DropdownMenu>

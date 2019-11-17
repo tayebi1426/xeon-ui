@@ -8,9 +8,10 @@ let TreeComponent = React.lazy(() => import("../ui/TreeComponent"));
 let FormValidation = React.lazy(() => import("../ui/FormValidation"));
 let Editor = React.lazy(() => import("../ui/Editor"));
 let Button = React.lazy(() => import("../ui/Button"));
+let Icon = React.lazy(() => import("../ui/Icon"));
 /*
 
-let Icon = React.lazy(() => import("../ui/Icon"));
+
 
 
 let FileUploader = React.lazy(() => import("../ui/FileUploader"));
@@ -24,11 +25,12 @@ const MAIN_ROUTES = [
     {path: '/tab', component: TabComponent,access:[]},
     {path: '/tree', component: TreeComponent,access:[]},
     {path: '/editor', component: Editor,access:[]},
-    {path: '/button', component: Button,access:[]}
+    {path: '/button', component: Button,access:[]},
+    {path: '/icon', component: Icon,access:[]},
 /*
 
 
-    {path: '/icon', component: Icon,access:[]},
+
     {path: '/fileupload', component: FileUploader,access:[]},
     */
 ];

@@ -8,7 +8,7 @@ const Icon = ({code, size, color, perFix,onClick}) => {
         return null;
     }
     let className = concatStrings(perFix, ' fa-', code, ' fa-', size);
-    return <span style={{color}} className={className} onClick={onClick}/>
+    return <i style={{color}} className={className} onClick={onClick}/>
 };
 
 Icon.propTypes = {

@@ -2,7 +2,8 @@ $border-radius-rounded: 0.7rem;
 
 table {
   thead {
-    background: #cacaca;
+    background: #00b894;
+    color: black;
   }
 
   tr {
@@ -207,6 +208,11 @@ body[dir = 'rtl'] {
     }
   }
 }
+div.card {
+  .card-body {
+    padding: 0.5rem 1.5rem;
+  }
+}
 
 div.card.rounded {
   border-radius: $border-radius-rounded !important;
@@ -268,7 +274,7 @@ div.card-title.rounded {
 }
 
 button.x-btn {
-  margin: 5px 3px;
+  margin: 0 5px;
   text-align: center;
   vertical-align: middle;
   padding: 0.5rem;
