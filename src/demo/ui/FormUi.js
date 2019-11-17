@@ -59,7 +59,13 @@ class FormUi extends React.Component {
                 <Form
                     initialValues={this.state}
                     onSubmit={this.handleSubmit}
-                    rules={{}}>
+                    rules={{}}
+                toolbar={()=>{
+                    return <React.Fragment>
+                        <Button title="save" isPrimary={true} type='submit'/>
+                        <Button title="cancel" isPrimary={false} />
+                    </React.Fragment>
+                }}>
                     <Row>
                         <Field name="email" label="email">
                             <Input type="email"/>
@@ -103,10 +109,6 @@ class FormUi extends React.Component {
                             <Radio value='blue' label='blue color'/>
                             <Radio value='green' label='green color'/>
                         </RadioGroup>
-                    </Row>
-                    <Row>
-                        <Button title="save" isPrimary={true} type='submit'/>
-                        <Button title="cancel" isPrimary={false} onClick={this.handleOnClick}/>
                     </Row>
                 </Form>
             </Card>

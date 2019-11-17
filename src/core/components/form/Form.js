@@ -4,6 +4,7 @@ import {Formik} from "formik";
 import FormContext from "./FormContext";
 import DataValidator from "../../validation/DataValidator";
 import {isFunction} from "../../util/index";
+import {Row} from '../bootstrap'
 
 
 class Form extends React.Component {
@@ -24,11 +25,14 @@ class Form extends React.Component {
     };
 
     renderForm = (formProps) => {
-        let {children, innerRef, className} = this.props;
+        let {children, innerRef, className, toolbar: ToolBar} = this.props;
         return <FormContext.Provider value={formProps}>
             <form ref={innerRef} className={className}
                   onSubmit={formProps.handleSubmit}>
                 {children}
+                <Row className='mt-4 mb-2'>
+                    <ToolBar/>
+                </Row>
             </form>
         </FormContext.Provider>
     };
@@ -68,7 +72,7 @@ Form.defaultProps = {
     validateOnChange: true,
     validateOnBlur: false,
     autoComplete: 'off',
-    className:'x-form'
+    className: 'x-form'
 };
 
 export default Form;
