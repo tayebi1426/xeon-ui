@@ -54,11 +54,11 @@ class FormUi extends React.Component {
     render() {
         return <React.Fragment>
             {this.renderPolicyInfo()}
-            <Card title="sampleForm">
+            <Card title="sampleForm" collapse={false}>
                 <Form
                     initialValues={this.state}
                     onSubmit={this.handleSubmit}
-                    rules={{}}
+                    validationRules={{}}
                     toolbar={() => {
                         return <React.Fragment>
                             <Button title="save" isPrimary={true} type='submit'/>

@@ -208,20 +208,25 @@ body[dir = 'rtl'] {
     }
   }
 }
+
 div.card {
   .card-body {
     padding: 0.5rem 1.5rem;
+  }
+
+  div.card-title {
+    background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
+    cursor: pointer;
+    margin-bottom: 0 !important;
+
+    .btn {
+      font-weight: bold;
+    }
   }
 }
 
 div.card.rounded {
   border-radius: $border-radius-rounded !important;
-}
-
-div.card-title {
-  // background-color: #dfc3ff; /*#dfc3ff,#ff99f3;*/
-  cursor: pointer;
-  margin-bottom: 0 !important;
 }
 
 div.card-title.rounded {

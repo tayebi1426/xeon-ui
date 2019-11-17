@@ -10,11 +10,11 @@ import {Row} from '../bootstrap'
 class Form extends React.Component {
 
     defaultFormValidate = (values) => {
-        let {rules, onValidate} = this.props;
-        if (!rules) {
+        let {validationRules, onValidate} = this.props;
+        if (!validationRules) {
             return {};
         }
-        let validator = DataValidator.validate(values, rules);
+        let validator = DataValidator.validate(values, validationRules);
         if (isFunction(onValidate)) {
             onValidate(validator);
         }
@@ -69,6 +69,7 @@ Form.propTypes = {
     validate: PropTypes.func,
     onValidate: PropTypes.func,
     initialValues: PropTypes.object,
+    validationRules: PropTypes.object,
     innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     fieldLabels: PropTypes.object,
     children: PropTypes.node,
