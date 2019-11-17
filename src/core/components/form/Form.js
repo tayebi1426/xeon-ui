@@ -23,16 +23,23 @@ class Form extends React.Component {
         }
         return validator.errors.errors;
     };
+    renderToolbar = () => {
+        let {toolbar: Toolbar} = this.props;
 
+        if(!isFunction(Toolbar)){
+            return Toolbar;
+        }
+        return <Row className='mt-4 mb-2'>
+            <Toolbar/>
+        </Row>
+    };
     renderForm = (formProps) => {
-        let {children, innerRef, className, toolbar: ToolBar} = this.props;
+        let {children, innerRef, className} = this.props;
         return <FormContext.Provider value={formProps}>
             <form ref={innerRef} className={className}
                   onSubmit={formProps.handleSubmit}>
                 {children}
-                <Row className='mt-4 mb-2'>
-                    <ToolBar/>
-                </Row>
+                {this.renderToolbar()}
             </form>
         </FormContext.Provider>
     };

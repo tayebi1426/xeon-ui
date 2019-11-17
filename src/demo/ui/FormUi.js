@@ -16,7 +16,6 @@ import {
 } from "../../core/index";
 import RadioGroup from "../../core/components/form/RadioGroups";
 import Radio from "../../core/components/form/Radio";
-import Col from "../../core/components/bootstrap/Col";
 
 
 const SELECT_DATA = [
@@ -60,12 +59,12 @@ class FormUi extends React.Component {
                     initialValues={this.state}
                     onSubmit={this.handleSubmit}
                     rules={{}}
-                toolbar={()=>{
-                    return <React.Fragment>
-                        <Button title="save" isPrimary={true} type='submit'/>
-                        <Button title="cancel" isPrimary={false} />
-                    </React.Fragment>
-                }}>
+                    toolbar={() => {
+                        return <React.Fragment>
+                            <Button title="save" isPrimary={true} type='submit'/>
+                            <Button title="cancel" isPrimary={false}/>
+                        </React.Fragment>
+                    }}>
                     <Row>
                         <Field name="email" label="email">
                             <Input type="email"/>
@@ -98,7 +97,7 @@ class FormUi extends React.Component {
                         </Field>
                     </Row>
                     <Row>
-                        <Field id="__testCheckbox" name="testCheckbox" >
+                        <Field id="__testCheckbox" name="testCheckbox">
                             <Checkbox label="save"/>
                         </Field>
                     </Row>
