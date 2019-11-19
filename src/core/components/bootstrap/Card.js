@@ -6,10 +6,13 @@ import CardBody from './CardBody';
 import CardTitle from './CardTitle';
 
 class Card extends React.Component {
-    state = {
-        isOpened: true
-    };
 
+constructor(props){
+    super(props);
+    this.state = {
+        isOpened:props.isOpened
+    };
+}
     toggleCollapse = () => {
         if(this.props.collapse){
             this.setState({isOpened: !this.state.isOpened});
@@ -57,7 +60,7 @@ Card.defaultProps = {
     round: true,
     animationIn: "fadeIn",
     animationOut: "fadeOut",
-    className: 'mb-2'
+    className: 'mb-3'
 
 };
 

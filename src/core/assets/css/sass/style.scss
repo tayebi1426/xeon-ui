@@ -269,12 +269,27 @@ div.card-title.rounded {
   padding: 0.7em;
 }
 
-.form-control {
-  padding: 0.5rem !important;
+input.form-control, span.k-dropdown {
+  padding: 0.2rem !important;
+  height: calc(1.5em + .75rem + 2px)
 }
 
-.k-grid th, .k-grid td {
-  padding: 2px 4px;
+.k-grid {
+  th {
+    padding: 0.7rem;
+  }
+  td {
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+span.k-dropdown {
+  display: inline;
+}
+
+span.k-dropdown-wrap {
+  background: unset none !important;
+  height: calc(1.5em + .75rem + 2px);
 }
 
 button.x-btn {

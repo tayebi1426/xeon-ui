@@ -56,6 +56,7 @@ class Form extends React.Component {
                        validate={validate}
                        validateOnChange={validateOnChange}
                        validateOnBlur={validateOnBlur}
+                       executeChange={(a,b)=>console.log('a,b',a,b)}
         />
     }
 }

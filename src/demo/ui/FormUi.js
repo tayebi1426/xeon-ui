@@ -19,12 +19,12 @@ import Radio from "../../core/components/form/Radio";
 
 
 const SELECT_DATA = [
-    {label: "Chocolate", value: "chocolate", key: 0},
-    {label: "Vanilla", value: "vanilla", key: 1},
-    {label: "Strawberry", value: "strawberry", key: 2},
-    {label: "Caramel", value: "caramel", key: 3},
-    {label: "Cookies and Cream", value: "cookieScream", key: 4},
-    {label: "Peppermint", value: "peppermint", key: 5}
+    {id: "Chocolate", name: "chocolate", key: 0},
+    {id: "Vanilla", name: "vanilla", key: 1},
+    {id: "Strawberry", name: "strawberry", key: 2},
+    {id: "Caramel", name: "caramel", key: 3},
+    {id: "Cookies and Cream", name: "cookieScream", key: 4},
+    {id: "Peppermint", name: "peppermint", key: 5}
 ];
 
 class FormUi extends React.Component {
@@ -38,6 +38,7 @@ class FormUi extends React.Component {
         email: '',
         password: '',
         birthDate: '',
+        product: null,
         favColor: 'green'
     };
     handleSubmit = (values, actions) => {
@@ -79,9 +80,8 @@ class FormUi extends React.Component {
                         </Field>
                     </Row>
                     <Row>
-                        <Field name="form-field-name" label="product.name">
-                            <Select value={this.state.selectedOption} onChange={this.selectHandleChange}
-                                    options={SELECT_DATA}/>
+                        <Field name="product" label="product.name">
+                            <Select data={SELECT_DATA}/>
                         </Field>
                     </Row>
                     <Row>
@@ -102,12 +102,13 @@ class FormUi extends React.Component {
                         </Field>
                     </Row>
                     <Row>
-                        <RadioGroup title="favColor" name='favColor' value={this.state.favColor}
-                                    onChange={this.handleChangeColor}>
-                            <Radio value='red' label='red color'/>
-                            <Radio value='blue' label='blue color'/>
-                            <Radio value='green' label='green color'/>
-                        </RadioGroup>
+                        <Field name="favColor" label='favColor'>
+                            <RadioGroup>
+                                <Radio value='red' label='red'/>
+                                <Radio value='blue' label='blue'/>
+                                <Radio value='green' label='green'/>
+                            </RadioGroup>
+                        </Field>
                     </Row>
                 </Form>
             </Card>
@@ -116,7 +117,7 @@ class FormUi extends React.Component {
 
     renderPolicyInfo() {
         return (
-            <Card title="policyInfo.title" collapse={true}>
+            <Card title="policyInfo.title" collapse={true} isOpened={false}>
                 <Row form={false}>
                     <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
                     <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>

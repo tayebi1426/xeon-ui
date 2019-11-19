@@ -1,17 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {CustomInput, Input} from "reactstrap";
+import {CustomInput} from "reactstrap";
 
 function Radio(props) {
-    return <div className=' form-check-input custom-radio custom-control'>
-        <Input {...props}/>
-        <label className='custom-control-label'>{props.label}</label>
-    </div>
-
-}
-
-function Radio1(props) {
-    console.debug(' dd : ', props.onChange);
     return <CustomInput {...props}/>
 }
 
@@ -31,8 +22,7 @@ Radio.propTypes = {
 };
 
 Radio.defaultProps = {
-    type: 'radio',
-    className: " custom-control-input"
+    type: 'radio'
 };
 
 export default Radio;

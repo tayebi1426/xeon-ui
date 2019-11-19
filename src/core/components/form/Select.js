@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import DropDownList from "react-select";
+import {DropDownList} from "@progress/kendo-react-dropdowns";
 
 function Select(props) {
     return <DropDownList {...props}/>
@@ -29,9 +29,10 @@ Select.defaultProps = {
     dataItemKey: "id",
     textField: "name",
     defaultOption: true,
-    filterable: false,
-    className: "react-select",
-    classNamePrefix: "react-select",
+    filterable: true,
+    className: "custom-select-box",
+    iconClassName:'k-i-arrow-chevron-down',
+    //classNamePrefix: "react-select",
     delay: 3000
 };
 export default Select;

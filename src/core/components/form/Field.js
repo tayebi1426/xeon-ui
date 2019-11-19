@@ -15,6 +15,7 @@ class Field extends React.Component {
         placeholder = placeholder && t(placeholder);
 
         let child = React.Children.only(children);
+
         let filed = React.cloneElement(child, {
             id,
             name,
@@ -22,7 +23,7 @@ class Field extends React.Component {
             value: formContext.values[name],
             onChange: formContext.handleChange,
             ...child.props
-        }, child.children);
+        }, child.props.children);
 
         delete restProps.tReady;
         delete restProps.i18n;

@@ -1,13 +1,20 @@
 import {XhrRequest} from "../../util/index";
 import querystring from "querystring";
 
-const AUTHENTICATION_SERVER_URL = process.env.REACT_APP_AUTH_SERVER_URL;
+const OAUTH_SRV_URL = process.env.REACT_APP_AUTH_SERVER_URL;
+const OAUTH_SRV_TOKEN_URL = `${OAUTH_SRV_URL}/oauth/token`;
 const AUTH_USERNAME = process.env.REACT_APP_AUTH_USERNAME;
 const AUTH_PASSWORD = process.env.REACT_APP_AUTH_PASSWORD;
 const GRANT_TYPE = process.env.REACT_APP_GRANT_TYPE;
 const sessionName = 'user_account';
+const FORM_URLENCODED = 'application/x-www-form-urlencoded';
 
 class Security {
+    static get basicAuthHeaders() {
+        let basicAuth = 'Basic ' + btoa(AUTH_USERNAME + ':' + AUTH_PASSWORD);
+        return {'Content-Type': FORM_URLENCODED, 'Authorization': basicAuth};
+    }
+
     static getUserAccount() {
         const userAccount = JSON.parse(sessionStorage.getItem(sessionName));
         if (userAccount && userAccount['access_token']) {
@@ -32,20 +39,18 @@ class Security {
         return Security.getUserAccount().authorities;
     }
 
-    static loginUser(userName, password) {
-        let params = {
-            grant_type: GRANT_TYPE,
-            username: userName,
-            password: password
-        };
+    static loginUser(username, password) {
+        Security.logoutUser();
 
-        let basicAuth = 'Basic ' + btoa(AUTH_USERNAME + ':' + AUTH_PASSWORD);
-        let headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': basicAuth};
-        return XhrRequest.postRequest(`${AUTHENTICATION_SERVER_URL}/oauth/token`, querystring.encode(params), headers)
-            .then((response)=> {
+        return XhrRequest.postRequest(OAUTH_SRV_TOKEN_URL,
+            querystring.encode({
+                GRANT_TYPE,
+                username,
+                password
+            }), Security.basicAuthHeaders)
+            .then((response) => {
                 sessionStorage.setItem(sessionName, JSON.stringify(response));
-            }).catch((error)=> {
-                console.error('Error on Authentication', error);
+            }).catch((error) => {
                 return Promise.reject(error);
             });
     }
