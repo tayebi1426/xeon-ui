@@ -1,6 +1,7 @@
 import React from "react";
 import {
     Button,
+    Card,
     DataGrid,
     EditCommand,
     GridColumn,
@@ -40,29 +41,16 @@ function NameCell(props) {
 
 class GridUi extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {skip: 0, take: 10, searchObject: {}};
-        this.bindGridData = this.bindGridData.bind(this);
-    }
-
     handleEditItem = ({dataItem}) => {
         console.debug('handleEditItem : ', dataItem);
     };
-
     handleDeleteItem = ({dataItem}) => {
         console.debug('handleEditItem : ', dataItem);
     };
-
-    bindGridData() {
-        this.setState({fetchData: true, readUrl: 'https://localhost:7002/acc-ws/test/bankList'});
-    }
-
     nameCell = (props) => {
         const cellValue = props.dataItem[props.field];
         return <td><Button link={true} title={cellValue}/></td>;
     };
-
     searchForm = () => {
         return (
             <GridSearchForm title={'جستجو'}>
@@ -71,10 +59,19 @@ class GridUi extends React.Component {
             </GridSearchForm>
         );
     };
-
     getSelectedItems = (e, selectedItems) => {
         console.log('selectedItems', selectedItems)
     };
+
+    constructor(props) {
+        super(props);
+        this.state = {skip: 0, take: 10, searchObject: {}};
+        this.bindGridData = this.bindGridData.bind(this);
+    }
+
+    bindGridData() {
+        this.setState({fetchData: true, readUrl: 'https://localhost:7002/acc-ws/test/bankList'});
+    }
 
     render() {
 
@@ -83,22 +80,22 @@ class GridUi extends React.Component {
 
                 {/*<Button onClick={this.bindGridData}/>*/}
 
-                {/*<Card title="Sample Grid">*/}
-                <DataGrid readUrl={'https://localhost:7002/acc-ws/unsecured/gridtest'} editField="inEdit"
-                          searchForm={this.searchForm()} showIndex={true} selectionMode={true}>
-                    <GridToolbar>
-                        <Button title={'selected'} onClick={this.getSelectedItems}/>
-                    </GridToolbar>
+                <Card title="Sample Grid">
+                    <DataGrid readUrl={'https://localhost:7002/acc-ws/unsecured/gridtest'} editField="inEdit"
+                              searchForm={this.searchForm()} showIndex={true} selectionMode={true}>
+                        <GridToolbar>
+                            <Button title={'selected'} onClick={this.getSelectedItems}/>
+                        </GridToolbar>
 
-                    <GridColumn field="id" title="product.id"/>
-                    <GridColumn field="name" title="product.name" render={this.nameCell}/>
-                    <GridCommands>
-                        <EditCommand onClick={this.handleEditItem}/>
-                        <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
-                        {/*<GridCommand icon="tools" title="delete" onClick={this.handleDeleteItem}/>*/}
-                    </GridCommands>
-                </DataGrid>
-                {/*</Card>*/}
+                        <GridColumn field="id" title="product.id"/>
+                        <GridColumn field="name" title="product.name" render={this.nameCell}/>
+                        <GridCommands>
+                            <EditCommand onClick={this.handleEditItem}/>
+                            <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
+                            {/*<GridCommand icon="tools" title="delete" onClick={this.handleDeleteItem}/>*/}
+                        </GridCommands>
+                    </DataGrid>
+                </Card>
             </React.Fragment>
         );
     }

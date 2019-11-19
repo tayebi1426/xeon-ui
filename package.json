@@ -1,6 +1,6 @@
 {
   "name": "xeon-ui",
-  "version": "0.3.1",
+  "version": "0.3.2-rc1",
   "author": "Namazi & Tayebi",
   "license": "ISC",
   "main": "dist/index.js",

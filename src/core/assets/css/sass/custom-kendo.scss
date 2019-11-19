@@ -1,0 +1,56 @@
+body[dir = 'rtl'] {
+  .k-grid th:first-child, .k-grid td:first-child {
+    border-left-width: 1px !important;
+  }
+  .k-grid th:last-child, .k-grid td:last-child {
+    border-left-width: 0 !important;
+  }
+}
+
+.k-grid {
+  tr {
+    td {
+      padding: 0.2rem 0.4rem;
+    }
+    td:last-child {
+      span {
+        margin-left: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+  thead {
+    background: #00b894;
+    color: black;
+    th {
+      padding: 0.7rem;
+      a {
+        text-align: center;
+      }
+    }
+  }
+
+}
+
+span.k-dropdown {
+  display: inline;
+  span.k-dropdown-wrap {
+    background: unset none !important;
+    height: calc(1.5em + .75rem + 2px);
+  }
+}
+
+.k-treeview {
+  .k-i-collapse {
+    color: #000000;
+  }
+  .k-in {
+    padding: 2px !important;
+  }
+  .k-treeview-lines {
+    padding: 0;
+  }
+  .k-content {
+    margin: 15px !important;
+  }
+}
