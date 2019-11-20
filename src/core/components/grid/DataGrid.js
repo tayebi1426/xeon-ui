@@ -11,6 +11,7 @@ import {GridContext} from "./GridContext";
 import {addSearchObjectToGridRequest} from "./createGridSearchObject";
 import {GridIndexColumn} from "./GridIndexColumn";
 import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./GridSelectionColumn";
+import {createFormatter} from './GridUtils'
 
 
 class DataGrid extends React.Component {
@@ -114,7 +115,12 @@ class DataGrid extends React.Component {
 
     createFieldColumn(child, idx) {
         let {t} = this.props;
-        let {title, render, ...restProps} = child.props;
+        let {title, render, format, ...restProps} = child.props;
+        if (format) {
+            render = (props) => {
+                return createFormatter(format, props.dataItem[props.field])
+            }
+        }
         return React.createElement(KGridColumn,
             {
                 key: idx,
