@@ -1,5 +1,5 @@
-import {gregorianToJalali, gregorianToJalaliWithTime} from '../../../core/util/gregorainToJalali';
-import {digitGrouping} from '../../../core/util/CommonUtils'
+import {gregorianToJalali, gregorianToJalaliWithTime} from '../../util/gregorainToJalali';
+import {digitGrouping} from '../../util/CommonUtils'
 import React from "react";
 
 const createFormatter = (format, value) => {
