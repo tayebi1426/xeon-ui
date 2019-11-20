@@ -17,7 +17,7 @@ const createFormatter = (format, value) => {
                 <td>{digitGrouping(value)}</td>
             );
         default:
-            break;
+            return (<td>{value}</td>);
     }
 };
 
