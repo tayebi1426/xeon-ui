@@ -8,13 +8,15 @@ function GridColumn(props) {
 }
 
 GridColumn.defaultProps = {
-    editable: false
+    editable: false,
 };
 
 GridColumn.propTypes = {
     title: PropTypes.string.isRequired,
     field: PropTypes.string.isRequired,
-    render: PropTypes.func
+    render: PropTypes.func,
+    format: PropTypes.oneOf(['date', 'dateTime', 'currency'])
+
 };
 
 export default GridColumn;

@@ -15,7 +15,7 @@ import {
 import GridSearchField from "../../core/components/grid/GridSearchField";
 
 const gridData = [
-    {id: 1, name: 'A-15'},
+    {id: 1234234, name: 'A-15', creationDate: new Date()},
     {id: 2, name: 'B-6', inEdit: true},
     {id: 3, name: 'B-7'},
     {id: 4, name: 'B-8'},
@@ -81,14 +81,15 @@ class GridUi extends React.Component {
                 {/*<Button onClick={this.bindGridData}/>*/}
 
                 <Card title="Sample Grid">
-                    <DataGrid readUrl={'https://localhost:7002/acc-ws/unsecured/gridtest'} editField="inEdit"
+                    <DataGrid localData={gridData} editField="inEdit"
                               searchForm={this.searchForm()} showIndex={true} selectionMode={true}>
                         <GridToolbar>
                             <Button title={'selected'} onClick={this.getSelectedItems}/>
                         </GridToolbar>
 
-                        <GridColumn field="id" title="product.id"/>
+                        <GridColumn field="id" title="product.id" format={'currency'}/>
                         <GridColumn field="name" title="product.name" render={this.nameCell}/>
+                        <GridColumn field="creationDate" title="product.name" format={'dateTime'}/>
                         <GridCommands>
                             <EditCommand onClick={this.handleEditItem}/>
                             <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>

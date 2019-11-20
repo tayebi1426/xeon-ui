@@ -9,7 +9,8 @@ function GridSelectionColumn(data) {
             width: "50px",
             headerSelectionValue: data.findIndex(dataItem => {
                 return !(dataItem.selected)
-            }) === -1
+            }) === -1,
+            className: 'gridSelection'
         });
 
 }
