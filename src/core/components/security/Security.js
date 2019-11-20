@@ -1,28 +1,18 @@
-import {XhrRequest} from "../../util/index";
-import querystring from "querystring";
-
-const OAUTH_SRV_URL = process.env.REACT_APP_AUTH_SERVER_URL;
-const OAUTH_SRV_TOKEN_URL = `${OAUTH_SRV_URL}/oauth/token`;
-const AUTH_USERNAME = process.env.REACT_APP_AUTH_USERNAME;
-const AUTH_PASSWORD = process.env.REACT_APP_AUTH_PASSWORD;
-const GRANT_TYPE = process.env.REACT_APP_GRANT_TYPE;
-const sessionName = 'user_account';
-const FORM_URLENCODED = 'application/x-www-form-urlencoded';
+import AuthTokenStorage from "./AuthTokenStorage";
+import OAuth2Client from "./OAuth2Client";
 
 class Security {
-    static get basicAuthHeaders() {
-        let basicAuth = 'Basic ' + btoa(AUTH_USERNAME + ':' + AUTH_PASSWORD);
-        return {'Content-Type': FORM_URLENCODED, 'Authorization': basicAuth};
+
+    static isAuthenticated() {
+        return Security.getUserAccount() !== null;
     }
 
     static getUserAccount() {
-        const userAccount = JSON.parse(sessionStorage.getItem(sessionName));
+        const userAccount = AuthTokenStorage.getToken();
         if (userAccount && userAccount['access_token']) {
             const base64Url = userAccount['access_token'].split('.')[1];
             const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
+            let jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
             jsonPayload = JSON.parse(jsonPayload);
             jsonPayload['access_token'] = userAccount['access_token'];
             return jsonPayload;
@@ -31,42 +21,30 @@ class Security {
         }
     }
 
-    static getUserRoles() {
-        return Security.getUserAccount().roles;
-    }
-
-    static getUserAccess() {
-        return Security.getUserAccount().authorities;
+    static getUserAuthorities() {
+        return Security.getUserAccount()['authorities'];
     }
 
     static loginUser(username, password) {
-        Security.logoutUser();
-
-        return XhrRequest.postRequest(OAUTH_SRV_TOKEN_URL,
-            querystring.encode({
-                GRANT_TYPE,
-                username,
-                password
-            }), Security.basicAuthHeaders)
-            .then((response) => {
-                sessionStorage.setItem(sessionName, JSON.stringify(response));
-            }).catch((error) => {
-                return Promise.reject(error);
-            });
+        AuthTokenStorage.removeToken();
+        return OAuth2Client.takeToken(username, password).then((token) => {
+            AuthTokenStorage.persistToken(token)
+        }).catch((error) => {
+            return Promise.reject(error);
+        });
     }
 
     static logoutUser() {
-        sessionStorage.removeItem(sessionName);
+        AuthTokenStorage.removeToken();
     }
 
-    static hasRole(roleList) {
-        let userAccess = Security.getUserAccess();
-        if (!userAccess || !roleList) {
+    static hasAuthority(authorities) {
+        let userAuthorities = Security.getUserAuthorities();
+        if (!userAuthorities || !authorities) {
             return false;
         }
-
-        for (let role of roleList) {
-            if (userAccess.includes(role)) {
+        for (let authority of authorities) {
+            if (userAuthorities.includes(authority)) {
                 return true;
             }
         }

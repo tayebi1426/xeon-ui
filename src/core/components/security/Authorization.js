@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Security from './Security.js'
 
 const Authorization = ({access, children}) => {
-    return Security.hasRole(access)? children : null;
+    return Security.hasAuthority(access) ? children : null;
 };
 
 Authorization.propTypes = {

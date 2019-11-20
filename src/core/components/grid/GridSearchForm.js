@@ -66,7 +66,7 @@ class GridSearchForm extends React.Component {
 }
 
 GridSearchForm.propTypes = {
-    title: PropTypes.string.isRequired,
+
 };
 
 export default GridSearchForm;

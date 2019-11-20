@@ -26,18 +26,20 @@ class Form extends React.Component {
     renderToolbar = () => {
         let {toolbar: Toolbar} = this.props;
 
-        if(!isFunction(Toolbar)){
+        if (!isFunction(Toolbar)) {
             return Toolbar;
         }
         return <Row className='mt-4 mb-2'>
             <Toolbar/>
         </Row>
     };
-    renderForm = (formProps) => {
+
+    renderForm = (formikProps) => {
         let {children, innerRef, className} = this.props;
-        return <FormContext.Provider value={formProps}>
+        return <FormContext.Provider value={formikProps}>
             <form ref={innerRef} className={className}
-                  onSubmit={formProps.handleSubmit}>
+                  onReset={formikProps.handleReset}
+                  onSubmit={formikProps.handleSubmit}>
                 {children}
                 {this.renderToolbar()}
             </form>
@@ -56,7 +58,6 @@ class Form extends React.Component {
                        validate={validate}
                        validateOnChange={validateOnChange}
                        validateOnBlur={validateOnBlur}
-                       executeChange={(a,b)=>console.log('a,b',a,b)}
         />
     }
 }

@@ -4,6 +4,7 @@ import DatePicker2 from 'react-datepicker2';
 import jMoment from 'moment-jalaali'
 import {isFunction} from "../../util";
 import {connect as formikConnect} from 'formik';
+import '../../assets/css/sass/components/datepicker.scss'
 
 class DatePicker extends React.Component {
 

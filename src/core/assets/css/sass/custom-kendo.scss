@@ -1,3 +1,4 @@
+//overwrite kendo ui styles
 body[dir = 'rtl'] {
   .k-grid th:first-child, .k-grid td:first-child {
     border-left-width: 1px !important;
@@ -23,7 +24,9 @@ body[dir = 'rtl'] {
     background: #00b894;
     color: black;
     th {
-      padding: 0.7rem;
+      padding: 0.6rem 0;
+      text-align: center;
+      vertical-align: middle;
       a {
         text-align: center;
       }
@@ -53,4 +56,14 @@ span.k-dropdown {
   .k-content {
     margin: 15px !important;
   }
+  .k-i-expand,.k-i-collapse {
+    margin-left: 0 !important;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15px;
+    color: #000000;
+  }
 }
+
