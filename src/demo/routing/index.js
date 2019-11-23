@@ -9,6 +9,7 @@ let FormValidation = React.lazy(() => import("../ui/FormValidation"));
 let Editor = React.lazy(() => import("../ui/Editor"));
 let Button = React.lazy(() => import("../ui/Button"));
 let Icon = React.lazy(() => import("../ui/Icon"));
+let DialogUi = React.lazy(() => import("../ui/DialogUi"));
 /*
 
 
@@ -27,6 +28,7 @@ const MAIN_ROUTES = [
     {path: '/editor', component: Editor,access:[]},
     {path: '/button', component: Button,access:[]},
     {path: '/icon', component: Icon,access:[]},
+    {path: '/dialog', component: DialogUi,access:[]},
 /*
 
 

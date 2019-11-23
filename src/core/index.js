@@ -3,9 +3,10 @@ import XeonApp from './base/XeonApp'
 import ('./assets/css/vendor/bootstrap-rtl.min.css');
 import ('./assets/css/notification/notifications.css');
 import ('./assets/css/animate.min.css');
-import ('./assets/fonts/awesome/css/fontawesome.min.css');
+import ('./assets/webfonts/fontawesome.css');
 import ('./assets/css/vendor/kendo-all.css');
 import ('./assets/css/sass/themes/gogo.light.green.scss');
+import ('./assets/fonts/iransans/style.css');
 import ('./assets/css/sass/custom-kendo.scss');
 import ('./assets/css/sass/style.scss');
 
