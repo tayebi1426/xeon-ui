@@ -8,7 +8,8 @@ function GridIndexColumn({t}) {
             width: '50px',
             headerCell: (props) => IndexHeaderCell(t, props),
             key: 'indexGrid',
-            className: 'gridIndex text-center'
+            className: 'gridIndex',
+            field: 'index'
         });
 }
 

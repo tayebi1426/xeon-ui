@@ -6,11 +6,10 @@ function GridSelectionColumn(data) {
     return React.createElement(KGridColumn,
         {
             field: "selected",
-            width: "50px",
-            headerSelectionValue: data.findIndex(dataItem => {
+            headerSelectionValue: data && data.length > 0 && data.findIndex(dataItem => {
                 return !(dataItem.selected)
             }) === -1,
-            className: 'gridSelection'
+            className: 'gridSelection text-center'
         });
 
 }

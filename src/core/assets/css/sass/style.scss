@@ -103,6 +103,7 @@ body {
 .navbar.fixed-top {
   ul {
     list-style: none;
+
     li {
       float: right;
     }
@@ -172,4 +173,8 @@ button.btn-sm {
 //tab
 li.nav-item {
   cursor: pointer;
+}
+
+.k-grid-norecords {
+  display: table-row;
 }
