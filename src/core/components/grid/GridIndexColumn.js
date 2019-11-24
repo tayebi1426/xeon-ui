@@ -8,7 +8,7 @@ function GridIndexColumn({t}) {
             width: '50px',
             headerCell: (props) => IndexHeaderCell(t, props),
             key: 'indexGrid',
-            className: 'gridIndex'
+            className: 'gridIndex text-center'
         });
 }
 
@@ -22,7 +22,7 @@ function IndexCell(props) {
 
 function IndexHeaderCell(t) {
     return (
-        <span style={{fontSize: 'x-small'}}>{t('gridIndex')}</span>
+        <span>{t('gridIndex')}</span>
     );
 }
 
