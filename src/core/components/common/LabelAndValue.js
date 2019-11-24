@@ -2,19 +2,8 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {Col} from '../bootstrap';
 import I18Massage from "./I18Massage";
-import jMoment from 'moment-jalaali';
 
 function LabelAndValue({label, value, format}) {
-    let val = value;
-    if (format && value) {
-        switch (format) {
-            case 'currency':
-                break;
-            case 'date':
-                val = jMoment(value, 'jYYYY/jM/jD');
-                break;
-        }
-    }
     return (
         <Col className="p-1">
             <I18Massage code={label}/> &nbsp;:&nbsp;&nbsp;

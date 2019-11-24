@@ -1,41 +1,23 @@
 import React, {Suspense} from 'react';
 import {BrowserRouter} from 'react-router-dom';
-import {SwitchRouter} from '../index'
 import {Provider} from "react-redux";
 import PropTypes from "prop-types";
+import {SwitchRouter} from '../index'
 
-const Loader = () => <div>loading...</div>;
+const PageLoading = () => <div>Loading...</div>;
 
-class XeonApp extends React.Component {
+const XeonApp = ({store, appRoutes}) => {
+    document.body.classList.add("rtl");
+    document.body.classList.remove("ltr");
 
-    constructor(props) {
-        super(props);
-        this.init();
-    }
-
-    componentDidMount() {
-        document.body.classList.add("rtl");
-        document.body.classList.remove("ltr");
-    }
-
-    render() {
-        let {store, appRoutes} = this.props;
-
-        return (
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Suspense fallback={<Loader/>}>
-                        <SwitchRouter routes={appRoutes}/>
-                    </Suspense>
-                </BrowserRouter>
-            </Provider>
-        );
-    }
-
-    init() {
-
-    }
-}
+    return <Provider store={store}>
+        <BrowserRouter>
+            <Suspense fallback={<PageLoading/>}>
+                <SwitchRouter routes={appRoutes}/>
+            </Suspense>
+        </BrowserRouter>
+    </Provider>
+};
 
 XeonApp.propTypes = {
     store: PropTypes.object.isRequired,
