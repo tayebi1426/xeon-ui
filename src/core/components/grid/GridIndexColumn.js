@@ -5,7 +5,6 @@ function GridIndexColumn({t}) {
     return React.createElement(KGridColumn,
         {
             cell: IndexCell,
-            width: '50px',
             headerCell: (props) => IndexHeaderCell(t, props),
             key: 'indexGrid',
             className: 'gridIndex',
