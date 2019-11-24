@@ -13,7 +13,11 @@ import {GridIndexColumn} from "./GridIndexColumn";
 import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./GridSelectionColumn";
 import {createFormatter} from './GridUtils'
 import {I18Massage} from "../common";
+import {IntlProvider, loadMessages, LocalizationProvider} from '@progress/kendo-react-intl';
+import persianGridMessages from './gridI18n';
 
+const language = "fa";
+loadMessages(persianGridMessages, language);
 
 class DataGrid extends React.Component {
 
@@ -76,17 +80,26 @@ class DataGrid extends React.Component {
             <GridContext.Provider value={this.state}>
                 {this.props.searchForm}
                 {gridToolbar}
-                <KGrid className="k-rtl"
-                       onDataStateChange={this.dataStateChange}
-                       onSelectionChange={e => selectionChange(e, this)}
-                       onHeaderSelectionChange={e => headerSelectionChange(e, this)}
-                       selectedField="selected"
-                       {...this.props} {...this.state}>
-                    <GridNoRecords>
-                        <I18Massage code={'noDataText'}/>
-                    </GridNoRecords>
-                    {gridColumns}
-                </KGrid>
+                <LocalizationProvider language="fa">
+                    <IntlProvider locale="IR">
+                        <KGrid className="k-rtl"
+                               onDataStateChange={this.dataStateChange}
+                               onSelectionChange={e => selectionChange(e, this)}
+                               onHeaderSelectionChange={e => headerSelectionChange(e, this)}
+                               selectedField="selected"
+                               {...this.props} {...this.state}
+                               pageable={{
+                                   buttonCount: 5,
+                                   info: true,
+                                   type: 'numeric',
+                                   pageSizes: true,
+                                   previousNext: true
+                               }}>
+                            <GridNoRecords>
+                                <I18Massage code={'noDataText'}/>
+                            </GridNoRecords>
+                            {gridColumns}
+                        </KGrid></IntlProvider></LocalizationProvider>
             </GridContext.Provider>
         )
     }

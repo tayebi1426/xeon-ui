@@ -5,7 +5,7 @@ import {Field, Input} from "../form";
 class GridSearchField extends React.Component {
 
     render() {
-        let {title, name, children, type} = this.props;
+        let {title, name, children, type, ...restProps} = this.props;
         if (!name && !children) {
             return null;
         }
@@ -16,7 +16,7 @@ class GridSearchField extends React.Component {
             element = <Input type={type} name={name}/>;
         }
         return (
-            <Field name={name} label={title}>
+            <Field name={name} label={title} {...restProps}>
                 {element}
             </Field>
         )
@@ -29,7 +29,8 @@ GridSearchField.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string,
     operator: PropTypes.oneOf(['eq', 'aeq', 'neq', 'gt', 'gte', 'lt', 'lte', 'startswith', 'endswith', 'contains', 'doesnotcontain']),
-    className: PropTypes.string
+    className: PropTypes.string,
+    children: PropTypes.node
 };
 
 GridSearchField.defaultProps = {
