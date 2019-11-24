@@ -1,9 +1,9 @@
 import React from 'react'
 
-import {Button, Row} from "../../index";
+import Button from "../form/Button";
+import Row from "../bootstrap/Row";
 
 import {GridContext} from './GridContext';
-import * as PropTypes from "prop-types";
 import Form from "../form/Form";
 import {createGridSearchObject} from "./createGridSearchObject";
 
@@ -39,7 +39,7 @@ class GridSearchForm extends React.Component {
                             </Row>
                             <Row>
                                 <Button isPrimary={true} title={'search'}/>
-                                <Button type={'button'} onClick={(e) => this.onSearchClear(e, onSearchClicked)}
+                                <Button onClick={(e) => this.onSearchClear(e, onSearchClicked)}
                                         title={'clear'}/>
                             </Row>
                         </Form>

@@ -97,6 +97,7 @@ body {
 .navbar.fixed-top {
   ul {
     list-style: none;
+
     li {
       float: right;
     }
@@ -159,10 +160,15 @@ button.btn-sm {
   min-width: 5rem;
 }
 
-.gridToolbar{
+.gridToolbar {
   margin: 0.6rem 0;
 }
+
 //tab
 li.nav-item {
   cursor: pointer;
+}
+
+.k-grid-norecords {
+  display: table-row;
 }

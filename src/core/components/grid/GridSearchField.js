@@ -29,6 +29,7 @@ GridSearchField.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string,
     operator: PropTypes.oneOf(['eq', 'aeq', 'neq', 'gt', 'gte', 'lt', 'lte', 'startswith', 'endswith', 'contains', 'doesnotcontain']),
+    className: PropTypes.string
 };
 
 GridSearchField.defaultProps = {
