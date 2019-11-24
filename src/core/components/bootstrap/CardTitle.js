@@ -14,19 +14,16 @@ const CardTitle = (props) => {
         collapseBtnIcon = isOpened ? openIcon : closeIcon;
     }
     return <div className={className + ' rounded '}>
-        <Row>
+        <Row onClick={toggleCollapse}>
             <Col className="card-title-caption">
                 <Button link={true}
                         color="black"
-                        title={title}
-                        onClick={toggleCollapse}
-                />
+                        title={title}/>
             </Col>
             <Col className='card-collapse' md={1} lg={1}>
                 <Button link={true}
-                         color="black"
-                         icon={collapseBtnIcon}
-                         onClick={toggleCollapse}/>
+                        color="black"
+                        icon={collapseBtnIcon}/>
             </Col>
         </Row>
     </div>

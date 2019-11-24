@@ -39,7 +39,7 @@ class Sidebar extends Component {
                         }
                         }>
                         <i className="iconsminds-shop-4"/>{" "}
-                        <I18Massage code="menu.dashboards"/>
+                        <I18Massage code="dashboards"/>
                     </NavLink>
                 </NavItem>
             </Nav>
@@ -56,7 +56,7 @@ class Sidebar extends Component {
                         onClick={e => null}
                     >
                         <i className="iconsminds-shop-4"/>{" "}
-                        <I18Massage code="menu.dashboards"/>
+                        <I18Massage code="dashboards"/>
                     </NavLink>
                 </NavItem>
             </Nav>

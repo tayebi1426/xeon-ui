@@ -5,6 +5,12 @@ body {
   font-weight: normal !important;
 }
 
+.navbar {
+  .navbar-logo {
+    height: 70%;
+  }
+}
+
 .pull-left {
   float: left;
   text-align-last: left;
@@ -159,9 +165,10 @@ button.btn-sm {
   min-width: 5rem;
 }
 
-.gridToolbar{
+.gridToolbar {
   margin: 0.6rem 0;
 }
+
 //tab
 li.nav-item {
   cursor: pointer;
