@@ -1,5 +1,6 @@
 import React from 'react'
 import DefaultLayout from "../../core/layouts/DefaultLayout";
+import ImageGallery from "../../core/components/common/ImageGallery";
 
 let FormsUi = React.lazy(() => import("../ui/FormUi"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
@@ -10,6 +11,7 @@ let Editor = React.lazy(() => import("../ui/Editor"));
 let Button = React.lazy(() => import("../ui/Button"));
 let Icon = React.lazy(() => import("../ui/Icon"));
 let DialogUi = React.lazy(() => import("../ui/DialogUi"));
+let ImageGalleryUi = React.lazy(() => import("../ui/ImageGalleryUi"));
 /*
 
 
@@ -29,6 +31,7 @@ const MAIN_ROUTES = [
     {path: '/button', component: Button,access:[]},
     {path: '/icon', component: Icon,access:[]},
     {path: '/dialog', component: DialogUi,access:[]},
+    {path: '/imageGallery', component: ImageGalleryUi,access:[]},
 /*
 
 
