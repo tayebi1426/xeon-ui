@@ -6,6 +6,7 @@ function GridSelectionColumn(data) {
     return React.createElement(KGridColumn,
         {
             field: "selected",
+            width:'40',
             headerSelectionValue: data && data.length > 0 && data.findIndex(dataItem => {
                 return !(dataItem.selected)
             }) === -1,

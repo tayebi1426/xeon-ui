@@ -33,7 +33,19 @@ body[dir = 'rtl'] {
       }
     }
   }
+  .gridIndex {
+    text-align: center;
+    vertical-align: middle;
+    width: 40px;
+  }
+}
 
+.gridToolbar {
+  margin: 0.6rem 0;
+}
+
+.k-grid-norecords {
+  display: table-row;
 }
 
 span.k-dropdown {
@@ -57,7 +69,7 @@ span.k-dropdown {
   .k-content {
     margin: 15px !important;
   }
-  .k-i-expand,.k-i-collapse {
+  .k-i-expand, .k-i-collapse {
     margin-left: 0 !important;
     width: 15px;
     height: 15px;
@@ -67,6 +79,7 @@ span.k-dropdown {
     color: #000000;
   }
 }
-.k-list-container{
+
+.k-list-container {
   z-index: 1051 !important;
 }

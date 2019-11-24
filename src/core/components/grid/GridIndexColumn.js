@@ -5,25 +5,21 @@ function GridIndexColumn({t}) {
     return React.createElement(KGridColumn,
         {
             cell: IndexCell,
-            headerCell: (props) => IndexHeaderCell(t, props),
+            width:'40',
+            headerCell: () => <span >{t('gridIndex')}</span>,
             key: 'indexGrid',
             className: 'gridIndex',
             field: 'index'
         });
 }
 
-function IndexCell(props) {
+function IndexCell({className,dataIndex}) {
     return (
-        <td>
-            {props.dataIndex}
+        <td className={className}>
+            {dataIndex}
         </td>
     );
 }
 
-function IndexHeaderCell(t) {
-    return (
-        <span>{t('gridIndex')}</span>
-    );
-}
 
 export {GridIndexColumn};
