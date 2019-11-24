@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid as KGrid, GridColumn as KGridColumn, GridNoRecords} from '@progress/kendo-react-grid'
+import {Grid as KGrid, GridColumn as KGridColumn} from '@progress/kendo-react-grid'
 import {XhrRequest} from '../../util/index'
 import {withTranslation} from '../../i18n/index'
 import GridColumn from './GridColumn'
@@ -12,7 +12,6 @@ import {addSearchObjectToGridRequest} from "./createGridSearchObject";
 import {GridIndexColumn} from "./GridIndexColumn";
 import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./GridSelectionColumn";
 import {createFormatter} from './GridUtils'
-import {I18Massage} from "../common";
 import {IntlProvider, loadMessages, LocalizationProvider} from '@progress/kendo-react-intl';
 import persianGridMessages from './gridI18n';
 
@@ -95,11 +94,10 @@ class DataGrid extends React.Component {
                                    pageSizes: true,
                                    previousNext: true
                                }}>
-                            <GridNoRecords>
-                                <I18Massage code={'noDataText'}/>
-                            </GridNoRecords>
                             {gridColumns}
-                        </KGrid></IntlProvider></LocalizationProvider>
+                        </KGrid>
+                    </IntlProvider>
+                </LocalizationProvider>
             </GridContext.Provider>
         )
     }
