@@ -26,7 +26,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     title: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'link', 'success', 'white', 'black', 'danger', 'warning', 'light']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'link', 'success', 'white', 'black', 'danger', 'warning', 'light', 'info']),
     disabled: PropTypes.bool,
     visible: PropTypes.bool,
     link: PropTypes.bool,
