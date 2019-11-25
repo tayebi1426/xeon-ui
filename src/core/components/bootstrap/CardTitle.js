@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Row from "./Row";
 import Col from "./Col";
 import Button from "../form/Button";
+import I18Massage from "../common/I18Massage";
 
 const CardTitle = (props) => {
     const {className, title, collapse, isOpened, openIcon, closeIcon, toggleCollapse} = props;
@@ -16,9 +17,8 @@ const CardTitle = (props) => {
     return <div className={className + ' rounded '}>
         <Row onClick={toggleCollapse}>
             <Col className="card-title-caption">
-                <Button link={true}
-                        color="black"
-                        title={title}/>
+                <I18Massage code={title}/>
+
             </Col>
             <Col className='card-collapse' md={1} lg={1}>
                 <Button link={true}

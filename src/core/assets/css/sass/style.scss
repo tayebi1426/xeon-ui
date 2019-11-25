@@ -7,7 +7,7 @@ body {
 
 .navbar {
   .navbar-logo {
-    height: 60% !important;
+    height: 3rem !important;
   }
 }
 
@@ -112,15 +112,18 @@ body {
 
 div.card {
   .card-body {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 0.75rem;
   }
 
   div.card-title {
     cursor: pointer;
     margin-bottom: 0 !important;
 
-    .btn {
-      font-weight: bold;
+    .card-title-caption{
+      font-weight: 500;
+      margin: auto;
+      padding-top: 0.5rem;
+      padding-right: 1rem;
     }
   }
 }
@@ -135,13 +138,14 @@ div.card-title.rounded {
 
 .x-label, .custom-control-label {
   font-size: 0.9rem;
+  margin-bottom: 0.2rem;
 }
 
 .tab-content {
   padding: 0.7em;
 }
 
-input.form-control, span.k-dropdown {
+input.form-control {
   padding: 0.2rem !important;
   height: calc(1.5em + .75rem + 2px)
 }
@@ -169,4 +173,7 @@ button.btn-sm {
 //tab
 li.nav-item {
   cursor: pointer;
+}
+.form-group {
+  margin-bottom: 0.7rem;
 }

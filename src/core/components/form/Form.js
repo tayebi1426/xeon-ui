@@ -29,7 +29,7 @@ class Form extends React.Component {
         if (!isFunction(Toolbar)) {
             return Toolbar;
         }
-        return <Row className='mt-4 mb-2'>
+        return <Row className='mb-2'>
             <Toolbar/>
         </Row>
     };

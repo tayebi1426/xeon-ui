@@ -53,9 +53,16 @@ span.k-dropdown {
   span.k-dropdown-wrap {
     background: unset none !important;
     height: calc(1.5em + .75rem + 2px);
+    background-color: unset;
+    background-clip: unset;
   }
 }
-
+.k-dropdown-wrap , .k-dropdown .k-dropdown-wrap:hover {
+  height: calc(1.5em + .75rem + 2px);
+  background-clip: unset;
+  background-image:none !important;
+  background-color:unset !important ;
+}
 .k-treeview {
   .k-i-collapse {
     color: #000000;
@@ -83,3 +90,4 @@ span.k-dropdown {
 .k-list-container {
   z-index: 1051 !important;
 }
+

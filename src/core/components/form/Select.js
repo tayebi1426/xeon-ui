@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {DropDownList} from "@progress/kendo-react-dropdowns";
 
 function Select(props) {
-    return <DropDownList {...props}/>
+    return <div className='x-select'><DropDownList {...props}/> </div>
 }
 
 Select.propTypes = {
@@ -32,7 +32,6 @@ Select.defaultProps = {
     filterable: true,
     className: "custom-select-box",
     iconClassName:'k-i-arrow-chevron-down',
-    //classNamePrefix: "react-select",
     delay: 3000
 };
 export default Select;
