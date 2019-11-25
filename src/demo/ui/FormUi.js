@@ -63,7 +63,9 @@ class FormUi extends React.Component {
                     toolbar={() => {
                         return <React.Fragment>
                             <Button title="save" isPrimary={true} type='submit'/>
-                            <Button title="cancel" isPrimary={false}/>
+                            <Button title="cancel" isPrimary={false} type='button' onClick={()=>{
+                                Notification.success('success','Title',60000);
+                            }}/>
                         </React.Fragment>
                     }}>
                     <Row>
@@ -73,8 +75,6 @@ class FormUi extends React.Component {
                         <Field id="password" name="password" label="password">
                             <Input type="password" placeholder="password"/>
                         </Field>
-                    </Row>
-                    <Row>
                         <Field name="birthDate" label="birthDate">
                             <DatePicker/>
                         </Field>
@@ -83,22 +83,19 @@ class FormUi extends React.Component {
                         <Field name="product" label="product.name">
                             <Select data={SELECT_DATA}/>
                         </Field>
-                    </Row>
-                    <Row>
+
                         <Field name="Switch" label="state">
                             <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
                                 this.setState({switchCheckedPrimary});
                             }}/>
                         </Field>
+                        <Field id="__testCheckbox" name="testCheckbox">
+                            <Checkbox label="save"/>
+                        </Field>
                     </Row>
                     <Row>
                         <Field name="description" label="description">
                             <TextArea name="description"/>
-                        </Field>
-                    </Row>
-                    <Row>
-                        <Field id="__testCheckbox" name="testCheckbox">
-                            <Checkbox label="save"/>
                         </Field>
                     </Row>
                     <Row>
