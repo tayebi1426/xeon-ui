@@ -1,7 +1,6 @@
 {
   "grid": {
     "groupPanelEmpty": "Arrastre el título de una columna y suéltelo aquí para agrupar por ese criterio",
-    "noRecords": "No hay datos disponibles.",
     "pagerFirstPage": "Ir a la primera página",
     "pagerPreviousPage": "Ir a la página anterior",
     "pagerNextPage": "Ir a la página siguiente",
@@ -35,6 +34,7 @@
     "filterFilterButton": "Filtrar",
     "filterClearButton": "Limpiar filtros",
     "filterAndLogic": "Y",
-    "filterOrLogic": "O"
+    "filterOrLogic": "O",
+    "noRecords": "رکوردی برای نمایش وجود ندارد"
   }
 }
