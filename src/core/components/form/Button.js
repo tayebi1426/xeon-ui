@@ -4,14 +4,14 @@ import {Button as BsButton} from 'reactstrap';
 import {I18Massage} from '../common/index'
 import Icon from "../common/Icon";
 
-const Button = ({isPrimary, link, title, visible, innerRef, icon, iconSize, ...restProps}) => {
+const Button = ({isPrimary, link, title, visible, innerRef, icon, iconSize, color, ...restProps}) => {
 
     if (!visible) {
         return null;
     }
     isPrimary = isPrimary && !link;
     let btnColor = isPrimary ? 'primary' :
-        (link) ? 'link' : 'secondary';
+        (link) ? 'link' : color ? color : 'secondary';
     return <BsButton innerRef={innerRef} color={btnColor} {...restProps} >
         {title && <I18Massage code={title}/>}
         {icon && <Icon code={icon} size={iconSize}/>}
@@ -26,12 +26,12 @@ Button.propTypes = {
     onClick: PropTypes.func,
     title: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'link', 'success', 'white', 'black']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'link', 'success', 'white', 'black', 'danger', 'warning', 'light']),
     disabled: PropTypes.bool,
     visible: PropTypes.bool,
     link: PropTypes.bool,
     block: PropTypes.bool,
-    size: PropTypes.oneOf(['lg', 'md','sm']),
+    size: PropTypes.oneOf(['lg', 'md', 'sm']),
     hidden: PropTypes.bool,
     innerRef: PropTypes.func,
     children: PropTypes.node
