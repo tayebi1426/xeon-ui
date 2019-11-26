@@ -13,7 +13,7 @@ import {GridIndexColumn} from "./GridIndexColumn";
 import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./GridSelectionColumn";
 import {createFormatter} from './GridUtils'
 import {IntlProvider, loadMessages, LocalizationProvider} from '@progress/kendo-react-intl';
-import persianGridMessages from './gridI18n';
+import persianGridMessages from './i18n/fa';
 
 const language = "fa";
 loadMessages(persianGridMessages, language);
