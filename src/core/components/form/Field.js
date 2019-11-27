@@ -6,6 +6,7 @@ import {withTranslation} from "../../i18n/index";
 import FormContext from "./FormContext";
 import ErrorMessage from "./FieldError";
 import {Input} from "./index";
+import DatePicker from "./DatePicker";
 
 class Field extends React.Component {
 
@@ -27,7 +28,8 @@ class Field extends React.Component {
                 ...child.props
             }, child.props.children);
         } else {
-            content = React.createElement(Input, {
+            let tag = type === 'date' ? DatePicker : Input;
+            content = React.createElement(tag, {
                 id,
                 name,
                 type,

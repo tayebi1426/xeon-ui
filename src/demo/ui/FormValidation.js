@@ -30,7 +30,8 @@ class FormValidation extends React.Component {
                     <Field name="username" label="username">
                         <Input type="text"/>
                     </Field>
-                    <Field id="exampleEmail" name="email" label="email" placeholder="email" type={'email'}/>
+                    <Field name="email" label="email" placeholder="email"/>
+                    <Field name="date" label="date" placeholder="date" type={'date'}/>
 
                     <Button isPrimary={true}  type='submit' title='submit'/>
 
