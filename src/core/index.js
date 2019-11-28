@@ -1,7 +1,7 @@
 import XeonApp from './base/XeonApp'
 
 import ('./assets/css/vendor/bootstrap-rtl.min.css');
-import ('./assets/css/animate.min.css');
+import ('./assets/css/vendor/animate.min.css');
 import ('./assets/webfonts/fontawesome.css');
 import ('./assets/css/notification/notifications.css');
 import ('./assets/css/vendor/kendo-all.css');

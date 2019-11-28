@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import {Button as BsButton} from 'reactstrap';
 import {I18Massage} from '../common/index'
 import Icon from "../common/Icon";
 
-const Button = ({isPrimary, link, title, visible, innerRef, icon, iconSize, color, ...restProps}) => {
+const Button = ({isPrimary, link, title, visible, icon, iconSize, color,className, ...restProps}) => {
 
     if (!visible) {
         return null;
     }
-    isPrimary = isPrimary && !link;
-    let btnColor = isPrimary ? 'primary' :
-        (link) ? 'link' : color ? color : 'secondary';
-    return <BsButton innerRef={innerRef} color={btnColor} {...restProps} >
+
+    let btnColor = color ? color : link ? 'link' : isPrimary ? 'primary' :'secondary';
+
+    return <BsButton color={btnColor} className={classnames(className,Button.defaultProps.className)}
+                     {...restProps} >
         {title && <I18Massage code={title}/>}
         {icon && <Icon code={icon} size={iconSize}/>}
     </BsButton>

@@ -1,8 +1,9 @@
 import XhrRequest from '../util/XhrRequest'
+import {isFunction} from '../util/CommonUtils'
 
 const DEFAULT_OPTIONS = {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
-    allowMultiLoading: false,
+    allowMultiLoading: true,
     parse: JSON.parse,
     crossDomain: false
 };
@@ -17,7 +18,7 @@ class I18nBackend {
 
     read(language, namespace, callback) {
         let loadPath = this.options.loadPath;
-        if (typeof loadPath === 'function') {
+        if (isFunction( loadPath)) {
             loadPath = loadPath.call([language], [namespace]);
         }
 

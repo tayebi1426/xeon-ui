@@ -19,23 +19,14 @@ constructor(props){
         }
     };
 
-    renderBody = () => {
-        if (!this.state.isOpened) {
-            return null;
-        }
-        return <CardBody className='card-body'>
-            {this.props.children}
-        </CardBody>
-    };
-
     render() {
-        let {animationIn, animationOut, title, round, className, collapse} = this.props;
+        let {title, round, className, collapse,children} = this.props;
         className = classNames(className, round ? 'rounded' : null);
         return <BsCard className={className}>
                 <CardTitle title={title} isOpened={this.state.isOpened}
                            toggleCollapse={this.toggleCollapse}
                            collapse={collapse}/>
-                {this.renderBody()}
+                {this.state.isOpened && <CardBody children={children}/>}
             </BsCard>
     }
 }

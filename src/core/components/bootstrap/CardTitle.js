@@ -23,6 +23,7 @@ const CardTitle = (props) => {
             <Col className='card-collapse' md={1} lg={1}>
                 <Button link={true}
                         color="black"
+                        className='card-title-collapse-btn'
                         icon={collapseBtnIcon}/>
             </Col>
         </Row>

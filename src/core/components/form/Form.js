@@ -34,30 +34,28 @@ class Form extends React.Component {
         </Row>
     };
 
-    renderForm = (formikProps) => {
-        let {children, innerRef, className} = this.props;
-        return <FormContext.Provider value={formikProps}>
-            <form ref={innerRef} className={className}
-                  onReset={formikProps.handleReset}
-                  onSubmit={formikProps.handleSubmit}>
-                {children}
-                {this.renderToolbar()}
-            </form>
-        </FormContext.Provider>
-    };
-
     render() {
         let {
             initialValues, onSubmit, validate = this.defaultFormValidate
-            , validateOnChange, validateOnBlur
+            , validateOnChange, validateOnBlur,
+            children, innerRef, className
         } = this.props;
 
-        return <Formik render={this.renderForm}
-                       initialValues={initialValues}
+        return <Formik initialValues={initialValues}
                        onSubmit={onSubmit}
                        validate={validate}
                        validateOnChange={validateOnChange}
                        validateOnBlur={validateOnBlur}
+                       render={(formikProps)=>{
+                           return <FormContext.Provider value={formikProps}>
+                               <form ref={innerRef} className={className}
+                                     onReset={formikProps.handleReset}
+                                     onSubmit={formikProps.handleSubmit}>
+                                   {children}
+                                   {this.renderToolbar()}
+                               </form>
+                           </FormContext.Provider>
+                       }}
         />
     }
 }

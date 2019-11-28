@@ -1,26 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 const CardBody = (props) => {
-    const {
-        className,
-        innerRef,
-        ...attributes
-    } = props;
-    const classes = classNames(className, 'card-body');
-    return <div {...attributes} className={classes} ref={innerRef}/>
+    return <div {...props}/>
 };
 
 CardBody.propTypes = {
-    className: PropTypes.string,
-    cssModule: PropTypes.object,
-    innerRef: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string,
-        PropTypes.func,
-    ]),
+    className: PropTypes.string
 };
-CardBody.defaultProps = {};
+CardBody.defaultProps = {
+    className: 'card-body'
+};
 
 export default CardBody;

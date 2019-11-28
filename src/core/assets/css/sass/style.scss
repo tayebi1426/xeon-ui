@@ -118,12 +118,12 @@ div.card {
   div.card-title {
     cursor: pointer;
     margin-bottom: 0 !important;
-
     .card-title-caption {
-      font-weight: 500;
       margin: auto;
-      padding-top: 0.5rem;
-      padding-right: 1rem;
+      padding-right: 0.8rem;
+    }
+    .card-title-collapse-btn {
+      min-height: 3rem;
     }
   }
 }
@@ -177,4 +177,12 @@ li.nav-item {
 
 .form-group {
   margin-bottom: 0.7rem;
+}
+
+fieldset > legend {
+  color: #66556655;
+  border-bottom: #66556655 1px solid;
+  padding: 0 0.5rem;
+  width: 99%;
+  margin-bottom: 0.75rem;
 }
