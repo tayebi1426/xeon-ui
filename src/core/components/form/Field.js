@@ -5,32 +5,46 @@ import Label from "./Label";
 import {withTranslation} from "../../i18n/index";
 import FormContext from "./FormContext";
 import ErrorMessage from "./FieldError";
+import {Input} from "./index";
+import DatePicker from "./DatePicker";
 
 class Field extends React.Component {
 
     render() {
         let formContext = this.context;
-        let {id, label, name, placeholder, children, t, ...restProps} = this.props;
+        let {id, label, name, placeholder, children, t, type, ...restProps} = this.props;
         id = id || name;
         placeholder = placeholder && t(placeholder);
 
-        let child = React.Children.only(children);
-
-        let filed = React.cloneElement(child, {
-            id,
-            name,
-            placeholder,
-            value: formContext.values[name],
-            onChange: formContext.handleChange,
-            ...child.props
-        }, child.props.children);
+        let content;
+        if (children) {
+            const child = React.Children.only(children);
+            content = React.cloneElement(child, {
+                id,
+                name,
+                placeholder,
+                value: formContext.values[name],
+                onChange: formContext.handleChange,
+                ...child.props
+            }, child.props.children);
+        } else {
+            let tag = type === 'date' ? DatePicker : Input;
+            content = React.createElement(tag, {
+                id,
+                name,
+                type,
+                placeholder,
+                value: formContext.values[name],
+                onChange: formContext.handleChange
+            });
+        }
 
         delete restProps.tReady;
         delete restProps.i18n;
 
         return <FormGroup {...restProps}>
             {label && <Label htmlFor={id} code={label}/>}
-            {filed}
+            {content}
             <ErrorMessage fieldName={name}/>
         </FormGroup>
 
