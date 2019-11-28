@@ -4,11 +4,9 @@ import {
     Button,
     Card,
     Checkbox,
-    DatePicker,
     Field,
     Fieldset,
     Form,
-    Input,
     LabelAndValue,
     Notification,
     Row,
@@ -20,7 +18,7 @@ import RadioGroup from "../../core/components/form/RadioGroups";
 import Radio from "../../core/components/form/Radio";
 
 
-const SELECT_DATA = [
+const JOBS = [
     {id: "Chocolate", name: "chocolate", key: 0},
     {id: "Vanilla", name: "vanilla", key: 1},
     {id: "Strawberry", name: "strawberry", key: 2},
@@ -33,16 +31,8 @@ class FormUi extends React.Component {
 
     handleBirthDateChange = (val) => {
         console.debug('birthDate : ', val);
-        //this.state({birthDate: val})
     };
 
-    state = {
-        email: '',
-        password: '',
-        birthDate: '',
-        product: null,
-        favColor: 'green'
-    };
     handleSubmit = (values, actions) => {
         setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
@@ -62,7 +52,14 @@ class FormUi extends React.Component {
             <PolicyInfo/>
             <Card title="sampleForm" collapse={false}>
                 <Form
-                    initialValues={this.state}
+                    initialValues={{
+                        firstName: '', lastName: null, nationalCode: '',
+                        email: '',
+                        password: '',
+                        birthDate: '',
+                        product: null,
+                        favColor: 'green'
+                    }}
                     onSubmit={this.handleSubmit}
                     validationRules={{}}
                     toolbar={() => {
@@ -77,28 +74,25 @@ class FormUi extends React.Component {
                     }}>
                     <Fieldset title='test'>
                         <Row>
-                            <Field name="email" label="email">
-                                <Input type="email"/>
-                            </Field>
-                            <Field id="password" name="password" label="password">
-                                <Input type="password" placeholder="password"/>
-                            </Field>
-                            <Field name="birthDate" label="birthDate">
-                                <DatePicker/>
-                            </Field>
+                            <Field name="firstName" label="firstName" type="text"/>
+                            <Field name="lastName" label="lastName" type="text"/>
+                            <Field name="nationalCode" label="nationalCode" type="text"/>
+                        </Row>
+                        <Row>
+                            <Field name="birthDate" label="birthDate" type='date'/>
+                            <Field name="email" label="email" type="email"/>
+                            <Field id="password" name="password" label="password" type="password"/>
                         </Row>
                     </Fieldset>
                     <Row>
                         <Field name="product" label="product.name">
-                            <Select data={SELECT_DATA}/>
+                            <Select data={JOBS}/>
                         </Field>
 
                         <Field name="Switch" label="state">
-                            <Switch checked={this.state.switchCheckedPrimary} onChange={switchCheckedPrimary => {
-                                this.setState({switchCheckedPrimary});
-                            }}/>
+                            <Switch/>
                         </Field>
-                        <Field id="__testCheckbox" name="testCheckbox">
+                        <Field name="testCheckbox">
                             <Checkbox label="save"/>
                         </Field>
                     </Row>
@@ -124,8 +118,8 @@ class FormUi extends React.Component {
 
 }
 
-const PolicyInfo=()=>{
-    return  <Card title="policyInfo.title" collapse={true} isOpened={true}>
+const PolicyInfo = () => {
+    return <Card title="policyInfo.title" collapse={true} isOpened={true}>
         <Row>
             <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
             <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>

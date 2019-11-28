@@ -8,7 +8,7 @@ let SAMPLE_FORM_RULES = {
 
 class FormValidation extends React.Component {
 
-    onValidate=(validator)=>{
+    onValidate = (validator) => {
 
     };
     handleSubmit = (values, actions) => {
@@ -25,16 +25,16 @@ class FormValidation extends React.Component {
                     initialValues={{username: '', email: ''}}
                     validationRules={SAMPLE_FORM_RULES}
                     onValidate={this.onValidate}
-                    onSubmit={this.handleSubmit}>
+                    onSubmit={this.handleSubmit}
+                    toolbar={() => {
+                        return <Button isPrimary={true} type='submit' title='submit'/>
+                    }}>
 
                     <Field name="username" label="username">
                         <Input type="text"/>
                     </Field>
                     <Field name="email" label="email" placeholder="email" type='email'/>
                     <Field name="date" label="date" placeholder="date" type='date'/>
-
-                    <Button isPrimary={true}  type='submit' title='submit'/>
-
                 </Form>
             </Card>
         );

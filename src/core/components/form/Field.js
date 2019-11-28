@@ -8,11 +8,14 @@ import ErrorMessage from "./FieldError";
 import {Input} from "./index";
 import DatePicker from "./DatePicker";
 
+const DATE_PICKER_TYPE = 'date';
+
 class Field extends React.Component {
 
     render() {
         let formContext = this.context;
-        let {id, label, name, placeholder, children, t, type, ...restProps} = this.props;
+        let {id, label, name, placeholder, children, t, type, className, ...restProps} = this.props;
+
         id = id || name;
         placeholder = placeholder && t(placeholder);
         const commonAttributes = {
@@ -31,14 +34,11 @@ class Field extends React.Component {
                 ...child.props
             }, child.props.children);
         } else if (type) {
-            let tag = 'date' === type.toString() ? DatePicker : Input;
-            fieldContent = React.createElement(tag, {...commonAttributes});
+            let childTag = DATE_PICKER_TYPE === type.toString() ? DatePicker : Input;
+            fieldContent = React.createElement(childTag, {...commonAttributes, ...restProps});
         }
 
-        delete restProps.tReady;
-        delete restProps.i18n;
-
-        return <FormGroup {...restProps}>
+        return <FormGroup className={className}>
             {label && <Label htmlFor={id} code={label}/>}
             {fieldContent}
             <ErrorMessage fieldName={name}/>

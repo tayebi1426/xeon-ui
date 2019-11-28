@@ -42,8 +42,8 @@ class Form extends React.Component {
                                <form ref={innerRef} className={className}
                                      onReset={formikProps.handleReset}
                                      onSubmit={formikProps.handleSubmit}>
-                                   {children}
                                    <FormToolbar content={toolbar}/>
+                                   {children}
                                </form>
                            </FormContext.Provider>
                        }}
@@ -73,7 +73,8 @@ Form.propTypes = {
     innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     fieldLabels: PropTypes.object,
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    toolbar :PropTypes.func
 };
 
 Form.defaultProps = {

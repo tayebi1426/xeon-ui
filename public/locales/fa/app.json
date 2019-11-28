@@ -4,6 +4,8 @@
   "sampleForm": "فرم نمونه",
   "save": "ذخیره",
   "firstName": "نام",
+  "lastName":"نام خانوادگی",
+  "nationalCode":"کد ملی",
   "password": "رمز عبور",
   "email": "ایمیل",
   "gridIndex": "ردیف",
