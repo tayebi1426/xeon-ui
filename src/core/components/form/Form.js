@@ -23,22 +23,13 @@ class Form extends React.Component {
         }
         return validator.errors.errors;
     };
-    renderToolbar = () => {
-        let {toolbar: Toolbar} = this.props;
-
-        if (!isFunction(Toolbar)) {
-            return Toolbar;
-        }
-        return <Row className='mb-2'>
-            <Toolbar/>
-        </Row>
-    };
 
     render() {
         let {
             initialValues, onSubmit, validate = this.defaultFormValidate
             , validateOnChange, validateOnBlur,
-            children, innerRef, className
+            children, innerRef, className,
+            toolbar
         } = this.props;
 
         return <Formik initialValues={initialValues}
@@ -46,19 +37,28 @@ class Form extends React.Component {
                        validate={validate}
                        validateOnChange={validateOnChange}
                        validateOnBlur={validateOnBlur}
-                       render={(formikProps)=>{
+                       render={(formikProps) => {
                            return <FormContext.Provider value={formikProps}>
                                <form ref={innerRef} className={className}
                                      onReset={formikProps.handleReset}
                                      onSubmit={formikProps.handleSubmit}>
                                    {children}
-                                   {this.renderToolbar()}
+                                   <FormToolbar content={toolbar}/>
                                </form>
                            </FormContext.Provider>
                        }}
         />
     }
 }
+
+const FormToolbar = ({content}) => {
+    if (!isFunction(content)) {
+        return null;
+    }
+    return <Row className='mb-2'>
+        {content()}
+    </Row>
+};
 
 Form.propTypes = {
     validateOnChange: PropTypes.bool,

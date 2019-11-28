@@ -15,28 +15,24 @@ class Field extends React.Component {
         let {id, label, name, placeholder, children, t, type, ...restProps} = this.props;
         id = id || name;
         placeholder = placeholder && t(placeholder);
-
-        let content;
+        const commonAttributes = {
+            id,
+            name,
+            type,
+            placeholder,
+            value: formContext.values[name],
+            onChange: formContext.handleChange
+        };
+        let fieldContent = null;
         if (children) {
             const child = React.Children.only(children);
-            content = React.cloneElement(child, {
-                id,
-                name,
-                placeholder,
-                value: formContext.values[name],
-                onChange: formContext.handleChange,
+            fieldContent = React.cloneElement(child, {
+                ...commonAttributes,
                 ...child.props
             }, child.props.children);
-        } else {
-            let tag = type === 'date' ? DatePicker : Input;
-            content = React.createElement(tag, {
-                id,
-                name,
-                type,
-                placeholder,
-                value: formContext.values[name],
-                onChange: formContext.handleChange
-            });
+        } else if (type) {
+            let tag = 'date' === type.toString() ? DatePicker : Input;
+            fieldContent = React.createElement(tag, {...commonAttributes});
         }
 
         delete restProps.tReady;
@@ -44,7 +40,7 @@ class Field extends React.Component {
 
         return <FormGroup {...restProps}>
             {label && <Label htmlFor={id} code={label}/>}
-            {content}
+            {fieldContent}
             <ErrorMessage fieldName={name}/>
         </FormGroup>
 

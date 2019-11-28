@@ -7,27 +7,28 @@ import CardTitle from './CardTitle';
 
 class Card extends React.Component {
 
-constructor(props){
-    super(props);
-    this.state = {
-        isOpened:props.isOpened
-    };
-}
     toggleCollapse = () => {
-        if(this.props.collapse){
+        if (this.props.collapse) {
             this.setState({isOpened: !this.state.isOpened});
         }
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpened: props.isOpened
+        };
+    }
+
     render() {
-        let {title, round, className, collapse,children} = this.props;
+        let {title, round, className, collapse, children} = this.props;
         className = classNames(className, round ? 'rounded' : null);
         return <BsCard className={className}>
-                <CardTitle title={title} isOpened={this.state.isOpened}
-                           toggleCollapse={this.toggleCollapse}
-                           collapse={collapse}/>
-                {this.state.isOpened && <CardBody children={children}/>}
-            </BsCard>
+            <CardTitle title={title} isOpened={this.state.isOpened}
+                       toggleCollapse={this.toggleCollapse}
+                       collapse={collapse}/>
+            {this.state.isOpened && <CardBody> {children} </CardBody>}
+        </BsCard>
     }
 }
 
