@@ -33,7 +33,7 @@ Button.propTypes = {
     visible: PropTypes.bool,
     link: PropTypes.bool,
     block: PropTypes.bool,
-    size: PropTypes.oneOf(['lg', 'md', 'sm']),
+    size: PropTypes.oneOf(['lg', 'md', 'sm','xs']),
     hidden: PropTypes.bool,
     innerRef: PropTypes.func,
     children: PropTypes.node

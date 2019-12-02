@@ -5,7 +5,7 @@ import I18Massage from "./I18Massage";
 
 function LabelAndValue({label, value, format}) {
     return (
-        <Col className="p-1">
+        <Col lg={4} md={6} sm={6} xs={12} className="p-1">
             <I18Massage code={label}/> &nbsp;:&nbsp;&nbsp;
             <span><b>{value}</b></span>
         </Col>

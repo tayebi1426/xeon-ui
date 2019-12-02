@@ -16,13 +16,13 @@ const CardTitle = (props) => {
     }
     return <div className={className + ' rounded '}>
         <Row onClick={toggleCollapse}>
-            <Col className="card-title-caption">
+            <Col className="col-11 card-title-caption">
                 <I18Massage code={title}/>
-
             </Col>
-            <Col className='card-collapse' md={1} lg={1}>
+            <Col className='col-1 card-collapse'>
                 <Button link={true}
                         color="black"
+                        size='xs'
                         className='card-title-collapse-btn'
                         icon={collapseBtnIcon}/>
             </Col>

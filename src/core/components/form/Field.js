@@ -70,7 +70,7 @@ Field.propTypes = {
 };
 
 Field.defaultProps = {
-    className: 'col-4 col-xs-12',
+    className: 'col-lg-4 col-md-6',
 };
 Field.contextType = FormContext;
 export default withTranslation(Field);
