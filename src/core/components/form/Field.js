@@ -12,6 +12,14 @@ const DATE_PICKER_TYPE = 'date';
 
 class Field extends React.Component {
 
+    handelChange = (e, onChange) => {
+        let formContext = this.context;
+        formContext.handleChange(e);
+        if (onChange) {
+            onChange(e);
+        }
+    };
+
     render() {
         let formContext = this.context;
         let {id, label, name, placeholder, children, t, type, className, ...restProps} = this.props;
@@ -23,19 +31,20 @@ class Field extends React.Component {
             name,
             type,
             placeholder,
-            value: formContext.values[name],
-            onChange: formContext.handleChange
+            value: formContext.values[name]
         };
         let fieldContent = null;
         if (children) {
             const child = React.Children.only(children);
+            const {onChange, ...childRestProps} = child.props;
             fieldContent = React.cloneElement(child, {
+                onChange: e => this.handelChange(e, onChange),
                 ...commonAttributes,
-                ...child.props
+                ...childRestProps
             }, child.props.children);
         } else if (type) {
             let childTag = DATE_PICKER_TYPE === type.toString() ? DatePicker : Input;
-            fieldContent = React.createElement(childTag, {...commonAttributes, ...restProps});
+            fieldContent = React.createElement(childTag, {onChange: formContext.handleChange, ...commonAttributes, ...restProps});
         }
 
         return <FormGroup className={className}>
