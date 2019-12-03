@@ -81,7 +81,7 @@ class DataGrid extends React.Component {
                 {gridToolbar}
                 <LocalizationProvider language="fa">
                     <IntlProvider locale="IR">
-                        <KGrid className="k-rtl"
+                        <KGrid className="k-rtl table-responsive"
                                onDataStateChange={this.dataStateChange}
                                onSelectionChange={e => selectionChange(e, this)}
                                onHeaderSelectionChange={e => headerSelectionChange(e, this)}

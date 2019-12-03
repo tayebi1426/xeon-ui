@@ -40,7 +40,6 @@ Button.propTypes = {
 };
 Button.defaultProps = {
     isPrimary: false,
-    size: 'md',
     visible: true,
     className: 'x-btn',
     iconSize: '2x'

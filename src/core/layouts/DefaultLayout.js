@@ -6,8 +6,8 @@ import {Col, Row} from "../index";
 
 class DefaultLayout extends Component {
     state = {
-        menuState: 0,
-        menuClassName: 'sub-hidden'
+        menuState: 2,
+        menuClassName: 'menu-hidden'
     };
 
     toggleMenuState = () => {

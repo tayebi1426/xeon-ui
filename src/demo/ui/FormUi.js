@@ -77,25 +77,22 @@ class FormUi extends React.Component {
                             <Field name="firstName" label="firstName" type="text"/>
                             <Field name="lastName" label="lastName" type="text"/>
                             <Field name="nationalCode" label="nationalCode" type="text"/>
-                        </Row>
-                        <Row>
+
                             <Field name="birthDate" label="birthDate" type='date'/>
                             <Field name="email" label="email" type="email"/>
                             <Field id="password" name="password" label="password" type="password"/>
+                            <Field name="product" label="product.name">
+                                <Select data={JOBS}/>
+                            </Field>
+
+                            <Field name="Switch" label="state">
+                                <Switch/>
+                            </Field>
+                            <Field name="testCheckbox">
+                                <Checkbox label="save"/>
+                            </Field>
                         </Row>
                     </Fieldset>
-                    <Row>
-                        <Field name="product" label="product.name">
-                            <Select data={JOBS}/>
-                        </Field>
-
-                        <Field name="Switch" label="state">
-                            <Switch/>
-                        </Field>
-                        <Field name="testCheckbox">
-                            <Checkbox label="save"/>
-                        </Field>
-                    </Row>
                     <Row>
                         <Field name="description" label="description">
                             <TextArea name="description"/>
