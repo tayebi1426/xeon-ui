@@ -14,6 +14,7 @@ GridColumn.defaultProps = {
 GridColumn.propTypes = {
     title: PropTypes.string.isRequired,
     field: PropTypes.string.isRequired,
+    width: PropTypes.number,
     render: PropTypes.func,
     format: PropTypes.oneOf(['date', 'dateTime', 'currency'])
 

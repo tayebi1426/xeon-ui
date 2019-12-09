@@ -9,6 +9,9 @@ body[dir = 'rtl'] {
 }
 
 .k-grid {
+  .k-grid-header {
+    padding: 0 !important;
+  }
   tr {
     td {
       padding: 0.4rem;
@@ -57,12 +60,14 @@ span.k-dropdown {
     background-clip: unset;
   }
 }
-.k-dropdown-wrap , .k-dropdown .k-dropdown-wrap:hover {
+
+.k-dropdown-wrap, .k-dropdown .k-dropdown-wrap:hover {
   height: calc(1.5em + .75rem + 2px);
   background-clip: unset;
-  background-image:none !important;
-  background-color:unset !important ;
+  background-image: none !important;
+  background-color: unset !important;
 }
+
 .k-treeview {
   .k-i-collapse {
     color: #000000;

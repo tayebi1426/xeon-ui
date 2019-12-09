@@ -116,7 +116,7 @@ class FormUi extends React.Component {
 }
 
 const PolicyInfo = () => {
-    return <Card title="policyInfo.title" collapse={true} isOpened={true}>
+    return <Card title="policyInfo.title" collapse={true} isOpen={true}>
         <Row>
             <LabelAndValue label="policyInfo.insured.firstName" value='علی'/>
             <LabelAndValue label="policyInfo.insured.lastName" value='احمدی'/>

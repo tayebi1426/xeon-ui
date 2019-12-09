@@ -1,4 +1,5 @@
-$card-border-radius: 0.7rem;
+$card-border-radius: 0.75rem;
+$padding-5-7: 0.5rem 0.75rem;
 
 body {
   font-family: BYekan, IRANSans, sans-serif !important;
@@ -112,7 +113,7 @@ body {
 
 div.card {
   .card-body {
-    padding: 0.5rem 0.75rem;
+    padding: $padding-5-7;
   }
 
   div.card-title {
@@ -120,7 +121,7 @@ div.card {
     margin-bottom: 0 !important;
     .card-title-caption {
       margin: auto;
-      padding: 0.5rem;
+      padding: $padding-5-7;
     }
     .card-title-collapse-btn {
       float: left;
@@ -142,7 +143,7 @@ div.card-title.rounded {
 }
 
 .tab-content {
-  padding: 0.7em;
+  padding: 0.5rem 0.75em;
 }
 
 input.form-control {
@@ -153,9 +154,10 @@ input.form-control {
 button.x-btn {
   margin: 0 0.1rem;
   text-align: center;
-  padding: 0.75rem;
+  padding: $padding-5-7;
   border-radius: 0.4rem;
 }
+
 button.btn-lg {
   min-width: 4rem;
 }
@@ -173,8 +175,8 @@ li.nav-item {
   cursor: pointer;
 }
 
-.sidebar{
-  .main-menu{
+.sidebar {
+  .main-menu {
     .nav-item {
       a {
         padding: 0.2rem;
@@ -186,7 +188,6 @@ li.nav-item {
     }
   }
 }
-
 
 .form-group {
   margin-bottom: 0.7rem;
@@ -200,6 +201,6 @@ fieldset > legend {
   margin-bottom: 0.75rem;
 }
 
-.login-form{
+.login-form {
   margin: auto;
 }

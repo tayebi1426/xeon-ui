@@ -6,13 +6,13 @@ import Button from "../form/Button";
 import I18Massage from "../common/I18Massage";
 
 const CardTitle = (props) => {
-    const {className, title, collapse, isOpened, openIcon, closeIcon, toggleCollapse} = props;
+    const {className, title, collapse, isOpen, openIcon, closeIcon, toggleCollapse} = props;
     if (!title) {
         return null;
     }
     let collapseBtnIcon = '';
     if (collapse) {
-        collapseBtnIcon = isOpened ? openIcon : closeIcon;
+        collapseBtnIcon = isOpen ? openIcon : closeIcon;
     }
     return <div className={className + ' rounded '}>
         <Row onClick={toggleCollapse}>
@@ -33,7 +33,7 @@ const CardTitle = (props) => {
 CardTitle.propTypes = {
     title: PropTypes.string,
     className: PropTypes.string,
-    isOpened: PropTypes.bool,
+    isOpen: PropTypes.bool,
     collapse: PropTypes.bool,
     cssModule: PropTypes.object,
     toggleCollapse: PropTypes.func,

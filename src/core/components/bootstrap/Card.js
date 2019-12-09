@@ -9,14 +9,14 @@ class Card extends React.Component {
 
     toggleCollapse = () => {
         if (this.props.collapse) {
-            this.setState({isOpened: !this.state.isOpened});
+            this.setState({isOpen: !this.state.isOpen});
         }
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            isOpened: props.isOpened
+            isOpen: props.isOpen
         };
     }
 
@@ -24,17 +24,19 @@ class Card extends React.Component {
         let {title, round, className, collapse, children} = this.props;
         className = classNames(className, round ? 'rounded' : null);
         return <BsCard className={className}>
-            <CardTitle title={title} isOpened={this.state.isOpened}
+            <CardTitle title={title} isOpen={this.state.isOpen}
                        toggleCollapse={this.toggleCollapse}
                        collapse={collapse}/>
-            {this.state.isOpened && <CardBody> {children} </CardBody>}
+            <CardBody hidden={!this.state.isOpen}>
+                {children}
+            </CardBody>
         </BsCard>
     }
 }
 
 Card.propTypes = {
     collapse: PropTypes.bool,
-    isOpened: PropTypes.bool,
+    isOpen: PropTypes.bool,
     title: PropTypes.string,
     icon: PropTypes.string,
     className: PropTypes.string,
@@ -48,7 +50,7 @@ Card.propTypes = {
 Card.defaultProps = {
     title: '',
     collapse: false,
-    isOpened: true,
+    isOpen: true,
     round: true,
     animationIn: "fadeIn",
     animationOut: "fadeOut",

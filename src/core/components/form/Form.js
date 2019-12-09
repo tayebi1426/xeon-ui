@@ -42,8 +42,8 @@ class Form extends React.Component {
                                <form ref={innerRef} className={className}
                                      onReset={formikProps.handleReset}
                                      onSubmit={formikProps.handleSubmit}>
-                                   <FormToolbar content={toolbar}/>
                                    {children}
+                                   <FormToolbar content={toolbar}/>
                                </form>
                            </FormContext.Provider>
                        }}
