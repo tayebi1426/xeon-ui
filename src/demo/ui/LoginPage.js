@@ -11,7 +11,7 @@ const LoginPage = ({history}) => {
                 <Card>
                     <Row>
                         <Col sm={12} className='login-icon'>
-                            <Icon code='shield-check' />
+                            <Icon code='shield-check'  size="6x"/>
                         </Col>
                     </Row>
                     <LoginForm onLoginSuccess={onLoginSuccess}/>
