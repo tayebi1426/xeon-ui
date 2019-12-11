@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {CustomInput} from "reactstrap";
+import {I18Massage} from "../common";
 
 function Radio(props) {
-    return <CustomInput {...props}/>
+    const {label, ...restProps} = props;
+    const lbl = <I18Massage code={label}/>;
+    return <CustomInput label={lbl} {...restProps}/>
 }
 
 Radio.propTypes = {

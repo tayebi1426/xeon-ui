@@ -219,3 +219,13 @@ fieldset > legend {
     font-weight: bold;
   }
 }
+
+.scrolling-wrapper {
+  width: 30em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scrolling-command {
+  //width: 100%;
+}
