@@ -1,6 +1,7 @@
 import React from 'react'
 import DefaultLayout from "../../core/layouts/DefaultLayout";
 
+let LoginPage = React.lazy(() => import("../ui/LoginPage"));
 let FormsUi = React.lazy(() => import("../ui/FormUi"));
 let GridUi = React.lazy(() => import("../ui/GridUi"));
 let TabComponent = React.lazy(() => import("../ui/TabComponent"));
@@ -27,6 +28,7 @@ const MAIN_ROUTES = [
     /*  {path: '/fileupload', component: FileUploader,access:[]},    */
 ];
 const APP_ROUTES = [
+    {path: '/login', component: LoginPage},
     {path: '/404', component: null},
     {
         path: '/', component: (props) => {

@@ -41,5 +41,15 @@
       "age":"سن"
     }
   },
-  "state":"وضعیت بیمه نامه"
+  "loginPage": {
+    "username": "نام کاربری",
+    "password":"رمز عبور",
+    "forgotPassword":"بازیابی رمز عبور",
+    "register":"ثبت نام",
+    "login":"ورود"
+  },
+  "state":"وضعیت بیمه نامه",
+  "err":{
+    "invalid-username-or-password":"نام کاربری یا رمز عبور اشتباه است!"
+  }
 }

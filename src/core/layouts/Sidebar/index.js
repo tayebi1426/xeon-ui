@@ -24,7 +24,7 @@ class Sidebar extends Component {
 }
 
 const SidebarMenu = () => {
-    return <PerfectScrollbar option={{suppressScrollX: true, wheelPropagation: false}}>
+    return <PerfectScrollbar options={{suppressScrollX: true, wheelPropagation: false}}>
         <Nav vertical className="list-unstyled">
             <NavItem className="active">
                 <NavLink
