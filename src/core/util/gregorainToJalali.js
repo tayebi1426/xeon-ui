@@ -4,7 +4,7 @@ const gregorianToJalali = dt => {
     }
     let date = new Date(dt);
     if (date !== 'Invalid Date') {
-        return date.toLocaleDateString("fa-IR-u-nu-latn", {
+        return date.toLocaleDateString("fa-IR", {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
