@@ -14,6 +14,7 @@ import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./Gri
 import {createFormatter} from './GridUtils'
 import {IntlProvider, loadMessages, LocalizationProvider} from '@progress/kendo-react-intl';
 import persianGridMessages from './i18n/fa';
+import {I18Massage} from "../common";
 
 const language = "fa";
 loadMessages(persianGridMessages, language);
@@ -81,21 +82,23 @@ class DataGrid extends React.Component {
                 {gridToolbar}
                 <LocalizationProvider language="fa">
                     <IntlProvider locale="IR">
-                        <KGrid className="k-rtl table-responsive"
-                               onDataStateChange={this.dataStateChange}
-                               onSelectionChange={e => selectionChange(e, this)}
-                               onHeaderSelectionChange={e => headerSelectionChange(e, this)}
-                               selectedField="selected"
-                               {...this.props} {...this.state}
-                               pageable={{
-                                   buttonCount: 5,
-                                   info: true,
-                                   type: 'numeric',
-                                   pageSizes: true,
-                                   previousNext: true
-                               }}>
-                            {gridColumns}
-                        </KGrid>
+                        <div className={'scrolling-wrapper'}>
+                            <KGrid className="k-rtl table-responsive"
+                                   onDataStateChange={this.dataStateChange}
+                                   onSelectionChange={e => selectionChange(e, this)}
+                                   onHeaderSelectionChange={e => headerSelectionChange(e, this)}
+                                   selectedField="selected"
+                                   {...this.props} {...this.state}
+                                   pageable={{
+                                       buttonCount: 5,
+                                       info: true,
+                                       type: 'numeric',
+                                       pageSizes: true,
+                                       previousNext: true
+                                   }}>
+                                {gridColumns}
+                            </KGrid>
+                        </div>
                     </IntlProvider>
                 </LocalizationProvider>
             </GridContext.Provider>
@@ -141,6 +144,7 @@ class DataGrid extends React.Component {
                 key: idx,
                 title: t(title),
                 cell: render,
+                // width:300,
                 ...restProps
             });
     }
@@ -150,7 +154,8 @@ class DataGrid extends React.Component {
         return React.createElement(KGridColumn,
             {
                 key: -1,
-                title: '',
+                className: 'scrolling-command',
+                title: <I18Massage code={'gridCommandsTitle'}/>,
                 cell: this.createCustomCommandCell.bind(this, gridCommands)
             });
     }
@@ -159,7 +164,6 @@ class DataGrid extends React.Component {
         let {children} = gridCommands.props;
         let actions = React.Children.toArray(children).map((child, idx) => {
             return React.createElement(GridCommand, {
-                className: 'bagher',
                 key: idx,
                 ...child.props,
                 ...props

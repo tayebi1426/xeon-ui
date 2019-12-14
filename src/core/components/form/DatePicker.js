@@ -1,45 +1,41 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import DatePicker2 from 'react-datepicker2';
 import jMoment from 'moment-jalaali'
 import {isFunction} from "../../util";
 import {connect as formikConnect} from 'formik';
 import '../../assets/css/sass/components/datepicker.scss'
+import {gregorianToJalaliWithEnNumbering} from "../../util/gregorainToJalali";
 
-class DatePicker extends React.Component {
+function DatePicker(props) {
 
-    handleChange = (moment) => {
-        this.setState({moment});
-        let {formik, name} = this.props;
+    let {value, jFormat, ...restProps} = props;
+    const [moment, setMoment] = useState(value ? jMoment(gregorianToJalaliWithEnNumbering(value), jFormat) : null);
+
+    const handleChange = (moment) => {
+        setMoment(moment);
+        let {formik, name} = props;
         let {setFieldValue} = formik;
         if (isFunction(setFieldValue)) {
-            setFieldValue(name, moment.toString());
+            setFieldValue(name, new Date(moment.toString()));
         }
     };
 
-    constructor(props) {
-        super(props);
-        let {value, jFormat} = props;
-        this.state = {
-            moment: value ? jMoment(value, jFormat) : null
-        }
-    }
-
-    render() {
-        let {jFormat, ...restProps} = this.props;
+    useEffect(() => {
         delete restProps.value;
         delete restProps.onChange;
         delete restProps.formik;
         delete restProps.children;
-        return <DatePicker2 {...restProps}
-                            inputJalaaliFormat={jFormat}
-                            value={this.state.moment}
-                            onChange={this.handleChange}/>;
-    }
+    });
+
+    return (<DatePicker2 {...restProps}
+                         inputJalaaliFormat={jFormat}
+                         value={moment}
+                         onChange={handleChange}/>);
 }
 
 DatePicker.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.object,
     className: PropTypes.string,
     placeholder: PropTypes.string,
     jFormat: PropTypes.string,
