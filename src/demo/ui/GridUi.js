@@ -16,17 +16,21 @@ import GridSearchField from "../../core/components/grid/GridSearchField";
 
 const gridData = [
     {id: 1234234, name: 'A-15', creationDate: new Date()},
-    {id: 2, name: 'B-6', inEdit: true},
-    {id: 3, name: 'B-7'},
-    {id: 4, name: 'B-8'},
-    {id: 5, name: 'B-9'},
-    {id: 6, name: 'B-10'},
-    {id: 7, name: 'B-11'},
-    {id: 8, name: 'B-12'},
-    {id: 9, name: 'B-13'},
-    {id: 10, name: 'B-14'},
-    {id: 11, name: 'B-15'},
-    {id: 13, name: 'B-16'}
+    {
+        id: 2,
+        name: 'B-63455555ثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثبببببببببببببببببببببببببببببببببببببببببببببببببببب',
+        inEdit: true
+    },
+    /*    {id: 3, name: 'B-7'},
+        {id: 4, name: 'B-8'},
+        {id: 5, name: 'B-9'},
+        {id: 6, name: 'B-10'},
+        {id: 7, name: 'B-11'},
+        {id: 8, name: 'B-12'},
+        {id: 9, name: 'B-13'},
+        {id: 10, name: 'B-14'},
+        {id: 11, name: 'B-15'},
+        {id: 13, name: 'B-16'}*/
 ];
 
 function NameCell(props) {
@@ -41,11 +45,11 @@ function NameCell(props) {
 
 class GridUi extends React.Component {
 
-    handleEditItem = ({dataItem}) => {
-        console.debug('handleEditItem : ', dataItem);
+    handleEditItem = (dataItem, dataIndex) => {
+        console.log('handleEditItem : ', dataItem);
     };
-    handleDeleteItem = ({dataItem}) => {
-        console.debug('handleEditItem : ', dataItem);
+    handleDeleteItem = (dataItem, dataIndex) => {
+        console.log('dataItem : ', dataItem);
     };
     nameCell = (props) => {
         const cellValue = props.dataItem[props.field];
@@ -92,8 +96,8 @@ class GridUi extends React.Component {
                         <GridColumn field="creationDate" title="product.name" format={'dateTime'}/>
                         <GridCommands>
                             <EditCommand onClick={this.handleEditItem}/>
-                            <GridCommand icon="trash-alt" title="delete" onClick={this.handleDeleteItem}/>
-                            {/*<GridCommand icon="tools" title="delete" onClick={this.handleDeleteItem}/>*/}
+                            <GridCommand icon="trash-alt" title="delete"
+                                         onClick={dataItem => this.handleDeleteItem(dataItem)}/>
                         </GridCommands>
                     </DataGrid>
                 </Card>

@@ -22,7 +22,7 @@ class FormValidation extends React.Component {
         return (
             <Card title="form validation">
                 <Form
-                    initialValues={{username: '', email: ''}}
+                    initialValues={{username: '', email: '', date: new Date()}}
                     validationRules={SAMPLE_FORM_RULES}
                     onValidate={this.onValidate}
                     onSubmit={this.handleSubmit}

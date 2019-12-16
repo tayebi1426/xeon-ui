@@ -14,7 +14,7 @@ import {GridSelectionColumn, headerSelectionChange, selectionChange} from "./Gri
 import {createFormatter} from './GridUtils'
 import {IntlProvider, loadMessages, LocalizationProvider} from '@progress/kendo-react-intl';
 import persianGridMessages from './i18n/fa';
-import {I18Massage} from "../common";
+import DropDownCommand from "./DropDownCommand";
 
 const language = "fa";
 loadMessages(persianGridMessages, language);
@@ -144,24 +144,28 @@ class DataGrid extends React.Component {
                 key: idx,
                 title: t(title),
                 cell: render,
-                // width:300,
+                className: 'grid-column',
+                // width: '100',
                 ...restProps
             });
     }
 
     createCommandColumn(gridCommands) {
-
+        let {t} = this.props;
         return React.createElement(KGridColumn,
             {
                 key: -1,
                 className: 'scrolling-command',
-                title: <I18Massage code={'gridCommandsTitle'}/>,
+                title: t('gridCommandsTitle'),
                 cell: this.createCustomCommandCell.bind(this, gridCommands)
             });
     }
 
     createCustomCommandCell(gridCommands, props) {
+        let {t} = this.props;
         let {children} = gridCommands.props;
+        let mode = gridCommands.props.mode;
+
         let actions = React.Children.toArray(children).map((child, idx) => {
             return React.createElement(GridCommand, {
                 key: idx,
@@ -169,8 +173,14 @@ class DataGrid extends React.Component {
                 ...props
             });
         });
+        let commands;
+        if (mode && mode === 'select') {
+            commands = <DropDownCommand commands={children} rowProps={props} translator={t}/>
+        } else {
+            commands = actions;
+        }
         return <td>
-            {actions}
+            {commands}
         </td>
     }
 

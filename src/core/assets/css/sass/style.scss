@@ -225,11 +225,19 @@ fieldset > legend {
 }
 
 .scrolling-wrapper {
-  width: 30em;
-  overflow-x: auto;
-  white-space: nowrap;
+  //width: 30em;
+  //overflow-x: auto;
+  //white-space: nowrap;
 }
 
 .scrolling-command {
   //width: 100%;
+}
+
+.gridDropdownCommand {
+  //width: 200px;
+}
+
+.grid-column {
+
 }

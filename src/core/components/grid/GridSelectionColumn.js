@@ -10,8 +10,9 @@ function GridSelectionColumn(data) {
             headerSelectionValue: data && data.length > 0 && data.findIndex(dataItem => {
                 return !(dataItem.selected)
             }) === -1,
-            className: 'gridSelection text-center',
-            key: 'gridSelection'
+            className: 'grid-selection text-center',
+            key: 'gridSelection',
+            headerClassName: 'grid-selection-header'
         });
 
 }
