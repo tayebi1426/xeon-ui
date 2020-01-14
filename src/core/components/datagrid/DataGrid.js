@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "./Table";
+import Table from "./table/Table";
 import GridColumn from "./GridColumn";
 import GridCommands from "../grid/GridCommands";
 import SampleData from './SampleData'
