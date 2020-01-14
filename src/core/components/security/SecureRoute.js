@@ -4,9 +4,9 @@ import {Redirect, Route} from 'react-router-dom';
 import Security from './Security'
 
 function SecureRoute(props) {
-    let {roles, ...restProps} = props;
+    let {authorities, ...restProps} = props;
 
-    if (roles && roles.length > 0) {
+    if (authorities && authorities.length > 0) {
         let userAccount = Security.getUserAccount();
         if (!userAccount) {
             return <Redirect to="/login"/>;

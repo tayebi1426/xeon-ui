@@ -38,7 +38,8 @@ class DataGrid extends React.Component {
     };
 
     dataStateChange = (e) => {
-        this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
+        console.log({e});
+        //this.fetchGridData(this.state.readUrl, this.props.localData, e.data.skip, e.data.take);
     };
 
 
@@ -61,7 +62,7 @@ class DataGrid extends React.Component {
 
     componentDidMount() {
         const {readUrl, localData, skip, pageSize} = this.props;
-        this.fetchGridData(readUrl, localData, skip, pageSize);
+        //this.fetchGridData(readUrl, localData, skip, pageSize);
     }
 
     componentWillReceiveProps(newProps) {
