@@ -2,14 +2,14 @@ import React from "react";
 import {
     Button,
     Card,
-    DataGrid,
+
     EditCommand,
-    GridColumn,
     GridCommand,
     GridCommands,
     GridToolbar,
     withTranslation
 } from "../../core";
+import {DataGrid,GridColumn}  from "../../core/components/datagrid";
 
 class AccountList extends React.Component {
 
@@ -26,8 +26,8 @@ class AccountList extends React.Component {
                         </GridToolbar>
 
                         <GridColumn field="id" title="product.id" />
-                        <GridColumn field="name" title="product.name" />
                         <GridColumn field="balance" title="product.name" format={'currency'}/>
+                        <GridColumn field="product.name" title="product.name" />
                         <GridCommands>
                             <EditCommand/>
                             <GridCommand icon="trash-alt" title="delete"/>

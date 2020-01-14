@@ -1,6 +1,6 @@
 const DEFAULT_PATH_SEPARATOR = '.';
 
-export default class ObjectUtils {
+class ObjectUtils {
 
     static getValue(object, path) {
         if (!ObjectUtils.isObject(object)) {
@@ -77,3 +77,4 @@ export default class ObjectUtils {
         return ObjectUtils.isString(str) && str.trim().length > 0;
     }
 }
+export default ObjectUtils;

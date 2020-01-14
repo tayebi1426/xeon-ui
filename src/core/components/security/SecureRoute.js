@@ -11,7 +11,7 @@ function SecureRoute(props) {
         if (!userAccount) {
             return <Redirect to="/login"/>;
         }
-        if (!Security.hasAuthority(roles)) {
+        if (!Security.hasAuthority(authorities)) {
             return <Redirect to="/401"/>;
         }
     }
@@ -19,7 +19,7 @@ function SecureRoute(props) {
 }
 
 SecureRoute.propTypes = {
-    roles:PropTypes.array
+    authorities:PropTypes.array
 };
 
 export default SecureRoute;

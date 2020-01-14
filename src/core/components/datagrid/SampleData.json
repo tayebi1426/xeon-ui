@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "balance": 15000,
+    "product": {
+      "id": 1,
+      "code": "prod-1",
+      "name": "product 1"
+    }
+  },
+  {
+    "id": 2,
+    "balance": 5000,
+    "product": {
+      "id": 2,
+      "code": "prod-2",
+      "name": "product 2"
+    }
+  }
+]
