@@ -2,7 +2,7 @@ import React from 'react'
 import DefaultLayout from "../../core/layouts/DefaultLayout";
 
 let LoginPage = React.lazy(() => import("../pages/Login"));
-let AccountList = React.lazy(() => import("../pages/AccountList"));
+let AccountList = React.lazy(() => import("../pages/ProductList"));
 
 
 const MAIN_ROUTES = [

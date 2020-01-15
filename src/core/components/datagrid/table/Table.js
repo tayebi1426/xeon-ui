@@ -1,43 +1,27 @@
 import React from "react";
-import THeader from "./THeader";
-import ObjectUtils from "../../../util/ObjectUtils";
+import THeader from "./TableHeader";
+import TableBody from "./TableBody";
+import DataGridContext from '../DataGridContext'
 
 class Table extends React.Component {
 
     render() {
-        let {schema,data,className} = this.props;
-        return (
+        let {schema, data} = this.context;
+        let {className} = this.props;
+        return <React.Fragment>
             <table className={className}>
                 <THeader schema={schema}/>
-                <tbody>
-                {
-                    data.data.map(dataItem=><TableRow key={Math.random()} schema={schema} dataItem={dataItem}/>)
-                }
-                </tbody>
+                <TableBody schema={schema} data={data}/>
                 <tfoot>
-
                 </tfoot>
             </table>
-        );
+        </React.Fragment>
     }
 }
-function TableRow({schema,dataItem}) {
-    return <tr>
-        {
-            schema.map(col=>
-            {
-              return <TableCol key={Math.random()} dataItem={dataItem} col={col}/>
-            }
-            )
-        }
 
-    </tr>
-}
-function TableCol({dataItem,col}){
-    return <td>{ObjectUtils.getValue(dataItem,col.field)}</td>;
-}
-
+Table.contextType = DataGridContext;
 Table.defaultProps = {
-    className:"table _table-striped table-hover table-bordered _table-dark"
+    className: "table _table-striped table-hover table-bordered _table-dark"
 };
+
 export default Table;

@@ -10,14 +10,15 @@ import {
     withTranslation
 } from "../../core";
 import {DataGrid,GridColumn}  from "../../core/components/datagrid";
-
-class AccountList extends React.Component {
+import productData from './product'
+class ProductList extends React.Component {
 
     render() {
         return (
             <React.Fragment>
                 <Card title="Account List">
-                    <DataGrid readUrl={'http://localhost:9001/account/list'}
+                    <DataGrid data={productData}
+                        readUrl={'http://localhost:9001/account/list'}
                               editField="inEdit"
                               showIndex={true}
                               selectionMode={true}>
@@ -27,7 +28,7 @@ class AccountList extends React.Component {
 
                         <GridColumn field="ProductID" title="product.id" />
                         <GridColumn field="ProductName" title="product.name" format={'currency'}/>
-                        <GridColumn field="UnitsInStock" title="product.name" />
+                        <GridColumn field="UnitsInStock" title="product.UnitsInStock" />
                         <GridCommands>
                             <EditCommand/>
                             <GridCommand icon="trash-alt" title="delete"/>
@@ -39,4 +40,4 @@ class AccountList extends React.Component {
     }
 }
 
-export default withTranslation(AccountList);
+export default withTranslation(ProductList);

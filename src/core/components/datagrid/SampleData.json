@@ -16,5 +16,14 @@
       "code": "prod-2",
       "name": "product 2"
     }
+  },
+  {
+    "id": 3,
+    "balance": 3000,
+    "product": {
+      "id": 3,
+      "code": "prod-3",
+      "name": "product 3"
+    }
   }
 ]
