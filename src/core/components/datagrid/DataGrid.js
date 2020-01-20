@@ -9,33 +9,36 @@ import PropTypes from 'prop-types';
 
 class DataGrid extends React.Component {
 
-    dataProvider;
+    dataSource;
+
+    onPageChange = (page) => {
+        this.readData(page);
+    };
+    readData = (page) => {
+        let dataResult = this.dataSource.read(page, this.props.pageSize);
+        this.setState({data: dataResult.data, total: dataResult.total, page: page});
+    };
 
     constructor(props) {
         super(props);
         this.state = {
-            products: { data: [], total: 0 },
-            dataState: { take: 10, skip: 0 }
+            data: [],
+            total: 0,
+            page: 1
         };
+
+        if (props.data) {
+            this.dataSource = new LocalDataSource(props.data);
+        }
     }
-    onDataStateChange =  (e) => {
-        this.setState({
-            ...this.state,
-            dataState: e.data
-        });
-    };
 
     componentDidMount() {
+        this.readData(this.state.page);
     }
-    dataReceived = (products) => {
-        this.setState({
-            ...this.state,
-            products: products
-        });
-    };
 
     render() {
-        let {children, data,total,pageSize} = this.props;
+        let {children, pageSize} = this.props;
+        let {data, total,page} = this.state;
         let schema = extractDataGridSchema(children);
         //let data = dataProvider();
         let dataGridContextValue = {
@@ -44,7 +47,7 @@ class DataGrid extends React.Component {
         };
         return <DataGridContext.Provider value={dataGridContextValue}>
             <Table/>
-            <DataGridPagination pageCount={Math.floor(total/pageSize)} onDataStateChange={this.onDataStateChange}/>
+            <DataGridPagination page={page} pageCount={Math.floor(total / pageSize)} onPageChange={this.onPageChange}/>
         </DataGridContext.Provider>
     }
 }
@@ -56,7 +59,6 @@ function extractDataGridSchema(children) {
     let schema = fieldColumns.map((col) => {
         return {...col.props}
     });
-    console.log(schema);
     return schema;
 }
 
@@ -66,13 +68,35 @@ DataGrid.propTypes = {
     data: PropTypes.array,
     pageable: PropTypes.bool,
     style: PropTypes.object,
-    pageSize:PropTypes.number
+    pageSize: PropTypes.number
+};
+DataGrid.defaultProps = {
+    pageSize: 10
 };
 
 function dataProvider() {
     return {
         total: 1000,
         data: SampleData
+    }
+}
+
+class RemoteDataSource {
+
+}
+
+class LocalDataSource {
+
+    read = (page, pageSize) => {
+        let start = (page - 1) * pageSize;
+        return {
+            data: this.data.slice(start, start + pageSize),
+            total: this.data.length
+        }
+    };
+
+    constructor(data) {
+        this.data = data;
     }
 }
 

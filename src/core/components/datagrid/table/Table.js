@@ -21,7 +21,7 @@ class Table extends React.Component {
 
 Table.contextType = DataGridContext;
 Table.defaultProps = {
-    className: "table _table-striped table-hover table-bordered _table-dark"
+    className: "table _table-striped table-hover _table-bordered _table-dark"
 };
 
 export default Table;

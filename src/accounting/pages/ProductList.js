@@ -1,16 +1,8 @@
 import React from "react";
-import {
-    Button,
-    Card,
-
-    EditCommand,
-    GridCommand,
-    GridCommands,
-    GridToolbar,
-    withTranslation
-} from "../../core";
-import {DataGrid,GridColumn}  from "../../core/components/datagrid";
+import {Button, Card, EditCommand, GridCommand, GridCommands, GridToolbar, withTranslation} from "../../core";
+import {DataGrid, GridColumn} from "../../core/components/datagrid";
 import productData from './product'
+
 class ProductList extends React.Component {
 
     render() {
@@ -18,7 +10,6 @@ class ProductList extends React.Component {
             <React.Fragment>
                 <Card title="Account List">
                     <DataGrid data={productData}
-                        readUrl={'http://localhost:9001/account/list'}
                               editField="inEdit"
                               showIndex={true}
                               selectionMode={true}>
@@ -26,9 +17,9 @@ class ProductList extends React.Component {
                             <Button title={'selected'} onClick={this.getSelectedItems}/>
                         </GridToolbar>
 
-                        <GridColumn field="ProductID" title="product.id" />
+                        <GridColumn field="ProductID" title="product.id"/>
                         <GridColumn field="ProductName" title="product.name" format={'currency'}/>
-                        <GridColumn field="UnitsInStock" title="product.UnitsInStock" />
+                        <GridColumn field="UnitsInStock" title="product.UnitsInStock"/>
                         <GridCommands>
                             <EditCommand/>
                             <GridCommand icon="trash-alt" title="delete"/>
