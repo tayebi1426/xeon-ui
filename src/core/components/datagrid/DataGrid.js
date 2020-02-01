@@ -40,7 +40,6 @@ class DataGrid extends React.Component {
         let {children, pageSize} = this.props;
         let {data, total,page} = this.state;
         let schema = extractDataGridSchema(children);
-        //let data = dataProvider();
         let dataGridContextValue = {
             schema,
             data

@@ -1,14 +1,16 @@
 import React from "react";
 import TableRow from "./TableRow";
 
-function TableBody({schema,data}) {
+function TableBody(props) {
     return (
         <tbody>
-        {
-            data.map(dataItem=><TableRow key={Math.random()} schema={schema} dataItem={dataItem}/>)
-        }
+         <TableRows {...props}/>
         </tbody>
     )
+}
+
+function TableRows({schema, data}) {
+    return data.map(dataItem => <TableRow key={Math.random()} schema={schema} dataItem={dataItem}/>)
 }
 
 export default TableBody
