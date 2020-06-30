@@ -1,0 +1,3 @@
+const SUCCESS_LOGIN_URL = process.env.REACT_APP_SUCCESS_LOGIN_URL;
+
+export {SUCCESS_LOGIN_URL}

@@ -1,11 +1,13 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Table from "./table/Table";
+import LocalDataSource from "./datasource/LocalDataSource";
+import RemoteDataSource from "./datasource/RemoteDataSource";
 import GridColumn from "./GridColumn";
 import GridCommands from "../grid/GridCommands";
 import SampleData from './SampleData'
 import DataGridContext from './DataGridContext'
 import DataGridPagination from './DataGridPagination'
-import PropTypes from 'prop-types';
 
 class DataGrid extends React.Component {
 
@@ -15,7 +17,9 @@ class DataGrid extends React.Component {
         this.readData(page);
     };
     readData = (page) => {
-        let dataResult = this.dataSource.read(page, this.props.pageSize);
+        this.dataSource.read(page, this.props.pageSize, this.changeDataState);
+    };
+    changeDataState = (dataResult, page) => {
         this.setState({data: dataResult.data, total: dataResult.total, page: page});
     };
 
@@ -27,9 +31,7 @@ class DataGrid extends React.Component {
             page: 1
         };
 
-        if (props.data) {
-            this.dataSource = new LocalDataSource(props.data);
-        }
+        this.dataSource = (props.data) ? new LocalDataSource(props.data) : new RemoteDataSource();
     }
 
     componentDidMount() {
@@ -38,7 +40,7 @@ class DataGrid extends React.Component {
 
     render() {
         let {children, pageSize} = this.props;
-        let {data, total,page} = this.state;
+        let {data, total, page} = this.state;
         let schema = extractDataGridSchema(children);
         let dataGridContextValue = {
             schema,
@@ -80,23 +82,5 @@ function dataProvider() {
     }
 }
 
-class RemoteDataSource {
-
-}
-
-class LocalDataSource {
-
-    read = (page, pageSize) => {
-        let start = (page - 1) * pageSize;
-        return {
-            data: this.data.slice(start, start + pageSize),
-            total: this.data.length
-        }
-    };
-
-    constructor(data) {
-        this.data = data;
-    }
-}
 
 export default DataGrid;

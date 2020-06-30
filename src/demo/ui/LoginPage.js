@@ -11,7 +11,7 @@ const LoginPage = ({history}) => {
                 <Card>
                     <Row>
                         <Col sm={12} className='login-icon'>
-                            <Icon code='shield-check'  size="6x"/>
+                            <Icon code='shield-check' size="6x"/>
                         </Col>
                     </Row>
                     <LoginForm onLoginSuccess={onLoginSuccess}/>
@@ -55,16 +55,20 @@ const LoginForm = ({onLoginSuccess}) => {
                     <Input type='password'/>
                 </Field>
             </Row>
-            <Row className='mt-4 mb-4 offset-1'>
-                <Col md={3} sm={11}>
+            <Row >
+                <Col>
                     <Button type='submit'
                             isPrimary={true}
                             title='loginPage.login'
                             className='w-100'/>
                 </Col>
+            </Row>
+            <Row className='mt-4 mb-4 offset-1'>
                 <Col md={2} sm={4} className="registerUser">
                     <Link to='/register' title='loginPage.register'/>
                 </Col>
+            </Row>
+            <Row className='mt-4 mb-4 offset-1'>
                 <Col md={5} sm={4} className="forgotPassword">
                     <Link to='/forgotPassword' title='loginPage.forgotPassword'/>
                 </Col>

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Button, Card, Col, Field, Form, I18Massage, Icon, Input, Link, Row, Security} from "../../core/index";
-
+import {SUCCESS_LOGIN_URL} from '../ApplicationConfig'
 const Login = ({history}) => {
     const onLoginSuccess = (token) => {
-        history.push('/home');
+        history.push(SUCCESS_LOGIN_URL);
     };
     return <div className="container-fluid">
         <Row className='h-100'>
@@ -44,7 +44,7 @@ const LoginForm = ({onLoginSuccess}) => {
                 <I18Massage code='err.invalid-username-or-password'/>}
             </Col>
         </Row>
-        <Form initialValues={{username: '', password: ''}}
+        <Form initialValues={{username: 'A$dmIn', password: '1234'}}
               validationRules={LOGIN_FORM_RULES}
               onSubmit={onLogin}>
             <Row>
@@ -55,13 +55,15 @@ const LoginForm = ({onLoginSuccess}) => {
                     <Input type='password'/>
                 </Field>
             </Row>
-            <Row className='mt-4 mb-4 offset-1'>
-                <Col md={3} sm={11}>
+            <Row >
+                <Col md={10} sm={10} className={'offset-1'}>
                     <Button type='submit'
                             isPrimary={true}
                             title='loginPage.login'
                             className='w-100'/>
                 </Col>
+            </Row>
+            <Row>
                 <Col md={2} sm={4} className="registerUser">
                     <Link to='/register' title='loginPage.register'/>
                 </Col>

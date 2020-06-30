@@ -25,9 +25,9 @@ class AccountList extends React.Component {
                             <Button title={'selected'} onClick={this.getSelectedItems}/>
                         </GridToolbar>
 
-                        <GridColumn field="productID" title="product.id" />
-                        <GridColumn field="productName" title="product.name" format={'currency'}/>
-                        <GridColumn field="unitsInStock" title="product.name" />
+                        <GridColumn field="ProductID" title="product.id" />
+                        <GridColumn field="ProductName" title="product.name" format={'currency'}/>
+                        <GridColumn field="UnitsInStock" title="product.name" />
                         <GridCommands>
                             <EditCommand/>
                             <GridCommand icon="trash-alt" title="delete"/>
