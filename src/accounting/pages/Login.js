@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Button, Card, Col, Field, Form, I18Massage, Icon, Input, Link, Row, Security} from "../../core/index";
 import {SUCCESS_LOGIN_URL} from '../ApplicationConfig'
-const Login = ({history}) => {
+const LoginPage = ({history}) => {
     const onLoginSuccess = (token) => {
         history.push(SUCCESS_LOGIN_URL);
     };
@@ -44,7 +44,7 @@ const LoginForm = ({onLoginSuccess}) => {
                 <I18Massage code='err.invalid-username-or-password'/>}
             </Col>
         </Row>
-        <Form initialValues={{username: 'A$dmIn', password: '1234'}}
+        <Form initialValues={{username: 'admin', password: '1234'}}
               validationRules={LOGIN_FORM_RULES}
               onSubmit={onLogin}>
             <Row>
@@ -54,6 +54,12 @@ const LoginForm = ({onLoginSuccess}) => {
                 <Field className='col-10 offset-1' name="password" label="loginPage.password">
                     <Input type='password'/>
                 </Field>
+
+            </Row>
+            <Row className={' offset-1 '}>
+                <Col className="forgotPassword">
+                    <Link to='/forgotPassword' title='loginPage.forgotPassword'/>
+                </Col>
             </Row>
             <Row >
                 <Col md={10} sm={10} className={'offset-1'}>
@@ -63,15 +69,13 @@ const LoginForm = ({onLoginSuccess}) => {
                             className='w-100'/>
                 </Col>
             </Row>
-            <Row>
-                <Col md={2} sm={4} className="registerUser">
+            <Row className={' offset-1 '}>
+                <Col className="registerUser">
                     <Link to='/register' title='loginPage.register'/>
-                </Col>
-                <Col md={5} sm={4} className="forgotPassword">
-                    <Link to='/forgotPassword' title='loginPage.forgotPassword'/>
                 </Col>
             </Row>
         </Form>
     </React.Fragment>
 };
-export default Login;
+
+export default LoginPage;

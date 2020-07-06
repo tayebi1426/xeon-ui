@@ -20,7 +20,8 @@ class DataGrid extends React.Component {
         this.dataSource.read(page, this.props.pageSize, this.changeDataState);
     };
     changeDataState = (dataResult, page) => {
-        this.setState({data: dataResult.data, total: dataResult.total, page: page});
+        console.debug('readData : ',dataResult);
+        this.setState({data: dataResult, total: dataResult.total, page: page});
     };
 
     constructor(props) {
@@ -31,7 +32,7 @@ class DataGrid extends React.Component {
             page: 1
         };
 
-        this.dataSource = (props.data) ? new LocalDataSource(props.data) : new RemoteDataSource();
+        this.dataSource = (props.data) ? new LocalDataSource(props.data) : new RemoteDataSource(props);
     }
 
     componentDidMount() {

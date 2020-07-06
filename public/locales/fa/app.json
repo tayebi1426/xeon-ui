@@ -46,9 +46,12 @@
   "loginPage": {
     "username": "نام کاربری",
     "password":"رمز عبور",
-    "forgotPassword":"بازیابی رمز عبور",
+    "forgotPassword":"رمز عبور خود را فراموش کرده اید؟",
     "register":"ثبت نام",
     "login":"ورود"
+  },
+  "acc": {
+    "accountList": "لیست حسابها"
   },
   "state":"وضعیت بیمه نامه",
   "err":{

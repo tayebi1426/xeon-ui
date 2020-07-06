@@ -16,8 +16,8 @@ class AccountList extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Card title="Account List">
-                    <DataGrid readUrl={'http://localhost:9001/account/list'}
+                <Card title="TransactionList">
+                    <DataGrid readUrl={'http://localhost:9001/transaction/list'}
                               editField="inEdit"
                               showIndex={true}
                               selectionMode={true}>

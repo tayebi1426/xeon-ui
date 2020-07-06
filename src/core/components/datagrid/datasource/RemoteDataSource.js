@@ -9,12 +9,12 @@ class RemoteDataSource {
 
     read = (page, pageSize, callback) => {
         let start = (page - 1) * pageSize;
-        console.log({page, pageSize});
-        return {
-            data: [],
-            total: 10
-        };
-        XhrRequest.postRequest( this.options['url'],)
+        //console.log({page, pageSize});
+        /*  return {
+              data: [],
+              total: 10
+          };*/
+        XhrRequest.postRequest(this.options['readUrl']).then(res => callback(res));
     };
 }
 
