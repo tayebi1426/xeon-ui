@@ -21,7 +21,7 @@ class DataGrid extends React.Component {
     };
     changeDataState = (dataResult, page) => {
         console.debug('readData : ',dataResult);
-        this.setState({data: dataResult, total: dataResult.total, page: page});
+        this.setState({data: dataResult.data, total: dataResult.total, page: page});
     };
 
     constructor(props) {
