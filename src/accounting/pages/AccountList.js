@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Card, EditCommand, GridCommand, GridCommands, GridToolbar, withTranslation} from "../../core";
+import {Button, Card, withTranslation} from "../../core";
 import {DataGrid, GridColumn} from "../../core/components/datagrid";
 
 class AccountList extends React.Component {
@@ -10,17 +10,17 @@ class AccountList extends React.Component {
                       editField="inEdit"
                       showIndex={true}
                       selectionMode={true}>
-                <GridToolbar>
+                {/*<GridToolbar>
                     <Button title={'selected'} onClick={this.getSelectedItems}/>
                 </GridToolbar>
-
+*/}
                 <GridColumn field="name" title="product.id"/>
                 <GridColumn field="balance" title="product.name" format={'currency'}/>
-                <GridColumn field="unitsInStock" title="product.name"/>
-                <GridCommands>
+                <GridColumn field="createdDate" title="product.createdDate" format={'dateTime'}/>
+               {/* <GridCommands>
                     <EditCommand/>
                     <GridCommand icon="trash-alt" title="delete"/>
-                </GridCommands>
+                </GridCommands>*/}
             </DataGrid>
         </Card>
     }

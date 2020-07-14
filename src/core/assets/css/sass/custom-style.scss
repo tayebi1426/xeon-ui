@@ -2,12 +2,13 @@ $card-border-radius: 0.75rem;
 $padding-5-7: 0.5rem 0.75rem;
 
 body {
-  font-family: BYekan, IRANSans, sans-serif !important;
+  font-family: IRANSans, sans-serif !important;
   font-weight: normal !important;
 }
 
 .navbar {
   padding: unset !important;
+
   .navbar-logo {
     height: 3rem !important;
   }
@@ -113,6 +114,8 @@ body {
 }
 
 div.card {
+  box-shadow: 10px 12px 15px 2px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+
   .card-body {
     padding: $padding-5-7;
   }
@@ -120,10 +123,12 @@ div.card {
   div.card-title {
     cursor: pointer;
     margin-bottom: 0 !important;
+
     .card-title-caption {
       margin: auto;
       padding: $padding-5-7;
     }
+
     .card-title-collapse-btn {
       float: left;
     }
@@ -146,6 +151,7 @@ div.card-title.rounded {
 .tab-content {
   padding: 0.5rem 0.75em;
 }
+
 .nav-tabs .nav-item {
   padding: 0.2rem 0.4rem;
 }
@@ -184,6 +190,7 @@ li.nav-item {
     .nav-item {
       a {
         padding: 0.2rem;
+
         b {
           text-align: center;
           vertical-align: middle;
@@ -205,24 +212,6 @@ fieldset > legend {
   margin-bottom: 0.75rem;
 }
 
-.login-form {
-  margin: 10rem auto auto;
-  .login-icon {
-    text-align: center;
-    padding: 0.5rem 0;
-    color: #00b894;
-  }
-  .registerUser,
-  .forgotPassword {
-    margin: auto;
-  }
-  .invalidLoginMessage {
-    text-align: center;
-    min-height: 2rem;
-    color: crimson;
-    font-weight: bold;
-  }
-}
 
 .scrolling-wrapper {
   //width: 30em;
@@ -240,4 +229,16 @@ fieldset > legend {
 
 .grid-column {
 
+}
+
+.page-link.next {
+  i::before {
+    content: "\f053" !important;
+  }
+}
+
+.page-link.prev {
+  i::before {
+    content: "\f054" !important;
+  }
 }

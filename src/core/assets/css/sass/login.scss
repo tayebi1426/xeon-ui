@@ -1,0 +1,27 @@
+.login-form {
+  margin: 10rem auto auto;
+
+  .login-icon {
+    text-align: center;
+    padding: 0.5rem 0;
+    color: #00b894;
+  }
+
+  .registerUser,
+  .forgotPassword {
+    margin: auto;
+  }
+
+  .invalidLoginMessage {
+    text-align: center;
+    min-height: 2rem;
+    color: crimson;
+    font-weight: bold;
+  }
+
+  #avatar{
+    content: url("../../img/login-avatar.png") ;
+    width: 256px;
+    max-width: 256px;
+  }
+}

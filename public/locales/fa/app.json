@@ -51,7 +51,10 @@
     "login":"ورود"
   },
   "acc": {
-    "accountList": "لیست حسابها"
+    "accountList": "لیست حسابها",
+    "accountName": "نام حساب",
+    "accountBalance": "موجودی حساب",
+    "accountCreationDate":"تاریخ افتتاح حساب"
   },
   "state":"وضعیت بیمه نامه",
   "err":{

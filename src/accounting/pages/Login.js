@@ -1,18 +1,20 @@
 import React, {useState} from "react";
-import {Button, Card, Col, Field, Form, I18Massage, Icon, Input, Link, Row, Security} from "../../core/index";
+import {Button, Card, Col, Field, Form, I18Massage, Input, Link, Row, Security} from "../../core";
 import {SUCCESS_LOGIN_URL} from '../ApplicationConfig'
+import  '../../core/assets/css/sass/login.scss'
+
 const LoginPage = ({history}) => {
     const onLoginSuccess = (token) => {
         history.push(SUCCESS_LOGIN_URL);
     };
     return <div className="container-fluid">
         <Row className='h-100'>
-            <Col className="login-form" lg={4}>
+            <Col className="login-form" lg={3} md={3} sm={6} xs={12} >
                 <Card>
                     <Row>
-                        <Col sm={12} className='login-icon'>
-                            <Icon code='shield-check'  size="6x"/>
-                        </Col>
+                        <div style={{margin:'auto'}} >
+                            <img id='avatar' alt='avatar'/>
+                        </div>
                     </Row>
                     <LoginForm onLoginSuccess={onLoginSuccess}/>
                 </Card>
@@ -39,7 +41,7 @@ const LoginForm = ({onLoginSuccess}) => {
     };
     return <React.Fragment>
         <Row>
-            <Col className='invalidLoginMessage'>
+            <Col className='invalidLoginMessage mt-3'>
                 {invalidLogin &&
                 <I18Massage code='err.invalid-username-or-password'/>}
             </Col>
@@ -51,27 +53,26 @@ const LoginForm = ({onLoginSuccess}) => {
                 <Field className='col-10 offset-1' name="username" label="loginPage.username">
                     <Input/>
                 </Field>
+            </Row>
+            <Row>
                 <Field className='col-10 offset-1' name="password" label="loginPage.password">
                     <Input type='password'/>
                 </Field>
-
             </Row>
-            <Row className={' offset-1 '}>
-                <Col className="forgotPassword">
+            <Row  className="mb-4" >
+                <Col className="col-6 offset-1">
                     <Link to='/forgotPassword' title='loginPage.forgotPassword'/>
                 </Col>
+                <Col className="col-4 offset-1">
+                    <Link to='/register' title='loginPage.register'/>
+                </Col>
             </Row>
-            <Row >
-                <Col md={10} sm={10} className={'offset-1'}>
+            <Row  className="mb-5" >
+                <Col  className='col-10 offset-1'>
                     <Button type='submit'
                             isPrimary={true}
                             title='loginPage.login'
                             className='w-100'/>
-                </Col>
-            </Row>
-            <Row className={' offset-1 '}>
-                <Col className="registerUser">
-                    <Link to='/register' title='loginPage.register'/>
                 </Col>
             </Row>
         </Form>
