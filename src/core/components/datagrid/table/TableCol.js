@@ -1,5 +1,7 @@
 import React from "react";
-import ObjectUtils from "../../../util/ObjectUtils";
+import {gregorianToJalali,digitGrouping,ObjectUtils} from "../../../util";
+
+
 
 function TableCol({dataItem, col, schema}) {
     let val;
@@ -21,27 +23,12 @@ function formatVal(val, format) {
     }
 
     if (format === 'currency') {
-        return formatNumber(val);
+        return digitGrouping(val);
     } else if (typeof val === "number" && format === 'dateTime') {
         return gregorianToJalali(val);
     }
     return val;
 }
 
-function gregorianToJalali(val) {
-
-    return new Date(val).toLocaleDateString('fa-IR', {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-    });
-}
-
-function formatNumber(num) {
-    if (!num) {
-        return 'N/A'
-    }
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-}
 
 export default TableCol;

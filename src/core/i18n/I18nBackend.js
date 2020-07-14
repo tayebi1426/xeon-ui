@@ -1,5 +1,5 @@
 import XhrRequest from '../util/XhrRequest'
-import {isFunction} from '../util/CommonUtils'
+import {isFunction} from '../util'
 
 const DEFAULT_OPTIONS = {
     loadPath: '/locales/{{lng}}/{{ns}}.json',

@@ -5,12 +5,12 @@ import jMoment from 'moment-jalaali'
 import {isFunction} from "../../util";
 import {connect as formikConnect} from 'formik';
 import '../../assets/css/sass/components/datepicker.scss'
-import {gregorianToJalaliWithEnNumbering} from "../../util/gregorainToJalali";
+import gregorianToJalali from "../../util/gregorianToJalali";
 
 function DatePicker(props) {
 
     let {value, jFormat, ...restProps} = props;
-    const [moment, setMoment] = useState(value ? jMoment(gregorianToJalaliWithEnNumbering(value), jFormat) : null);
+    const [moment, setMoment] = useState(value ? jMoment(gregorianToJalali(value), jFormat) : null);
 
     const handleChange = (moment) => {
         setMoment(moment);

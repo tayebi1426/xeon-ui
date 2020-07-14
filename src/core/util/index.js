@@ -1,7 +1,14 @@
 import XhrRequest from "./XhrRequest";
 
 import KeyUpEnter from "./EventHandlers";
+import digitGrouping from "./digitGrouping";
+import gregorianToJalali from "./gregorianToJalali";
+import ObjectUtils from "./ObjectUtils";
 
-export {hasReactChildren, isFunction, dispatchAction, createAction} from "./CommonUtils";
+const isFunction=(func) =>{
+    return func && typeof func === 'function';
+};
 
-export {XhrRequest, KeyUpEnter};
+export {hasReactChildren,  dispatchAction, createAction} from "./CommonUtils";
+
+export {XhrRequest, KeyUpEnter,digitGrouping,gregorianToJalali,isFunction,ObjectUtils};
