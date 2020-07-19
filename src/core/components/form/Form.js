@@ -26,10 +26,8 @@ class Form extends React.Component {
 
     render() {
         let {
-            initialValues, onSubmit, validate = this.defaultFormValidate
-            , validateOnChange, validateOnBlur,
-            children, innerRef, className,
-            toolbar
+            initialValues, onSubmit, validateOnChange, validateOnBlur
+            , validate = this.defaultFormValidate
         } = this.props;
 
         return <Formik initialValues={initialValues}
@@ -37,17 +35,20 @@ class Form extends React.Component {
                        validate={validate}
                        validateOnChange={validateOnChange}
                        validateOnBlur={validateOnBlur}
-                       render={(formikProps) => {
-                           return <FormContext.Provider value={formikProps}>
-                               <form ref={innerRef} className={className}
-                                     onReset={formikProps.handleReset}
-                                     onSubmit={formikProps.handleSubmit}>
-                                   {children}
-                                   <FormToolbar content={toolbar}/>
-                               </form>
-                           </FormContext.Provider>
-                       }}
+                       render={this.renderHtmlForm}
         />
+    }
+
+    renderHtmlForm = (formikProps) => {
+        let {children, innerRef, className, toolbar} = this.props;
+        return <FormContext.Provider value={formikProps}>
+            <form ref={innerRef} className={className}
+                  onReset={formikProps.handleReset}
+                  onSubmit={formikProps.handleSubmit}>
+                {children}
+                <FormToolbar content={toolbar}/>
+            </form>
+        </FormContext.Provider>
     }
 }
 
@@ -79,7 +80,7 @@ Form.propTypes = {
 
 Form.defaultProps = {
     validateOnChange: true,
-    validateOnBlur: false,
+    validateOnBlur: true,
     autoComplete: 'off',
     className: 'x-form'
 };

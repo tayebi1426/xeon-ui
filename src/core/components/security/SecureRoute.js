@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Redirect, Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Security from './Security'
 
 function SecureRoute(props) {
@@ -19,7 +19,12 @@ function SecureRoute(props) {
 }
 
 SecureRoute.propTypes = {
-    authorities:PropTypes.array
+    authorities: PropTypes.array,
+    exact: PropTypes.bool
+};
+
+SecureRoute.defaultProps = {
+    exact:true
 };
 
 export default SecureRoute;

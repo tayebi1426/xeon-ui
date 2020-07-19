@@ -7,17 +7,15 @@ let TransactionList = React.lazy(() => import("../pages/TransactionList"));
 
 
 const MAIN_ROUTES = [
-    {path: '/account', component: AccountList,authorities:['USER']},
-    {path: '/transaction', component: TransactionList,authorities:['USER']},
+    {path: '/account', component: AccountList, authorities: ['USER']},
+    {path: '/transaction', component: TransactionList, authorities: ['USER']},
 ];
+const Layout = (props) => <DefaultLayout {...props} mainRoutes={MAIN_ROUTES}/>;
+
 const APP_ROUTES = [
     {path: '/login', component: LoginPage},
     {path: '/404', component: null},
-    {
-        path: '/', component: (props) => {
-            return <DefaultLayout {...props} mainRoutes={MAIN_ROUTES}/>
-        }
-    }
+    {path: '/', exact: false, component: Layout}
 ];
 
 export default APP_ROUTES;
